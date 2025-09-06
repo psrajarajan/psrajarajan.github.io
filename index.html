@@ -39,28 +39,38 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
             text-decoration: none;
             background-color: #007acc;
             color: white;
             border-radius: 8px;
             padding: 10px;
             width: 180px;
+            height: 220px;
+            /* Fixed height for uniformity */
+            box-sizing: border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
         .image-button img {
             width: 100%;
-            height: auto;
+            height: 120px;
+            /* Fixed height for thumbnails */
+            object-fit: cover;
             border-radius: 6px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
+
 
         .image-button span {
             margin-top: 8px;
             font-weight: bold;
             color: white;
             text-align: center;
+            font-size: 0.95em;
         }
+
 
         .image-button:hover {
             background-color: #005f99;
