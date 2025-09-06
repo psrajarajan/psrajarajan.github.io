@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>My GitHub Page</title>
     <style>
@@ -17,34 +18,45 @@
             text-shadow: 1px 1px 2px #aaa;
         }
 
+        h2 {
+            color: #006699;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 1px #ccc;
+        }
+
+
         .button-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
 
-.image-button {
-  text-align: center;
-  width: 150px;
-}
 
-.image-button img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
+        .image-button {
+            text-align: center;
+            width: 150px;
+        }
 
-.image-button span {
-  display: block;
-  margin-top: 8px;
-  font-weight: bold;
-  color: #333;
-}
+        .image-button img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
 
-        
-       .custom-button {
+        .image-button span {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+
+        .custom-button {
             background-color: #007acc;
             color: white;
             border: none;
@@ -58,7 +70,10 @@
 
         .custom-button:hover {
             background-color: #005f99;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
 
         .highlight-button {
             background-color: #28a745;
@@ -69,29 +84,49 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Welcome to S Rajarajan's Page</h1>
 
-    <!-- First row of buttons -->
-    <div class="button-container">
-        <a href="#" class="custom-button highlight-button">Websites</a>
-        <a href="https://psrajarajan.github.io/divisibility_rule/" class="custom-button">Divisibility Rule</a>
-        <a href="#" class="custom-button">Future Link 1</a>
-        <a href="#" class="custom-button">Future Link 2</a>
-        <a href="#" class="custom-button">Future Link 3</a>
-    </div>
+    <section>
+        <h2>📐 Educational Tools</h2>
+        <!-- First row of buttons -->
+        <div class="button-container">
+            <a href="#" class="custom-button highlight-button">Websites</a>
+            <a href="https://psrajarajan.github.io/divisibility_rule/" class="custom-button">Divisibility Rule</a>
+            <a href="#" class="custom-button">Future Link 1</a>
+            <a href="#" class="custom-button">Future Link 2</a>
+            <a href="#" class="custom-button">Future Link 3</a>
+        </div>
+    </section>
 
-    <!-- Second row of buttons -->
-    <div class="button-container">
-        <a href="#" class="custom-button highlight-button">Geogebra</a>
-        <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG" class="custom-button">Triangle-1</a>
-        <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG" class="custom-button">Triangle-2</a>
-        <a href="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png" class="custom-button">One triangle and five centers</a>
-        <a href="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png" class="custom-button">pythagoras theorem proof</a>
-        <a href="https://psrajarajan.github.io/geogebra/linear_graphs.png" class="custom-button">Linear graphs</a>
-        <a href="https://psrajarajan.github.io/geogebra/quadratic_graphs.png" class="custom-button">Quadratic graphs</a>
-        <a href="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG" class="custom-button">Quadrilateral circumscribing circle</a>
-        <a href="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png" class="custom-button">Vel Maral chakkaram</a>
-    </div>
+    <section>
+        <h2>📐 Geogebra Visuals</h2>
+        <!-- Second row of buttons -->
+        <div class="button-container">
+            <a href="#" class="custom-button highlight-button">Geogebra</a>
+            <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG"
+                class="custom-button">Triangle-1</a>
+            <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG"
+                class="custom-button">Triangle-2</a>
+            <a href="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png" class="custom-button">One
+                triangle and five centers</a>
+            <a href="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png"
+                class="custom-button">pythagoras
+                theorem proof</a>
+            <a href="https://psrajarajan.github.io/geogebra/linear_graphs.png" class="custom-button">Linear graphs</a>
+            <a href="https://psrajarajan.github.io/geogebra/quadratic_graphs.png" class="custom-button">Quadratic
+                graphs</a>
+            <a href="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG"
+                class="custom-button image-button">
+                <img src="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG"
+                    alt="Quadrilateral circumscribing circle thumbnail">
+                <span>Quadrilateral circumscribing circle</span>
+            </a>
+            <a href="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png" class="custom-button">Vel Maral
+                chakkaram</a>
+        </div>
+    </section>
 </body>
+
 </html>
