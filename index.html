@@ -25,6 +25,16 @@
             text-shadow: 1px 1px 1px #ccc;
         }
 
+        table {
+            margin: 0 auto;
+            width: 90%;
+            border-spacing: 30px;
+        }
+
+        td {
+            vertical-align: top;
+            width: 50%;
+        }
 
         .button-container {
             display: grid;
@@ -46,9 +56,7 @@
             border-radius: 8px;
             padding: 6px;
             width: 180px;
-            height: 16
-            px;
-            /* Fixed height for uniformity */
+            height: 160px;
             box-sizing: border-box;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
@@ -57,12 +65,10 @@
         .image-button img {
             width: 100%;
             height: 120px;
-            /* Fixed height for thumbnails */
             object-fit: cover;
             border-radius: 6px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
-
 
         .image-button span {
             margin-top: 8px;
@@ -72,14 +78,11 @@
             font-size: 0.95em;
         }
 
-
         .image-button:hover {
             background-color: #005f99;
             transform: scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-
-
 
         .custom-button {
             background-color: #007acc;
@@ -99,7 +102,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-
         .highlight-button {
             background-color: #28a745;
         }
@@ -111,65 +113,84 @@
 </head>
 
 <body>
-    <h1>Welcome to S Rajarajan's Page</h1>
+    <h1>Welcome to S Rajarajan's Home Page</h1>
 
-    <section>
-        <h2>📚 Educational Tools</h2>
-        <!-- First row of buttons -->
-        <div class="button-container">
-            <a href="https://psrajarajan.github.io/divisibility_rule/" class="custom-button image-button">
-                <img src="https://psrajarajan.github.io/divisibility_rule/divisibility_rule_thumbnail.png"
-                alt="Divisibility_rule_thumbnail">
-                <span>Divisibility_rule (interactive)</span> </a>
-
-        </div>
-    </section>
-
-    <section>
-        <h2>📐 Geogebra Visuals</h2>
-        <!-- Second row of buttons -->
-        <div class="button-container">
-            <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG" class="custom-button image-button">
-            <img src="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG"
-                alt="triangle_1_thumbnail">
-                <span>Triangle-1</span></a>
-
-            <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG" class="custom-button image-button">
-            <img src="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG"
-                alt="triangle_2_thumbnail">
-                <span>Triangle-2</span></a>
-
-            <a href="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png" class="custom-button image-button"> 
-            <img src="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png"
-                alt="one_triangle_five_centers_thumbnail">
-                <span>One triangle and five centers</span></a>
-
-            <a href="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png" class="custom-button image-button">
-                <img src="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png"
-                alt="pythagoras_theorem_proof_thumbnail">
-                <span>pythagoras theorem proof </span></a>
-
-            <a href="https://psrajarajan.github.io/geogebra/linear_graphs.png" class="custom-button image-button"> 
-               <img src="https://psrajarajan.github.io/geogebra/linear_graphs.png" 
-               alt="linear_graphs_thumbnail">
-               <span>Linear graphs </span></a>
-
-            <a href="https://psrajarajan.github.io/geogebra/quadratic_graphs.png" class="custom-button image-button">
-                <img src="https://psrajarajan.github.io/geogebra/quadratic_graphs.png"
-                alt="quadratic_graphs_thumbnail">
-                <span>Quadratic graphs</span> </a>
-
-            <a href="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG" class="custom-button image-button">
-                <img src="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG"
-                alt="quadrilateral_circumscribing_circle_thumbnail">
-                <span>Quadrilateral circumscribing circle</span> </a>
-
-            <a href="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png" class="custom-button image-button">
-                <img src="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png" 
-                alt="vel_maral_thumbnail">
-                <span>Vel Maral Chakkaram</span></a>
-        </div>
-    </section>
+    <table>
+        <tr>
+            <td>
+                <h2>📚 Educational Tools</h2>
+                <div class="button-container">
+                    <a href="https://psrajarajan.github.io/divisibility_rule/" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/divisibility_rule/divisibility_rule_thumbnail.png"
+                            alt="Divisibility_rule_thumbnail">
+                        <span>Divisibility_rule (interactive)</span>
+                    </a>
+                </div>
+            </td>
+            <td>
+                <h2>📐 Geogebra Visuals</h2>
+                <div class="button-container">
+                    <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG"
+                            alt="triangle_1_thumbnail">
+                        <span>Triangle-1</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG"
+                            alt="triangle_2_thumbnail">
+                        <span>Triangle-2</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png"
+                            alt="one_triangle_five_centers_thumbnail">
+                        <span>One triangle and five centers</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png"
+                            alt="pythagoras_theorem_proof_thumbnail">
+                        <span>pythagoras theorem proof</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/linear_graphs.png" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/linear_graphs.png"
+                            alt="linear_graphs_thumbnail">
+                        <span>Linear graphs</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/quadratic_graphs.png" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/quadratic_graphs.png"
+                            alt="quadratic_graphs_thumbnail">
+                        <span>Quadratic graphs</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG"
+                            alt="quadrilateral_circumscribing_circle_thumbnail">
+                        <span>Quadrilateral circumscribing circle</span>
+                    </a>
+                    <a href="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png" class="custom-button image-button">
+                        <img src="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png"
+                            alt="vel_maral_thumbnail">
+                        <span>Vel Maral Chakkaram</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2>🖥️ FMSLogo Projects</h2>
+                <!-- Add your FMSLogo content here -->
+            </td>
+            <td>
+                <h2>🎥 YouTube Videos</h2>
+                <!-- Add your YouTube content here -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2>📱 Android Mobile Apps</h2>
+                <!-- Add your Android content here -->
+            </td>
+            <td></td>
+        </tr>
+    </table>
 </body>
 
 </html>
