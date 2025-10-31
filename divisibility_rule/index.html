@@ -798,10 +798,23 @@
     }
 
     function divisorbutton() {
-        window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
-        window.divisor = Number(window.divisorstring);
-        document.getElementById("newdividendbutton").disabled = false;
-        document.getElementById("biganswer").style.visibility = "visible";
+ const selected = document.querySelector('input[name="divisor"]:checked');
+    if (!selected) return;
+
+    window.divisorstring = selected.value;
+    window.divisor = Number(window.divisorstring);
+
+    // Mark the selected button as permanently checked
+    selected.setAttribute("data-locked", "true");
+
+    // Prevent it from being cleared later by re-checking it manually
+    selected.checked = true;
+
+    document.getElementById("newdividendbutton").disabled = false;
+    document.getElementById("biganswer").style.visibility = "visible";
+}
+
+
 
     }
 
@@ -2250,3 +2263,4 @@
 </body>
 
 </html>
+
