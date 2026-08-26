@@ -1,206 +1,406 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>My GitHub Page</title>
-    <style>
-        body {
-            background: linear-gradient(to right, #f0f8ff, #e6f7ff);
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-        }
-
-        h1 {
-            color: #004080;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px #aaa;
-        }
-
-        h2 {
-            color: #006699;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 1px #ccc;
-        }
-
-        table {
-            margin: 0 auto;
-            width: 90%;
-            border-spacing: 30px;
-        }
-
-        td {
-            vertical-align: top;
-            width: 50%;
-        }
-
-        .button-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 10px;
-            justify-items: center;
-            margin: 20px auto;
-            max-width: 1000px;
-        }
-
-        .image-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            background-color: #007acc;
-            color: white;
-            border-radius: 8px;
-            padding: 6px;
-            width: 180px;
-            height: 180px;
-            box-sizing: border-box;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-        .image-button img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-button span {
-            margin-top: 8px;
-            font-weight: bold;
-            color: white;
-            text-align: center;
-            font-size: 0.95em;
-        }
-
-        .image-button:hover {
-            background-color: #005f99;
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .custom-button {
-            background-color: #007acc;
-            color: white;
-            border: none;
-            padding: 5px 5px;
-            font-size: 1em;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .custom-button:hover {
-            background-color: #005f99;
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .highlight-button {
-            background-color: #28a745;
-        }
-
-        .highlight-button:hover {
-            background-color: #1e7e34;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P.S. Rajarajan | Math Visualizer & Flutter Developer</title>
+  <!-- Tailwind CSS for high-fidelity styling -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .code-font {
+      font-family: 'Fira Code', monospace;
+    }
+    .math-grid {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(13, 148, 136, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(13, 148, 136, 0.05) 1px, transparent 1px);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(13, 148, 136, 0.15) 0%, transparent 60%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .hover-lift {
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(13, 148, 136, 0.1), 0 10px 10px -5px rgba(13, 148, 136, 0.04);
+    }
+    /* Custom scrollbar styling for the horizontal gallery */
+    .scrollbar-thin::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 9999px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #0d9488;
+    }
+  </style>
 </head>
+<body class="bg-gray-50 text-gray-900 math-grid">
 
-<body>
-    <h1>Welcome to S Rajarajan's Home Page</h1>
-      <h2>This page is currently under construction</h2>
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-md border-b border-gray-200 py-4 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center space-x-3 mb-4 md:mb-0">
+        <div class="bg-teal-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg code-font">&pi;</div>
+        <span class="text-xl font-bold tracking-tight text-gray-800">P.S. Rajarajan</span>
+      </div>
+      <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold text-gray-600">
+        <a href="#about" class="hover:text-teal-600 transition">About</a>
+        <a href="#divisibility" class="hover:text-teal-600 transition">Divisibility Tool</a>
+        <a href="#geogebra" class="hover:text-teal-600 transition">GeoGebra Lab</a>
+        <a href="#fmslogo" class="hover:text-teal-600 transition">FMSLogo Art</a>
+        <a href="#apps" class="hover:text-teal-600 transition">Flutter Apps</a>
+        <a href="#youtube" class="hover:text-teal-600 transition">YouTube</a>
+        <a href="#workshops" class="hover:text-teal-600 transition text-teal-600 font-bold">Board Seminars</a>
+      </div>
+    </div>
+  </nav>
 
-    <table>
-        <tr>
-            <td>
-                <h2>📚 Educational Tools</h2>
-                <div class="button-container">
-                    <a href="https://psrajarajan.github.io/divisibility_rule/" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/divisibility_rule/divisibility_rule_thumbnail.png"
-                            alt="Divisibility_rule_thumbnail">
-                        <span>Divisibility_rule (interactive)</span>
-                    </a>
-                </div>
-            </td> 
-            <td></td>
+  <!-- HERO SECTION -->
+  <header id="about" class="relative overflow-hidden py-24 px-6 hero-glow">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <span class="bg-teal-50 text-teal-700 border border-teal-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Educator · Developer · Visualizer</span>
+      <h1 class="mt-6 text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-none">
+        Making Mathematics <br class="hidden md:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">Tangible & Interactive</span>
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        Bridging abstract mathematical logic, recursive visual shapes, and high-performance software frameworks to illuminate standard math curriculums.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#workshops" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-3.5 rounded-lg shadow-lg hover:shadow-xl transition">Explore Revision Workshops</a>
+        <a href="https://github.com/psrajarajan" target="_blank" class="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 font-semibold px-8 py-3.5 rounded-lg shadow transition"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+      </div>
+    </div>
+  </header>
 
-            <td>
-                <h2>📐 Geogebra Visuals</h2>
-                <div class="button-container">
-                    <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_1.JPG"
-                            alt="triangle_1_thumbnail">
-                        <span>Triangle-1</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/triangle_trigonometry_thales_2.JPG"
-                            alt="triangle_2_thumbnail">
-                        <span>Triangle-2</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/one_triangle_five_centers.png"
-                            alt="one_triangle_five_centers_thumbnail">
-                        <span>One triangle and five centers</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/pythagoras_theorem_proof.png"
-                            alt="pythagoras_theorem_proof_thumbnail">
-                        <span>pythagoras theorem proof</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/linear_graphs.png" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/linear_graphs.png"
-                            alt="linear_graphs_thumbnail">
-                        <span>Linear graphs</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/quadratic_graphs.png" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/quadratic_graphs.png"
-                            alt="quadratic_graphs_thumbnail">
-                        <span>Quadratic graphs</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/quad_circumscribing_circle.PNG"
-                            alt="quadrilateral_circumscribing_circle_thumbnail">
-                        <span>Quadrilateral circumscribing circle</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/ratio_line_segments.png" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/ratio_line_segments.png"
-                            alt="ratio_line_segments_thumbnail">
-                        <span>Ratio of line segments</span>
-                    </a>
-                    <a href="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png" class="custom-button image-button">
-                        <img src="https://psrajarajan.github.io/geogebra/vel_maral_chakkaram.png"
-                            alt="vel_maral_thumbnail">
-                        <span>Vel Maral Chakkaram</span>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h2>🖥️ FMSLogo Projects</h2>
-                <!-- Add your FMSLogo content here -->
-            </td>
-           
-        </tr>
-        <tr>
-            <td>
-                <h2>📱 Android Mobile Apps</h2>
-                <!-- Add your Android content here -->
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h2>🎥 YouTube Videos</h2>
-                <!-- Add your YouTube content here -->
-            </td>
-        </tr>
-    </table>
+  <!-- SECTION 1: DYNAMIC LINK TO STANDALONE DIVISIBILITY RULES APP -->
+  <section id="divisibility" class="py-16 px-6 bg-white border-y border-gray-200">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Interactive App</span>
+      <h2 class="text-3xl font-extrabold text-gray-900 mt-4">Interactive Divisibility Explorer</h2>
+      <p class="text-gray-500 mt-2 mb-8">Test, calculate, and practice fundamental prime divisibility properties using my standalone web visualizer.</p>
+      
+      <div class="bg-gray-50 p-8 md:p-12 rounded-2xl border border-gray-200 shadow-md max-w-2xl mx-auto hover-lift">
+        <div class="bg-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-2xl mx-auto mb-6 shadow-md">&divide;</div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Divisibility Rule Practice Suite</h3>
+        <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+          A dedicated sub-project built to dynamically break down composites into prime factorizations, prove modular congruency structures, and verify numerical properties.
+        </p>
+        <a href="divisibility_rule/index.html" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-4 rounded-xl transition shadow-md inline-block">
+          Launch Practice App <i class="fas fa-external-link-alt ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: GEOGEBRA LAB PREVIEWS -->
+  <section id="geogebra" class="py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Dynamic Geometry</span>
+        <h2 class="text-3xl font-bold text-gray-900 mt-4">GeoGebra Graphing Laboratories</h2>
+        <p class="text-gray-500 mt-2">Screenshots and live interactive links for exploring linear, quadratic, and trigonometric graphs.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Card 1: Linear Slopes -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col">
+          <div class="p-6 border-b border-gray-100">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Linear Functions</span>
+            <h3 class="text-xl font-bold mt-1">Linear Slopes & Coordinate Shifting</h3>
+            <p class="text-sm text-gray-500">Witness how altering the gradient $m$ andintercept $c$ transforms equation $y = mx+c$.</p>
+          </div>
+          <div class="bg-gray-100 relative" style="height: 320px;">
+            <img src="geogebra/straight_lines.png" alt="Straight Lines Slope Screenshot" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x320/0f172a/ffffff?text=GeoGebra+Slope+Lab'">
+          </div>
+          <div class="p-5 bg-white border-t border-gray-100 text-center">
+            <!-- Update the material ID once published to your GeoGebra public page -->
+            <a href="https://www.geogebra.org/" target="_blank" class="text-teal-600 hover:text-teal-700 font-semibold text-sm inline-flex items-center">
+              Open Interactive Applet <i class="fas fa-external-link-alt ml-1.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Quadratic Coefficients -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col">
+          <div class="p-6 border-b border-gray-100">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Polynomial Curves</span>
+            <h3 class="text-xl font-bold mt-1">Quadratic Parabola Vertex Labs</h3>
+            <p class="text-sm text-gray-500">Deconstruct standard quadratic parameters to trace root values and focal properties.</p>
+          </div>
+          <div class="bg-gray-100 relative" style="height: 320px;">
+            <img src="geogebra/quadratic_graphs.png" alt="Quadratic Parabola Vertex Screenshot" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x320/0f172a/ffffff?text=GeoGebra+Quadratic+Lab'">
+          </div>
+          <div class="p-5 bg-white border-t border-gray-100 text-center">
+            <a href="https://www.geogebra.org/" target="_blank" class="text-teal-600 hover:text-teal-700 font-semibold text-sm inline-flex items-center">
+              Open Interactive Applet <i class="fas fa-external-link-alt ml-1.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: FMSLOGO MATHEMATICAL ART GALLERY (HORIZONTALLY SCROLLABLE CAROUSEL) -->
+  <section id="fmslogo" class="py-16 px-6 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Symmetric Code Art</span>
+          <h2 class="text-3xl font-bold text-gray-900 mt-4">FMSLogo Mathematical Art Gallery</h2>
+          <p class="text-gray-500 mt-2">Scroll horizontally to inspect all 35 design snapshots depicting Tamil typographies, English alphabets, and recursive Indian Rangolis.</p>
+        </div>
+        <!-- Custom scroll indicators for desktop navigation -->
+        <div class="hidden md:flex space-x-3 mt-4 md:mt-0">
+          <button onclick="scrollGallery(-320)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button onclick="scrollGallery(320)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Scroll Wrapper -->
+      <div class="relative">
+        <div id="logo-scroll-container" class="flex overflow-x-auto space-x-6 pb-6 scroll-smooth snap-x snap-mandatory scrollbar-thin" style="-webkit-overflow-scrolling: touch;">
+          <!-- JavaScript automatically generates and injects all 35 images here -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: FLUTTER APP SHOWCASE (20,000+ DOWNLOADS REVEAL) -->
+  <section id="apps" class="py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Mobile App Engineering</span>
+        <h2 class="text-3xl font-bold text-gray-900 mt-4">Cross-Platform Flutter Development</h2>
+        <p class="text-gray-500 mt-2">High-performance production apps engineered for interactive mathematical education.</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-gradient-to-br from-teal-800 to-emerald-950 rounded-3xl text-white p-8 md:p-12 shadow-2xl relative overflow-hidden">
+        <!-- Floating downloads badge -->
+        <div class="absolute -right-8 -top-8 bg-emerald-500 text-white w-32 h-32 rounded-full flex items-center justify-center font-bold text-center text-xs transform rotate-12 pt-6 pl-4 border border-emerald-400">
+          20,000+<br>Downloads
+        </div>
+
+        <div class="relative z-10 max-w-2xl">
+          <span class="bg-teal-700 text-teal-200 border border-teal-600 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Featured Android Application</span>
+          <h3 class="text-3xl font-extrabold mt-4">Interactive Mathematics Tutor App</h3>
+          <p class="text-teal-100 mt-4 leading-relaxed">
+            A highly responsive Android tool built with Flutter. Translates complex equations, geometric proofs, and statistical curves into seamless step-by-step animations. Built with local SQLite databases for offline student access.
+          </p>
+
+          <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-teal-700 pt-6">
+            <div>
+              <span class="text-xs text-teal-300 block">Frame Rates</span>
+              <span class="text-lg font-bold">60 FPS Render</span>
+            </div>
+            <div>
+              <span class="text-xs text-teal-300 block">Performance</span>
+              <span class="text-lg font-bold">State Managed</span>
+            </div>
+            <div>
+              <span class="text-xs text-teal-300 block">Downloads</span>
+              <span class="text-lg font-bold">20k+ Play Store</span>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-lg transition shadow-lg inline-flex items-center">
+              <i class="fab fa-google-play mr-2"></i>Download App
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB -->
+  <section id="youtube" class="py-16 px-6 bg-white border-y border-gray-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Video Education</span>
+        <h2 class="text-3xl font-bold text-gray-900 mt-4">Sand Granule YouTube Workspace</h2>
+        <p class="text-gray-500 mt-2">Visual derivations, physical experiments, and logical concepts in Mathematics and Physics.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Video 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col">
+          <div class="aspect-w-16 aspect-h-9 relative bg-black" style="height: 280px;">
+            <!-- REPLACE 'your_video_id_1' with your actual YouTube ID -->
+            <iframe src="https://www.youtube.com/embed/your_video_id_1" class="absolute inset-0 w-full h-full border-0" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold">Geometrical Trigonometry Derivations</h3>
+            <p class="text-sm text-gray-500 mt-2">Deducing fundamental trigonometric relationships from unit circle proportions intuitively.</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col">
+          <div class="aspect-w-16 aspect-h-9 relative bg-black" style="height: 280px;">
+            <!-- REPLACE 'your_video_id_2' with your actual YouTube ID -->
+            <iframe src="https://www.youtube.com/embed/your_video_id_2" class="absolute inset-0 w-full h-full border-0" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold">Vector Algebra & Simple Harmonic Curves</h3>
+            <p class="text-sm text-gray-500 mt-2">Witnessing simple circular animations translate into algebraic sine coordinates.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3.5 rounded-lg transition inline-flex items-center shadow shadow-red-200">
+          <i class="fab fa-youtube mr-2"></i>Subscribe to Sand Granule
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SEMINARS & PDF LEAD MAGNETS -->
+  <section id="workshops" class="py-16 px-6 bg-teal-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="bg-teal-100 text-teal-800 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Teacher Resources</span>
+        <h2 class="text-4xl font-extrabold text-gray-900 mt-4">Class 10 Board Prep Revision Seminars</h2>
+        <p class="text-gray-600 mt-2">A high-yield, 5-hour interactive workshop to help students achieve logical mathematical mastery.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Morning module -->
+        <div class="glass-card rounded-2xl p-8 hover-lift">
+          <span class="bg-teal-100 text-teal-800 text-xs px-2.5 py-1 rounded-full font-bold uppercase">Module I: Morning (2.5 Hours)</span>
+          <h3 class="text-2xl font-bold mt-4">Algebra & Coordinate Geometry</h3>
+          <p class="text-gray-600 mt-2 text-sm">Focuses on establishing structured patterns and bypassing formulaic slips using option-elimination hacks.</p>
+          <ul class="space-y-3 text-sm text-gray-700 mt-6">
+            <li><span class="text-teal-600 font-bold mr-1">✓</span> <strong>Real Numbers & Polynomials</strong> properties and coefficient relationships</li>
+            <li><span class="text-teal-600 font-bold mr-1">✓</span> <strong>Linear Systems Scale Factors</strong> for rapid graphical checking</li>
+            <li><span class="text-teal-600 font-bold mr-1">✓</span> <strong>CBSE 15-Minute Reading Hacks</strong> to optimize section workloads</li>
+          </ul>
+        </div>
+
+        <!-- Afternoon module -->
+        <div class="glass-card rounded-2xl p-8 hover-lift">
+          <span class="bg-teal-100 text-teal-800 text-xs px-2.5 py-1 rounded-full font-bold uppercase">Module II: Afternoon (2.5 Hours)</span>
+          <h3 class="text-2xl font-bold mt-4">Geometry, Trigonometry & Data</h3>
+          <p class="text-gray-600 mt-2 text-sm">Targets high-value theorem proofs, spatial volume calculations, and error-free statistical summaries.</p>
+          <ul class="space-y-3 text-sm text-gray-700 mt-6">
+            <li><span class="text-teal-600 font-bold mr-1">✓</span> <strong>BPT/Thales Theorem Proofs</strong>: Full structural diagrams & logical justifications</li>
+            <li><span class="text-teal-600 font-bold mr-1">✓</span> <strong>Combined Solids Areas</strong>: Visually identifying CSAs of merged objects</li>
+            <li><span class="text-teal-600 font-bold mr-1">✓</span> <strong>Step-Deviation Statistics</strong>: Eliminating calculation slips via empirical lines</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PDF Lead Magnet Section -->
+      <div class="text-center mb-6">
+        <h3 class="text-xl font-bold">Premium Printable Workshop Resources</h3>
+        <p class="text-sm text-gray-500 mt-1">Get instant download access to standard board prep materials built for revision seminars.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Download 1 -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
+          <h4 class="font-bold text-gray-900">MCQ Exam Hacks Worksheet</h4>
+          <p class="text-xs text-gray-500 mt-1 mb-4">20 high-yield questions with side-by-side slow vs. fast solution blueprints.</p>
+          <a href="cbse_class_10_math_mcq_hacks_worksheet-v3.pdf" download class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition inline-block">Download PDF</a>
+        </div>
+
+        <!-- Download 2 -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
+          <h4 class="font-bold text-gray-900">Step-Marking Poster</h4>
+          <p class="text-xs text-gray-500 mt-1 mb-4">Printable classroom poster outlining the 4 crucial board grading milestones.</p>
+          <a href="cbse_step_marking_poster.pdf" download class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition inline-block">Download PDF</a>
+        </div>
+
+        <!-- Download 3 -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
+          <h4 class="font-bold text-gray-900">Section D & E Companion</h4>
+          <p class="text-xs text-gray-500 mt-1 mb-4">Expert tips for tackling long 5-mark templates and extracting Case Study DNA.</p>
+          <a href="cbse-class-10-math-5-mark-and-case-study-guide.pdf" download class="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition inline-block">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-12 px-6 text-center border-t border-gray-800">
+    <p class="text-sm">&copy; 2026 P.S. Rajarajan. All rights reserved. Mathematical visualization through technology.</p>
+    <div class="mt-4 flex justify-center space-x-6 text-lg">
+      <a href="https://github.com/psrajarajan" target="_blank" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+      <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC IMAGE LOADER SCRIPT -->
+  <script>
+    const scrollContainer = document.getElementById('logo-scroll-container');
+    const totalScreenshots = 35;
+
+    // Dynamically generate and inject 35 scrollable cards
+    for (let i = 1; i <= totalScreenshots; i++) {
+      let category = "Symmetric Design";
+      let desc = "Mathematical Rangoli Symmetry";
+      
+      if (i % 3 === 0) {
+        category = "Tamil Alphabet";
+        desc = "Tamil Vector Path Curve";
+      } else if (i % 5 === 0) {
+        category = "English Typography";
+        desc = "Symmetric L-System Combination";
+      }
+
+      const cardHTML = `
+        <div class="flex-none w-72 md:w-80 bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start">
+          <div class="h-52 bg-teal-950 relative overflow-hidden">
+            <!-- Looks inside the fmslogo/ subfolder directly -->
+            <img src="fmslogo/${i}.png" alt="FMSLogo Screenshot ${i}" class="w-full h-full object-cover transition duration-300 hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0d9488/ffffff?text=FMSLogo+Design+${i}'">
+            <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">${category}</div>
+          </div>
+          <div class="p-5">
+            <h4 class="font-bold text-gray-800 text-sm">FMSLogo Design #${i}</h4>
+            <p class="text-xs text-gray-500 mt-1">${desc}</p>
+          </div>
+        </div>
+      `;
+      scrollContainer.innerHTML += cardHTML;
+    }
+
+    // Scroll buttons control logic
+    function scrollGallery(scrollOffset) {
+      scrollContainer.scrollBy({
+        left: scrollOffset,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
 </body>
-
 </html>
