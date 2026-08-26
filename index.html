@@ -38,46 +38,57 @@
       transform: translateY(-6px);
       box-shadow: 0 20px 25px -5px rgba(13, 148, 136, 0.1), 0 10px 10px -5px rgba(13, 148, 136, 0.04);
     }
-    /* Custom buttons with premium high-contrast readability rules */
-    .btn-primary {
-      display: inline-block;
-      background-color: #0f172a; /* Deep slate dark background */
-      color: #facc15 !important; /* Bold, high-contrast vibrant gold text */
+    /* HIGH-CONTRAST ACCESSIBILITY BUTTON STYLING */
+    .btn-contrast-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0f172a; /* Solid Deep Slate Dark */
+      color: #facc15 !important; /* High-Contrast Vibrant Gold */
       border: 2px solid #0f172a;
       text-decoration: none;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       border-radius: 8px;
-      font-weight: 750;
+      font-weight: 800; /* Ultra Bold */
       font-size: 0.95rem;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15);
-      text-align: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .btn-primary:hover {
+    .btn-contrast-primary:hover {
       background-color: #1e293b;
       border-color: #1e293b;
-      color: #fef08a !important;
+      color: #fef08a !important; /* Extremely bright yellow on hover */
+      transform: scale(1.02);
+      box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.3);
     }
-    .btn-secondary {
-      display: inline-block;
+    .btn-contrast-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background-color: #ffffff;
-      color: #0f172a !important; /* Deep Slate high-contrast text */
-      border: 2px solid #0f172a; /* Distinct readable outline border */
+      color: #0f172a !important; /* Deep Slate dark text */
+      border: 3px solid #0f172a; /* Double thickness dark border */
       text-decoration: none;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       border-radius: 8px;
-      font-weight: 750;
+      font-weight: 800;
       font-size: 0.95rem;
       transition: all 0.2s ease;
-      text-align: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .btn-secondary:hover {
+    .btn-contrast-secondary:hover {
       background-color: #f1f5f9;
       color: #1e293b !important;
+      transform: scale(1.02);
     }
     /* Custom scrollbar styling for the horizontal galleries */
     .scrollbar-thin::-webkit-scrollbar {
-      height: 8px;
+      height: 10px;
     }
     .scrollbar-thin::-webkit-scrollbar-track {
       background: #f1f5f9;
@@ -86,6 +97,7 @@
     .scrollbar-thin::-webkit-scrollbar-thumb {
       background: #cbd5e1;
       border-radius: 9999px;
+      border: 2px solid #f1f5f9;
     }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover {
       background: #0d9488;
@@ -96,63 +108,64 @@
 
   <!-- NAVBAR -->
   <nav class="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-md border-b border-gray-200 py-4 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-      <div class="flex items-center space-x-3 mb-4 md:mb-0">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center">
+      <div class="flex items-center space-x-3 mb-4 lg:mb-0">
         <div class="bg-teal-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg code-font">&pi;</div>
         <span class="text-xl font-bold tracking-tight text-gray-800">S. Rajarajan</span>
       </div>
-      <div class="flex flex-wrap justify-center space-x-6 text-sm font-semibold text-gray-600">
-        <a href="#about" class="hover:text-teal-600 transition">About Me</a>
-        <a href="#divisibility" class="hover:text-teal-600 transition">Divisibility Tool</a>
-        <a href="#geogebra" class="hover:text-teal-600 transition">GeoGebra Lab</a>
-        <a href="#fmslogo" class="hover:text-teal-600 transition">FMSLogo Art</a>
-        <a href="#apps" class="hover:text-teal-600 transition">Flutter Apps</a>
-        <a href="#youtube" class="hover:text-teal-600 transition">YouTube</a>
-        <a href="#workshops" class="hover:text-teal-600 transition text-teal-600 font-bold">Board Seminars</a>
+      <div class="flex flex-wrap justify-center space-x-5 text-xs sm:text-sm font-semibold text-gray-600">
+        <a href="#about" class="hover:text-teal-600 transition py-1">About Me</a>
+        <a href="#divisibility" class="hover:text-teal-600 transition py-1">Divisibility Tool</a>
+        <a href="#geogebra" class="hover:text-teal-600 transition py-1">GeoGebra Lab</a>
+        <a href="#fmslogo" class="hover:text-teal-600 transition py-1">FMSLogo Art</a>
+        <a href="#apps" class="hover:text-teal-600 transition py-1">Flutter Apps</a>
+        <a href="#youtube" class="hover:text-teal-600 transition py-1">YouTube</a>
+        <a href="#workshops" class="hover:text-teal-600 transition text-teal-600 font-bold py-1">Board Seminars</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <header class="relative overflow-hidden py-24 px-6 hero-glow">
+  <header class="relative overflow-hidden py-20 px-6 hero-glow">
     <div class="max-w-5xl mx-auto text-center relative z-10">
       <span class="bg-teal-50 text-teal-700 border border-teal-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Educator · Engineer · Developer</span>
-      <h1 class="mt-6 text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-none">
+      <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-none">
         Making Mathematics <br class="hidden md:block">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">Tangible & Interactive</span>
       </h1>
-      <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
         Bridging abstract mathematical logic, recursive visual shapes, and high-performance software frameworks to illuminate standard math curriculums.
       </p>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a href="#workshops" class="btn-primary">Explore Revision Workshops</a>
-        <a href="https://github.com/psrajarajan" target="_blank" class="btn-secondary"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
+        <a href="#workshops" class="btn-contrast-primary">Explore Revision Workshops</a>
+        <a href="https://github.com/psrajarajan" target="_blank" class="btn-contrast-secondary"><i class="fab fa-github mr-2"></i>GitHub Profile</a>
       </div>
     </div>
   </header>
 
   <!-- BIOGRAPHY / ABOUT ME SECTION -->
   <section id="about" class="py-16 px-6 bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">My Journey</span>
         <h2 class="text-3xl font-extrabold text-gray-900 mt-4">About S. Rajarajan</h2>
-        <p class="text-gray-500 mt-2">A unique convergence of engineering, software development, and mathematical storytelling.</p>
+        <p class="text-gray-500 mt-2">A unique convergence of engineering expertise, software development, and mathematical storytelling.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <!-- Main Narrative bio -->
         <div class="lg:col-span-2 space-y-6 text-gray-600 leading-relaxed text-base">
           <p>
-            My life's work is driven by a profound passion for teaching **Mathematics and Computer Science** to high school students. I believe math shouldn't simply be memorized—it should be visualized, manipulated, and discovered.
+            Welcome! I am **S. Rajarajan**, a passionate educator, mobile developer, and control engineer on a mission to transform the way high school students understand and interact with mathematics.
           </p>
           <p>
-            Since 2016, I have dedicated myself fully to educating, designing tools, and conducting intensive **one-day board prep revision seminars** to empower Class 10 students to secure top marks on standard exams through analytical reasoning.
+            Following a highly successful **37-year international career** in industrial automation across major sectors, I returned to my lifelong passion: teaching. Since 2016, I have designed tools and conducted specialized **one-day board prep revision seminars** to help Class 10 students overcome rote learning and achieve top marks through logic and visual reasoning.
           </p>
           <p>
-            By combining my engineering background with modern visual tools like **GeoGebra**, vector code-drawing languages like **FMSLogo**, and responsive mobile architectures like **Flutter**, I create software engines and interactive assets that turn static math formulas into living experiences.
+            By combining my engineering rigor with visual engines like **GeoGebra**, vector turtle-drawing in **FMSLogo**, and modern cross-platform development in **Flutter**, I build interactive pipelines that bring abstract geometry and formulas to life.
           </p>
-          <!-- Rapid credentials overview -->
+          
+          <!-- Rapid credentials overview grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-gray-100 pt-6">
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fas fa-graduation-cap"></i></div>
@@ -160,54 +173,54 @@
             </div>
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fas fa-globe-americas"></i></div>
-              <span class="text-sm font-semibold text-gray-700">37 Years Global Field Experience</span>
+              <span class="text-sm font-semibold text-gray-700">Served Globally Across 5 Nations</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fas fa-mobile-alt"></i></div>
-              <span class="text-sm font-semibold text-gray-700">Production App Developer (20k+ DLs)</span>
+              <span class="text-sm font-semibold text-gray-700">Android Developer (20k+ Downloads)</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fab fa-youtube text-red-500"></i></div>
-              <span class="text-sm font-semibold text-gray-700">Creator of "Sand Granule" Channel</span>
+              <span class="text-sm font-semibold text-gray-700">Youtube Creator ("Sand Granule")</span>
             </div>
           </div>
         </div>
 
         <!-- Vertical Timeline Card -->
         <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-inner">
-          <h3 class="text-lg font-bold text-gray-800 border-b border-gray-200 pb-3 mb-4"><i class="fas fa-history text-teal-600 mr-2"></i>Career Timeline</h3>
+          <h3 class="text-lg font-bold text-gray-800 border-b border-gray-200 pb-3 mb-4"><i class="fas fa-history text-teal-600 mr-2"></i>Professional Timeline</h3>
           <div class="relative border-l-2 border-teal-200 ml-3 space-y-6">
             
             <!-- Timeline Item 1 -->
             <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1 bg-teal-600 w-3 h-3 rounded-full"></div>
+              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">1973 &ndash; 1976</span>
-              <h4 class="font-bold text-gray-800 text-sm">B.Sc. in Physics</h4>
+              <h4 class="font-bold text-gray-800 text-sm">B.Sc. Degree (Physics)</h4>
               <p class="text-xs text-gray-500">Sacred Heart College, Tirupathur, India</p>
             </div>
 
             <!-- Timeline Item 2 -->
             <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1 bg-teal-600 w-3 h-3 rounded-full"></div>
+              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">1976 &ndash; 1979</span>
-              <h4 class="font-bold text-gray-800 text-sm">B.Tech. in Instrument Technology</h4>
+              <h4 class="font-bold text-gray-800 text-sm">B.Tech. (Instrument Technology)</h4>
               <p class="text-xs text-gray-500">Madras Institute of Technology (MIT), Chennai</p>
             </div>
 
             <!-- Timeline Item 3 -->
             <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1 bg-teal-600 w-3 h-3 rounded-full"></div>
+              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">1979 &ndash; 2016</span>
-              <h4 class="font-bold text-gray-800 text-sm">Global Automation Engineer</h4>
-              <p class="text-xs text-gray-500">Fertilizer, Oil & Gas Systems. Served in India, Saudi Arabia, Singapore, Brunei, and Kazakhstan.</p>
+              <h4 class="font-bold text-gray-800 text-sm">Industrial Control Engineer</h4>
+              <p class="text-xs text-gray-500">Fertilizer, Oil & Gas Control Systems in India, Saudi Arabia, Singapore, Brunei, and Kazakhstan.</p>
             </div>
 
             <!-- Timeline Item 4 -->
             <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1 bg-teal-600 w-3 h-3 rounded-full"></div>
+              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">2016 &ndash; Present</span>
-              <h4 class="font-bold text-gray-800 text-sm">High School Educator & Visualizer</h4>
-              <p class="text-xs text-gray-500">Conducting board revision seminars, deploying Flutter apps, and compiling interactive visual suites.</p>
+              <h4 class="font-bold text-gray-800 text-sm">Math Revision Specialist</h4>
+              <p class="text-xs text-gray-500">Deploying instructional software, educational videos, and leading high-yield student board prep seminars.</p>
             </div>
 
           </div>
@@ -216,7 +229,7 @@
     </div>
   </section>
 
-  <!-- SECTION 1: DYNAMIC LINK TO STANDALONE DIVISIBILITY RULES APP -->
+  <!-- SECTION 1: STANDALONE DIVISIBILITY APPS -->
   <section id="divisibility" class="py-16 px-6 bg-white border-y border-gray-200">
     <div class="max-w-4xl mx-auto text-center">
       <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Interactive App</span>
@@ -227,9 +240,9 @@
         <div class="bg-teal-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-2xl mx-auto mb-6 shadow-md">&divide;</div>
         <h3 class="text-xl font-bold text-gray-900 mb-3">Divisibility Rule Practice Suite</h3>
         <p class="text-sm text-gray-600 mb-6 leading-relaxed">
-          A fully functional, algorithmic math visualizer built inside your `divisibility_rule` sub-directory. Breaks down composites into prime factorizations and dynamically displays factoring rules.
+          A dedicated sub-project built to dynamically break down composite numbers into prime factorizations and display rule logic.
         </p>
-        <a href="divisibility_rule/index.html" target="_blank" class="btn-primary">
+        <a href="divisibility_rule/index.html" target="_blank" class="btn-contrast-primary">
           Launch Practice App <i class="fas fa-external-link-alt ml-2"></i>
         </a>
       </div>
@@ -244,14 +257,14 @@
         <div>
           <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Dynamic Coordinate Labs</span>
           <h2 class="text-3xl font-bold text-gray-900 mt-4">GeoGebra Graphing Laboratories</h2>
-          <p class="text-gray-500 mt-2">Scroll horizontally to view graphing templates showing the effects of slopes and coefficients.</p>
+          <p class="text-gray-500 mt-2">Scroll horizontally and **click any thumbnail to open the screenshot fully in a new tab**.</p>
         </div>
         <!-- Custom scroll indicators for desktop navigation -->
         <div class="hidden md:flex space-x-3 mt-4 md:mt-0">
-          <button onclick="scrollGeoGebra(-320)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
+          <button onclick="scrollGeoGebra(-340)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button onclick="scrollGeoGebra(320)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
+          <button onclick="scrollGeoGebra(340)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -266,15 +279,15 @@
             <a href="geogebra/straight_lines.png" target="_blank" title="Click to view full size">
               <div class="h-60 bg-gray-100 relative group">
                 <img src="geogebra/straight_lines.png" alt="Straight Lines Slope Screenshot" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Linear+Functions+Lab'">
-                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Linear Functions</div>
-                <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Linear Slopes</div>
+                <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
                 </div>
               </div>
             </a>
             <div class="p-6">
-              <h3 class="text-lg font-bold">Linear Slopes & Coordinate Shifting</h3>
-              <p class="text-xs text-gray-500 mt-1">Witness how altering the gradient $m$ and intercept $c$ transforms equation $y = mx+c$.</p>
+              <h3 class="text-lg font-bold">Straight Lines with Different Slopes</h3>
+              <p class="text-xs text-gray-500 mt-1">Analyzing line translations and intercept points on Cartesian grids.</p>
             </div>
           </div>
 
@@ -284,14 +297,14 @@
               <div class="h-60 bg-gray-100 relative group">
                 <img src="geogebra/quadratic_graphs.png" alt="Quadratic Parabola Vertex Screenshot" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Quadratic+Parabola+Lab'">
                 <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Quadratic Parabolics</div>
-                <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
                 </div>
               </div>
             </a>
             <div class="p-6">
-              <h3 class="text-lg font-bold">Quadratic Parabola Vertex & Discriminant</h3>
-              <p class="text-xs text-gray-500 mt-1">Deconstruct parameters $a, b, c$ to trace root values and focal shifts dynamically.</p>
+              <h3 class="text-lg font-bold">Quadratic Curves & Key Coefficients</h3>
+              <p class="text-xs text-gray-500 mt-1">Tracing standard parameters to observe horizontal vertex displacements.</p>
             </div>
           </div>
 
@@ -300,15 +313,15 @@
             <a href="geogebra/trigonometric_graphs.png" target="_blank" title="Click to view full size">
               <div class="h-60 bg-gray-100 relative group">
                 <img src="geogebra/trigonometric_graphs.png" alt="Trigonometric Functions Screenshot" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Trigonometry+Lab'">
-                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Trigonometry</div>
-                <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Trigonometric Waves</div>
+                <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
                 </div>
               </div>
             </a>
             <div class="p-6">
               <h3 class="text-lg font-bold">Trigonometric Sine & Cosine Waves</h3>
-              <p class="text-xs text-gray-500 mt-1">Examine physical wave oscillations, periodic amplitudes, and phase translations.</p>
+              <p class="text-xs text-gray-500 mt-1">Examine wave oscillations, periodic amplitudes, and phase translations.</p>
             </div>
           </div>
 
@@ -354,85 +367,211 @@
       <div class="text-center mb-12">
         <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Mobile App Engineering</span>
         <h2 class="text-3xl font-bold text-gray-900 mt-4">Cross-Platform Flutter Development</h2>
-        <p class="text-gray-500 mt-2">High-performance production apps engineered for interactive mathematical education.</p>
+        <p class="text-gray-500 mt-2">High-performance production apps engineered for interactive mathematical and devotional education.</p>
       </div>
 
-      <div class="max-w-4xl mx-auto bg-gradient-to-br from-teal-800 to-emerald-950 rounded-3xl text-white p-8 md:p-12 shadow-2xl relative overflow-hidden">
+      <!-- Left-Right Grid for App Layout -->
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-teal-800 to-emerald-950 rounded-3xl text-white p-8 md:p-12 shadow-2xl relative overflow-hidden">
+        
         <!-- Floating downloads badge -->
         <div class="absolute -right-8 -top-8 bg-emerald-500 text-white w-32 h-32 rounded-full flex items-center justify-center font-bold text-center text-xs transform rotate-12 pt-6 pl-4 border border-emerald-400">
           20,000+<br>Downloads
         </div>
 
-        <div class="relative z-10 max-w-2xl">
-          <span class="bg-teal-700 text-teal-200 border border-teal-600 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Featured Android Application</span>
-          <h3 class="text-3xl font-extrabold mt-4">Interactive Mathematics Tutor App</h3>
-          <p class="text-teal-100 mt-4 leading-relaxed">
-            A highly responsive Android tool built with Flutter. Translates complex equations, geometric proofs, and statistical curves into seamless step-by-step animations. Built with local SQLite databases for offline student access.
+        <!-- Left: Image Source (playstore-apps.png) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <img src="playstore-apps.png" alt="Google Play Store App Mockups" class="rounded-2xl shadow-lg border-4 border-teal-700 max-h-96 object-contain" onerror="this.src='https://placehold.co/400x500/0d9488/ffffff?text=Flutter+Android+Apps'">
+        </div>
+
+        <!-- Right: Content & List of 6 Apps -->
+        <div class="lg:col-span-7 relative z-10">
+          <span class="bg-teal-700 text-teal-200 border border-teal-600 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Play Store Portfolio</span>
+          <h3 class="text-3xl font-extrabold mt-4">Featured Android Devotional & Walk Tools</h3>
+          <p class="text-teal-100 mt-4 leading-relaxed text-sm sm:text-base">
+            Engineered beautiful, offline-capable mobile tools featuring Tamil/Sanskrit scripts, local sqlite indexing databases, and fluid, responsive interfaces.
           </p>
 
-          <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-teal-700 pt-6">
-            <div>
-              <span class="text-xs text-teal-300 block">Frame Rates</span>
-              <span class="text-lg font-bold">60 FPS Render</span>
-            </div>
-            <div>
-              <span class="text-xs text-teal-300 block">Performance</span>
-              <span class="text-lg font-bold">State Managed</span>
-            </div>
-            <div>
-              <span class="text-xs text-teal-300 block">Downloads</span>
-              <span class="text-lg font-bold">20k+ Play Store</span>
-            </div>
-          </div>
+          <!-- 6 App download buttons grid -->
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.vel_maaral" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
+              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+              <div class="text-left">
+                <span class="text-xs text-teal-300 block">Devotional App</span>
+                <span class="font-bold text-xs">Vel Maaral</span>
+              </div>
+            </a>
 
-          <div class="mt-8">
-            <a href="#" class="btn-primary" style="background-color: #10b981; border-color: #10b981; color: #ffffff !important;">
-              <i class="fab fa-google-play mr-2"></i>Download App
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.sundara_kandam" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
+              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+              <div class="text-left">
+                <span class="text-xs text-teal-300 block">Devotional App</span>
+                <span class="font-bold text-xs">Sundara Kandam</span>
+              </div>
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.aditya_hrudayam" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
+              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+              <div class="text-left">
+                <span class="text-xs text-teal-300 block">Devotional App</span>
+                <span class="font-bold text-xs">Aditya Hrudayam</span>
+              </div>
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.infinity_walk" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
+              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+              <div class="text-left">
+                <span class="text-xs text-teal-300 block">Health Tool</span>
+                <span class="font-bold text-xs">Infinity Walk</span>
+              </div>
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.kandaguru_kavasam" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
+              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+              <div class="text-left">
+                <span class="text-xs text-teal-300 block">Devotional App</span>
+                <span class="font-bold text-xs">Kanda Guru Kavasam</span>
+              </div>
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.safe_delivery" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
+              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+              <div class="text-left">
+                <span class="text-xs text-teal-300 block">Utility App</span>
+                <span class="font-bold text-xs">Safe Delivery</span>
+              </div>
             </a>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB -->
+  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 REAL CHANNELS GRID) -->
   <section id="youtube" class="py-16 px-6 bg-white border-y border-gray-200">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
         <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Video Education</span>
         <h2 class="text-3xl font-bold text-gray-900 mt-4">Sand Granule YouTube Workspace</h2>
-        <p class="text-gray-500 mt-2">Visual derivations, physical experiments, and logical concepts in Mathematics and Physics.</p>
+        <p class="text-gray-500 mt-2">Core mathematical visualizations and logical derivations published on my education workspace.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <!-- 9 Video lessons grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        
         <!-- Video 1 -->
-        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col">
-          <div class="aspect-w-16 aspect-h-9 relative bg-black" style="height: 280px;">
-            <!-- REPLACE 'your_video_id_1' with your actual YouTube ID -->
-            <iframe src="https://www.youtube.com/embed/your_video_id_1" class="absolute inset-0 w-full h-full border-0" allowfullscreen></iframe>
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">GeoGebra Tutorial</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Graphing Linear Functions</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Visual slope derivations and coordinate shifts demonstrated using dynamic visual blocks.</p>
           </div>
-          <div class="p-6">
-            <h3 class="text-lg font-bold">Geometrical Trigonometry Derivations</h3>
-            <p class="text-sm text-gray-500 mt-2">Deducing fundamental trigonometric relationships from unit circle proportions intuitively.</p>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/yoqzDCxpUtY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
           </div>
         </div>
 
         <!-- Video 2 -->
-        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col">
-          <div class="aspect-w-16 aspect-h-9 relative bg-black" style="height: 280px;">
-            <!-- REPLACE 'your_video_id_2' with your actual YouTube ID -->
-            <iframe src="https://www.youtube.com/embed/your_video_id_2" class="absolute inset-0 w-full h-full border-0" allowfullscreen></iframe>
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Logo Programming</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Visual FMSLogo Artistry</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing Tamil script vectors, geometric English alphabets, and recursive Indian Rangoli symmetry.</p>
           </div>
-          <div class="p-6">
-            <h3 class="text-lg font-bold">Vector Algebra & Simple Harmonic Curves</h3>
-            <p class="text-sm text-gray-500 mt-2">Witnessing simple circular animations translate into algebraic sine coordinates.</p>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/x40e9AEIidQ" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
           </div>
         </div>
+
+        <!-- Video 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Algebra & Geometry</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Interactive GeoGebra Guide</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn complex Cartesian geometry constructions and equation parameters the fun way.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/m0FF0iLFb8o" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Physics Lab</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Air Resistance vs. Gravity</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Simulating the vertical velocity motion of Red and Blue spheres under fluid dynamics.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/9oF9Lx81dRY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Arithmetics</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Digital Root Concepts</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding mathematical modulo properties and practical numerical applications.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/FpjiiMMNISs" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
+        <!-- Video 6 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Geometry</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Square Root Spiral</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">How irrational length lines map recursively to trace Fibonacci structures in Class 9.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/z_LQaPIbdX4" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
+        <!-- Video 7 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Turtle Graphics</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">English Alphabets Loop</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Programming basic letter coordinates recursively to draw complex patterns in FMSLogo.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/Ag4C6tUrIT8" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
+        <!-- Video 8 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Prime Numbers</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Sieve of Eratosthenes</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">A live animated grid showing prime filtration algorithms in real time.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/RTxf6eVpMrs" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
+        <!-- Video 9 -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
+          <div class="p-5">
+            <span class="text-teal-600 text-xs font-bold uppercase">Coding Tutorial</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">MSWLogo English Tutorial</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn turtle graphics from scratch with live examples in under 15 minutes.</p>
+          </div>
+          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
+            <a href="https://youtu.be/lkB6SEp1LBU" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          </div>
+        </div>
+
       </div>
 
       <div class="text-center mt-12">
-        <a href="https://www.youtube.com/@SandGranule" target="_blank" class="btn-primary" style="background-color: #dc2626; border-color: #dc2626; color: #ffffff !important;">
-          <i class="fab fa-youtube mr-2"></i>Subscribe to Sand Granule
+        <a href="https://www.youtube.com/@sandgranule4056" target="_blank" class="btn-contrast-primary" style="background-color: #dc2626; border-color: #dc2626; color: #ffffff !important;">
+          <i class="fab fa-youtube mr-2"></i>Subscribe to Sand Granule Channel
         </a>
       </div>
     </div>
@@ -482,23 +621,23 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         <!-- Download 1 -->
         <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
-          <h4 class="font-bold text-gray-900">MCQ Exam Hacks Worksheet</h4>
+          <h4 class="font-bold text-gray-900 text-sm sm:text-base">MCQ Exam Hacks Worksheet</h4>
           <p class="text-xs text-gray-500 mt-1 mb-4">20 high-yield questions with side-by-side slow vs. fast solution blueprints.</p>
-          <a href="cbse_class_10_math_mcq_hacks_worksheet-v3.pdf" download class="btn-secondary w-full">Download PDF</a>
+          <a href="cbse_class_10_math_mcq_hacks_worksheet-v3.pdf" download class="btn-contrast-secondary w-full">Download PDF</a>
         </div>
 
         <!-- Download 2 -->
         <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
-          <h4 class="font-bold text-gray-900">Step-Marking Poster</h4>
+          <h4 class="font-bold text-gray-900 text-sm sm:text-base">Step-Marking Poster</h4>
           <p class="text-xs text-gray-500 mt-1 mb-4">Printable classroom poster outlining the 4 crucial board grading milestones.</p>
-          <a href="cbse_step_marking_poster.pdf" download class="btn-secondary w-full">Download PDF</a>
+          <a href="cbse_step_marking_poster.pdf" download class="btn-contrast-secondary w-full">Download PDF</a>
         </div>
 
         <!-- Download 3 -->
         <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
-          <h4 class="font-bold text-gray-900">Section D & E Companion</h4>
+          <h4 class="font-bold text-gray-900 text-sm sm:text-base">Section D & E Companion</h4>
           <p class="text-xs text-gray-500 mt-1 mb-4">Expert tips for tackling long 5-mark templates and extracting Case Study DNA.</p>
-          <a href="cbse-class-10-math-5-mark-and-case-study-guide.pdf" download class="btn-secondary w-full">Download PDF</a>
+          <a href="cbse-class-10-math-5-mark-and-case-study-guide.pdf" download class="btn-contrast-secondary w-full">Download PDF</a>
         </div>
       </div>
     </div>
@@ -509,8 +648,8 @@
     <p class="text-sm">&copy; 2026 S. Rajarajan. All rights reserved. Mathematical visualization through technology.</p>
     <div class="mt-4 flex justify-center space-x-6 text-lg">
       <a href="https://github.com/psrajarajan" target="_blank" class="hover:text-white transition"><i class="fab fa-github"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/rajarajan-seetharaman" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/@sandgranule4056" target="_blank" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
     </div>
   </footer>
 
