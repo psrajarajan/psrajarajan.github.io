@@ -27,66 +27,69 @@
       background: radial-gradient(circle at 50% 50%, rgba(13, 148, 136, 0.15) 0%, transparent 60%);
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(226, 232, 240, 0.8);
+      border: 1px solid rgba(226, 232, 240, 0.9);
     }
     .hover-lift {
       transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
     }
     .hover-lift:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 25px -5px rgba(13, 148, 136, 0.1), 0 10px 10px -5px rgba(13, 148, 136, 0.04);
+      box-shadow: 0 20px 25px -5px rgba(13, 148, 136, 0.15), 0 10px 10px -5px rgba(13, 148, 136, 0.06);
     }
-    /* HIGH-CONTRAST ACCESSIBILITY BUTTON STYLING */
+    
+    /* ACCESSIBILITY COMPLIANT HIGH-CONTRAST STYLING */
     .btn-contrast-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: #0f172a; /* Solid Deep Slate Dark */
-      color: #facc15 !important; /* High-Contrast Vibrant Gold */
-      border: 2px solid #0f172a;
+      background-color: #0f172a; /* Solid Deep Slate */
+      color: #fbbf24 !important; /* Bold high-contrast gold yellow */
+      border: 3px solid #0f172a;
       text-decoration: none;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
-      font-weight: 800; /* Ultra Bold */
+      padding: 0.85rem 1.75rem;
+      border-radius: 10px;
+      font-weight: 850; /* Ultra prominent bold */
       font-size: 0.95rem;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.25);
       cursor: pointer;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.075em;
     }
     .btn-contrast-primary:hover {
       background-color: #1e293b;
       border-color: #1e293b;
-      color: #fef08a !important; /* Extremely bright yellow on hover */
-      transform: scale(1.02);
-      box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.3);
+      color: #fef08a !important; /* Lighter yellow on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.35);
     }
+    
     .btn-contrast-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background-color: #ffffff;
-      color: #0f172a !important; /* Deep Slate dark text */
-      border: 3px solid #0f172a; /* Double thickness dark border */
+      color: #0f172a !important; /* Deep Slate text */
+      border: 3px solid #0f172a; /* Ultra thick dark outline */
       text-decoration: none;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
-      font-weight: 800;
+      padding: 0.85rem 1.75rem;
+      border-radius: 10px;
+      font-weight: 850;
       font-size: 0.95rem;
       transition: all 0.2s ease;
       cursor: pointer;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.075em;
     }
     .btn-contrast-secondary:hover {
       background-color: #f1f5f9;
       color: #1e293b !important;
-      transform: scale(1.02);
+      transform: translateY(-2px);
     }
-    /* Custom scrollbar styling for the horizontal galleries */
+
+    /* Horizontal scrollbar custom properties */
     .scrollbar-thin::-webkit-scrollbar {
       height: 10px;
     }
@@ -119,22 +122,22 @@
         <a href="#geogebra" class="hover:text-teal-600 transition py-1">GeoGebra Lab</a>
         <a href="#fmslogo" class="hover:text-teal-600 transition py-1">FMSLogo Art</a>
         <a href="#apps" class="hover:text-teal-600 transition py-1">Flutter Apps</a>
-        <a href="#youtube" class="hover:text-teal-600 transition py-1">YouTube</a>
+        <a href="#youtube" class="hover:text-teal-600 transition py-1">YouTube Channel</a>
         <a href="#workshops" class="hover:text-teal-600 transition text-teal-600 font-bold py-1">Board Seminars</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <header class="relative overflow-hidden py-20 px-6 hero-glow">
+  <header class="relative overflow-hidden py-24 px-6 hero-glow">
     <div class="max-w-5xl mx-auto text-center relative z-10">
-      <span class="bg-teal-50 text-teal-700 border border-teal-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Educator · Engineer · Developer</span>
+      <span class="bg-teal-50 text-teal-700 border border-teal-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Educator · Automation Engineer · Mobile Developer</span>
       <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-none">
         Making Mathematics <br class="hidden md:block">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">Tangible & Interactive</span>
       </h1>
       <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-        Bridging abstract mathematical logic, recursive visual shapes, and high-performance software frameworks to illuminate standard math curriculums.
+        Bridging analytical logic, computer-aided shapes, and fast mobile application architectures to change how high school students discover math.
       </p>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a href="#workshops" class="btn-contrast-primary">Explore Revision Workshops</a>
@@ -143,67 +146,70 @@
     </div>
   </header>
 
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
+
   <!-- BIOGRAPHY / ABOUT ME SECTION -->
-  <section id="about" class="py-16 px-6 bg-white border-t border-gray-100">
+  <section id="about" class="py-16 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">My Journey</span>
+        <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">My Background</span>
         <h2 class="text-3xl font-extrabold text-gray-900 mt-4">About S. Rajarajan</h2>
-        <p class="text-gray-500 mt-2">A unique convergence of engineering expertise, software development, and mathematical storytelling.</p>
+        <p class="text-gray-500 mt-2">A unique convergence of heavy engineering systems, custom software development, and math visualization.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <!-- Main Narrative bio -->
-        <div class="lg:col-span-2 space-y-6 text-gray-600 leading-relaxed text-base">
+        <!-- Narrative biography text -->
+        <div class="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed text-base">
           <p>
-            Welcome! I am **S. Rajarajan**, a passionate educator, mobile developer, and control engineer on a mission to transform the way high school students understand and interact with mathematics.
+            Hello! I am **S. Rajarajan**, an educator and developer on a mission to simplify mathematics. I graduated with a **Bachelor of Science (B.Sc) degree in Physics (1973-76)** from Sacred Heart College, Tirupathur, and went on to complete a **Bachelor of Technology (B.Tech) in Instrument Technology (1976-79)** from the prestigious **Madras Institute of Technology (MIT), Chennai**, India.
           </p>
           <p>
-            Following a highly successful **37-year international career** in industrial automation across major sectors, I returned to my lifelong passion: teaching. Since 2016, I have designed tools and conducted specialized **one-day board prep revision seminars** to help Class 10 students overcome rote learning and achieve top marks through logic and visual reasoning.
+            For nearly four decades (1979-2016), I worked globally as an engineering professional in **Fertilizer, Oil & Gas, and Control & Automation Engineering Industries**. This career allowed me to design and troubleshoot highly complex real-time safety systems across **India, Saudi Arabia, Singapore, Brunei, and Kazakhstan**.
           </p>
           <p>
-            By combining my engineering rigor with visual engines like **GeoGebra**, vector turtle-drawing in **FMSLogo**, and modern cross-platform development in **Flutter**, I build interactive pipelines that bring abstract geometry and formulas to life.
+            Throughout my engineering career, my true passion was teaching **Mathematics and Computer Science** to high school students. Since retiring in 2016, I have dedicated myself fully to educating, designing software tools, and conducting intensive **Class 10 board prep workshops** that empower students to secure maximum exam scores through visualization and analytical logic.
           </p>
           
-          <!-- Rapid credentials overview grid -->
+          <!-- Rapid links layout -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-gray-100 pt-6">
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fas fa-graduation-cap"></i></div>
-              <span class="text-sm font-semibold text-gray-700">MIT Chennai B.Tech Alumnus</span>
+              <span class="text-sm font-semibold text-gray-800">MIT Chennai B.Tech Graduate</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fas fa-globe-americas"></i></div>
-              <span class="text-sm font-semibold text-gray-700">Served Globally Across 5 Nations</span>
+              <span class="text-sm font-semibold text-gray-800">37 Years International Systems Career</span>
             </div>
             <div class="flex items-center space-x-3">
               <div class="text-teal-600 text-xl"><i class="fas fa-mobile-alt"></i></div>
-              <span class="text-sm font-semibold text-gray-700">Android Developer (20k+ Downloads)</span>
+              <span class="text-sm font-semibold text-gray-800">Flutter Developer (20k+ Downloads)</span>
             </div>
             <div class="flex items-center space-x-3">
-              <div class="text-teal-600 text-xl"><i class="fab fa-youtube text-red-500"></i></div>
-              <span class="text-sm font-semibold text-gray-700">Youtube Creator ("Sand Granule")</span>
+              <div class="text-teal-600 text-xl"><i class="fab fa-youtube text-red-600"></i></div>
+              <span class="text-sm font-semibold text-gray-800">Creator of "Sand Granule" on YouTube</span>
             </div>
           </div>
         </div>
 
-        <!-- Vertical Timeline Card -->
+        <!-- Vertical Interactive Timeline -->
         <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-inner">
-          <h3 class="text-lg font-bold text-gray-800 border-b border-gray-200 pb-3 mb-4"><i class="fas fa-history text-teal-600 mr-2"></i>Professional Timeline</h3>
+          <h3 class="text-lg font-bold text-gray-800 border-b border-gray-200 pb-3 mb-4"><i class="fas fa-history text-teal-600 mr-2"></i>Career Timeline</h3>
           <div class="relative border-l-2 border-teal-200 ml-3 space-y-6">
             
             <!-- Timeline Item 1 -->
             <div class="relative pl-6">
               <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">1973 &ndash; 1976</span>
-              <h4 class="font-bold text-gray-800 text-sm">B.Sc. Degree (Physics)</h4>
-              <p class="text-xs text-gray-500">Sacred Heart College, Tirupathur, India</p>
+              <h4 class="font-bold text-gray-800 text-sm">B.Sc. Physics Degree</h4>
+              <p class="text-xs text-gray-500">Sacred Heart College, Tirupathur</p>
             </div>
 
             <!-- Timeline Item 2 -->
             <div class="relative pl-6">
               <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">1976 &ndash; 1979</span>
-              <h4 class="font-bold text-gray-800 text-sm">B.Tech. (Instrument Technology)</h4>
+              <h4 class="font-bold text-gray-800 text-sm">B.Tech. Instrument Technology</h4>
               <p class="text-xs text-gray-500">Madras Institute of Technology (MIT), Chennai</p>
             </div>
 
@@ -211,16 +217,16 @@
             <div class="relative pl-6">
               <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">1979 &ndash; 2016</span>
-              <h4 class="font-bold text-gray-800 text-sm">Industrial Control Engineer</h4>
-              <p class="text-xs text-gray-500">Fertilizer, Oil & Gas Control Systems in India, Saudi Arabia, Singapore, Brunei, and Kazakhstan.</p>
+              <h4 class="font-bold text-gray-800 text-sm">Global Control Systems Engineer</h4>
+              <p class="text-xs text-gray-500">Automation engineering across India, Saudi Arabia, Singapore, Brunei, and Kazakhstan.</p>
             </div>
 
             <!-- Timeline Item 4 -->
             <div class="relative pl-6">
               <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
               <span class="text-xs font-bold text-teal-600 block">2016 &ndash; Present</span>
-              <h4 class="font-bold text-gray-800 text-sm">Math Revision Specialist</h4>
-              <p class="text-xs text-gray-500">Deploying instructional software, educational videos, and leading high-yield student board prep seminars.</p>
+              <h4 class="font-bold text-gray-800 text-sm">Math Educator & Developer</h4>
+              <p class="text-xs text-gray-500">Conducting revision seminars, coding educational apps, and designing visual models.</p>
             </div>
 
           </div>
@@ -229,8 +235,11 @@
     </div>
   </section>
 
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
+
   <!-- SECTION 1: STANDALONE DIVISIBILITY APPS -->
-  <section id="divisibility" class="py-16 px-6 bg-white border-y border-gray-200">
+  <section id="divisibility" class="py-16 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
       <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Interactive App</span>
       <h2 class="text-3xl font-extrabold text-gray-900 mt-4">Interactive Divisibility Explorer</h2>
@@ -248,6 +257,9 @@
       </div>
     </div>
   </section>
+
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
 
   <!-- SECTION 2: GEOGEBRA LAB PREVIEWS (HORIZONTALLY SCROLLABLE CAROUSEL) -->
   <section id="geogebra" class="py-16 px-6">
@@ -330,8 +342,11 @@
     </div>
   </section>
 
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
+
   <!-- SECTION 3: FMSLOGO MATHEMATICAL ART GALLERY (HORIZONTALLY SCROLLABLE CAROUSEL) -->
-  <section id="fmslogo" class="py-16 px-6 bg-white border-y border-gray-200">
+  <section id="fmslogo" class="py-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
@@ -361,8 +376,11 @@
     </div>
   </section>
 
-  <!-- SECTION 4: FLUTTER APP SHOWCASE (20,000+ DOWNLOADS REVEAL) -->
-  <section id="apps" class="py-16 px-6">
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
+
+  <!-- SECTION 4: FLUTTER APP SHOWCASE (LIGHT BACKGROUND & LEGIBLE HIGH-CONTRAST LABELS) -->
+  <section id="apps" class="py-16 px-6 bg-gray-50">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
         <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Mobile App Engineering</span>
@@ -370,90 +388,94 @@
         <p class="text-gray-500 mt-2">High-performance production apps engineered for interactive mathematical and devotional education.</p>
       </div>
 
-      <!-- Left-Right Grid for App Layout -->
-      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-teal-800 to-emerald-950 rounded-3xl text-white p-8 md:p-12 shadow-2xl relative overflow-hidden">
+      <!-- Left-Right Grid: White background container to solve contrast/illegibility issue -->
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
         
         <!-- Floating downloads badge -->
-        <div class="absolute -right-8 -top-8 bg-emerald-500 text-white w-32 h-32 rounded-full flex items-center justify-center font-bold text-center text-xs transform rotate-12 pt-6 pl-4 border border-emerald-400">
+        <div class="absolute -right-8 -top-8 bg-emerald-500 text-white w-32 h-32 rounded-full flex items-center justify-center font-extrabold text-center text-xs transform rotate-12 pt-6 pl-4 border border-emerald-400">
           20,000+<br>Downloads
         </div>
 
-        <!-- Left: Image Source (playstore-apps.png) -->
+        <!-- Left: playstore-apps.png Image Source -->
         <div class="lg:col-span-5 flex justify-center">
-          <img src="playstore-apps.png" alt="Google Play Store App Mockups" class="rounded-2xl shadow-lg border-4 border-teal-700 max-h-96 object-contain" onerror="this.src='https://placehold.co/400x500/0d9488/ffffff?text=Flutter+Android+Apps'">
+          <img src="playstore-apps.png" alt="Google Play Store App Screenshots" class="rounded-2xl shadow-md border border-gray-200 max-h-96 object-contain" onerror="this.src='https://placehold.co/400x500/0d9488/ffffff?text=Flutter+Android+Apps'">
         </div>
 
-        <!-- Right: Content & List of 6 Apps -->
-        <div class="lg:col-span-7 relative z-10">
-          <span class="bg-teal-700 text-teal-200 border border-teal-600 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Play Store Portfolio</span>
-          <h3 class="text-3xl font-extrabold mt-4">Featured Android Devotional & Walk Tools</h3>
-          <p class="text-teal-100 mt-4 leading-relaxed text-sm sm:text-base">
-            Engineered beautiful, offline-capable mobile tools featuring Tamil/Sanskrit scripts, local sqlite indexing databases, and fluid, responsive interfaces.
+        <!-- Right: Fully legible dark slate content and 6 Google Play buttons -->
+        <div class="lg:col-span-7 relative z-10 text-gray-800">
+          <span class="bg-teal-100 text-teal-800 border border-teal-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Featured App Suite</span>
+          <h3 class="text-3xl font-extrabold text-gray-900 mt-4">Devotional & Practical Software Utilities</h3>
+          <p class="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
+            These applications are designed to provide lightning-fast, offline-first access to Tamil scriptures, health programs, and utility calculations. One of my featured applications has already crossed **20,000+ downloads** in the Play Store!
           </p>
 
-          <!-- 6 App download buttons grid -->
-          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.vel_maaral" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
-              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+          <!-- App Store Direct Download Links -->
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.vel_maaral" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3 rounded-xl transition">
+              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
               <div class="text-left">
-                <span class="text-xs text-teal-300 block">Devotional App</span>
-                <span class="font-bold text-xs">Vel Maaral</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="font-extrabold text-xs text-gray-900">Vel Maaral</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.sundara_kandam" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
-              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.sundara_kandam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3 rounded-xl transition">
+              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
               <div class="text-left">
-                <span class="text-xs text-teal-300 block">Devotional App</span>
-                <span class="font-bold text-xs">Sundara Kandam</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="font-extrabold text-xs text-gray-900">Sundara Kandam</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.aditya_hrudayam" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
-              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.aditya_hrudayam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3 rounded-xl transition">
+              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
               <div class="text-left">
-                <span class="text-xs text-teal-300 block">Devotional App</span>
-                <span class="font-bold text-xs">Aditya Hrudayam</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="font-extrabold text-xs text-gray-900">Aditya Hrudayam</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.infinity_walk" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
-              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.infinity_walk" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3 rounded-xl transition">
+              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
               <div class="text-left">
-                <span class="text-xs text-teal-300 block">Health Tool</span>
-                <span class="font-bold text-xs">Infinity Walk</span>
+                <span class="text-xs text-teal-700 block font-semibold">Health & Exercise</span>
+                <span class="font-extrabold text-xs text-gray-900">Infinity Walk</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.kandaguru_kavasam" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
-              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.kandaguru_kavasam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3 rounded-xl transition">
+              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
               <div class="text-left">
-                <span class="text-xs text-teal-300 block">Devotional App</span>
-                <span class="font-bold text-xs">Kanda Guru Kavasam</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="font-extrabold text-xs text-gray-900">Kanda Guru Kavasam</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.safe_delivery" target="_blank" class="flex items-center space-x-3 bg-teal-900 bg-opacity-40 hover:bg-opacity-80 border border-teal-700 p-3.5 rounded-xl transition">
-              <div class="text-emerald-400 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.safe_delivery" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3 rounded-xl transition">
+              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
               <div class="text-left">
-                <span class="text-xs text-teal-300 block">Utility App</span>
-                <span class="font-bold text-xs">Safe Delivery</span>
+                <span class="text-xs text-teal-700 block font-semibold">Medical Utility</span>
+                <span class="font-extrabold text-xs text-gray-900">Safe Delivery</span>
               </div>
             </a>
+
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 REAL CHANNELS GRID) -->
-  <section id="youtube" class="py-16 px-6 bg-white border-y border-gray-200">
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
+
+  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 CURATED CHANNELS GRID) -->
+  <section id="youtube" class="py-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
         <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Video Education</span>
         <h2 class="text-3xl font-bold text-gray-900 mt-4">Sand Granule YouTube Workspace</h2>
-        <p class="text-gray-500 mt-2">Core mathematical visualizations and logical derivations published on my education workspace.</p>
+        <p class="text-gray-500 mt-2">Core mathematical visualizations, physics experiments, and logical derivations published on my educational channel.</p>
       </div>
 
       <!-- 9 Video lessons grid -->
@@ -462,12 +484,12 @@
         <!-- Video 1 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">GeoGebra Tutorial</span>
-            <h3 class="font-bold text-gray-800 text-base mt-1">Graphing Linear Functions</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Visual slope derivations and coordinate shifts demonstrated using dynamic visual blocks.</p>
+            <span class="text-teal-600 text-xs font-bold uppercase">GeoGebra Lab</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Graphing Linear Functions in GeoGebra</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding coordinate translations, lines, and slope behaviors in Cartesian spaces.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/yoqzDCxpUtY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/yoqzDCxpUtY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
@@ -475,23 +497,23 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
             <span class="text-teal-600 text-xs font-bold uppercase">Logo Programming</span>
-            <h3 class="font-bold text-gray-800 text-base mt-1">Visual FMSLogo Artistry</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing Tamil script vectors, geometric English alphabets, and recursive Indian Rangoli symmetry.</p>
+            <h3 class="font-bold text-gray-800 text-base mt-1">FMSLogo Visual Coding</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">How recursive lines create typography paths, Tamil alphabets, and geometric Rangoli symmetry.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/x40e9AEIidQ" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/x40e9AEIidQ" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
         <!-- Video 3 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">Algebra & Geometry</span>
-            <h3 class="font-bold text-gray-800 text-base mt-1">Interactive GeoGebra Guide</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn complex Cartesian geometry constructions and equation parameters the fun way.</p>
+            <span class="text-teal-600 text-xs font-bold uppercase">Tutorial Guide</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">GeoGebra Interactive Guide</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">A complete walkthrough to master Cartesian geometry models in school classrooms.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/m0FF0iLFb8o" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/m0FF0iLFb8o" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
@@ -500,70 +522,70 @@
           <div class="p-5">
             <span class="text-teal-600 text-xs font-bold uppercase">Physics Lab</span>
             <h3 class="font-bold text-gray-800 text-base mt-1">Air Resistance vs. Gravity</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Simulating the vertical velocity motion of Red and Blue spheres under fluid dynamics.</p>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Visualizing terminal velocity and freefall friction using animated Red and Blue balls.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/9oF9Lx81dRY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/9oF9Lx81dRY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
         <!-- Video 5 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">Arithmetics</span>
+            <span class="text-teal-600 text-xs font-bold uppercase">Number Systems</span>
             <h3 class="font-bold text-gray-800 text-base mt-1">Digital Root Concepts</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding mathematical modulo properties and practical numerical applications.</p>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding underlying arithmetic properties and practical module-9 arithmetic shortcuts.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/FpjiiMMNISs" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/FpjiiMMNISs" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
         <!-- Video 6 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">Geometry</span>
-            <h3 class="font-bold text-gray-800 text-base mt-1">Square Root Spiral</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">How irrational length lines map recursively to trace Fibonacci structures in Class 9.</p>
+            <span class="text-teal-600 text-xs font-bold uppercase">Geometry Spiral</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Class-9 Square Root Spiral</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing and proving irrational square roots step-by-step on drawing planes.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/z_LQaPIbdX4" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/z_LQaPIbdX4" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
         <!-- Video 7 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">Turtle Graphics</span>
-            <h3 class="font-bold text-gray-800 text-base mt-1">English Alphabets Loop</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Programming basic letter coordinates recursively to draw complex patterns in FMSLogo.</p>
+            <span class="text-teal-600 text-xs font-bold uppercase">Turtle Loops</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">Repeating English Alphabets</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Symmetric repetition loops utilizing the MSWLogo/FMSLogo drawing terminal.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/Ag4C6tUrIT8" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/Ag4C6tUrIT8" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
         <!-- Video 8 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">Prime Numbers</span>
+            <span class="text-teal-600 text-xs font-bold uppercase">Sieve Filtrations</span>
             <h3 class="font-bold text-gray-800 text-base mt-1">Sieve of Eratosthenes</h3>
-            <p class="text-xs text-gray-500 mt-1 leading-relaxed">A live animated grid showing prime filtration algorithms in real time.</p>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Filtration of composite integers to isolate primes dynamically on grid structures.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/RTxf6eVpMrs" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/RTxf6eVpMrs" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
         <!-- Video 9 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col justify-between">
           <div class="p-5">
-            <span class="text-teal-600 text-xs font-bold uppercase">Coding Tutorial</span>
-            <h3 class="font-bold text-gray-800 text-base mt-1">MSWLogo English Tutorial</h3>
+            <span class="text-teal-600 text-xs font-bold uppercase">Logo Programming</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">MSWLogo Tutorial in English</h3>
             <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn turtle graphics from scratch with live examples in under 15 minutes.</p>
           </div>
-          <div class="p-5 border-t border-gray-100 bg-gray-50 flex items-center justify-between">
-            <a href="https://youtu.be/lkB6SEp1LBU" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video</a>
+          <div class="p-5 border-t border-gray-100 bg-gray-50">
+            <a href="https://youtu.be/lkB6SEp1LBU" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch Video Lesson</a>
           </div>
         </div>
 
@@ -576,6 +598,9 @@
       </div>
     </div>
   </section>
+
+  <!-- SECTION DIVIDER -->
+  <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
 
   <!-- SECTION 6: SEMINARS & PDF LEAD MAGNETS -->
   <section id="workshops" class="py-16 px-6 bg-teal-50">
