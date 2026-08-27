@@ -318,7 +318,7 @@
       <!-- Horizontal Scroll Wrapper (Compact w-64 cards with minimum space margins matching FMSLogo) -->
       <div class="relative">
         <div id="geogebra-scroll-container" class="flex overflow-x-auto space-x-3 pb-6 scroll-smooth snap-x snap-mandatory scrollbar-thin" style="-webkit-overflow-scrolling: touch;">
-          <!-- JavaScript automatically generates and injects all 9 clickable GeoGebra images here -->
+          <!-- JavaScript automatically generates and injects all 8 clickable GeoGebra images here -->
         </div>
       </div>
     </div>
@@ -697,39 +697,36 @@
 
   <!-- DYNAMIC IMAGE LOADER SCRIPT -->
   <script>
-    // 1. DYNAMICALLY GENERATE GEOGEBRA SCROLL CAROUSEL (Fully viewable on click and opens in a new tab)
+    // 1. DYNAMICALLY GENERATE GEOGEBRA SCROLL CAROUSEL (Fully viewable on click and opens in a new tab, 8 images total)
     const geogebraContainer = document.getElementById('geogebra-scroll-container');
-    const totalGeoGebra = 9;
+    const totalGeoGebra = 8;
     const geogebraData = [
-      { category: "Linear Functions", desc: "Graphing Linear Functions in GeoGebra" },
-      { category: "Quadratic Equations", desc: "Quadratic Parabola Vertex Tracing" },
-      { category: "Trigonometry", desc: "Sine and Cosine Periodic Waves" },
-      { category: "Polynomials", desc: "Polynomial Zeroes & Intercepts" },
-      { category: "Linear Equations", desc: "Intersection & Consistency Ratios" },
-      { category: "Triangles Geometry", desc: "Basic Proportionality Theorem Verification" },
-      { category: "Circles Geometry", desc: "Tangent Perpendicularity (Theorem 10.1)" },
-      { category: "Circle Areas", desc: "Sector Area & Arc Length Calculus" },
-      { category: "Arithmetic Progressions", desc: "Common Difference Vector Visual" }
+      "Gaphing of Linear Function",
+      "One Triangle-Five Centers",
+      "Pythagoras Theorem Proof",
+      "Quadrilateral Circumscribing Circle",
+      "Graphing of Quadratic Function",
+      "Ratio of Line Segments",
+      "Trigonometric Ratios-Sine,Cosine,Tangent",
+      "Thales' Theorem-Excercise"
     ];
 
     for (let i = 1; i <= totalGeoGebra; i++) {
-      const data = geogebraData[i - 1];
+      const title = geogebraData[i - 1];
       const cardHTML = `
         <div class="flex-none w-64 bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start m-1">
           <a href="geogebra/${i}.png" target="_blank" title="Click to view full size">
             <div class="h-52 bg-slate-900 relative overflow-hidden group flex items-center justify-center p-3">
               <!-- object-contain and padding keep images inside the frame borders beautifully -->
-              <img src="geogebra/${i}.png" alt="GeoGebra Screenshot ${i}" class="w-full h-full object-contain transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0f172a/ffffff?text=GeoGebra+Lab+${i}'">
-              <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">${data.category}</div>
+              <img src="geogebra/${i}.png" alt="${title}" class="w-full h-full object-contain transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0f172a/ffffff?text=GeoGebra+Lab+${i}'">
               <!-- Floating zoom overlay on hover -->
               <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
               </div>
             </div>
           </a>
-          <div class="p-5">
-            <h4 class="font-bold text-gray-800 text-sm">GeoGebra Lab #${i}</h4>
-            <p class="text-xs text-gray-500 mt-1">${data.desc}</p>
+          <div class="p-5 text-center">
+            <h4 class="font-extrabold text-gray-800 text-sm tracking-tight text-center">${title}</h4>
           </div>
         </div>
       `;
