@@ -158,9 +158,28 @@
         <p class="text-gray-500 mt-2">A unique convergence of heavy engineering systems, custom software development, and math visualization.</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <!-- Narrative biography text (bolding issues completely resolved using <strong> tags) -->
-        <div class="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed text-base">
+      <!-- Left-Right Grid for Portrait & Bio Narrative -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left: Photo Card -->
+        <div class="lg:col-span-4 flex flex-col items-center text-center">
+          <div class="relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-teal-600 to-emerald-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <img src="rajarajan-photo.png" alt="S. Rajarajan Profile Photo" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-white shadow-2xl object-cover" onerror="this.src='https://placehold.co/300x300/0d9488/ffffff?text=S.+Rajarajan'">
+          </div>
+          <h3 class="mt-5 text-xl font-bold text-gray-900">S. Rajarajan</h3>
+          <p class="text-xs text-teal-600 font-extrabold uppercase tracking-wide mt-1">Educator & Retired Systems Professional</p>
+          
+          <!-- Download/View Certificate Button -->
+          <div class="mt-6 w-full px-4">
+            <a href="Rajarajan-AI tools-Certificate.pdf" target="_blank" class="btn-contrast-primary w-full text-center text-xs">
+              <i class="fas fa-certificate mr-2 text-yellow-400 animate-pulse"></i> View AI Tools Certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Biography narrative text -->
+        <div class="lg:col-span-8 space-y-6 text-gray-700 leading-relaxed text-base">
           <p>
             Hello! I am <strong>S. Rajarajan</strong>, an educator and developer on a mission to simplify mathematics. I graduated with a <strong>Bachelor of Science (B.Sc) degree in Physics (1973-76)</strong> from Sacred Heart College, Tirupathur, and went on to complete a <strong>Bachelor of Technology (B.Tech) in Instrument Technology (1976-79)</strong> from the prestigious <strong>Madras Institute of Technology (MIT), Chennai</strong>, India.
           </p>
@@ -192,46 +211,61 @@
           </div>
         </div>
 
-        <!-- Vertical Interactive Timeline -->
-        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-inner">
-          <h3 class="text-lg font-bold text-gray-800 border-b border-gray-200 pb-3 mb-4"><i class="fas fa-history text-teal-600 mr-2"></i>Career Timeline</h3>
-          <div class="relative border-l-2 border-teal-200 ml-3 space-y-6">
-            
-            <!-- Timeline Item 1 -->
-            <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
-              <span class="text-xs font-bold text-teal-600 block">1973 &ndash; 1976</span>
-              <h4 class="font-bold text-gray-800 text-sm">B.Sc. Physics Degree</h4>
-              <p class="text-xs text-gray-500">Sacred Heart College, Tirupathur</p>
-            </div>
+      </div>
 
-            <!-- Timeline Item 2 -->
-            <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
-              <span class="text-xs font-bold text-teal-600 block">1976 &ndash; 1979</span>
-              <h4 class="font-bold text-gray-800 text-sm">B.Tech. Instrument Technology</h4>
-              <p class="text-xs text-gray-500">Madras Institute of Technology (MIT), Chennai</p>
-            </div>
-
-            <!-- Timeline Item 3 -->
-            <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
-              <span class="text-xs font-bold text-teal-600 block">1979 &ndash; 2016</span>
-              <h4 class="font-bold text-gray-800 text-sm">Global Control Systems Engineer</h4>
-              <p class="text-xs text-gray-500">Automation engineering across India, Saudi Arabia, Singapore, Brunei, and Kazakhstan.</p>
-            </div>
-
-            <!-- Timeline Item 4 -->
-            <div class="relative pl-6">
-              <div class="absolute -left-1.5 top-1.5 bg-teal-600 w-3 h-3 rounded-full"></div>
-              <span class="text-xs font-bold text-teal-600 block">2016 &ndash; Present</span>
-              <h4 class="font-bold text-gray-800 text-sm">Math Educator & Developer</h4>
-              <p class="text-xs text-gray-500">Conducting revision seminars, coding educational apps, and designing visual models.</p>
-            </div>
-
+      <!-- Professional Timeline Box -->
+      <div class="mt-12 bg-gray-50 border border-gray-200 rounded-3xl p-6 md:p-8 max-w-4xl mx-auto">
+        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-200 pb-3 mb-6"><i class="fas fa-history text-teal-600 mr-2"></i>Career Timeline</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="border-l-4 border-teal-500 pl-4 py-1">
+            <span class="text-xs font-bold text-teal-600 block">1973 &ndash; 1976</span>
+            <h4 class="font-extrabold text-gray-900 text-sm mt-1">B.Sc. Physics</h4>
+            <p class="text-xs text-gray-500 mt-1">Sacred Heart College, Tirupathur</p>
+          </div>
+          <div class="border-l-4 border-teal-500 pl-4 py-1">
+            <span class="text-xs font-bold text-teal-600 block">1976 &ndash; 1979</span>
+            <h4 class="font-extrabold text-gray-900 text-sm mt-1">B.Tech. Instrumentation</h4>
+            <p class="text-xs text-gray-500 mt-1">Madras Institute of Technology (MIT), Chennai</p>
+          </div>
+          <div class="border-l-4 border-teal-500 pl-4 py-1">
+            <span class="text-xs font-bold text-teal-600 block">1979 &ndash; 2016</span>
+            <h4 class="font-extrabold text-gray-900 text-sm mt-1">Systems Engineer</h4>
+            <p class="text-xs text-gray-500 mt-1">Oil, Gas & Chemical Plants globally.</p>
+          </div>
+          <div class="border-l-4 border-teal-500 pl-4 py-1">
+            <span class="text-xs font-bold text-teal-600 block">2016 &ndash; Present</span>
+            <h4 class="font-extrabold text-gray-900 text-sm mt-1">Math Revisionist</h4>
+            <p class="text-xs text-gray-500 mt-1">Revision seminars & dynamic software tools.</p>
           </div>
         </div>
       </div>
+
+      <!-- Classroom Action Photos Sub-section -->
+      <div class="mt-16 border-t border-gray-150 pt-12">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-extrabold text-gray-900"><i class="fas fa-chalkboard-teacher text-teal-600 mr-2"></i>Seminars & Classrooms in Action</h3>
+          <p class="text-sm text-gray-500 mt-1">Leading Class 10 board exam preparation revision sessions for school campuses.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Class Photo 1 -->
+          <div class="relative group rounded-2xl overflow-hidden border border-gray-250 shadow-md hover-lift">
+            <img src="Class-photo-1.png" alt="S. Rajarajan conducting seminar" class="w-full h-72 object-cover" onerror="this.src='https://placehold.co/600x400/0d9488/ffffff?text=Mathematics+Workshop+Session+1'">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black to-transparent bg-opacity-70 p-5 text-white">
+              <h4 class="font-bold text-sm">Interactive Mathematics Revision Seminar</h4>
+              <p class="text-xs text-gray-300 mt-1">Engaging high school students with physical, visual, and analytical problem-solving blocks.</p>
+            </div>
+          </div>
+          <!-- Class Photo 2 -->
+          <div class="relative group rounded-2xl overflow-hidden border border-gray-250 shadow-md hover-lift">
+            <img src="Class-photo-2.png" alt="Students attending Class 10 Maths seminar" class="w-full h-72 object-cover" onerror="this.src='https://placehold.co/600x400/0d9488/ffffff?text=Mathematics+Workshop+Session+2'">
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black to-transparent bg-opacity-70 p-5 text-white">
+              <h4 class="font-bold text-sm">Live Board Practice Lecture</h4>
+              <p class="text-xs text-gray-300 mt-1">Unlocking CBSE grading structures, step-marking rules, and coordinate geometry shortcuts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -260,7 +294,7 @@
   <!-- SECTION DIVIDER -->
   <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
 
-  <!-- SECTION 2: GEOGEBRA LAB PREVIEWS (HORIZONTALLY SCROLLABLE CAROUSEL) -->
+  <!-- SECTION 2: GEOGEBRA LAB PREVIEWS (HORIZONTALLY SCROLLABLE CAROUSEL WITH 9 DYNAMIC IMAGES) -->
   <section id="geogebra" class="py-16 px-6">
     <div class="max-w-7xl mx-auto">
       
@@ -268,7 +302,7 @@
         <div>
           <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Dynamic Coordinate Labs</span>
           <h2 class="text-3xl font-bold text-gray-900 mt-4">GeoGebra Graphing Laboratories</h2>
-          <p class="text-gray-500 mt-2">Scroll horizontally and **click any thumbnail to open the screenshot fully in a new tab**.</p>
+          <p class="text-gray-500 mt-2">Scroll horizontally and <strong>click any thumbnail to open the screenshot fully in a new tab</strong>.</p>
         </div>
         <!-- Custom scroll indicators for desktop navigation -->
         <div class="hidden md:flex space-x-3 mt-4 md:mt-0">
@@ -284,58 +318,7 @@
       <!-- Horizontal Scroll Wrapper -->
       <div class="relative">
         <div id="geogebra-scroll-container" class="flex overflow-x-auto space-x-6 pb-6 scroll-smooth snap-x snap-mandatory scrollbar-thin" style="-webkit-overflow-scrolling: touch;">
-          
-          <!-- Card 1: Linear Slopes -->
-          <div class="flex-none w-80 md:w-96 bg-white rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start">
-            <a href="geogebra/straight_lines.png" target="_blank" title="Click to view full size">
-              <div class="h-60 bg-gray-100 relative group">
-                <img src="geogebra/straight_lines.png" alt="Straight Lines Slope Screenshot" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Linear+Functions+Lab'">
-                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Linear Slopes</div>
-                <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
-                </div>
-              </div>
-            </a>
-            <div class="p-6">
-              <h3 class="text-lg font-bold">Straight Lines with Different Slopes</h3>
-              <p class="text-xs text-gray-500 mt-1">Analyzing line translations and intercept points on Cartesian grids.</p>
-            </div>
-          </div>
-
-          <!-- Card 2: Quadratic Parabola -->
-          <div class="flex-none w-80 md:w-96 bg-white rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start">
-            <a href="geogebra/quadratic_graphs.png" target="_blank" title="Click to view full size">
-              <div class="h-60 bg-gray-100 relative group">
-                <img src="geogebra/quadratic_graphs.png" alt="Quadratic Parabola Vertex Screenshot" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Quadratic+Parabola+Lab'">
-                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Quadratic Parabolics</div>
-                <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
-                </div>
-              </div>
-            </a>
-            <div class="p-6">
-              <h3 class="text-lg font-bold">Quadratic Curves & Key Coefficients</h3>
-              <p class="text-xs text-gray-500 mt-1">Tracing standard parameters to observe horizontal vertex displacements.</p>
-            </div>
-          </div>
-
-          <!-- Card 3: Trigonometric Waves -->
-          <div class="flex-none w-80 md:w-96 bg-white rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start">
-            <a href="geogebra/trigonometric_graphs.png" target="_blank" title="Click to view full size">
-              <div class="h-60 bg-gray-100 relative group">
-                <img src="geogebra/trigonometric_graphs.png" alt="Trigonometric Functions Screenshot" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=Trigonometry+Lab'">
-                <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">Trigonometric Waves</div>
-                <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
-                </div>
-              </div>
-            </a>
-            <div class="p-6">
-              <h3 class="text-lg font-bold">Trigonometric Sine & Cosine Waves</h3>
-              <p class="text-xs text-gray-500 mt-1">Examine wave oscillations, periodic amplitudes, and phase translations.</p>
-            </div>
-          </div>
-
+          <!-- JavaScript automatically generates and injects all 9 clickable GeoGebra images here -->
         </div>
       </div>
     </div>
@@ -352,7 +335,7 @@
         <div>
           <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Symmetric Code Art</span>
           <h2 class="text-3xl font-bold text-gray-900 mt-4">FMSLogo Mathematical Art Gallery</h2>
-          <p class="text-gray-500 mt-2">Scroll horizontally and **click any image to open full size**. Displays 39 loops depicting Tamil/English typographies and Rangolis.</p>
+          <p class="text-gray-500 mt-2">Scroll horizontally and <strong>click any image to open full size</strong>. Displays 39 loops depicting Tamil/English typographies and Rangolis.</p>
         </div>
         <!-- Custom scroll indicators for desktop navigation -->
         <div class="hidden md:flex space-x-3 mt-4 md:mt-0">
@@ -392,65 +375,65 @@
         
         <!-- Left: playstore-app.png Image (Corrected to user's exact filename) -->
         <div class="lg:col-span-5 flex flex-col items-center">
-          <img src="playstore-app.png" alt="Google Play Store App Screenshots" class="rounded-3xl shadow-xl border border-gray-100 max-h-96 object-contain hover:scale-102 transition duration-300" onerror="this.src='https://placehold.co/400x500/0d9488/ffffff?text=Flutter+Android+Apps'">
+          <img src="playstore-app.png" alt="Google Play Store App Screenshots" class="rounded-3xl shadow-xl border border-gray-150 max-h-96 object-contain hover:scale-102 transition duration-300" onerror="this.src='https://placehold.co/400x500/0d9488/ffffff?text=Flutter+Android+Apps'">
           <span class="mt-4 bg-emerald-500 text-white font-extrabold text-xs tracking-wider px-4 py-1.5 rounded-full shadow-sm">
             🔥 20,000+ Downloads Milestone
           </span>
         </div>
 
-        <!-- Right: Fully legible dark slate content and 6 Google Play buttons -->
+        <!-- Right: Fully legible dark slate content and 6 Google Play buttons with customized HD app icons on the side -->
         <div class="lg:col-span-7 relative z-10 text-gray-800">
           <span class="bg-teal-100 text-teal-800 border border-teal-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Featured App Suite</span>
           <h3 class="text-3xl font-extrabold text-gray-900 mt-4">Devotional & Practical Software Utilities</h3>
           <p class="text-gray-600 mt-4 leading-relaxed text-sm sm:text-base">
-            These applications are designed to provide lightning-fast, offline-first access to Tamil scriptures, health programs, and utility calculations. One of my featured applications has already crossed **20,000+ downloads** in the Play Store!
+            These applications are designed to provide lightning-fast, offline-first access to Tamil scriptures, health programs, and utility calculations. One of my featured applications has already crossed <strong>20,000+ downloads</strong> in the Google Play Store!
           </p>
 
-          <!-- App Store Direct Download Links (legible with high contrast dark charcoal borders) -->
+          <!-- App Store Direct Download Links (Customized with side-by-side dedicated app logo images) -->
           <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.vel_maaral" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3.5 rounded-xl transition">
-              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.vel_maaral" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 hover:border-teal-600 p-3 rounded-xl transition shadow-sm">
+              <img src="Vel_maral_app_logo_512_512.png" alt="Vel Maaral Icon" class="w-12 h-12 rounded-xl flex-shrink-0 object-cover shadow-sm border border-gray-200" onerror="this.src='https://placehold.co/100x100/0d9488/ffffff?text=Vel+M'">
               <div class="text-left">
-                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional App</span>
                 <span class="font-extrabold text-xs text-gray-900">Vel Maaral</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.sundara_kandam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3.5 rounded-xl transition">
-              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.sundara_kandam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 hover:border-teal-600 p-3 rounded-xl transition shadow-sm">
+              <img src="Sundarakandam_app_logo_512_512.png" alt="Sundara Kandam Icon" class="w-12 h-12 rounded-xl flex-shrink-0 object-cover shadow-sm border border-gray-200" onerror="this.src='https://placehold.co/100x100/0d9488/ffffff?text=Sundara+K'">
               <div class="text-left">
-                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional App</span>
                 <span class="font-extrabold text-xs text-gray-900">Sundara Kandam</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.aditya_hrudayam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3.5 rounded-xl transition">
-              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.aditya_hrudayam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 hover:border-teal-600 p-3 rounded-xl transition shadow-sm">
+              <img src="Aditha_hrudayam_app_logo_512_512.png" alt="Aditya Hrudayam Icon" class="w-12 h-12 rounded-xl flex-shrink-0 object-cover shadow-sm border border-gray-200" onerror="this.src='https://placehold.co/100x100/0d9488/ffffff?text=Aditya+H'">
               <div class="text-left">
-                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional App</span>
                 <span class="font-extrabold text-xs text-gray-900">Aditya Hrudayam</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.infinity_walk" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3.5 rounded-xl transition">
-              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.infinity_walk" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 hover:border-teal-600 p-3 rounded-xl transition shadow-sm">
+              <img src="Eight_pattern_walk_app_logo_512_512.png" alt="Infinity Walk Icon" class="w-12 h-12 rounded-xl flex-shrink-0 object-cover shadow-sm border border-gray-200" onerror="this.src='https://placehold.co/100x100/0d9488/ffffff?text=8+Walk'">
               <div class="text-left">
                 <span class="text-xs text-teal-700 block font-semibold">Health & Exercise</span>
                 <span class="font-extrabold text-xs text-gray-900">Infinity Walk</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.kandaguru_kavasam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3.5 rounded-xl transition">
-              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.kandaguru_kavasam" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 hover:border-teal-600 p-3 rounded-xl transition shadow-sm">
+              <img src="Kandaguru_kavasam_app_logo_512_512.png" alt="Kanda Guru Kavasam Icon" class="w-12 h-12 rounded-xl flex-shrink-0 object-cover shadow-sm border border-gray-200" onerror="this.src='https://placehold.co/100x100/0d9488/ffffff?text=Kanda+G'">
               <div class="text-left">
-                <span class="text-xs text-teal-700 block font-semibold">Devotional</span>
+                <span class="text-xs text-teal-700 block font-semibold">Devotional App</span>
                 <span class="font-extrabold text-xs text-gray-900">Kanda Guru Kavasam</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.safe_delivery" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-300 hover:border-teal-600 p-3.5 rounded-xl transition">
-              <div class="text-emerald-600 text-2xl"><i class="fab fa-google-play"></i></div>
+            <a href="https://play.google.com/store/apps/details?id=com.rajarajan.safe_delivery" target="_blank" class="flex items-center space-x-3 bg-gray-50 hover:bg-gray-100 border-2 border-gray-200 hover:border-teal-600 p-3 rounded-xl transition shadow-sm">
+              <img src="Safe_delivery_app_logo_512_512.png" alt="Safe Delivery Icon" class="w-12 h-12 rounded-xl flex-shrink-0 object-cover shadow-sm border border-gray-200" onerror="this.src='https://placehold.co/100x100/0d9488/ffffff?text=Safe+D'">
               <div class="text-left">
                 <span class="text-xs text-teal-700 block font-semibold">Medical Utility</span>
                 <span class="font-extrabold text-xs text-gray-900">Safe Delivery</span>
@@ -466,7 +449,7 @@
   <!-- SECTION DIVIDER -->
   <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
 
-  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 CURATED CHANNELS GRID WITH SIDE-BY-SIDE THUMBNAILS SUPPORT) -->
+  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 CURATED CHANNELS GRID WITH EXPLICIT D_DRIVE THUMBNAILS) -->
   <section id="youtube" class="py-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
@@ -475,19 +458,19 @@
         <p class="text-gray-500 mt-2">Core mathematical visualizations, physics experiments, and logical derivations published on my educational channel.</p>
       </div>
 
-      <!-- 9 Video lessons structured horizontally (thumbnail on left, details on right) to support your custom images -->
+      <!-- 9 Video lessons structured horizontally (thumbnail on left, details on right) using custom uploaded PNG names -->
       <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
         
         <!-- Video 1 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/1.png" alt="Linear Functions Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+1'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="Graphing Linear Function in Geogebra.png" alt="Graphing Linear Function in Geogebra Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+1'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
               <span class="text-teal-600 text-xs font-bold uppercase">GeoGebra Lab</span>
               <h3 class="font-bold text-gray-800 text-sm mt-1">Graphing Linear Functions in GeoGebra</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding coordinate translations and slope behaviors in Cartesian spaces.</p>
+              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding coordinate translations, lines, and slope behaviors in Cartesian spaces.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
               <a href="https://youtu.be/yoqzDCxpUtY" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
@@ -497,8 +480,8 @@
 
         <!-- Video 2 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/2.png" alt="FMSLogo Shapes Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+2'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="FMSLogo Visual Coding-Shapes, Alphabets & Rangolis.png" alt="FMSLogo Visual Coding Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+2'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
@@ -507,20 +490,20 @@
               <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing Tamil vector letters, English alphabets, and symmetric Rangolis.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/x40e9AEIidQ" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
+              <a href="https://youtu.be/x40e9AEidQ" target="_blank" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
             </div>
           </div>
         </div>
 
         <!-- Video 3 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/3.png" alt="GeoGebra Tutorial Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+3'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="GeoGebra Tutorial-Learn Geometry & Algebra the Fun Way.png" alt="GeoGebra Tutorial Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+3'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
               <span class="text-teal-600 text-xs font-bold uppercase">Visual Tutorials</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">GeoGebra Tutorial: Learn Geometry & Algebra</h3>
+              <h3 class="font-bold text-gray-800 text-sm mt-1">GeoGebra Tutorial: Learn Geometry & Algebra the Fun Way</h3>
               <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn coordinates and equations dynamically the fun, interactive way.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
@@ -531,13 +514,13 @@
 
         <!-- Video 4 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/4.png" alt="Air Resistance Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+4'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="Air Resistance vs Gravity-Motion of Red and Blue Balls.png" alt="Air Resistance Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+4'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
               <span class="text-teal-600 text-xs font-bold uppercase">Physics Lab</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Air Resistance vs. Gravity</h3>
+              <h3 class="font-bold text-gray-800 text-sm mt-1">Air Resistance vs. Gravity: Motion of Balls</h3>
               <p class="text-xs text-gray-500 mt-1 leading-relaxed">Visualizing terminal velocity and freefall friction using animated Red and Blue balls.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
@@ -548,8 +531,8 @@
 
         <!-- Video 5 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/5.png" alt="Digital Root Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+5'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="Digital Root Concept and Application.png" alt="Digital Root Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+5'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
@@ -565,13 +548,13 @@
 
         <!-- Video 6 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/6.png" alt="Square Root Spiral Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+6'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="Class-9 Square Root Spiral.png" alt="Square Root Spiral Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+6'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
               <span class="text-teal-600 text-xs font-bold uppercase">Geometry Spiral</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Class-9 Square Root Spiral</h3>
+              <h3 class="font-bold text-gray-800 text-sm mt-1">Class-9 Square Root Spiral Drawing</h3>
               <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing and proving irrational square roots step-by-step on drawing planes.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
@@ -582,8 +565,8 @@
 
         <!-- Video 7 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/7.png" alt="Logo Alphabets Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+7'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="Repeating English Alphabets in FMSLogo.png" alt="Logo Alphabets Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+7'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
@@ -599,13 +582,13 @@
 
         <!-- Video 8 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/8.png" alt="Sieve Eratosthenes Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+8'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="Sieve of Eratosthenes for prime numbers in action.png" alt="Sieve Eratosthenes Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+8'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
               <span class="text-teal-600 text-xs font-bold uppercase">Sieve Filtrations</span>
-              <h3 class="font-bold text-gray-800 text-base mt-1">Sieve of Eratosthenes</h3>
+              <h3 class="font-bold text-gray-800 text-sm mt-1">Sieve of Eratosthenes for Prime Numbers</h3>
               <p class="text-xs text-gray-500 mt-1 leading-relaxed">Filtration of composite integers to isolate primes dynamically on grid structures.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
@@ -616,13 +599,13 @@
 
         <!-- Video 9 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full">
-          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto">
-            <img src="youtube/9.png" alt="MSWLogo Tutorial Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+9'">
+          <div class="w-full sm:w-1/3 bg-gray-100 flex-shrink-0 relative h-36 sm:h-auto border-r border-gray-100">
+            <img src="MSWLogo Tutorial in English with Live Examples.png" alt="MSWLogo Tutorial Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/180x120/0d9488/ffffff?text=Video+9'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
               <span class="text-teal-600 text-xs font-bold uppercase">Logo Programming</span>
-              <h3 class="font-bold text-gray-800 text-base mt-1">MSWLogo Tutorial in English</h3>
+              <h3 class="font-bold text-gray-800 text-sm mt-1">MSWLogo Tutorial in English with Live Examples</h3>
               <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn turtle graphics from scratch with live examples in under 15 minutes.</p>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-100">
@@ -722,10 +705,47 @@
 
   <!-- DYNAMIC IMAGE LOADER SCRIPT -->
   <script>
+    // Dynamically generate and inject 9 clickable, zoomable GeoGebra screenshots
+    const geogebraContainer = document.getElementById('geogebra-scroll-container');
+    const totalGeoGebra = 9;
+    const geogebraData = [
+      { category: "Linear Functions", title: "Graphing Linear Functions", desc: "Interactive slope calculations and intercept movements on cartesian plane." },
+      { category: "Quadratic Equations", title: "Quadratic Parabola Vertex Tracing", desc: "Modifying coefficients to study horizontal and vertical vertex translations." },
+      { category: "Trigonometry", title: "Sine and Cosine Periodic Waves", desc: "Visualizing trigonometry period, phase shifts, and wave amplitudes." },
+      { category: "Polynomials", title: "Polynomial Zeroes & Intercepts", desc: "Geometrical meaning of zeroes of a polynomial on graph panels." },
+      { category: "Linear Equations", title: "Intersection & Consistency Ratios", desc: "Comparing a1/a2, b1/b2, c1/c2 to determine consistency dynamically." },
+      { category: "Triangles Geometry", title: "Basic Proportionality Theorem Verification", desc: "Proving AD/DB = AE/EC as parallel lines sweep across the triangle." },
+      { category: "Circles Geometry", title: "Tangent Perpendicularity (Theorem 10.1)", desc: "Verifying the angle between the radius and tangent at the point of contact." },
+      { category: "Circle Areas", title: "Sector Area & Arc Length Calculus", desc: "Tracing sector sweep theta/360 * pi*r^2 in real-time." },
+      { category: "Arithmetic Progressions", title: "Common Difference Vector Visual", desc: "Visualizing terms in an AP as stepping columns on a coordinated grid." }
+    ];
+
+    for (let i = 1; i <= totalGeoGebra; i++) {
+      const data = geogebraData[i - 1];
+      const cardHTML = `
+        <div class="flex-none w-80 md:w-96 bg-white rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start">
+          <a href="geogebra/${i}.png" target="_blank" title="Click to view full size">
+            <div class="h-60 bg-gray-100 relative group">
+              <img src="geogebra/${i}.png" alt="GeoGebra Screenshot ${i}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/600x400/0f172a/ffffff?text=GeoGebra+Lab+${i}'">
+              <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">${data.category}</div>
+              <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
+              </div>
+            </div>
+          </a>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900">${data.title}</h3>
+            <p class="text-xs text-gray-500 mt-1">${data.desc}</p>
+          </div>
+        </div>
+      `;
+      geogebraContainer.innerHTML += cardHTML;
+    }
+
+    // Dynamically generate and inject 39 clickable, zoomable FMSLogo art cards
     const scrollContainer = document.getElementById('logo-scroll-container');
     const totalScreenshots = 39;
 
-    // Dynamically generate and inject 39 clickable, zoomable FMSLogo art cards
     for (let i = 1; i <= totalScreenshots; i++) {
       let category = "Symmetric Design";
       let desc = "Mathematical Rangoli Symmetry";
@@ -742,7 +762,6 @@
         <div class="flex-none w-72 md:w-80 bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start">
           <a href="fmslogo/${i}.png" target="_blank" title="Click to view full size design">
             <div class="h-52 bg-teal-950 relative overflow-hidden group">
-              <!-- Looks inside the fmslogo/ subfolder directly -->
               <img src="fmslogo/${i}.png" alt="FMSLogo Screenshot ${i}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0d9488/ffffff?text=FMSLogo+Design+${i}'">
               <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">${category}</div>
               <!-- Floating zoom-search overlay on hover -->
@@ -769,7 +788,6 @@
     }
 
     // GeoGebra scroll buttons control logic
-    const geogebraContainer = document.getElementById('geogebra-scroll-container');
     function scrollGeoGebra(scrollOffset) {
       geogebraContainer.scrollBy({
         left: scrollOffset,
