@@ -327,7 +327,7 @@
   <!-- SECTION DIVIDER -->
   <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
 
-  <!-- SECTION 3: FMSLOGO MATHEMATICAL ART GALLERY (HORIZONTALLY SCROLLABLE CAROUSEL with compact boxes and 24A-24Z customized title mapping) -->
+  <!-- SECTION 3: FMSLOGO MATHEMATICAL ART GALLERY (HORIZONTALLY SCROLLABLE CAROUSEL - Redesigned Tightly Fitted Cards) -->
   <section id="fmslogo" class="py-16 px-4 bg-white">
     <div class="max-w-5xl mx-auto">
       
@@ -335,22 +335,22 @@
         <div>
           <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Symmetric Code Art</span>
           <h2 class="text-3xl font-bold text-gray-900 mt-4">FMSLogo Mathematical Art Gallery</h2>
-          <p class="text-gray-500 mt-2">Scroll horizontally and <strong>click any image to open full size in a new tab</strong>. Compares 26 unique designs mapped as 24A through 24Z.</p>
+          <p class="text-gray-500 mt-2">Scroll horizontally and <strong>click any image to open full size in a new tab</strong>. Mapped as 24A's through 24Z's.</p>
         </div>
         <!-- Custom scroll indicators for desktop navigation -->
         <div class="hidden md:flex space-x-3 mt-4 md:mt-0">
-          <button onclick="scrollGallery(-320)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
+          <button onclick="scrollGallery(-250)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button onclick="scrollGallery(320)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
+          <button onclick="scrollGallery(250)" class="bg-teal-50 hover:bg-teal-100 text-teal-700 w-10 h-10 rounded-full flex items-center justify-center border border-teal-200 transition shadow-sm">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
       </div>
 
-      <!-- Horizontal Scroll Wrapper (Tight space-x-3 margin for minimal card footprint spacing and compact look) -->
+      <!-- Horizontal Scroll Wrapper (Fitted w-52 cards with ultra-tight margins) -->
       <div class="relative">
-        <div id="logo-scroll-container" class="flex overflow-x-auto space-x-3 pb-6 scroll-smooth snap-x snap-mandatory scrollbar-thin" style="-webkit-overflow-scrolling: touch;">
+        <div id="logo-scroll-container" class="flex overflow-x-auto space-x-2 pb-4 scroll-smooth snap-x snap-mandatory scrollbar-thin" style="-webkit-overflow-scrolling: touch;">
           <!-- JavaScript automatically generates and injects all 26 clickable images here -->
         </div>
       </div>
@@ -575,7 +575,7 @@
         <!-- Video 8 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
-            <img src="Sieve of Eratosthenes for prime numbers in action.png" alt="Sieve Eratosthenes Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+8'">
+            <img src="Sieve of Eratosthenes for prime numbers in action.png" alt="Sieve Eratosthenes Thumbnail" class="w-full h-full object-contain animate-fade-in" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+8'">
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow">
             <div>
@@ -736,39 +736,32 @@
       geogebraContainer.innerHTML += cardHTML;
     }
 
-    // 2. DYNAMICALLY GENERATE FMSLOGO SCROLL CAROUSEL (Limited to 26 images, mapped as 24A through 24Z, minimum box margin)
+    // 2. DYNAMICALLY GENERATE FMSLOGO SCROLL CAROUSEL (Snug outer dimensions, centered text with apostrophe 's, minimal gaps, removed category badge overlay)
     const scrollContainer = document.getElementById('logo-scroll-container');
     const totalScreenshots = 26; // Limited to 26 images to perfectly match 24A - 24Z mapping
 
     for (let i = 1; i <= totalScreenshots; i++) {
-      let category = "Symmetric Design";
-      
-      if (i % 3 === 0) {
-        category = "Tamil Alphabet";
-      } else if (i % 5 === 0) {
-        category = "English Typography";
-      }
-
       // Convert 1 -> 24A, 2 -> 24B, ..., 26 -> 24Z
       const letterCode = String.fromCharCode(65 + (i - 1));
-      const customizedTitle = `24${letterCode}`;
+      const customizedTitle = `24${letterCode}'s`; // Outputting 24A's to 24Z's
 
       const cardHTML = `
-        <div class="flex-none w-64 bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover-lift snap-start m-1">
+        <div class="flex-none w-52 bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover-lift snap-start m-1">
           <a href="fmslogo/${i}.png" target="_blank" title="Click to view full size design">
-            <div class="h-52 bg-teal-950 relative overflow-hidden group flex items-center justify-center p-3">
-              <!-- object-contain and padding keep images inside the frame borders beautifully -->
-              <img src="fmslogo/${i}.png" alt="FMSLogo Screenshot ${i}" class="w-full h-full object-contain transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0d9488/ffffff?text=FMSLogo+Design+${i}'">
-              <div class="absolute bottom-3 left-4 bg-teal-600 bg-opacity-90 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-bold uppercase tracking-wide">${category}</div>
+            <!-- Tighter container height (h-40 instead of h-52) and minimal padding (p-1 instead of p-3) to eliminate empty outer margins -->
+            <div class="h-40 bg-teal-950 relative overflow-hidden group flex items-center justify-center p-1">
+              <!-- object-contain and minimal padding fits the image tightly to outer frame -->
+              <img src="fmslogo/${i}.png" alt="FMSLogo Design ${customizedTitle}" class="w-full h-full object-contain transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0d9488/ffffff?text=FMSLogo+Design+${i}'">
               <!-- Floating zoom-search overlay on hover -->
               <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="bg-white text-gray-900 rounded-full px-3 py-1.5 text-xs font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
+                <span class="bg-white text-gray-900 rounded-full px-2.5 py-1 text-[10px] font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
               </div>
             </div>
           </a>
-          <div class="p-5">
-            <h4 class="font-extrabold text-gray-800 text-sm">${customizedTitle}</h4>
-            <p class="text-xs text-gray-500 mt-1">Drawn with offset angle</p>
+          <!-- Minimized top padding to shrink gap between image and text block -->
+          <div class="pt-1.5 pb-2 px-1 text-center">
+            <h4 class="font-extrabold text-gray-800 text-xs tracking-tight text-center leading-none">${customizedTitle}</h4>
+            <p class="text-[10px] text-gray-500 mt-1 text-center leading-none">Drawn with offset angle</p>
           </div>
         </div>
       `;
