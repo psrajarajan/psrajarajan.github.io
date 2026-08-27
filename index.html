@@ -441,7 +441,7 @@
   <!-- SECTION DIVIDER -->
   <div class="max-w-6xl mx-auto px-6"><div class="border-t border-gray-200"></div></div>
 
-  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 CURATED CHANNELS GRID WITH FIXED RATIO UN-CROPPED THUMBNAILS) -->
+  <!-- SECTION 5: "SAND GRANULE" YOUTUBE HUB (9 CURATED CHANNELS GRID WITH FLOATING PLAY BUTTONS TO SAVE SPACE) -->
   <section id="youtube" class="py-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
@@ -450,23 +450,22 @@
         <p class="text-gray-500 mt-2">Core mathematical visualizations, physics experiments, and logical derivations published on my educational channel.</p>
       </div>
 
-      <!-- 9 Video lessons structured horizontally with perfectly proportioned, uncropped object-contain thumbnails inside black player frames -->
+      <!-- 9 Video lessons grid - Bottom action lines completely removed to save space, replaced by elegant floating top-right YouTube play badges -->
       <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
         
         <!-- Video 1 -->
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="Graphing Linear Function in Geogebra.png" alt="Linear Functions Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+1'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/yoqzDCxpUtY" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">GeoGebra Lab</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Graphing Linear Functions in GeoGebra</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding coordinate translations, lines, and slope behaviors in Cartesian spaces.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/yoqzDCxpUtY" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">GeoGebra Lab</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">Graphing Linear Functions in GeoGebra</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding coordinate translations, lines, and slope behaviors in Cartesian spaces.</p>
           </div>
         </div>
 
@@ -474,16 +473,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="FMSLogo Visual Coding-Shapes, Alphabets & Rangolis.png" alt="FMSLogo Visual Coding Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+2'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/x40e9AEidQ" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Logo Coding</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">FMSLogo Visual Coding: Shapes & Alphabets</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing Tamil vector letters, English alphabets, and symmetric Rangolis.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/x40e9AEidQ" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Logo Coding</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">FMSLogo Visual Coding: Shapes & Alphabets</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing Tamil vector letters, English alphabets, and symmetric Rangolis.</p>
           </div>
         </div>
 
@@ -491,16 +489,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="GeoGebra Tutorial-Learn Geometry & Algebra the Fun Way.png" alt="GeoGebra Tutorial Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+3'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/m0FF0iLFb8o" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Visual Tutorials</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">GeoGebra Tutorial: Geometry & Algebra</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn coordinates and equations dynamically the fun, interactive way.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/m0FF0iLFb8o" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Visual Tutorials</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">GeoGebra Tutorial: Geometry & Algebra</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn coordinates and equations dynamically the fun, interactive way.</p>
           </div>
         </div>
 
@@ -508,16 +505,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="Air Resistance vs Gravity-Motion of Red and Blue Balls.png" alt="Air Resistance Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+4'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/9oF9Lx81dRY" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Physics Lab</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Air Resistance vs. Gravity</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Visualizing terminal velocity and freefall friction using animated Red and Blue balls.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/9oF9Lx81dRY" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Physics Lab</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">Air Resistance vs. Gravity</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Visualizing terminal velocity and freefall friction using animated Red and Blue balls.</p>
           </div>
         </div>
 
@@ -525,16 +521,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="Digital Root Concept and Application.png" alt="Digital Root Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+5'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/FpjiiMMNISs" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Number Systems</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Digital Root Concept and Application</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding underlying arithmetic properties and practical module-9 shortcuts.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/FpjiiMMNISs" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Number Systems</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">Digital Root Concept and Application</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Understanding underlying arithmetic properties and practical module-9 shortcuts.</p>
           </div>
         </div>
 
@@ -542,16 +537,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="Class-9 Square Root Spiral.png" alt="Square Root Spiral Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+6'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/z_LQaPIbdX4" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Geometry Spiral</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Class-9 Square Root Spiral</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing and proving irrational square roots step-by-step on drawing planes.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/z_LQaPIbdX4" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Geometry Spiral</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">Class-9 Square Root Spiral</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Drawing and proving irrational square roots step-by-step on drawing planes.</p>
           </div>
         </div>
 
@@ -559,16 +553,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="Repeating English Alphabets in FMSLogo.png" alt="Logo Alphabets Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+7'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/Ag4C6tUrIT8" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Turtle Loops</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Repeating English Alphabets in FMSLogo</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Symmetric repetition loops utilizing the MSWLogo/FMSLogo drawing terminal.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/Ag4C6tUrIT8" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Turtle Loops</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">Repeating English Alphabets in FMSLogo</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Symmetric repetition loops utilizing the MSWLogo/FMSLogo drawing terminal.</p>
           </div>
         </div>
 
@@ -576,16 +569,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="Sieve of Eratosthenes for prime numbers in action.png" alt="Sieve Eratosthenes Thumbnail" class="w-full h-full object-contain animate-fade-in" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+8'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/RTxf6eVpMrs" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Sieve Filtrations</span>
-              <h3 class="font-bold text-gray-800 text-sm mt-1">Sieve of Eratosthenes</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Filtration of composite integers to isolate primes dynamically on grid structures.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/RTxf6eVpMrs" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Sieve Filtrations</span>
+            <h3 class="font-bold text-gray-800 text-sm mt-1">Sieve of Eratosthenes</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Filtration of composite integers to isolate primes dynamically on grid structures.</p>
           </div>
         </div>
 
@@ -593,16 +585,15 @@
         <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col sm:flex-row h-full border border-gray-200">
           <div class="w-full sm:w-40 h-44 sm:h-32 bg-slate-900 flex-shrink-0 relative flex items-center justify-center p-1 border-r border-gray-100">
             <img src="MSWLogo Tutorial in English with Live Examples.png" alt="MSWLogo Tutorial Thumbnail" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/180x120/0f172a/ffffff?text=Lesson+9'">
+            <!-- Floating play button overlay (Top-Right) to save space -->
+            <a href="https://youtu.be/lkB6SEp1LBU" target="_blank" rel="noopener noreferrer" class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 z-10" title="Watch video lesson">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
           </div>
-          <div class="p-5 flex flex-col justify-between flex-grow">
-            <div>
-              <span class="text-teal-600 text-xs font-bold uppercase">Logo Programming</span>
-              <h3 class="font-bold text-gray-800 text-base mt-1">MSWLogo Tutorial with Live Examples</h3>
-              <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn turtle graphics from scratch with live examples in under 15 minutes.</p>
-            </div>
-            <div class="mt-3 pt-3 border-t border-gray-100">
-              <a href="https://youtu.be/lkB6SEp1LBU" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 font-bold text-xs inline-flex items-center"><i class="fab fa-youtube mr-1.5"></i> Watch video lesson</a>
-            </div>
+          <div class="p-5 flex flex-col justify-center flex-grow">
+            <span class="text-teal-600 text-[10px] font-extrabold uppercase tracking-wide">Logo Programming</span>
+            <h3 class="font-bold text-gray-800 text-base mt-1">MSWLogo Tutorial with Live Examples</h3>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">Learn turtle graphics from scratch with live examples in under 15 minutes.</p>
           </div>
         </div>
 
