@@ -704,7 +704,7 @@
           </a>
           <div class="p-5 text-center flex-grow flex flex-col justify-center">
             <h4 class="font-extrabold text-gray-800 text-sm tracking-tight text-center leading-tight">${title}</h4>
-            \${subtitle ? `<p class="text-xs text-gray-500 mt-1.5 text-center leading-snug">\${subtitle}</p>` : ''}
+            ${subtitle ? `<p class="text-xs text-gray-500 mt-1.5 text-center leading-snug">${subtitle}</p>` : ''}
           </div>
         </div>
       `;
@@ -751,7 +751,7 @@
 
     for (let i = 1; i <= totalScreenshots; i++) {
       const letterCode = getLetterCode(i);
-      const codeTitle = `24\${letterCode}'s`; // Fallback code title e.g. "24A's", "24B's"
+      const codeTitle = `24${letterCode}'s`; // Fallback code title e.g. "24A's", "24B's"
       
       let title = codeTitle;
       let subtitle = "Drawn with offset angle";
@@ -764,17 +764,17 @@
 
       const cardHTML = `
         <div class="flex-none w-52 bg-gray-50 rounded-xl overflow-hidden border border-gray-200 hover-lift snap-start m-1 flex flex-col justify-between">
-          <a href="fmslogo/\${i}.png" target="_blank" title="Click to view full size design">
+          <a href="fmslogo/${i}.png" target="_blank" title="Click to view full size design">
             <div class="h-40 bg-teal-950 relative overflow-hidden group flex items-center justify-center p-1">
-              <img src="fmslogo/\${i}.png" alt="FMSLogo Design \${title}" class="w-full h-full object-contain transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0d9488/ffffff?text=FMSLogo+Design+\${i}'">
+              <img src="fmslogo/${i}.png" alt="FMSLogo Design ${title}" class="w-full h-full object-contain transition duration-300 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/320x200/0d9488/ffffff?text=FMSLogo+Design+${i}'">
               <div class="absolute inset-0 bg-black bg-opacity-25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span class="bg-white text-gray-900 rounded-full px-2.5 py-1 text-[10px] font-bold shadow-md"><i class="fas fa-search-plus mr-1"></i> View Full Size</span>
               </div>
             </div>
           </a>
           <div class="pt-2 pb-2 px-2 text-center flex-grow flex flex-col justify-center">
-            <h4 class="font-extrabold text-gray-800 text-[11px] tracking-tight text-center leading-tight">\${title}</h4>
-            \${subtitle ? `<p class="text-[10px] text-gray-500 mt-1 text-center leading-none">\${subtitle}</p>` : ''}
+            <h4 class="font-extrabold text-gray-800 text-[11px] tracking-tight text-center leading-tight">${title}</h4>
+            ${subtitle ? `<p class="text-[10px] text-gray-500 mt-1 text-center leading-none">${subtitle}</p>` : ''}
           </div>
         </div>
       `;
