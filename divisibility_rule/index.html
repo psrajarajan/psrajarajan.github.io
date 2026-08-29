@@ -292,7 +292,7 @@ th {
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
 /* Base container uses a flexible vertical column layout for mobile */
-.container {
+.new-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -350,7 +350,7 @@ th {
   Only small mobile phones (max-width 767px) will trigger the single-column vertical scroll.
 */
 @media screen and (min-width: 768px) {
-    .container {
+    .new-container {
         display: grid;
         grid-template-columns: repeat(6, 1fr); /* 6-column system */
         grid-gap: 20px; /* Comfortable spacing */
@@ -537,7 +537,7 @@ th {
 <body>
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
-    <div class="container">
+    <div class="new-container">
         <div class="one" style="background-color:#0000FF;">
             <h1 style='color:#FFFFFF;' onclick="handleOnClick()">Divisibility Rule in Mathematics</h1><br>
           <div>  <h2 style='color:#FFFFFF;'>X | Y (Y is divisible by X)</h2><!----> <h4 style='color:#FFFF00;'>  By S Rajarajan</h4> </div>
