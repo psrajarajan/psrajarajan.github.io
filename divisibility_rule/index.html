@@ -20,7 +20,7 @@
 /* 
   =========================================
   Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility
+  S Rajarajan - Math Divisibility (v9 - Unified Layout)
   =========================================
 */
 
@@ -291,8 +291,8 @@ th {
 
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
-/* Base container uses a flexible vertical column layout for mobile */
-.container {
+/* Base container uses a flexible vertical column layout for mobile screens */
+.container, .new-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -341,19 +341,17 @@ th {
     gap: 10px;
 }
 
-/* ─── 5. SCREEN SIZE MEDIA QUERIES ───────────────────────────────────── */
-
-/* --- TABLET & DESKTOP LAYOUT (768px and wider) --- */
+/* ─── 5. UNIFIED SCREEN SIZE MEDIA QUERY (768px and wider) ─────────────── */
 /* 
-  We set this starting at 768px so that tablets, iPads, laptops, and wide monitors
-  all receive S Rajarajan's custom step-by-step row-by-row layout perfectly. 
-  Only small mobile phones (max-width 767px) will trigger the single-column vertical scroll.
+  By using a single, unified grid system for both tablet and desktop screens, 
+  we ensure that S Rajarajan's row-by-row layout matches perfectly regardless 
+  of browser scaling, zooming, or window sizes!
 */
 @media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr); /* 6-column system */
-        grid-gap: 20px; /* Comfortable spacing */
+    .container, .new-container {
+        display: grid !important;
+        grid-template-columns: repeat(6, 1fr) !important; /* 6-column system */
+        grid-gap: 20px !important; /* Comfortable spacing */
     }
     
     /* ROW 1: Title and Guide Image */
@@ -363,7 +361,7 @@ th {
     /* ROW 2: Choose Digits, Dividend box, and Generate button aligned in a row */
     .three { grid-column: 1 / 3 !important; grid-row: 2 / 3 !important; }
     .five { grid-column: 3 / 5 !important; grid-row: 2 / 3 !important; }
-    .four { grid-column: 5 / 7 !important; grid-row: 2 / 3 !important; align-self: center; }
+    .four { grid-column: 5 / 7 !important; grid-row: 2 / 3 !important; align-self: center !important; }
     
     /* ROW 3 & 4: Click Correct Divisor (Left) & Check Divisibility Rule for any Divisor (Right) */
     .six { grid-column: 1 / 4 !important; grid-row: 3 / 5 !important; }
@@ -371,17 +369,17 @@ th {
     .ten { grid-column: 4 / 7 !important; grid-row: 4 / 5 !important; }
     
     /* ROW 5: Refresh after Edit & Start/Quit Quiz Challenge aligned in a row */
-    .seven { grid-column: 1 / 4 !important; grid-row: 5 / 6 !important; align-self: center; }
-    .eight { grid-column: 4 / 7 !important; grid-row: 5 / 6 !important; align-self: center; }
+    .seven { grid-column: 1 / 4 !important; grid-row: 5 / 6 !important; align-self: center !important; }
+    .eight { grid-column: 4 / 7 !important; grid-row: 5 / 6 !important; align-self: center !important; }
     
     /* ROW 6: Headings and Big YES/NO Answer box */
-    .twelvea { grid-column: 1 / 3 !important; grid-row: 6 / 7 !important; align-self: center; }
-    .twelveb { grid-column: 3 / 5 !important; grid-row: 6 / 7 !important; align-self: center; }
-    .twelvec { grid-column: 5 / 7 !important; grid-row: 6 / 7 !important; align-self: center; }
+    .twelvea { grid-column: 1 / 3 !important; grid-row: 6 / 7 !important; align-self: center !important; }
+    .twelveb { grid-column: 3 / 5 !important; grid-row: 6 / 7 !important; align-self: center !important; }
+    .twelvec { grid-column: 5 / 7 !important; grid-row: 6 / 7 !important; align-self: center !important; }
     
     /* ROW 7 & 8: Steps, descriptions, explanations */
     .thirteen { grid-column: 1 / 7 !important; grid-row: 7 / 8 !important; }
-    .fourteen { grid-column: 1 / 7 !important; grid-row: 8 / 9 !important; align-self: center; }
+    .fourteen { grid-column: 1 / 7 !important; grid-row: 8 / 9 !important; align-self: center !important; }
     .fifteen { grid-column: 1 / 7 !important; grid-row: 9 / 10 !important; }
     
     /* ROW 9 & 10: Quizzes and Challenge section */
@@ -394,7 +392,6 @@ th {
 }
 
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
-
 .navbar {
     background-color: #003F87; /* Deep professional blue matching the application */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
@@ -530,6 +527,7 @@ th {
         border-bottom: none;
     }
 }
+
 </style>
 </head>
 
