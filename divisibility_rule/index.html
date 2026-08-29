@@ -17,7 +17,7 @@
         });
     </script>
     <style>
-     /*
+/*
   Responsive CSS Stylesheet for "Divisibility Rule in Mathematics"
   Created by Gemini Notebook for S Rajarajan
   
@@ -416,7 +416,145 @@ th {
     .twentyfive { grid-column: 4 / 7; grid-row: 9 / 11; }
     .twentysix { grid-column: 4 / 7; grid-row: 11 / 12; }
 }
-  
+
+
+/* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
+
+.navbar {
+    background-color: #003F87; /* Deep professional blue matching the application */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: opacity 0.2s ease;
+}
+
+.nav-brand:hover {
+    opacity: 0.9;
+}
+
+.nav-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: none; /* Reset main page image shadows */
+}
+
+/* Toggle Hamburger Button for Mobile Views */
+.nav-toggle {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.nav-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #E2E8F0;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: #FFFF00; /* Beautiful yellow highlight matching S Rajarajan's theme */
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Mobile responsive navigation overrides (screens below 768px wide) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .nav-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-toggle {
+        display: flex; /* Show hamburger button on mobile screens */
+    }
+
+    .nav-menu {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #003F87;
+        padding: 15px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-sizing: border-box;
+        gap: 8px;
+    }
+
+    /* Shown when hamburger menu is active */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0;
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+}
 </style>
 </head>
 
