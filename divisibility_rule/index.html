@@ -28,6 +28,7 @@
 html {
     font-size: 16px; /* Base font size */
     box-sizing: border-box;
+    scroll-behavior: smooth; /* Enable smooth scrolling natively */
 }
 
 *, *:before, *:after {
@@ -82,6 +83,13 @@ h4 {
 h5 {
     font-size: 1rem;
     display: inline;
+}
+
+@media screen and (min-width: 768px) {
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 2.0rem; }
+    h3 { font-size: 1.8rem; }
+    h4 { font-size: 1.4rem; }
 }
 
 @media screen and (min-width: 1024px) {
@@ -283,7 +291,7 @@ th {
 
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
-/* Base container uses a flexible vertical column layout for mobile/tablet */
+/* Base container uses a flexible vertical column layout for mobile */
 .container {
     display: flex;
     flex-direction: column;
@@ -335,52 +343,13 @@ th {
 
 /* ─── 5. SCREEN SIZE MEDIA QUERIES ───────────────────────────────────── */
 
-/* --- TABLET LAYOUT (Min 768px to 1023px) --- */
+/* --- TABLET & DESKTOP LAYOUT (768px and wider) --- */
+/* 
+  We set this starting at 768px so that tablets, iPads, laptops, and wide monitors
+  all receive S Rajarajan's custom step-by-step row-by-row layout perfectly. 
+  Only small mobile phones (max-width 767px) will trigger the single-column vertical scroll.
+*/
 @media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-        grid-gap: 20px;
-    }
-    
-    .one { grid-column: 1 / 3; }
-    .two { grid-column: 1 / 3; }
-    
-    /* Section A: Get Dividend */
-    .three { grid-column: 1 / 2; }
-    .four { grid-column: 1 / 2; align-self: center; }
-    .five { grid-column: 2 / 3; grid-row: span 2; }
-    
-    /* Section B: Practice Divisibility */
-    .six { grid-column: 1 / 3; }
-    .seven { grid-column: 1 / 2; }
-    .eight { grid-column: 2 / 3; }
-    
-    /* Section C: Learn Divisibility */
-    .nine { grid-column: 1 / 3; }
-    .ten { grid-column: 1 / 3; }
-    
-    /* Feedback elements */
-    .twelvea { grid-column: 1 / 3; }
-    .twelveb { grid-column: 1 / 2; }
-    .twelvec { grid-column: 2 / 3; }
-    
-    /* Full width content */
-    .thirteen { grid-column: 1 / 3; }
-    .fourteen { grid-column: 1 / 3; }
-    .fifteen { grid-column: 1 / 3; }
-    
-    /* Quizzes and Challenge */
-    .sixteen { grid-column: 1 / 2; }
-    .eighteen { grid-column: 2 / 3; }
-    .twenty { grid-column: 1 / 3; }
-    
-    .twentyfive { grid-column: 1 / 3; }
-    .twentysix { grid-column: 1 / 3; }
-}
-
-/* --- DESKTOP LAYOUT (Min 1024px) --- */
-@media screen and (min-width: 1024px) {
     .container {
         display: grid;
         grid-template-columns: repeat(6, 1fr); /* 6-column system */
@@ -561,6 +530,7 @@ th {
         border-bottom: none;
     }
 }
+
 </style>
 </head>
 
