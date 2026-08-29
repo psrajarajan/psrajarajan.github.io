@@ -17,6 +17,19 @@
         });
     </script>
     <style>
+/*
+  Responsive CSS Stylesheet for "Divisibility Rule in Mathematics"
+  Created by Gemini Notebook for S Rajarajan
+  
+  HOW TO USE:
+  1. Copy this code.
+  2. Open your HTML file.
+  3. Replace everything between <style> and </style> with this CSS.
+  4. Ensure your HTML has this viewport tag inside the <head> section:
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+*/
+
+/* ─── 1. BASE AND TYPOGRAPHY SCALE ────────────────────────────────────── */
 html {
     font-size: 16px; /* Base font size */
     box-sizing: border-box;
@@ -103,7 +116,9 @@ img {
 input[type=radio] {
     border: 2px solid #8B0000;
     padding: 0.3rem;
-    -webkit-appearance: none;
+    -webkit-appearance: none; /* Safari and older Chrome */
+    -moz-appearance: none;    /* Older Firefox */
+    appearance: none;         /* Modern standard property */
     cursor: pointer;
     vertical-align: middle;
 }
@@ -284,13 +299,16 @@ th {
     padding: 10px;
 }
 
-/* On mobile/tablet, reset all absolute grid item spans to flow naturally */
-.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
-.twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
-.sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    width: 100% !important;
+/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
+@media screen and (max-width: 767px) {
+    /* On mobile, reset all absolute grid item spans to flow naturally */
+    .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
+    .twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
+    .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        width: 100% !important;
+    }
 }
 
 /* Header style for mobile/tablet */
