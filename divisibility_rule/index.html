@@ -331,18 +331,20 @@ th {
 
 /* ─── 3.5 TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
 .thirteen, .fourteen, .fifteen {
-    font-size: 1.3rem !important; /* Increased font size to match 'Is 5864 divisible by 2?' heading size! */
+    font-size: 1.3rem !important; /* Exactly matches the question font size of 1.3rem! */
     line-height: 1.5 !important;
+    font-weight: bold !important;
 }
 
 .thirteen *, .fourteen *, .fifteen * {
-    font-size: 1.3rem !important; /* Forces all children (text, bullet points) to same comfortable size */
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
 }
 
 .thirteen table, .fourteen table, .fifteen table,
 .thirteen td, .fourteen td, .fifteen td,
 .thirteen th, .fourteen th, .fifteen th {
-    font-size: 1.2rem !important; /* Highly readable math tables */
+    font-size: 1rem !important;
     padding: 8px 12px !important;
 }
 
@@ -351,30 +353,13 @@ th {
     text-align: center !important;
 }
 
+/* Question size set to a readable, elegant 1.3rem to match the explanations! */
 .twelveb *, .twelveb {
-    font-size: 1.5rem !important; /* Slightly reduced as requested for sleek visual style */
+    font-size: 1.3rem !important;
     font-weight: 800 !important;
-}\n\n/* Ensure .three and .nine are styled identically in height & alignment */
-.three fieldset, .nine fieldset {
-    height: 100% !important;
-    min-height: 135px !important; /* Locked to the exact same size */
-    box-sizing: border-box !important;
-    margin: 0 !important;
 }
 
-/* Ensure buttons and display boxes are styled beautifully and aligned in the columns */
-.five fieldset {
-    height: 100% !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-}
-
-.four .dbuttons, .seven .oebuttons, .eight .qbuttons {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 60px !important; /* Locked to identical heights for symmetrical alignment! */
-    box-sizing: border-box !important;
-}\n\n/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
+/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
 /* Base container uses a flexible vertical column layout for mobile/tablet */
 .container {
@@ -402,11 +387,11 @@ th {
 @media screen and (min-width: 768px) {
     .container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Symmetrical 4-column grid! */
-        grid-gap: 15px; /* Symmetrical clean spacing */
+        grid-template-columns: repeat(4, 1fr); /* Perfect, symmetrical 4-column system! */
+        grid-gap: 15px; /* Compact, balanced spacing */
     }
     
-    /* ROW 1: Header Block on top, spanning all 4 columns! */
+    /* ROW 1: Header Block spans full width at the absolute top! */
     .one { 
         grid-column: 1 / 5 !important; 
         grid-row: 1 / 2 !important; 
@@ -419,53 +404,47 @@ th {
         display: none !important; 
     }
     
-    /* ROW 2: The 4 Core Input Boxes aligned in a clean row (symmetrical 4 columns) */
-    /* Column 1: Choose digits */
+    /* ─── ROW 2: CORE INPUT CONTROLS (Aligned in 4 perfect vertical columns) ─── */
+    /* Position 1 (Col 1): Choose number of digits fieldset */
     .three { 
         grid-column: 1 / 2 !important; 
         grid-row: 2 / 3 !important; 
-        width: 100% !important;
-        margin: 0 !important;
     }
-    /* Column 2: Generate Dividend Button */
+    /* Position 2 (Col 2): Generate Random Dividend button */
     .four { 
         grid-column: 2 / 3 !important; 
         grid-row: 2 / 3 !important; 
         align-self: center !important; 
         margin: 0 !important;
         width: 100% !important;
-        height: auto !important;
     }
-    /* Column 3: Dividend display box */
+    /* Position 3 (Col 3): Dividend text display box */
     .five { 
         grid-column: 3 / 4 !important; 
         grid-row: 2 / 3 !important; 
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center !important;
         width: 100% !important;
         margin: 0 !important;
     }
-    /* Column 4: Click the correct divisor */
+    /* Position 4 (Col 4): Click the correct divisor card */
     .six { 
         grid-column: 4 / 5 !important; 
         grid-row: 2 / 3 !important; 
-        width: 100% !important;
-        margin: 0 !important;
     }
     
-    /* ROW 3: Core Actions (Perfect columns aligning with Row 2) */
-    /* Column 1: Check the Divisibility rule (made identical size as .three) */
+    /* ─── ROW 3: CORE ACTIONS (Symmetrical 4 Columns aligning with Row 2) ─── */
+    /* Position 1 (Col 1): Check Divisibility Rule (same size as .three button group!) */
     .nine { 
         grid-column: 1 / 2 !important; 
         grid-row: 3 / 4 !important; 
-        width: 100% !important;
-        margin: 0 !important;
     }
     
-    /* Column 2: LEFT COMPLETELY EMPTY AS REQUESTED! */
+    /* Position 2 (Col 2): Left completely empty as requested! */
     
-    /* Column 3: Refresh New Dividend after Edit button */
+    /* Position 3 (Col 3): Refresh New Dividend after Edit button */
     .seven { 
         grid-column: 3 / 4 !important; 
         grid-row: 3 / 4 !important; 
@@ -473,7 +452,7 @@ th {
         width: 100% !important;
         margin: 0 !important;
     }
-    /* Column 4: Start Quiz/Challenge button */
+    /* Position 4 (Col 4): Start Quiz/Challenge button */
     .eight { 
         grid-column: 4 / 5 !important; 
         grid-row: 3 / 4 !important; 
@@ -481,37 +460,44 @@ th {
         width: 100% !important;
         margin: 0 !important;
     }
+
+    /* Override margins to force flawless column-by-column alignment! */
+    .dbuttons, .qbuttons, .oebuttons {
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
     
-    /* ROW 4: Rule details display box (pushed up close) */
+    /* ─── ROW 4: RULE DETAILS (Spans full width directly below controls) ─── */
     .ten { 
         grid-column: 1 / 5 !important; 
         grid-row: 4 / 5 !important; 
-        margin-top: -10px !important;
-        margin-bottom: 5px !important;
+        margin-top: -10px !important; /* Pulled up close */
+        margin-bottom: -5px !important;
     }
     
-    /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below Row 4! */
+    /* ─── ROW 5, 6 & 7: EXPLANATIONS (Pushed up-close to the second row!) ─── */
     .thirteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 5 / 6 !important; 
-        margin-top: -10px !important;
-        margin-bottom: 5px !important;
+        margin-top: -15px !important; /* Pulled up close! */
+        margin-bottom: -5px !important;
     }
     .fourteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 6 / 7 !important; 
         align-self: center !important; 
-        margin-top: -10px !important;
-        margin-bottom: 5px !important;
+        margin-top: -15px !important; /* Pulled up close! */
+        margin-bottom: -5px !important;
     }
     .fifteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 7 / 8 !important; 
-        margin-top: -10px !important;
-        margin-bottom: 5px !important;
+        margin-top: -15px !important; /* Pulled up close! */
+        margin-bottom: -5px !important;
     }
     
-    /* ROW 8: Headings and Big YES/NO Answer box (Spans full width below explanations) */
+    /* ─── ROW 8: YES/NO FEEDBACK CARD (Spans full width below explanations) ─── */
     .twelvea { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; align-self: center !important; }
     .twelveb { grid-column: 2 / 4 !important; grid-row: 8 / 9 !important; align-self: center !important; }
     .twelvec { grid-column: 4 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
@@ -523,7 +509,9 @@ th {
     
     .twentyfive { grid-column: 4 / 5 !important; grid-row: 9 / 11 !important; }
     .twentysix { grid-column: 1 / 4 !important; grid-row: 10 / 11 !important; }
-}\n\n/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
+}
+
+/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
     /* Reset layout to stack naturally on mobile screen viewports */
     .container {
@@ -681,6 +669,12 @@ th {
     .nav-item:last-child {
         border-bottom: none;
     }
+}
+
+/* YES/NO Feedback Card text size slightly reduced for elegance */
+.twelvec *, .twelvec {
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
 }
 
     </style>
