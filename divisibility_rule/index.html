@@ -42,7 +42,7 @@ body {
     background-color: #FFFAC8;
     background-color: #FFFFFF;
     margin: 8px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
 hr.newline {
@@ -94,410 +94,11 @@ h5 {
         grid-gap: 20px; /* Comfortable spacing */
     }
     
-    /* ROW 1 to 3: Left Blue Sidebar Panel */
+    /* ROW 1 to 4: Left Blue Sidebar Panel */
     .one { 
         grid-column: 1 / 3 !important; 
-        grid-row: 1 / 5 !important; /* Spans rows 1, 2, 3, and 4 down the left side */
-        align-self: start !important; /* Prevents the left blue box from stretching all the way down */
-    }
-    
-    /* Navigation Guide Image: Centered, structured, with a fixed max-width and background card */
-    .two { 
-        grid-column: 3 / 7 !important; 
-        grid-row: 1 / 2 !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 5px !important;
-        background-color: #F9FBFD !important;
-        border: 1px solid #003F87 !important;
-        border-radius: 10px !important;
-        overflow: hidden !important;
-    }
-    
-    /* Restrict the width/height of the guide image inside the top section so it fits perfectly */
-    .two img {
-        max-width: 100% !important;
-        max-height: 140px !important; /* Fixed beautiful height boundary */
-        width: 100% !important; /* Spans full width of card container */
-        height: auto !important;
-        object-fit: contain !important;
-        border-radius: 6px !important;
-        box-shadow: none !important;
-    }
-    
-    /* ROW 2: Input Controls aligned in a clean row directly below the guide image */
-    .three { 
-        grid-column: 3 / 4 !important; 
-        grid-row: 2 / 3 !important; 
-    }
-    .five { 
-        grid-column: 4 / 5 !important; 
-        grid-row: 2 / 3 !important; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .six { 
-        grid-column: 5 / 6 !important; 
-        grid-row: 2 / 5 !important; /* SPANS ROWS 2, 3, AND 4! HUGE extra vertical height to avoid squishing! */
-    }
-    .nine { 
-        grid-column: 6 / 7 !important; 
-        grid-row: 2 / 3 !important; 
-    }
-    
-    /* ROW 3 & 4: Action Control Buttons stacked vertically in Column 4, and other helpers */
-    .four { 
-        grid-column: 3 / 4 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-    }
-    .seven { 
-        grid-column: 4 / 5 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-    }
-    .eight { 
-        grid-column: 4 / 5 !important; 
-        grid-row: 4 / 5 !important; /* PLACED DIRECTLY BELOW REFRESH BUTTON (.seven) IN COLUMN 4! */
-        align-self: center !important; 
-    }
-    .ten { 
-        grid-column: 6 / 7 !important; 
-        grid-row: 3 / 5 !important; /* SPANS ROWS 3 AND 4 BELOW SELECTOR (.nine) */
-    }
-    
-    /* ROW 5, 6 & 7: INFORMATION TEXT BROUGHT UP CLOSER TO INTERACTION */
-    .thirteen { 
-        grid-column: 1 / 7 !important; 
-        grid-row: 5 / 6 !important; 
-    }
-    .fourteen { 
-        grid-column: 1 / 7 !important; 
-        grid-row: 6 / 7 !important; 
-        align-self: center !important; 
-    }
-    .fifteen { 
-        grid-column: 1 / 7 !important; 
-        grid-row: 7 / 8 !important; 
-    }
-    
-    /* ROW 8: Headings and Big YES/NO Answer box moved below Information Text */
-    .twelvea { grid-column: 1 / 3 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelveb { grid-column: 3 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelvec { grid-column: 5 / 7 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    
-    /* ROW 9 & 10: Quizzes and Challenge section */
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
-    .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
-    .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
-    
-    .twentyfive { grid-column: 4 / 7 !important; grid-row: 9 / 11 !important; }
-    .twentysix { grid-column: 4 / 7 !important; grid-row: 11 / 12 !important; }
-}
-
-@media screen and (min-width: 1024px) {
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.2rem; }
-    h3 { font-size: 2rem; }
-    h4 { font-size: 1.5rem; }
-}
-
-/* ─── 2. MEDIA AND IMAGE ADJUSTMENTS ──────────────────────────────────── */
-img {
-    max-width: 100%;
-    height: auto !important; /* Fixes the stretched aspect ratio from the original height: 20% */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.pictures {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-}
-
-/* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
-input[type=radio] {
-    border: 2px solid #8B0000;
-    padding: 0.3rem;
-    -webkit-appearance: none; /* Safari and older Chrome */
-    -moz-appearance: none;    /* Older Firefox */
-    appearance: none;         /* Modern standard property */
-    cursor: pointer;
-    vertical-align: middle;
-}
-
-input[type=radio]:checked {
-    background-color: #4B0082;
-    background-size: 8px 8px;
-}
-
-input[type=radio]:focus {
-    outline-color: #FFFF00;
-}
-
-label {
-    display: inline-block;
-    text-align: center;
-    font-size: 1rem;
-    color: #003F87;
-    font-weight: bold;
-    margin: 0.25rem;
-    cursor: pointer;
-}
-
-label input[type="radio"] {
-    display: block;
-    margin: 0.25rem auto;
-}
-
-/* Make form fieldsets look like clean cards */
-fieldset {
-    border: 1px solid #003F87;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #F9FBFD;
-    margin-bottom: 10px;
-    height: 100%;
-}
-
-legend {
-    font-weight: bold;
-    color: #003F87;
-    padding: 0 10px;
-    font-size: 1.1rem;
-}
-
-/* Buttons Styling with Modern Gradients, Elevation Shadows, and Hover Animations */
-.dbuttons, .qbuttons, .oebuttons {
-
-    border: none !important; /* Modern borderless design */
-    border-radius: 8px !important;
-    color: #FFFFFF !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-    outline: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    text-align: center !important;
-}
-
-/* Premium Emerald Green for Dividend Generation */
-.dbuttons {
-    background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
-    padding: 12px 20px !important;
-    font-size: 1.05rem !important;
-    margin: 10px auto !important;
-    letter-spacing: 0.5px !important;
-    width: 100% !important;
-    max-width: 250px !important;
-}
-
-/* Deep Royal Blue for Quiz Operations */
-.qbuttons {
-    background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
-    padding: 10px 16px !important;
-    font-size: 0.95rem !important;
-    margin-left: 10px !important;
-}
-
-/* Vivid Crimson/Orange for Utility Actions (Refresh, etc.) */
-.oebuttons {
-
-    background: linear-gradient(135deg, #B71C1C 0%, #E53935 100%) !important;
-    padding: 10px 16px !important;
-    font-size: 0.9rem !important;
-    margin-left: 10px !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    text-align: center !important;
-}
-
-/* Interactive Hover States with Lift Effect and Inner Glow */
-.dbuttons:hover {
-    background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 15px rgba(27, 94, 32, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-.qbuttons:hover {
-    background: linear-gradient(135deg, #1565C0 0%, #42A5F5 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 15px rgba(13, 71, 161, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-.oebuttons:hover {
-    background: linear-gradient(135deg, #C62828 0%, #EF5350 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 15px rgba(183, 28, 28, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Active click states: Snaps downward */
-.dbuttons:active, .qbuttons:active, .oebuttons:active {
-    transform: translateY(1px) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
-}
-
-/* Disabled buttons */
-.dbuttons:disabled, .qbuttons:disabled, .oebuttons:disabled {
-    background: #E0E0E0 !important;
-    color: #9E9E9E !important;
-    box-shadow: none !important;
-    transform: none !important;
-    cursor: not-allowed !important;
-}
-
-/* Textboxes */
-.dtextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 8px;
-    color: #42526C;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 250px;
-    margin: 10px auto;
-}
-
-.qtextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 5px;
-    color: #42526C;
-    padding: 6px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 120px;
-}
-
-.oetextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 5px;
-    color: #42526C;
-    padding: 6px;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 80px;
-}
-
-.dividendgroup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-}
-
-.highlight {
-    display: inline-block;
-    padding: .25em .5em;
-    background: #800000;
-    color: #ffffff;
-    border-radius: 4px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #003F87;
-    color: white;
-}
-
-/* Base header styles */
-.one {
-    padding: 15px;
-    border-radius: 12px;
-}
-
-.two {
-    padding: 10px;
-}
-
-/* Layout wrappers for row groups on larger screens */
-.answerandbutton1, .answerandbutton2, .answerandbutton3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.twentytwo, .twentythree, .twentyfour {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
-
-/* Base container uses a flexible vertical column layout for mobile/tablet */
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-/* On mobile/tablet, reset all absolute grid item spans to flow naturally */
-.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
-.twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
-.sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    width: 100% !important;
-}
-
-/* ─── 5. SCREEN SIZE MEDIA QUERIES ───────────────────────────────────── */
-
-/* --- TABLET & DESKTOP LAYOUT (768px and wider) --- */
-@media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr); /* 6-column system */
-        grid-gap: 20px; /* Comfortable spacing */
-    }
-    
-    /* ROW 1: Header Block and Navigation Guide Image (Top-aligned side-by-side) */
-    .one { 
-        grid-column: 1 / 3 !important; 
-        grid-row: 1 / 4 !important; /* Spans rows 1, 2, and 3 down the left side */
-        align-self: start !important; /* Prevents the left blue box from stretching all the way down */
+        grid-row: 1 / 5 !important; 
+        align-self: start !important; /* Prevents stretching all the way down */
     }
     
     /* Navigation Guide Image: Centered, structured, with a fixed max-width and background card */
@@ -543,43 +144,49 @@ th {
         align-self: center !important; 
     }
     
-    /* ROW 3: Control Buttons and Exercises aligned in a clean row below Row 2 */
+    /* ROW 3: Column 3 and 4 contains the Divisor practice box (spans Rows 3 & 4 vertically) */
     .six { 
-        grid-column: 3 / 4 !important; 
-        grid-row: 3 / 4 !important; 
+        grid-column: 3 / 5 !important; 
+        grid-row: 3 / 5 !important; 
     }
+    
+    /* Column 5 contains the vertically stacked buttons: Refresh (Row 3) and Start/Quit (Row 4) */
     .seven { 
-        grid-column: 4 / 5 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-    }
-    .eight { 
         grid-column: 5 / 6 !important; 
         grid-row: 3 / 4 !important; 
         align-self: center !important; 
+        width: 100% !important;
+        margin: 0 !important;
     }
+    .eight { 
+        grid-column: 5 / 6 !important; 
+        grid-row: 4 / 5 !important; 
+        align-self: center !important; 
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    /* Column 6 contains the learn selection (Row 3) and rule details display (Row 4) */
     .nine { 
         grid-column: 6 / 7 !important; 
         grid-row: 3 / 4 !important; 
     }
-    
-    /* ROW 4: Rule details card spans across the remaining columns below the action buttons */
     .ten { 
-        grid-column: 3 / 7 !important; 
+        grid-column: 6 / 7 !important; 
         grid-row: 4 / 5 !important; 
     }
     
-    /* ROW 5: Headings and Big YES/NO Answer box (Spans full width below everything) */
+    /* ROW 5: Headings and Big YES/NO Answer box (Spans full width below Row 4) */
     .twelvea { grid-column: 1 / 3 !important; grid-row: 5 / 6 !important; align-self: center !important; }
     .twelveb { grid-column: 3 / 5 !important; grid-row: 5 / 6 !important; align-self: center !important; }
     .twelvec { grid-column: 5 / 7 !important; grid-row: 5 / 6 !important; align-self: center !important; }
     
-    /* ROW 6, 7 & 8: Steps, descriptions, explanations */
+    /* ROW 6, 7 & 8: Steps, descriptions, and logical explanations */
     .thirteen { grid-column: 1 / 7 !important; grid-row: 6 / 7 !important; }
     .fourteen { grid-column: 1 / 7 !important; grid-row: 7 / 8 !important; align-self: center !important; }
     .fifteen { grid-column: 1 / 7 !important; grid-row: 8 / 9 !important; }
     
-    /* ROW 9 & 10: Quizzes and Challenge section */
+    /* ROW 9 & 10: Quizzes and timed challenge sections */
     .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
     .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
     .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
@@ -608,8 +215,8 @@ th {
 
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
 .navbar {
-    background-color: #003F87; /* Deep professional blue matching the application */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #8B0000 0%, #B71C1C 100%) !important; /* Red background gradient */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -617,7 +224,7 @@ th {
     padding: 12px 0;
     margin-bottom: 15px;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: \'Plus Jakarta Sans\', sans-serif !important;
 }
 
 .nav-container {
@@ -700,8 +307,17 @@ th {
 /* Mobile responsive navigation overrides (screens below 768px wide) */
 @media screen and (max-width: 768px) {
     .navbar {
-        padding: 10px 0;
-    }
+    background: linear-gradient(135deg, #8B0000 0%, #B71C1C 100%) !important; /* Red background gradient */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: \'Plus Jakarta Sans\', sans-serif !important;
+}
 
     .nav-brand {
         font-size: 1.2rem;
@@ -741,6 +357,10 @@ th {
     .nav-item:last-child {
         border-bottom: none;
     }
+}
+
+.nav-brand span {
+    color: #FFFFFF !important;
 }
 
     </style>
