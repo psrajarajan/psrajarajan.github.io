@@ -114,9 +114,16 @@ input[type=radio] {
     vertical-align: middle;
 }
 
+
 input[type=radio]:checked {
     background-color: #4B0082;
     background-size: 8px 8px;
+}
+
+/* Permanent black background class for correct divisors */
+.correct-fill {
+    background-color: #000000 !important;
+    border-color: #000000 !important;
 }
 
 input[type=radio]:focus {
@@ -2470,6 +2477,15 @@ th {
         document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " +
             window.divisor + " ?";
         document.getElementById("biganswer").innerHTML = window.biganswer;
+           // paste only these lines to lock the correct black fills:
+        let selectedInput = document.querySelector('input[type="radio"][value="' + window.divisor + '"]');
+        if (selectedInput) {
+            if (window.biganswer === window.yes) {
+                selectedInput.classList.add('correct-fill'); // Locks the black background permanently
+            } else {
+                selectedInput.classList.remove('correct-fill'); // Keeps/turns it hollow if incorrect
+            }
+        }
     }
     let randomdividendcall = document.querySelector("#randomdividendbutton");
     randomdividendcall.addEventListener('click', randomdividend);
