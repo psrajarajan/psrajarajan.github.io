@@ -86,349 +86,84 @@ h5 {
 }
 
 @media screen and (min-width: 768px) {
-    h1 { font-size: 2.6rem; }
-    h2 { font-size: 2.0rem; }
-    h3 { font-size: 1.8rem; }
-    h4 { font-size: 1.4rem; }
-}
-
-
-/* --- DESKTOP LAYOUT (Min 1024px) --- */
-@media screen and (min-width: 1024px) {
     .container {
         display: grid;
         grid-template-columns: repeat(6, 1fr); /* 6-column system */
-        grid-gap: 15px; /* Spacing */
-    }
-    
-    /* ROW 1: Title and Guide Image */
-    .one { grid-column: 1 / 3; grid-row: 1 / 5; } /* Blue card spans Rows 1 to 4 on the left */
-    .two { grid-column: 3 / 7; grid-row: 1 / 2; } /* Guide image sits on top right */
-    
-    /* ROW 2: Choose Digits, Dividend box, and Generate button (placed below guide image) */
-    .three { grid-column: 3 / 5; grid-row: 2 / 3; } /* Choose Digits */
-    .five { grid-column: 5 / 6; grid-row: 2 / 3; display: flex; flex-direction: column; justify-content: center; } /* Dividend Box */
-    .four { grid-column: 6 / 7; grid-row: 2 / 3; align-self: center; } /* Generate Button */
-    
-    /* ROW 3: Click Correct Divisor (Left) & Check Divisibility Rule (Right) */
-    .six { grid-column: 3 / 5; grid-row: 3 / 4; } /* Divisor practices */
-    .nine { grid-column: 5 / 7; grid-row: 3 / 4; } /* Rule checker */
-    
-    /* ROW 4: Refresh and Start/Quit buttons next to Rule details */
-    .seven { grid-column: 3 / 4; grid-row: 4 / 5; align-self: center; } /* Refresh Button */
-    .eight { grid-column: 4 / 5; grid-row: 4 / 5; align-self: center; } /* Start Quiz Button */
-    .ten { grid-column: 5 / 7; grid-row: 4 / 5; } /* Rule details */
-    
-    /* ROW 5: Headings and Big YES/NO Answer box */
-    .twelvea { grid-column: 1 / 3; grid-row: 5 / 6; align-self: center; }
-    .twelveb { grid-column: 3 / 5; grid-row: 5 / 6; align-self: center; }
-    .twelvec { grid-column: 5 / 7; grid-row: 5 / 6; align-self: center; }
-    
-    /* ROW 6, 7 & 8: Steps, descriptions, explanations */
-    .thirteen { grid-column: 1 / 7; grid-row: 6 / 7; }
-    .fourteen { grid-column: 1 / 7; grid-row: 7 / 8; align-self: center; }
-    .fifteen { grid-column: 1 / 7; grid-row: 8 / 9; }
-    
-    /* ROW 9, 10 & 11: Quizzes and Challenge section */
-    .sixteen { grid-column: 1 / 2; grid-row: 9 / 10; }
-    .eighteen { grid-column: 2 / 3; grid-row: 9 / 10; }
-    .twenty { grid-column: 3 / 4; grid-row: 9 / 10; }
-    
-    .twentyfive { grid-column: 4 / 7; grid-row: 9 / 11; }
-    .twentysix { grid-column: 4 / 7; grid-row: 11 / 12; }
-}
-
-
-/* ─── 2. MEDIA AND IMAGE ADJUSTMENTS ──────────────────────────────────── */
-img {
-    max-width: 100%;
-    height: auto !important; /* Fixes the stretched aspect ratio from the original height: 20% */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.pictures {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-}
-
-/* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
-input[type=radio] {
-    border: 2px solid #8B0000;
-    padding: 0.3rem;
-    -webkit-appearance: none; /* Safari and older Chrome */
-    -moz-appearance: none;    /* Older Firefox */
-    appearance: none;         /* Modern standard property */
-    cursor: pointer;
-    vertical-align: middle;
-}
-
-input[type=radio]:checked {
-    background-color: #4B0082;
-    background-size: 8px 8px;
-}
-
-input[type=radio]:focus {
-    outline-color: #FFFF00;
-}
-
-label {
-    display: inline-block;
-    text-align: center;
-    font-size: 1rem;
-    color: #003F87;
-    font-weight: bold;
-    margin: 0.25rem;
-    cursor: pointer;
-}
-
-label input[type="radio"] {
-    display: block;
-    margin: 0.25rem auto;
-}
-
-/* Make form fieldsets look like clean cards */
-fieldset {
-    border: 1px solid #003F87;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #F9FBFD;
-    margin-bottom: 10px;
-    height: 100%;
-}
-
-legend {
-    font-weight: bold;
-    color: #003F87;
-    padding: 0 10px;
-    font-size: 1.1rem;
-}
-
-/* Buttons */
-.dbuttons, .qbuttons, .oebuttons {
-    background-color: #4CAF50;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #FFFFFF;
-    border-radius: 8px;
-    color: #FFFFFF;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.dbuttons:hover, .qbuttons:hover, .oebuttons:hover {
-    background-color: #45a049;
-}
-
-.dbuttons:active, .qbuttons:active, .oebuttons:active {
-    transform: scale(0.98);
-}
-
-.dbuttons:disabled, .qbuttons:disabled, .oebuttons:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-.dbuttons {
-    padding: 12px 16px;
-    font-size: 1.1rem;
-    margin: 10px auto;
-}
-
-.qbuttons {
-    padding: 8px 12px;
-    font-size: 0.95rem;
-    margin-left: 10px;
-}
-
-.oebuttons {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    margin-left: 10px;
-}
-
-/* Textboxes */
-.dtextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 8px;
-    color: #42526C;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 250px;
-    margin: 10px auto;
-}
-
-.qtextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 5px;
-    color: #42526C;
-    padding: 6px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 120px;
-}
-
-.oetextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 5px;
-    color: #42526C;
-    padding: 6px;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 80px;
-}
-
-.dividendgroup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-}
-
-.highlight {
-    display: inline-block;
-    padding: .25em .5em;
-    background: #800000;
-    color: #ffffff;
-    border-radius: 4px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #003F87;
-    color: white;
-}
-
-
-/* Header style for mobile/tablet */
-.one {
-    padding: 15px;
-    border-radius: 12px;
-}
-
-.two {
-    padding: 10px;
-}
-
-
-/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
-
-/* Base container uses a flexible vertical column layout for mobile */
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
-@media screen and (max-width: 767px) {
-    /* On mobile, reset all absolute grid item spans to flow naturally */
-    .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
-    .twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
-    .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
-        grid-column: auto !important;
-        grid-row: auto !important;
-        width: 100% !important;
-    }
-}
-
-/* Header style for mobile/tablet */
-.one {
-    padding: 15px;
-    border-radius: 12px;
-}
-
-.two {
-    padding: 10px;
-}
-
-/* Layout wrappers for row groups on larger screens */
-.answerandbutton1, .answerandbutton2, .answerandbutton3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.twentytwo, .twentythree, .twentyfour {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* ─── 5. SCREEN SIZE MEDIA QUERIES ───────────────────────────────────── */
-
-/* --- TABLET & DESKTOP GRID LAYOUT (768px and wider) --- */
-/*
-  This layout aligns all elements perfectly using CSS Grid. 
-  It works natively on S Rajarajan's original HTML where all 26 elements are direct children of .container.
-  NO HTML element wrapping or changes are required. 
-*/
-@media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr); /* 6 equal-width column grid system */
         grid-gap: 20px; /* Comfortable spacing */
     }
     
-        /* ROW 1: Header Block and Navigation Guide Image (Top-aligned side-by-side) */
-    .one { grid-column: 1 / 3; grid-row: 1 / 10; }
-    .two { grid-column: 3 / 7; grid-row: 1 / 2; }
+    /* ROW 1 to 3: Left Blue Sidebar Panel */
+    .one { 
+        grid-column: 1 / 3 !important; 
+        grid-row: 1 / 4 !important; 
+        align-self: start; /* Prevents stretching all the way down! */
+    }
     
-    /* EXPERIMENTAL STEP 1: Shift ONLY .three directly below the image */
-    .three { grid-column: 3 / 7; grid-row: 2 / 3; }
+    /* ROW 1: Navigation Guide Image (Top aligned with Blue Box) */
+    .two { 
+        grid-column: 3 / 7 !important; 
+        grid-row: 1 / 2 !important; 
+    }
     
-    /* Let everything else flow naturally in the grid rows below it */
-    .five { grid-column: 3 / 7; grid-row: 3 / 4; }
-    .four { grid-column: 3 / 7; grid-row: 4 / 5; }
-    .six { grid-column: 3 / 7; grid-row: 5 / 6; }
+    /* ROW 2: The 4 Interactive Input Boxes (Side-by-side directly below the Guide Image) */
+    .three { 
+        grid-column: 3 / 4 !important; 
+        grid-row: 2 / 3 !important; 
+    }
+    .five { 
+        grid-column: 4 / 5 !important; 
+        grid-row: 2 / 3 !important; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .six { 
+        grid-column: 5 / 6 !important; 
+        grid-row: 2 / 3 !important; 
+    }
+    .nine { 
+        grid-column: 6 / 7 !important; 
+        grid-row: 2 / 3 !important; 
+    }
     
-    /* Remaining elements stack below */
-    .seven { grid-column: 3 / 5; grid-row: 6 / 7; }
-    .eight { grid-column: 5 / 7; grid-row: 6 / 7; }
-    .nine { grid-column: 3 / 7; grid-row: 7 / 8; }
-    .ten { grid-column: 3 / 7; grid-row: 8 / 9; }
+    /* ROW 3: Control Buttons aligned directly below their respective boxes */
+    .four { 
+        grid-column: 3 / 4 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center; 
+    }
+    .seven { 
+        grid-column: 4 / 5 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center; 
+    }
+    .eight { 
+        grid-column: 5 / 6 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center; 
+    }
+    .ten { 
+        grid-column: 6 / 7 !important; 
+        grid-row: 3 / 4 !important; 
+    }
     
-    .twelvea { grid-column: 1 / 3; grid-row: 10 / 11; }
-    .twelveb { grid-column: 3 / 5; grid-row: 10 / 11; }
-    .twelvec { grid-column: 5 / 7; grid-row: 10 / 11; }
+    /* ROW 4: Headings and Big YES/NO Answer box (Spans full width below Row 3) */
+    .twelvea { grid-column: 1 / 3 !important; grid-row: 4 / 5 !important; align-self: center; }
+    .twelveb { grid-column: 3 / 5 !important; grid-row: 4 / 5 !important; align-self: center; }
+    .twelvec { grid-column: 5 / 7 !important; grid-row: 4 / 5 !important; align-self: center; }
+    
+    /* ROW 5, 6 & 7: Steps, descriptions, and logical explanations */
+    .thirteen { grid-column: 1 / 7 !important; grid-row: 5 / 6 !important; }
+    .fourteen { grid-column: 1 / 7 !important; grid-row: 6 / 7 !important; align-self: center; }
+    .fifteen { grid-column: 1 / 7 !important; grid-row: 7 / 8 !important; }
+    
+    /* ROW 8 & 9: Quizzes and timed challenge sections */
+    .sixteen { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; }
+    .eighteen { grid-column: 2 / 3 !important; grid-row: 8 / 9 !important; }
+    .twenty { grid-column: 3 / 4 !important; grid-row: 8 / 9 !important; }
+    
+    .twentyfive { grid-column: 4 / 7 !important; grid-row: 8 / 10 !important; }
+    .twentysix { grid-column: 4 / 7 !important; grid-row: 10 / 11 !important; }
 }
 
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
