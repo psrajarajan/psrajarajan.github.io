@@ -17,6 +17,7 @@
         });
     </script>
     <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* 
@@ -38,7 +39,7 @@ html {
 }
 
 body {
-    font-size: 1rem;
+    font-size: 1rem !important;
     background-color: #FFFAC8;
     background-color: #FFFFFF;
     margin: 8px;
@@ -58,7 +59,7 @@ span {
 
 /* Headings scale down on smaller screens */
 h1 {
-    font-size: 2.2rem;
+    font-size: 1rem !important;
     display: inline-block;
     margin-bottom: 0;
     margin-top: 0;
@@ -66,39 +67,39 @@ h1 {
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 1rem !important;
     display: inline;
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: 1rem !important;
     display: inline;
 }
 
 h4 {
-    font-size: 1.3rem;
+    font-size: 1rem !important;
     display: inline-block;
     margin-bottom: 5px;
     margin-top: 2px;
 }
 
 h5 {
-    font-size: 1rem;
+    font-size: 1rem !important;
     display: inline;
 }
 
 @media screen and (min-width: 768px) {
-    h1 { font-size: 2.6rem; }
-    h2 { font-size: 2.0rem; }
-    h3 { font-size: 1.8rem; }
-    h4 { font-size: 1.4rem; }
+    h1 { font-size: 1rem !important; }
+    h2 { font-size: 1rem !important; }
+    h3 { font-size: 1rem !important; }
+    h4 { font-size: 1rem !important; }
 }
 
 @media screen and (min-width: 1024px) {
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.2rem; }
-    h3 { font-size: 2rem; }
-    h4 { font-size: 1.5rem; }
+    h1 { font-size: 1rem !important; }
+    h2 { font-size: 1rem !important; }
+    h3 { font-size: 1rem !important; }
+    h4 { font-size: 1rem !important; }
 }
 
 /* ─── 2. MEDIA AND IMAGE ADJUSTMENTS ──────────────────────────────────── */
@@ -140,7 +141,7 @@ input[type=radio]:focus {
 label {
     display: inline-block;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1rem !important;
     color: #003F87;
     font-weight: bold;
     margin: 0.25rem;
@@ -166,7 +167,7 @@ legend {
     font-weight: bold;
     color: #003F87;
     padding: 0 10px;
-    font-size: 1.1rem;
+    font-size: 1rem !important;
 }
 
 /* Premium Buttons with Hover Lifting & Active Snapping */
@@ -257,7 +258,7 @@ legend {
     color: #42526C;
     padding: 10px;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1rem !important;
     font-weight: bold;
     outline: none;
     width: 100%;
@@ -272,7 +273,7 @@ legend {
     color: #42526C;
     padding: 6px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1rem !important;
     font-weight: bold;
     outline: none;
     width: 100%;
@@ -286,7 +287,7 @@ legend {
     color: #42526C;
     padding: 6px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem !important;
     font-weight: bold;
     outline: none;
     width: 100%;
@@ -356,18 +357,18 @@ th {
 
 /* ─── 3.5 COMPACT TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
 .thirteen, .fourteen, .fifteen {
-    font-size: 0.82rem !important; /* Space-efficient and highly readable */
+    font-size: 1rem !important; /* Space-efficient and highly readable */
     line-height: 1.4 !important;
 }
 
 .thirteen *, .fourteen *, .fifteen * {
-    font-size: 0.82rem !important;
+    font-size: 1rem !important;
 }
 
 .thirteen table, .fourteen table, .fifteen table,
 .thirteen td, .fourteen td, .fifteen td,
 .thirteen th, .fourteen th, .fifteen th {
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
     padding: 4px 6px !important; /* Compact tables to prevent layout expansion */
 }
 
@@ -399,103 +400,110 @@ th {
 @media screen and (min-width: 768px) {
     .container {
         display: grid;
-        grid-template-columns: repeat(6, 1fr); /* 6-column system */
-        grid-gap: 15px; /* Compact spacing */
+        grid-template-columns: repeat(12, 1fr); /* Unified 12-column system for ultimate horizontal alignment */
+        grid-gap: 20px; /* Comfortable spacing */
     }
     
-    /* ROW 1 to 3: Left Blue Sidebar Panel (Top-aligned, beautiful rounded corners) */
+    /* ROW 1: Header Block sits on the ABSOLUTE top spanning the entire width */
     .one { 
-        grid-column: 1 / 3 !important; 
-        grid-row: 1 / 4 !important; /* Spans Row 1, 2, and 3 down the left side */
-        align-self: start !important; /* Prevents stretching to the bottom */
-        border-radius: 12px !important; /* Restores the rounded corners */
+        grid-column: 1 / 13 !important; 
+        grid-row: 1 / 2 !important; 
+        width: 100% !important;
+        align-self: start !important;
+        border-radius: 12px !important;
     }
     
-    /* Navigation Guide Image: Completely removed as requested! */
+    /* Navigation Guide Image: Completely removed as requested */
     .two { 
         display: none !important; 
     }
     
-    /* ROW 1: Input Controls aligned in a clean row at the very top (aligned with top of the blue box) */
+    /* ROW 2: First Row of interactive cards (aligned horizontally) */
+    /* Position 1: Choose number of digits */
     .three { 
-        grid-column: 3 / 5 !important; 
-        grid-row: 1 / 2 !important; 
+        grid-column: 1 / 4 !important; 
+        grid-row: 2 / 3 !important; 
     }
+    /* Position 2: Generate Random Dividend button */
+    .four { 
+        grid-column: 4 / 7 !important; 
+        grid-row: 2 / 3 !important; 
+        align-self: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    /* Position 3: Dividend display box */
     .five { 
-        grid-column: 5 / 6 !important; 
-        grid-row: 1 / 2 !important; 
+        grid-column: 7 / 10 !important; 
+        grid-row: 2 / 3 !important; 
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 100% !important;
     }
-    .four { 
-        grid-column: 6 / 7 !important; 
-        grid-row: 1 / 2 !important; 
-        align-self: center !important; 
-    }
-    
-    /* ROW 2 & 3: Divisibility Practice and Learn cards (Symmetrical, space-saving stacked blocks) */
-    /* Column 3 & 4 contains the Practice box (spans Row 2 & 3 vertically next to the stacked buttons) */
+    /* Position 4: Click the correct divisor for the given dividend */
     .six { 
-        grid-column: 3 / 5 !important; 
-        grid-row: 2 / 4 !important; 
-    }
-    
-    /* Column 5 contains the vertically stacked buttons: Refresh (Row 2) and Start/Quit (Row 3) */
-    .seven { 
-        grid-column: 5 / 6 !important; 
+        grid-column: 10 / 13 !important; 
         grid-row: 2 / 3 !important; 
-        align-self: center !important; 
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    .eight { 
-        grid-column: 5 / 6 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-        width: 100% !important;
-        margin: 0 !important;
     }
     
-    /* Column 6 contains the rule selection (Row 2) and rule details display (Row 3) */
+    /* ROW 3: Second Row of interactive cards */
+    /* Position 1: Check the Divisibility rule for any Divisor */
     .nine { 
-        grid-column: 6 / 7 !important; 
-        grid-row: 2 / 3 !important; 
-    }
-    .ten { 
-        grid-column: 6 / 7 !important; 
+        grid-column: 1 / 5 !important; 
         grid-row: 3 / 4 !important; 
     }
+    /* Position 2: Start Quiz/Challenge button */
+    .eight { 
+        grid-column: 5 / 9 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center !important; 
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    /* Position 3: Refresh New Dividend after Edit button */
+    .seven { 
+        grid-column: 9 / 13 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center !important; 
+        width: 100% !important;
+        margin: 0 !important;
+    }
     
-    /* ROW 4, 5 & 6: Information Text & Explanations BROUGHT UP! (Spans full width below Row 3) */
-    .thirteen { 
-        grid-column: 1 / 7 !important; 
+    /* ROW 4: Rule details display box spans the entire width beneath the action rows */
+    .ten { 
+        grid-column: 1 / 13 !important; 
         grid-row: 4 / 5 !important; 
     }
-    .fourteen { 
-        grid-column: 1 / 7 !important; 
+    
+    /* ROW 5, 6 & 7: Information Text & Explanations BROUGHT UP! (Spans full width below Row 4) */
+    .thirteen { 
+        grid-column: 1 / 13 !important; 
         grid-row: 5 / 6 !important; 
+    }
+    .fourteen { 
+        grid-column: 1 / 13 !important; 
+        grid-row: 6 / 7 !important; 
         align-self: center !important; 
     }
     .fifteen { 
-        grid-column: 1 / 7 !important; 
-        grid-row: 6 / 7 !important; 
+        grid-column: 1 / 13 !important; 
+        grid-row: 7 / 8 !important; 
     }
     
-    /* ROW 7: Headings and Big YES/NO Answer box (Spans full width below explanations) */
-    .twelvea { grid-column: 1 / 3 !important; grid-row: 7 / 8 !important; align-self: center !important; }
-    .twelveb { grid-column: 3 / 5 !important; grid-row: 7 / 8 !important; align-self: center !important; }
-    .twelvec { grid-column: 5 / 7 !important; grid-row: 7 / 8 !important; align-self: center !important; }
+    /* ROW 8: Headings and Big YES/NO Answer box (Spans full width below explanations) */
+    .twelvea { grid-column: 1 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
+    .twelveb { grid-column: 5 / 9 !important; grid-row: 8 / 9 !important; align-self: center !important; }
+    .twelvec { grid-column: 9 / 13 !important; grid-row: 8 / 9 !important; align-self: center !important; }
     
-    /* ROW 8 & 9: Quizzes and timed challenge sections */
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; }
-    .eighteen { grid-column: 2 / 3 !important; grid-row: 8 / 9 !important; }
-    .twenty { grid-column: 3 / 4 !important; grid-row: 8 / 9 !important; }
+    /* ROW 9 & 10: Quizzes and timed challenge sections */
+    .sixteen { grid-column: 1 / 5 !important; grid-row: 9 / 10 !important; }
+    .eighteen { grid-column: 5 / 9 !important; grid-row: 9 / 10 !important; }
+    .twenty { grid-column: 9 / 13 !important; grid-row: 9 / 10 !important; }
     
-    .twentyfive { grid-column: 4 / 7 !important; grid-row: 8 / 10 !important; }
-    .twentysix { grid-column: 4 / 7 !important; grid-row: 10 / 11 !important; }
+    .twentyfive { grid-column: 1 / 7 !important; grid-row: 10 / 12 !important; }
+    .twentysix { grid-column: 7 / 13 !important; grid-row: 10 / 12 !important; }
 }
-
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
     /* Reset layout to stack naturally on mobile screen viewports */
@@ -598,7 +606,7 @@ th {
 .nav-item {
     text-decoration: none;
     color: #E2E8F0;
-    font-size: 1rem;
+    font-size: 1rem !important;
     font-weight: bold;
     padding: 8px 16px;
     border-radius: 6px;
@@ -655,7 +663,7 @@ th {
         border-bottom: none;
     }
 }
-    </style>
+</style>
 </head>
 
 <body>
