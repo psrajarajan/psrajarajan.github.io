@@ -353,6 +353,24 @@ th {
     gap: 10px;
 }
 
+
+/* ─── 3.5 COMPACT TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
+.thirteen, .fourteen, .fifteen {
+    font-size: 0.82rem !important; /* Space-efficient and highly readable */
+    line-height: 1.4 !important;
+}
+
+.thirteen *, .fourteen *, .fifteen * {
+    font-size: 0.82rem !important;
+}
+
+.thirteen table, .fourteen table, .fifteen table,
+.thirteen td, .fourteen td, .fifteen td,
+.thirteen th, .fourteen th, .fifteen th {
+    font-size: 0.8rem !important;
+    padding: 4px 6px !important; /* Compact tables to prevent layout expansion */
+}
+
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
 /* Base container uses a flexible vertical column layout for mobile/tablet */
@@ -382,120 +400,100 @@ th {
     .container {
         display: grid;
         grid-template-columns: repeat(6, 1fr); /* 6-column system */
-        grid-gap: 20px; /* Comfortable spacing */
+        grid-gap: 15px; /* Compact spacing */
     }
     
-    /* ROW 1: Header Block and Navigation Guide Image (Top-aligned side-by-side) */
+    /* ROW 1 to 3: Left Blue Sidebar Panel (Top-aligned, beautiful rounded corners) */
     .one { 
         grid-column: 1 / 3 !important; 
-        grid-row: 1 / 5 !important; /* Spans Rows 1, 2, 3, and 4 down the left side */
+        grid-row: 1 / 4 !important; /* Spans Row 1, 2, and 3 down the left side */
         align-self: start !important; /* Prevents stretching to the bottom */
         border-radius: 12px !important; /* Restores the rounded corners */
     }
     
-    /* Navigation Guide Image: Centered, structured, with a fixed max-width and background card */
+    /* Navigation Guide Image: Completely removed as requested! */
     .two { 
-        grid-column: 3 / 7 !important; 
-        grid-row: 1 / 2 !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 5px !important;
-        background-color: #F9FBFD !important;
-        border: 1px solid #003F87 !important;
-        border-radius: 10px !important;
-        overflow: hidden !important;
+        display: none !important; 
     }
     
-    /* Restrict the width/height of the guide image inside the top section so it fits perfectly */
-    .two img {
-        max-width: 100% !important;
-        max-height: 140px !important; /* Fixed beautiful height boundary */
-        width: auto !important;
-        height: auto !important;
-        object-fit: contain !important;
-        border-radius: 6px !important;
-        box-shadow: none !important;
-    }
-    
-    /* ROW 2: Input Controls aligned in a clean row directly below the guide image */
+    /* ROW 1: Input Controls aligned in a clean row at the very top (aligned with top of the blue box) */
     .three { 
         grid-column: 3 / 5 !important; 
-        grid-row: 2 / 3 !important; 
+        grid-row: 1 / 2 !important; 
     }
     .five { 
         grid-column: 5 / 6 !important; 
-        grid-row: 2 / 3 !important; 
+        grid-row: 1 / 2 !important; 
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
     .four { 
         grid-column: 6 / 7 !important; 
-        grid-row: 2 / 3 !important; 
+        grid-row: 1 / 2 !important; 
         align-self: center !important; 
     }
     
-    /* ROW 3 & 4 (Unified Third Block): Divisibility, Practice and learn columns */
-    /* Column 3 and 4 contains the tall Practice box spanning both Rows 3 & 4 */
+    /* ROW 2 & 3: Divisibility Practice and Learn cards (Symmetrical, space-saving stacked blocks) */
+    /* Column 3 & 4 contains the Practice box (spans Row 2 & 3 vertically next to the stacked buttons) */
     .six { 
         grid-column: 3 / 5 !important; 
-        grid-row: 3 / 5 !important; 
+        grid-row: 2 / 4 !important; 
     }
     
-    /* Column 5 contains the stacked buttons: Refresh (Row 3) and Start/Quit (Row 4) */
+    /* Column 5 contains the vertically stacked buttons: Refresh (Row 2) and Start/Quit (Row 3) */
     .seven { 
         grid-column: 5 / 6 !important; 
-        grid-row: 3 / 4 !important; 
+        grid-row: 2 / 3 !important; 
         align-self: center !important; 
         width: 100% !important;
         margin: 0 !important;
     }
     .eight { 
         grid-column: 5 / 6 !important; 
-        grid-row: 4 / 5 !important; 
+        grid-row: 3 / 4 !important; 
         align-self: center !important; 
         width: 100% !important;
         margin: 0 !important;
     }
     
-    /* Column 6 contains the rule selection (Row 3) and rule details display (Row 4) */
+    /* Column 6 contains the rule selection (Row 2) and rule details display (Row 3) */
     .nine { 
         grid-column: 6 / 7 !important; 
-        grid-row: 3 / 4 !important; 
+        grid-row: 2 / 3 !important; 
     }
     .ten { 
         grid-column: 6 / 7 !important; 
-        grid-row: 4 / 5 !important; 
+        grid-row: 3 / 4 !important; 
     }
     
-    /* ROW 5, 6 & 7: Information Text & Explanations BROUGHT UP! (Spans full width below Row 4) */
+    /* ROW 4, 5 & 6: Information Text & Explanations BROUGHT UP! (Spans full width below Row 3) */
     .thirteen { 
         grid-column: 1 / 7 !important; 
-        grid-row: 5 / 6 !important; 
+        grid-row: 4 / 5 !important; 
     }
     .fourteen { 
         grid-column: 1 / 7 !important; 
-        grid-row: 6 / 7 !important; 
+        grid-row: 5 / 6 !important; 
         align-self: center !important; 
     }
     .fifteen { 
         grid-column: 1 / 7 !important; 
-        grid-row: 7 / 8 !important; 
+        grid-row: 6 / 7 !important; 
     }
     
-    /* ROW 8: Headings and Big YES/NO Answer box (Spans full width below explanations) */
-    .twelvea { grid-column: 1 / 3 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelveb { grid-column: 3 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelvec { grid-column: 5 / 7 !important; grid-row: 8 / 9 !important; align-self: center !important; }
+    /* ROW 7: Headings and Big YES/NO Answer box (Spans full width below explanations) */
+    .twelvea { grid-column: 1 / 3 !important; grid-row: 7 / 8 !important; align-self: center !important; }
+    .twelveb { grid-column: 3 / 5 !important; grid-row: 7 / 8 !important; align-self: center !important; }
+    .twelvec { grid-column: 5 / 7 !important; grid-row: 7 / 8 !important; align-self: center !important; }
     
-    /* ROW 9 & 10: Quizzes and timed challenge sections */
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
-    .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
-    .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
+    /* ROW 8 & 9: Quizzes and timed challenge sections */
+    .sixteen { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; }
+    .eighteen { grid-column: 2 / 3 !important; grid-row: 8 / 9 !important; }
+    .twenty { grid-column: 3 / 4 !important; grid-row: 8 / 9 !important; }
     
-    .twentyfive { grid-column: 4 / 7 !important; grid-row: 9 / 11 !important; }
-    .twentysix { grid-column: 4 / 7 !important; grid-row: 11 / 12 !important; }
+    .twentyfive { grid-column: 4 / 7 !important; grid-row: 8 / 10 !important; }
+    .twentysix { grid-column: 4 / 7 !important; grid-row: 10 / 11 !important; }
 }
 
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
@@ -657,7 +655,6 @@ th {
         border-bottom: none;
     }
 }
-
     </style>
 </head>
 
