@@ -17,14 +17,13 @@
         });
     </script>
     <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* 
-  =========================================
+  =================================================
   Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility (v19 - Master Design)
-  =========================================
+  S Rajarajan - Math Divisibility (v22 - Perfect 4-Column Layout)
+  =================================================
 */
 
 /* ─── 1. BASE AND TYPOGRAPHY SCALE ────────────────────────────────────── */
@@ -39,7 +38,7 @@ html {
 }
 
 body {
-    font-size: 1rem !important;
+    font-size: 1rem;
     background-color: #FFFAC8;
     background-color: #FFFFFF;
     margin: 8px;
@@ -57,9 +56,9 @@ span {
     color: #800000;
 }
 
-/* Headings scale down on smaller screens */
+/* Base Headings */
 h1 {
-    font-size: 1rem !important;
+    font-size: 2.2rem;
     display: inline-block;
     margin-bottom: 0;
     margin-top: 0;
@@ -67,45 +66,31 @@ h1 {
 }
 
 h2 {
-    font-size: 1rem !important;
+    font-size: 1.8rem;
     display: inline;
 }
 
 h3 {
-    font-size: 1rem !important;
+    font-size: 1.6rem;
     display: inline;
 }
 
 h4 {
-    font-size: 1rem !important;
+    font-size: 1.3rem;
     display: inline-block;
     margin-bottom: 5px;
     margin-top: 2px;
 }
 
 h5 {
-    font-size: 1rem !important;
+    font-size: 1rem;
     display: inline;
-}
-
-@media screen and (min-width: 768px) {
-    h1 { font-size: 1rem !important; }
-    h2 { font-size: 1rem !important; }
-    h3 { font-size: 1rem !important; }
-    h4 { font-size: 1rem !important; }
-}
-
-@media screen and (min-width: 1024px) {
-    h1 { font-size: 1rem !important; }
-    h2 { font-size: 1rem !important; }
-    h3 { font-size: 1rem !important; }
-    h4 { font-size: 1rem !important; }
 }
 
 /* ─── 2. MEDIA AND IMAGE ADJUSTMENTS ──────────────────────────────────── */
 img {
     max-width: 100%;
-    height: auto !important; /* Fixes the stretched aspect ratio from the original height: 20% */
+    height: auto !important;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -122,9 +107,9 @@ img {
 input[type=radio] {
     border: 2px solid #8B0000;
     padding: 0.3rem;
-    -webkit-appearance: none; /* Safari and older Chrome */
-    -moz-appearance: none;    /* Older Firefox */
-    appearance: none;         /* Modern standard property */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
     vertical-align: middle;
 }
@@ -141,7 +126,7 @@ input[type=radio]:focus {
 label {
     display: inline-block;
     text-align: center;
-    font-size: 1rem !important;
+    font-size: 1rem;
     color: #003F87;
     font-weight: bold;
     margin: 0.25rem;
@@ -161,13 +146,14 @@ fieldset {
     background-color: #F9FBFD;
     margin-bottom: 10px;
     height: 100%;
+    box-sizing: border-box;
 }
 
 legend {
     font-weight: bold;
     color: #003F87;
     padding: 0 10px;
-    font-size: 1rem !important;
+    font-size: 1.1rem;
 }
 
 /* Premium Buttons with Hover Lifting & Active Snapping */
@@ -193,7 +179,7 @@ legend {
 .dbuttons {
     background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
     padding: 12px 20px !important;
-    font-size: 1.05rem !important;
+    font-size: 1rem !important;
     margin: 10px auto !important;
     letter-spacing: 0.5px !important;
     width: 100% !important;
@@ -203,17 +189,19 @@ legend {
 /* Deep Royal Blue for Quiz Operations */
 .qbuttons {
     background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
-    padding: 10px 16px !important;
-    font-size: 0.95rem !important;
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
     margin-left: 10px !important;
+    width: 100% !important;
 }
 
 /* Vivid Crimson/Orange for Utility Actions (Refresh, etc.) */
 .oebuttons {
     background: linear-gradient(135deg, #B71C1C 0%, #E53935 100%) !important;
-    padding: 10px 16px !important;
-    font-size: 0.9rem !important;
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
     margin-left: 10px !important;
+    width: 100% !important;
 }
 
 /* Interactive Hover States with Lift Effect and Inner Glow */
@@ -258,7 +246,7 @@ legend {
     color: #42526C;
     padding: 10px;
     text-align: center;
-    font-size: 1rem !important;
+    font-size: 1.6rem;
     font-weight: bold;
     outline: none;
     width: 100%;
@@ -273,7 +261,7 @@ legend {
     color: #42526C;
     padding: 6px;
     text-align: center;
-    font-size: 1rem !important;
+    font-size: 1rem;
     font-weight: bold;
     outline: none;
     width: 100%;
@@ -287,7 +275,7 @@ legend {
     color: #42526C;
     padding: 6px;
     text-align: center;
-    font-size: 1rem !important;
+    font-size: 1.1rem;
     font-weight: bold;
     outline: none;
     width: 100%;
@@ -329,47 +317,44 @@ th {
 
 /* Base header card styles to preserve rounded corners */
 .one {
-    padding: 15px !important;
+    padding: 20px !important;
     border-radius: 12px !important;
+    background-color: #003F87 !important; /* Rich blue background */
+    color: #FFFFFF !important;
+    text-align: center !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
 }
 
-.two {
-    padding: 10px !important;
+.one h1, .one h2, .one h3, .one h4, .one p, .one span {
+    color: #FFFFFF !important; /* Force white text */
 }
 
-/* Layout wrappers for row groups on larger screens */
-.answerandbutton1, .answerandbutton2, .answerandbutton3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.twentytwo, .twentythree, .twentyfour {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-
-/* ─── 3.5 COMPACT TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
+/* ─── 3.5 TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
 .thirteen, .fourteen, .fifteen {
-    font-size: 1rem !important; /* Space-efficient and highly readable */
-    line-height: 1.4 !important;
+    font-size: 1.05rem !important; /* Increased font-size as requested! */
+    line-height: 1.5 !important;
 }
 
 .thirteen *, .fourteen *, .fifteen * {
-    font-size: 1rem !important;
+    font-size: 1.05rem !important;
 }
 
 .thirteen table, .fourteen table, .fifteen table,
 .thirteen td, .fourteen td, .fifteen td,
 .thirteen th, .fourteen th, .fifteen th {
     font-size: 1rem !important;
-    padding: 4px 6px !important; /* Compact tables to prevent layout expansion */
+    padding: 8px 12px !important;
+}
+
+/* YES/NO Feedback Textbox Optimization (Slightly Reduced Font Size) */
+.twelveb {
+    text-align: center !important;
+}
+
+/* target h1, h2, h3, spans or labels inside twelveb to make them clean and slightly smaller */
+.twelveb *, .twelveb {
+    font-size: 1.95rem !important; /* Slightly reduced as requested */
+    font-weight: 800 !important;
 }
 
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
@@ -400,110 +385,120 @@ th {
 @media screen and (min-width: 768px) {
     .container {
         display: grid;
-        grid-template-columns: repeat(12, 1fr); /* Unified 12-column system for ultimate horizontal alignment */
-        grid-gap: 20px; /* Comfortable spacing */
+        grid-template-columns: repeat(4, 1fr); /* Clean, symmetrical 4-column system! */
+        grid-gap: 15px; /* Comfortable compact spacing */
     }
     
-    /* ROW 1: Header Block sits on the ABSOLUTE top spanning the entire width */
+    /* ROW 1: Header Block on top, spanning all 4 columns! */
     .one { 
-        grid-column: 1 / 13 !important; 
+        grid-column: 1 / 5 !important; 
         grid-row: 1 / 2 !important; 
         width: 100% !important;
-        align-self: start !important;
-        border-radius: 12px !important;
+        margin-bottom: 10px !important;
     }
     
-    /* Navigation Guide Image: Completely removed as requested */
+    /* Navigation Guide Image: Completely hidden */
     .two { 
         display: none !important; 
     }
     
-    /* ROW 2: First Row of interactive cards (aligned horizontally) */
-    /* Position 1: Choose number of digits */
+    /* ROW 2: The 4 Core Input Boxes aligned in a clean row (symmetrical 4 columns) */
+    /* Position 1: Choose digits */
     .three { 
-        grid-column: 1 / 4 !important; 
+        grid-column: 1 / 2 !important; 
         grid-row: 2 / 3 !important; 
     }
-    /* Position 2: Generate Random Dividend button */
+    /* Position 2: Generate Dividend Button (shifted left!) */
     .four { 
-        grid-column: 4 / 7 !important; 
+        grid-column: 2 / 3 !important; 
         grid-row: 2 / 3 !important; 
-        align-self: center !important;
-        width: 100% !important;
+        align-self: center !important; 
         margin: 0 !important;
+        width: 100% !important;
     }
     /* Position 3: Dividend display box */
     .five { 
-        grid-column: 7 / 10 !important; 
+        grid-column: 3 / 4 !important; 
         grid-row: 2 / 3 !important; 
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100% !important;
     }
-    /* Position 4: Click the correct divisor for the given dividend */
+    /* Position 4: Click the correct divisor */
     .six { 
-        grid-column: 10 / 13 !important; 
+        grid-column: 4 / 5 !important; 
         grid-row: 2 / 3 !important; 
     }
     
-    /* ROW 3: Second Row of interactive cards */
-    /* Position 1: Check the Divisibility rule for any Divisor */
+    /* ROW 3: Core Actions (Perfect Columns aligning with Row 2) */
+    /* Position 1: Check the Divisibility rule (made same size as above button group) */
     .nine { 
-        grid-column: 1 / 5 !important; 
+        grid-column: 1 / 2 !important; 
         grid-row: 3 / 4 !important; 
     }
-    /* Position 2: Start Quiz/Challenge button */
-    .eight { 
-        grid-column: 5 / 9 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    /* Position 3: Refresh New Dividend after Edit button */
+    
+    /* Position 2: Left completely empty as requested! */
+    
+    /* Position 3: Refresh New Dividend after Edit */
     .seven { 
-        grid-column: 9 / 13 !important; 
+        grid-column: 3 / 4 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center !important; 
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    /* Position 4: Start Quiz/Challenge button */
+    .eight { 
+        grid-column: 4 / 5 !important; 
         grid-row: 3 / 4 !important; 
         align-self: center !important; 
         width: 100% !important;
         margin: 0 !important;
     }
     
-    /* ROW 4: Rule details display box spans the entire width beneath the action rows */
+    /* ROW 4: Rule details display box (spans full width directly below controls) */
     .ten { 
-        grid-column: 1 / 13 !important; 
+        grid-column: 1 / 5 !important; 
         grid-row: 4 / 5 !important; 
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
     }
     
-    /* ROW 5, 6 & 7: Information Text & Explanations BROUGHT UP! (Spans full width below Row 4) */
+    /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below second row! */
     .thirteen { 
-        grid-column: 1 / 13 !important; 
+        grid-column: 1 / 5 !important; 
         grid-row: 5 / 6 !important; 
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
     }
     .fourteen { 
-        grid-column: 1 / 13 !important; 
+        grid-column: 1 / 5 !important; 
         grid-row: 6 / 7 !important; 
         align-self: center !important; 
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
     }
     .fifteen { 
-        grid-column: 1 / 13 !important; 
+        grid-column: 1 / 5 !important; 
         grid-row: 7 / 8 !important; 
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
     }
     
     /* ROW 8: Headings and Big YES/NO Answer box (Spans full width below explanations) */
-    .twelvea { grid-column: 1 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelveb { grid-column: 5 / 9 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelvec { grid-column: 9 / 13 !important; grid-row: 8 / 9 !important; align-self: center !important; }
+    .twelvea { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; align-self: center !important; }
+    .twelveb { grid-column: 2 / 4 !important; grid-row: 8 / 9 !important; align-self: center !important; }
+    .twelvec { grid-column: 4 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
     
     /* ROW 9 & 10: Quizzes and timed challenge sections */
-    .sixteen { grid-column: 1 / 5 !important; grid-row: 9 / 10 !important; }
-    .eighteen { grid-column: 5 / 9 !important; grid-row: 9 / 10 !important; }
-    .twenty { grid-column: 9 / 13 !important; grid-row: 9 / 10 !important; }
+    .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
+    .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
+    .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
     
-    .twentyfive { grid-column: 1 / 7 !important; grid-row: 10 / 12 !important; }
-    .twentysix { grid-column: 7 / 13 !important; grid-row: 10 / 12 !important; }
+    .twentyfive { grid-column: 4 / 5 !important; grid-row: 9 / 11 !important; }
+    .twentysix { grid-column: 1 / 4 !important; grid-row: 10 / 11 !important; }
 }
+
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
     /* Reset layout to stack naturally on mobile screen viewports */
@@ -606,7 +601,7 @@ th {
 .nav-item {
     text-decoration: none;
     color: #E2E8F0;
-    font-size: 1rem !important;
+    font-size: 1rem;
     font-weight: bold;
     padding: 8px 16px;
     border-radius: 6px;
@@ -663,7 +658,7 @@ th {
         border-bottom: none;
     }
 }
-</style>
+    </style>
 </head>
 
 <body>
@@ -671,11 +666,9 @@ th {
     <div id="nav-placeholder"></div>
     <div class="container">
          
-        <div class="one" style="background-color:#0000FF;">
-            <h1 style='color:#FFFFFF;' onclick="handleOnClick()">Divisibility Rule in Mathematics</h1><br>
-          <div>  <h2 style='color:#FFFFFF;'>X | Y (Y is divisible by X)</h2><!----> <h4 style='color:#FFFF00;'>  By S Rajarajan</h4> </div>
-            <hr class="newline">
-            <h4 style='color:#FFFFFF;font-weight: bold;' id="guidetitle"><span style="color:#FFFF00;">Navigation diagram (right side): </span>To learn, practice and challenge divisibility rule, first step is to get a dividend. We can go for quiz or challenge at any time. To attend quiz, we do not need dividend. </h4>
+       <div class="one">
+        <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
+        <p style="font-weight: bold; margin-top: 10px;">Created by S Rajarajan</p>
         </div>
         <div class="two">
             <div class="pictures"> <img src="navigation_guide_with_sequence_numbers.png" alt="guide1"></div>
