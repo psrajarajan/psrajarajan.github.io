@@ -331,18 +331,18 @@ th {
 
 /* ─── 3.5 TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
 .thirteen, .fourteen, .fifteen {
-    font-size: 1.05rem !important; /* Increased font-size as requested! */
+    font-size: 1.3rem !important; /* Increased font size to match 'Is 5864 divisible by 2?' heading size! */
     line-height: 1.5 !important;
 }
 
 .thirteen *, .fourteen *, .fifteen * {
-    font-size: 1.05rem !important;
+    font-size: 1.3rem !important; /* Forces all children (text, bullet points) to same comfortable size */
 }
 
 .thirteen table, .fourteen table, .fifteen table,
 .thirteen td, .fourteen td, .fifteen td,
 .thirteen th, .fourteen th, .fifteen th {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important; /* Highly readable math tables */
     padding: 8px 12px !important;
 }
 
@@ -351,13 +351,30 @@ th {
     text-align: center !important;
 }
 
-/* target h1, h2, h3, spans or labels inside twelveb to make them clean and slightly smaller */
 .twelveb *, .twelveb {
-    font-size: 1.95rem !important; /* Slightly reduced as requested */
+    font-size: 1.5rem !important; /* Slightly reduced as requested for sleek visual style */
     font-weight: 800 !important;
+}\n\n/* Ensure .three and .nine are styled identically in height & alignment */
+.three fieldset, .nine fieldset {
+    height: 100% !important;
+    min-height: 135px !important; /* Locked to the exact same size */
+    box-sizing: border-box !important;
+    margin: 0 !important;
 }
 
-/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
+/* Ensure buttons and display boxes are styled beautifully and aligned in the columns */
+.five fieldset {
+    height: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+}
+
+.four .dbuttons, .seven .oebuttons, .eight .qbuttons {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 60px !important; /* Locked to identical heights for symmetrical alignment! */
+    box-sizing: border-box !important;
+}\n\n/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
 /* Base container uses a flexible vertical column layout for mobile/tablet */
 .container {
@@ -385,8 +402,8 @@ th {
 @media screen and (min-width: 768px) {
     .container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Clean, symmetrical 4-column system! */
-        grid-gap: 15px; /* Comfortable compact spacing */
+        grid-template-columns: repeat(4, 1fr); /* Symmetrical 4-column grid! */
+        grid-gap: 15px; /* Symmetrical clean spacing */
     }
     
     /* ROW 1: Header Block on top, spanning all 4 columns! */
@@ -394,7 +411,7 @@ th {
         grid-column: 1 / 5 !important; 
         grid-row: 1 / 2 !important; 
         width: 100% !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 5px !important;
     }
     
     /* Navigation Guide Image: Completely hidden */
@@ -403,43 +420,52 @@ th {
     }
     
     /* ROW 2: The 4 Core Input Boxes aligned in a clean row (symmetrical 4 columns) */
-    /* Position 1: Choose digits */
+    /* Column 1: Choose digits */
     .three { 
         grid-column: 1 / 2 !important; 
         grid-row: 2 / 3 !important; 
+        width: 100% !important;
+        margin: 0 !important;
     }
-    /* Position 2: Generate Dividend Button (shifted left!) */
+    /* Column 2: Generate Dividend Button */
     .four { 
         grid-column: 2 / 3 !important; 
         grid-row: 2 / 3 !important; 
         align-self: center !important; 
         margin: 0 !important;
         width: 100% !important;
+        height: auto !important;
     }
-    /* Position 3: Dividend display box */
+    /* Column 3: Dividend display box */
     .five { 
         grid-column: 3 / 4 !important; 
         grid-row: 2 / 3 !important; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 !important;
     }
-    /* Position 4: Click the correct divisor */
+    /* Column 4: Click the correct divisor */
     .six { 
         grid-column: 4 / 5 !important; 
         grid-row: 2 / 3 !important; 
+        width: 100% !important;
+        margin: 0 !important;
     }
     
-    /* ROW 3: Core Actions (Perfect Columns aligning with Row 2) */
-    /* Position 1: Check the Divisibility rule (made same size as above button group) */
+    /* ROW 3: Core Actions (Perfect columns aligning with Row 2) */
+    /* Column 1: Check the Divisibility rule (made identical size as .three) */
     .nine { 
         grid-column: 1 / 2 !important; 
         grid-row: 3 / 4 !important; 
+        width: 100% !important;
+        margin: 0 !important;
     }
     
-    /* Position 2: Left completely empty as requested! */
+    /* Column 2: LEFT COMPLETELY EMPTY AS REQUESTED! */
     
-    /* Position 3: Refresh New Dividend after Edit */
+    /* Column 3: Refresh New Dividend after Edit button */
     .seven { 
         grid-column: 3 / 4 !important; 
         grid-row: 3 / 4 !important; 
@@ -447,7 +473,7 @@ th {
         width: 100% !important;
         margin: 0 !important;
     }
-    /* Position 4: Start Quiz/Challenge button */
+    /* Column 4: Start Quiz/Challenge button */
     .eight { 
         grid-column: 4 / 5 !important; 
         grid-row: 3 / 4 !important; 
@@ -456,33 +482,33 @@ th {
         margin: 0 !important;
     }
     
-    /* ROW 4: Rule details display box (spans full width directly below controls) */
+    /* ROW 4: Rule details display box (pushed up close) */
     .ten { 
         grid-column: 1 / 5 !important; 
         grid-row: 4 / 5 !important; 
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
+        margin-top: -10px !important;
+        margin-bottom: 5px !important;
     }
     
-    /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below second row! */
+    /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below Row 4! */
     .thirteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 5 / 6 !important; 
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
+        margin-top: -10px !important;
+        margin-bottom: 5px !important;
     }
     .fourteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 6 / 7 !important; 
         align-self: center !important; 
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
+        margin-top: -10px !important;
+        margin-bottom: 5px !important;
     }
     .fifteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 7 / 8 !important; 
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
+        margin-top: -10px !important;
+        margin-bottom: 5px !important;
     }
     
     /* ROW 8: Headings and Big YES/NO Answer box (Spans full width below explanations) */
@@ -497,9 +523,7 @@ th {
     
     .twentyfive { grid-column: 4 / 5 !important; grid-row: 9 / 11 !important; }
     .twentysix { grid-column: 1 / 4 !important; grid-row: 10 / 11 !important; }
-}
-
-/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
+}\n\n/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
     /* Reset layout to stack naturally on mobile screen viewports */
     .container {
@@ -658,6 +682,7 @@ th {
         border-bottom: none;
     }
 }
+
     </style>
 </head>
 
