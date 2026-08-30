@@ -289,10 +289,11 @@ th {
     color: white;
 }
 
-/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
 
-/* Base container uses a flexible vertical column layout for mobile screens */
-.container, .new-container {
+/* ─── 4. NEW STRUCTURAL ROW & FLEXBOX LAYOUTS ────────────────────────── */
+
+/* Main wrapping container */
+.container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -302,93 +303,156 @@ th {
     padding: 10px;
 }
 
+/* Flexible row structure for desktop and tablet screens */
+.layout-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Row-specific alignment and proportions for screens 768px and wider */
+@media screen and (min-width: 768px) {
+    /* ROW 1: Header Block and Guide Image side-by-side */
+    .header-row {
+        align-items: center;
+    }
+    .header-row .one {
+        flex: 1 1 35%; /* Header block takes about 35% of the width */
+    }
+    .header-row .two {
+        flex: 1 1 65%; /* Navigation guide image takes about 65% of the width */
+    }
+
+    /* ROW 2: Choose Digits, Dividend Display, and Generate button in a clean row */
+    .input-row {
+        align-items: stretch; /* Make all cards match in height */
+        justify-content: space-between;
+    }
+    .input-row .three {
+        flex: 1 1 35%; /* Digit chooser card */
+        margin-bottom: 0;
+    }
+    .input-row .five {
+        flex: 1 1 30%; /* Display box card */
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .input-row .four {
+        flex: 1 1 35%; /* Generate Dividend button card */
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* ROW 3 & 4: Correct Divisors (Left) & Check Divisibility Rule (Right) side-by-side */
+    .practice-row {
+        align-items: start;
+    }
+    .practice-row .six {
+        flex: 1 1 50%; /* Left practice card */
+        margin-bottom: 0;
+    }
+    .practice-row .learn-column {
+        flex: 1 1 50%; /* Right stacked learn column */
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .practice-row .nine, .practice-row .ten {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    /* ROW 5: Refresh after Edit and Start/Quit Quiz side-by-side */
+    .action-row {
+        align-items: stretch;
+        justify-content: space-between;
+    }
+    .action-row .seven {
+        flex: 1 1 50%; /* Refresh button card */
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .action-row .eight {
+        flex: 1 1 50%; /* Start/Quit Quiz card */
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Bottom Feedback and Explanations flow sequentially below */
+    .feedback-row {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+    }
+    .feedback-row .twelvea { flex: 1 1 33.33%; margin-bottom: 0; }
+    .feedback-row .twelveb { flex: 1 1 33.33%; margin-bottom: 0; }
+    .feedback-row .twelvec { flex: 1 1 33.33%; margin-bottom: 0; }
+
+    .explanation-row {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .explanation-row .thirteen, .explanation-row .fourteen, .explanation-row .fifteen {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    /* Challenge and Quiz results row */
+    .quiz-row {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: start;
+    }
+    .quiz-left-column {
+        flex: 1 1 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .quiz-right-column {
+        flex: 1 1 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .quiz-left-column .sixteen, .quiz-left-column .eighteen, .quiz-left-column .twenty {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .quiz-right-column .twentyfive, .quiz-right-column .twentysix {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
-    /* On mobile, reset all absolute grid item spans to flow naturally */
+    /* On mobile, reset all layout rows to stack sequentially in a single vertical list */
+    .layout-row, .feedback-row, .quiz-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
     .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
     .twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
-    .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
-        grid-column: auto !important;
-        grid-row: auto !important;
+    .sixteen, .eighteen, .twenty, .twentyfive, .twentysix,
+    .learn-column, .quiz-left-column, .quiz-right-column {
         width: 100% !important;
+        flex: 1 1 100% !important;
     }
-}
-
-/* Header style for mobile/tablet */
-.one {
-    padding: 15px;
-    border-radius: 12px;
-}
-
-.two {
-    padding: 10px;
-}
-
-/* Layout wrappers for row groups on larger screens */
-.answerandbutton1, .answerandbutton2, .answerandbutton3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.twentytwo, .twentythree, .twentyfour {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* ─── 5. UNIFIED SCREEN SIZE MEDIA QUERY (768px and wider) ─────────────── */
-/* 
-  By using a single, unified grid system for both tablet and desktop screens, 
-  we ensure that S Rajarajan's row-by-row layout matches perfectly regardless 
-  of browser scaling, zooming, or window sizes!
-*/
-@media screen and (min-width: 768px) {
-    .container, .new-container {
-        display: grid !important;
-        grid-template-columns: repeat(6, 1fr) !important; /* 6-column system */
-        grid-gap: 20px !important; /* Comfortable spacing */
-    }
-    
-    /* ROW 1: Title and Guide Image */
-    .one { grid-column: 1 / 3 !important; grid-row: 1 / 2 !important; }
-    .two { grid-column: 3 / 7 !important; grid-row: 1 / 2 !important; }
-    
-    /* ROW 2: Choose Digits, Dividend box, and Generate button aligned in a row */
-    .three { grid-column: 1 / 3 !important; grid-row: 2 / 3 !important; }
-    .five { grid-column: 3 / 5 !important; grid-row: 2 / 3 !important; }
-    .four { grid-column: 5 / 7 !important; grid-row: 2 / 3 !important; align-self: center !important; }
-    
-    /* ROW 3 & 4: Click Correct Divisor (Left) & Check Divisibility Rule for any Divisor (Right) */
-    .six { grid-column: 1 / 4 !important; grid-row: 3 / 5 !important; }
-    .nine { grid-column: 4 / 7 !important; grid-row: 3 / 4 !important; }
-    .ten { grid-column: 4 / 7 !important; grid-row: 4 / 5 !important; }
-    
-    /* ROW 5: Refresh after Edit & Start/Quit Quiz Challenge aligned in a row */
-    .seven { grid-column: 1 / 4 !important; grid-row: 5 / 6 !important; align-self: center !important; }
-    .eight { grid-column: 4 / 7 !important; grid-row: 5 / 6 !important; align-self: center !important; }
-    
-    /* ROW 6: Headings and Big YES/NO Answer box */
-    .twelvea { grid-column: 1 / 3 !important; grid-row: 6 / 7 !important; align-self: center !important; }
-    .twelveb { grid-column: 3 / 5 !important; grid-row: 6 / 7 !important; align-self: center !important; }
-    .twelvec { grid-column: 5 / 7 !important; grid-row: 6 / 7 !important; align-self: center !important; }
-    
-    /* ROW 7 & 8: Steps, descriptions, explanations */
-    .thirteen { grid-column: 1 / 7 !important; grid-row: 7 / 8 !important; }
-    .fourteen { grid-column: 1 / 7 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .fifteen { grid-column: 1 / 7 !important; grid-row: 9 / 10 !important; }
-    
-    /* ROW 9 & 10: Quizzes and Challenge section */
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 10 / 11 !important; }
-    .eighteen { grid-column: 2 / 3 !important; grid-row: 10 / 11 !important; }
-    .twenty { grid-column: 3 / 4 !important; grid-row: 10 / 11 !important; }
-    
-    .twentyfive { grid-column: 4 / 7 !important; grid-row: 10 / 12 !important; }
-    .twentysix { grid-column: 4 / 7 !important; grid-row: 12 / 13 !important; }
 }
 
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
@@ -535,6 +599,7 @@ th {
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
     <div class="container">
+         <div class="layout-row header-row">
         <div class="one" style="background-color:#0000FF;">
             <h1 style='color:#FFFFFF;' onclick="handleOnClick()">Divisibility Rule in Mathematics</h1><br>
           <div>  <h2 style='color:#FFFFFF;'>X | Y (Y is divisible by X)</h2><!----> <h4 style='color:#FFFF00;'>  By S Rajarajan</h4> </div>
@@ -546,6 +611,8 @@ th {
             <div class="twotitle" style="background-color:#00ABA9;">
             </div>
         </div>
+        </div>
+        <div class="layout-row input-row">
         <div class="three">
             <form action="" name="digitsForm">
                 <fieldset style="text-align:center;">
@@ -602,6 +669,8 @@ th {
             </div>
             <!--dividendgroup-->
         </div>
+        </div>
+        <div class="layout-row practice-row">
         <div class="six">
             <form action="" name="divisorForm">
                 <fieldset style="text-align: center;">
@@ -669,12 +738,15 @@ th {
                 </fieldset>
             </form>
         </div>
+        <div class="layout-row action-row">
         <div class="seven">
             <input type="button" id="newdividendbutton" value="Refresh new Dividend after edit" class="dbuttons" disabled />
         </div>
         <div class="eight">
             <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
         </div>
+        </div>
+        <div class="learn-column">
         <div class="nine">
             <form action="" name="gendivisorForm">
                 <fieldset style="text-align:center;">
@@ -699,6 +771,9 @@ th {
             <div><input type="button" style='visibility: hidden;' id="getoddbutton" class="oebuttons" value="Check for this divisor" onclick="checkoddno();" /></div>
             <div><input type="button" style='visibility: hidden;' id="getevenbutton" class="oebuttons" value="Check for this divisor" onclick="checkevenno();" /></div>
         </div>
+        </div>
+        </div>
+        <div class="layout-row feedback-row">
         <div class="twelvea">
             <h1 style='color:#808000;' id="divirulehead"></h1>
         </div>
@@ -707,6 +782,8 @@ th {
         </div>
         <div class="twelvec" style='color:#808000;font-size:6rem;font-weight:bold' id="biganswer">
         </div>
+        </div>
+        <div class="layout-row explanation-row">
         <div class="thirteen">
             <h2 style='color:#3300FF' id="diviruledes"></h2>
         </div>
@@ -740,6 +817,9 @@ th {
             <h2 style='visibility:hidden;' id="twotonminusonw">2<sup>(n-1)</sup></h2>
             <h2 style='visibility:hidden;' id="twoto21">2<sup>(2-1)</sup></h2>
         </div>
+        </div>
+        <div class="layout-row quiz-row">
+             <div class="quiz-left-column">
         <div class="sixteen">
             <div>
                 <h4 style='color:brown;font-weight: bold; visibility: hidden;' id="question1">Q1. What is the smallest dividend that is divisible by first 10 divisors in the above list (maximum 4 tries allowed)</h4>
@@ -792,6 +872,8 @@ th {
                 </div>
             </div>
         </div>
+        </div>
+         <div class="quiz-right-column">
         <div class="twentyfive">
             <div>
                 <h4 style='color:#800000;font-weight: bold;visibility: hidden;' id="challenge111">
@@ -853,6 +935,8 @@ th {
             <div>
                 <h4 style='color:brown;visibility: hidden;padding: 0px' id="cdivispan"></h4>
             </div>
+        </div>
+        </div>
         </div>
         <!--challengeresult-->
     </div>
