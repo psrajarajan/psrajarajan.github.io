@@ -22,7 +22,7 @@
 /* 
   =================================================
   Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility (v22 - Perfect 4-Column Layout)
+  S Rajarajan - Math Divisibility (v28 - Ultimate Symmetrical Layout)
   =================================================
 */
 
@@ -105,11 +105,12 @@ img {
 
 /* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
 
-/* Permanent black background class for correct divisors (robust specificity) */
+/* Permanent black background class for correct divisors (robust specificity with box shadow) */
 input[type="radio"].correct-fill,
 input[type="radio"][data-correct="true"] {
     background-color: #000000 !important;
     background: #000000 !important;
+    box-shadow: inset 0 0 0 20px #000000 !important; /* Force solid color on mobile safari/chrome */
     border-color: #000000 !important;
 }
 
@@ -123,19 +124,9 @@ input[type=radio] {
     vertical-align: middle;
 }
 
-
 input[type=radio]:checked {
     background-color: #4B0082;
     background-size: 8px 8px;
-}
-
-/* Permanent black background class for correct divisors - Specificity locked! */
-input[type="radio"].correct-fill {
-    background-color: #000000 !important;
-    background: #000000 !important;
-    border-color: #000000 !important;
-    -webkit-appearance: none !important;
-    appearance: none !important;
 }
 
 input[type=radio]:focus {
@@ -217,10 +208,11 @@ legend {
 /* Vivid Crimson/Orange for Utility Actions (Refresh, etc.) */
 .oebuttons {
     background: linear-gradient(135deg, #B71C1C 0%, #E53935 100%) !important;
-    padding: 12px 20px !important;
+    padding: 12px 10px !important; /* Extremely neat and compact padding! */
     font-size: 1rem !important;
-    margin-left: 10px !important;
+    margin: 0 auto !important;
     width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /* Interactive Hover States with Lift Effect and Inner Glow */
@@ -367,9 +359,8 @@ th {
     padding: 8px 12px !important;
 }
 
-/* YES/NO Feedback Textbox Optimization (Slightly Reduced Font Size) */
 /* YES/NO Feedback Textbox Optimization (Beautiful, compact, matching font size) */
-.twelveb {
+.twelvec {
     text-align: center !important;
     background-color: #F9FBFD !important;
     border: 1px solid #003F87 !important;
@@ -384,10 +375,11 @@ th {
     min-height: 50px !important;
 }
 
-.twelveb *, .twelveb {
+.twelvec *, .twelvec {
     font-size: 1.45rem !important; /* Perfectly sized to fit next to S Rajarajan's button */
     font-weight: 800 !important;
     margin: 0 !important;
+    color: #800000 !important; /* Maintain signature S Rajarajan font colors */
 }
 
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
@@ -422,6 +414,18 @@ th {
         grid-gap: 15px; /* Compact, balanced spacing */
     }
     
+    /* ROW 1: Header Banner (Spans full 4 columns on top!) */
+    .one { 
+        grid-column: 1 / 5 !important; 
+        grid-row: 1 / 2 !important; 
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Navigation Guide Image: Completely hidden */
+    .two { 
+        display: none !important; 
+    }
     
     /* ROW 2: Symmetrical 4-column Inputs (S Rajarajan's Row 1 of Controls) */
     /* Position 1: Choose digits */
@@ -458,8 +462,8 @@ th {
         grid-row: 3 / 4 !important; 
     }
     
-    /* Position 2: S Rajarajan's YES/NO Feedback Card is now brought right next to the buttons! */
-    .twelveb { 
+    /* Position 2: YES/NO Feedback Card brought up next to buttons into the empty desktop slot! */
+    .twelvec { 
         grid-column: 2 / 3 !important; 
         grid-row: 3 / 4 !important; 
         align-self: center !important;
@@ -485,7 +489,7 @@ th {
         margin: 0 !important;
     }
     
-    /* ROW 4: S Rajarajan's Rule details display box (spans full width directly below controls) */
+    /* ROW 4: Rule details display box (spans full width directly below controls) */
     .ten { 
         grid-column: 1 / 5 !important; 
         grid-row: 4 / 5 !important; 
@@ -515,16 +519,24 @@ th {
     }
     
     /* ROW 8: Remaining auxiliary headings (Spans columns 1 and 4 on the sides) */
-    .twelvea { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelvec { grid-column: 4 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-.sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
+    .twelveb { 
+        grid-column: 1 / 5 !important; 
+        grid-row: 8 / 9 !important; 
+        align-self: center !important; 
+    }
+    .twelvea { 
+        grid-column: 1 / 5 !important; 
+        grid-row: 8 / 9 !important; 
+        align-self: center !important; 
+    }
+    
+    .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
     .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
     .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
     
     .twentyfive { grid-column: 4 / 5 !important; grid-row: 9 / 11 !important; }
     .twentysix { grid-column: 1 / 4 !important; grid-row: 10 / 11 !important; }
 }
-
 
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
@@ -536,7 +548,7 @@ th {
     }
     
     .one, .two, .three, .four, .five, .six, .eight, .nine, .ten,
-    .twelvea, .twelvec, .thirteen, .fourteen, .fifteen,
+    .twelvea, .twelveb, .thirteen, .fourteen, .fifteen,
     .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
         grid-column: auto !important;
         grid-row: auto !important;
@@ -544,7 +556,7 @@ th {
     }
     
     /* 🌟 Make S Rajarajan's Refresh button and S Rajarajan's YES/NO Card share the same row side-by-side on mobile! */
-    .seven, .twelveb {
+    .seven, .twelvec {
         display: inline-flex !important;
         width: 48% !important;
         box-sizing: border-box !important;
@@ -553,26 +565,37 @@ th {
         align-self: center !important;
     }
     
-    .container {
-        display: flex;
-        flex-direction: column;
+    /* Compact visual sizes for mobile display elements */
+    .seven button, .seven input, .seven .oebuttons {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 8px 10px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .twelvec {
+        padding: 8px 10px !important;
+        min-height: auto !important;
     }
     
-    /* Insert a mini-flex row for them in mobile scroll flow */
+    .twelvec *, .twelvec {
+        font-size: 1.15rem !important; /* Perfect fit on phone screens next to button! */
+    }
+
+    /* Place them on the same mobile row flow */
     .seven {
         float: left;
         margin-right: 4% !important;
     }
-    .twelveb {
+    .twelvec {
         float: right;
     }
 }
 
-
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
 .navbar {
-    background-color: #D32F2F !important; /* Premium Red background */
-    background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important; /* Vibrant Red Gradient */
+    background-color: #D32F2F !important; 
+    background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
     position: sticky;
     top: 0;
@@ -600,14 +623,14 @@ th {
     align-items: center;
     gap: 12px;
     text-decoration: none;
-    color: #FFFFFF !important; /* Forces white color on brand content */
+    color: #FFFFFF !important; 
     font-size: 1.4rem;
     font-weight: bold;
     transition: opacity 0.2s ease;
 }
 
 .nav-brand span {
-    color: #FFFFFF !important; /* Forces white color on S Rajarajan's Brand Text! */
+    color: #FFFFFF !important; 
 }
 
 .nav-brand:hover {
@@ -619,12 +642,12 @@ th {
     height: 32px;
     object-fit: contain;
     border-radius: 4px;
-    box-shadow: none; /* Reset main page image shadows */
+    box-shadow: none; 
 }
 
 /* Toggle Hamburger Button for Mobile Views */
 .nav-toggle {
-    display: none; /* Hidden on desktop */
+    display: none; 
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -661,11 +684,11 @@ th {
 }
 
 .nav-item:hover, .nav-item.active {
-    color: #FFFF00; /* Beautiful yellow highlight matching S Rajarajan's theme */
+    color: #FFFF00; 
     background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Mobile responsive navigation overrides (screens below 768px wide) */
+/* Mobile responsive navigation overrides */
 @media screen and (max-width: 768px) {
     .navbar {
         padding: 10px 0;
@@ -676,24 +699,23 @@ th {
     }
 
     .nav-toggle {
-        display: flex; /* Show hamburger button on mobile screens */
+        display: flex; 
     }
 
     .nav-menu {
-        display: none; /* Hidden by default on mobile */
+        display: none; 
         flex-direction: column;
         width: 100%;
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #B71C1C !important; /* Red background matching the theme on mobile */
+        background-color: #B71C1C !important; 
         padding: 15px 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         box-sizing: border-box;
         gap: 8px;
     }
 
-    /* Shown when hamburger menu is active */
     .nav-menu.active {
         display: flex;
     }
@@ -711,16 +733,10 @@ th {
     }
 }
 
-/* YES/NO Feedback Card text size slightly reduced for elegance */
-.twelvec *, .twelvec {
-    font-size: 2.2rem !important;
-    font-weight: 800 !important;
-}
-
     </style>
 </head>
 
-<body>
+a<body>
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
     <div class="container">
@@ -729,11 +745,7 @@ th {
         <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
         <p style="font-weight: bold; margin-top: 10px;">Created by S Rajarajan</p>
         </div>
-        <div class="two">
-            <div class="pictures"> <img src="navigation_guide_with_sequence_numbers.png" alt="guide1"></div>
-            <div class="twotitle" style="background-color:#00ABA9;">
-            </div>
-        </div>
+        
         
         <div class="three">
             <form action="" name="digitsForm">
@@ -862,7 +874,7 @@ th {
         </div>
        
         <div class="seven">
-            <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>
+            <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>n
         </div>
         <div class="eight">
             <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
@@ -2507,24 +2519,10 @@ th {
         document.getElementById("diviresultdes1").innerHTML = window.resultdes1;
         document.getElementById("diviresultdes2").innerHTML = window.resultdes2;
         document.getElementById("diviresultdes3").innerHTML = window.resultdes3;
-        document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " +
-            window.divisor + " ?";
-        document.getElementById("biganswer").innerHTML = window.biganswer;
-           // paste only these lines to lock the correct black fills:
-        let selectedInput = document.querySelector('input[type="radio"][value="' + window.divisor + '"]');
-        if (selectedInput) {
-            if (window.biganswer === window.yes) {
-                selectedInput.classList.add('correct-fill'); // Locks the black background permanently
-            } else {
-                selectedInput.classList.remove('correct-fill'); // Keeps/turns it hollow if incorrect
-            }
-        }
-    }
-// 1. S Rajarajan's original DOM assignments at the end of dividendoperation()
-        document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
+         document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
         document.getElementById("biganswer").innerHTML = window.biganswer;
 
-        // 🌟 KEEP ONLY THIS NEW BLOCK (Delete the older one from yesterday!):
+        //LOCK CORRECT BLACK FILLS (WORKS EVEN WHEN UNCHECKED!)
         let selectedInput = document.querySelector('input[type="radio"][value="' + window.divisor + '"]');
         if (selectedInput) {
             if (window.biganswer === window.yes) {
@@ -2535,6 +2533,33 @@ th {
                 selectedInput.removeAttribute('data-correct');
             }
         }
+    }
+// 🌟 1. DEFINE THE FRESH START RESET FUNCTION
+    function resetDivisorButtons() {
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.classList.remove('correct-fill');
+            input.removeAttribute('data-correct'); // Clears the permanent black fill stamp
+            input.checked = false;                 // Resets the button to hollow/unchecked
+        });
+    }
+
+    // 🌟 2. S RAJARAJAN'S EVENT LISTENERS WITH OUR RESET REGISTERED
+    let randomdividendcall = document.querySelector("#randomdividendbutton");
+    randomdividendcall.addEventListener('click', randomdividend);
+    randomdividendcall.addEventListener('click', divisorbuttonenable);
+    randomdividendcall.addEventListener('click', oddevenbuttonenable);
+    randomdividendcall.addEventListener('click', resetDivisorButtons); // Clear black boxes on new random numbers!
+
+
+    let newdividendcall = document.querySelector("#newdividendbutton");
+    newdividendcall.addEventListener('click', divisorbutton);
+    newdividendcall.addEventListener('click', dividendoperation);
+    newdividendcall.addEventListener('click', diviruledescription);
+    newdividendcall.addEventListener('click', challengemode);
+    newdividendcall.addEventListener('click', resetDivisorButtons); // Clear black boxes when manual dividend is refreshed!
+
+    let divisorcall = document.querySelector("#randomdividendbox");
+    divisorcall.addEventListener('change', divisorbuttonenable);
     // <-- This is S Rajarajan's final closing bracket of the function dividendoperation()
 
     </script>
