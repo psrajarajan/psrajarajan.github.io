@@ -104,6 +104,15 @@ img {
 }
 
 /* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
+
+/* Permanent black background class for correct divisors (robust specificity) */
+input[type="radio"].correct-fill,
+input[type="radio"][data-correct="true"] {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    border-color: #000000 !important;
+}
+
 input[type=radio] {
     border: 2px solid #8B0000;
     padding: 0.3rem;
@@ -359,14 +368,26 @@ th {
 }
 
 /* YES/NO Feedback Textbox Optimization (Slightly Reduced Font Size) */
+/* YES/NO Feedback Textbox Optimization (Beautiful, compact, matching font size) */
 .twelveb {
     text-align: center !important;
+    background-color: #F9FBFD !important;
+    border: 1px solid #003F87 !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+    box-sizing: border-box !important;
+    min-height: 50px !important;
 }
 
-/* Question size set to a readable, elegant 1.3rem to match the explanations! */
 .twelveb *, .twelveb {
-    font-size: 1.3rem !important;
+    font-size: 1.45rem !important; /* Perfectly sized to fit next to S Rajarajan's button */
     font-weight: 800 !important;
+    margin: 0 !important;
 }
 
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
@@ -401,26 +422,14 @@ th {
         grid-gap: 15px; /* Compact, balanced spacing */
     }
     
-    /* ROW 1: Header Block spans full width at the absolute top! */
-    .one { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 1 / 2 !important; 
-        width: 100% !important;
-        margin-bottom: 5px !important;
-    }
     
-    /* Navigation Guide Image: Completely hidden */
-    .two { 
-        display: none !important; 
-    }
-    
-    /* ─── ROW 2: CORE INPUT CONTROLS (Aligned in 4 perfect vertical columns) ─── */
-    /* Position 1 (Col 1): Choose number of digits fieldset */
+    /* ROW 2: Symmetrical 4-column Inputs (S Rajarajan's Row 1 of Controls) */
+    /* Position 1: Choose digits */
     .three { 
         grid-column: 1 / 2 !important; 
         grid-row: 2 / 3 !important; 
     }
-    /* Position 2 (Col 2): Generate Random Dividend button */
+    /* Position 2: Generate Dividend Button (perfectly aligned centered button) */
     .four { 
         grid-column: 2 / 3 !important; 
         grid-row: 2 / 3 !important; 
@@ -428,33 +437,38 @@ th {
         margin: 0 !important;
         width: 100% !important;
     }
-    /* Position 3 (Col 3): Dividend text display box */
+    /* Position 3: Dividend display box */
     .five { 
         grid-column: 3 / 4 !important; 
         grid-row: 2 / 3 !important; 
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-self: center !important;
-        width: 100% !important;
-        margin: 0 !important;
     }
-    /* Position 4 (Col 4): Click the correct divisor card */
+    /* Position 4: Click the correct divisor */
     .six { 
         grid-column: 4 / 5 !important; 
         grid-row: 2 / 3 !important; 
     }
     
-    /* ─── ROW 3: CORE ACTIONS (Symmetrical 4 Columns aligning with Row 2) ─── */
-    /* Position 1 (Col 1): Check Divisibility Rule (same size as .three button group!) */
+    /* ROW 3: Symmetrical Actions & YES/NO Card (S Rajarajan's Row 2 of Controls) */
+    /* Position 1: Check the Divisibility rule (matches height with Choose Digits above it!) */
     .nine { 
         grid-column: 1 / 2 !important; 
         grid-row: 3 / 4 !important; 
     }
     
-    /* Position 2 (Col 2): Left completely empty as requested! */
+    /* Position 2: S Rajarajan's YES/NO Feedback Card is now brought right next to the buttons! */
+    .twelveb { 
+        grid-column: 2 / 3 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 5px !important;
+    }
     
-    /* Position 3 (Col 3): Refresh New Dividend after Edit button */
+    /* Position 3: Refresh Dividend Button (Aligned underneath Dividend Display) */
     .seven { 
         grid-column: 3 / 4 !important; 
         grid-row: 3 / 4 !important; 
@@ -462,7 +476,7 @@ th {
         width: 100% !important;
         margin: 0 !important;
     }
-    /* Position 4 (Col 4): Start Quiz/Challenge button */
+    /* Position 4: Start Quiz/Challenge button (Aligned underneath Click Correct Divisor) */
     .eight { 
         grid-column: 4 / 5 !important; 
         grid-row: 3 / 4 !important; 
@@ -470,50 +484,40 @@ th {
         width: 100% !important;
         margin: 0 !important;
     }
-
-    /* Override margins to force flawless column-by-column alignment! */
-    .dbuttons, .qbuttons, .oebuttons {
-        margin: 0 !important;
-        width: 100% !important;
-        max-width: none !important;
-    }
     
-    /* ─── ROW 4: RULE DETAILS (Spans full width directly below controls) ─── */
+    /* ROW 4: S Rajarajan's Rule details display box (spans full width directly below controls) */
     .ten { 
         grid-column: 1 / 5 !important; 
         grid-row: 4 / 5 !important; 
-        margin-top: -10px !important; /* Pulled up close */
-        margin-bottom: -5px !important;
+        margin-top: -12px !important; /* Extremely compressed white-space! */
+        margin-bottom: 2px !important;
     }
     
-    /* ─── ROW 5, 6 & 7: EXPLANATIONS (Pushed up-close to the second row!) ─── */
+    /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below controls! */
     .thirteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 5 / 6 !important; 
         margin-top: -15px !important; /* Pulled up close! */
-        margin-bottom: -5px !important;
+        margin-bottom: 2px !important;
     }
     .fourteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 6 / 7 !important; 
         align-self: center !important; 
         margin-top: -15px !important; /* Pulled up close! */
-        margin-bottom: -5px !important;
+        margin-bottom: 2px !important;
     }
     .fifteen { 
         grid-column: 1 / 5 !important; 
         grid-row: 7 / 8 !important; 
         margin-top: -15px !important; /* Pulled up close! */
-        margin-bottom: -5px !important;
+        margin-bottom: 2px !important;
     }
     
-    /* ─── ROW 8: YES/NO FEEDBACK CARD (Spans full width below explanations) ─── */
+    /* ROW 8: Remaining auxiliary headings (Spans columns 1 and 4 on the sides) */
     .twelvea { grid-column: 1 / 2 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    .twelveb { grid-column: 2 / 4 !important; grid-row: 8 / 9 !important; align-self: center !important; }
     .twelvec { grid-column: 4 / 5 !important; grid-row: 8 / 9 !important; align-self: center !important; }
-    
-    /* ROW 9 & 10: Quizzes and timed challenge sections */
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
+.sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
     .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
     .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
     
@@ -521,53 +525,49 @@ th {
     .twentysix { grid-column: 1 / 4 !important; grid-row: 10 / 11 !important; }
 }
 
+
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
-    /* Use a smart CSS Grid for Mobile to pair Refresh and YES/NO side-by-side */
+    /* Reset layout to stack naturally on mobile screen viewports */
     .container {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-gap: 12px !important;
-        width: 100% !important;
-        padding: 8px !important;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
     
-    /* Standard elements take full 100% mobile width (span 2 columns) */
     .one, .two, .three, .four, .five, .six, .eight, .nine, .ten,
-    .twelvea, .twelveb, .thirteen, .fourteen, .fifteen,
+    .twelvea, .twelvec, .thirteen, .fourteen, .fifteen,
     .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
-        grid-column: 1 / 3 !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
         width: 100% !important;
     }
     
-    /* .seven (Refresh button) takes the left half on mobile */
+    /* 🌟 Make S Rajarajan's Refresh button and S Rajarajan's YES/NO Card share the same row side-by-side on mobile! */
+    .seven, .twelveb {
+        display: inline-flex !important;
+        width: 48% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        vertical-align: middle !important;
+        align-self: center !important;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Insert a mini-flex row for them in mobile scroll flow */
     .seven {
-        grid-column: 1 / 2 !important;
-        width: 100% !important;
-        margin: 0 !important;
+        float: left;
+        margin-right: 4% !important;
     }
-    
-    /* .twelvec (YES/NO answer box) takes the right half on mobile! Sits next to Refresh! */
-    .twelvec {
-        grid-column: 2 / 3 !important;
-        width: 100% !important;
-        margin: 0 !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        background-color: #F9FBFD !important;
-        border: 1px solid #003F87 !important;
-        border-radius: 8px !important;
-        padding: 5px !important;
-    }
-    
-    /* Make YES/NO typography highly visible but fit perfectly on mobile */
-    .twelvec * {
-        font-size: 1.6rem !important;
-        margin: 0 !important;
-        font-weight: 800 !important;
+    .twelveb {
+        float: right;
     }
 }
+
 
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
 .navbar {
@@ -862,7 +862,7 @@ th {
         </div>
        
         <div class="seven">
-            <input type="button" id="newdividendbutton" value="Refresh\nDividend" class="dbuttons" disabled />
+            <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>
         </div>
         <div class="eight">
             <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
@@ -2520,20 +2520,23 @@ th {
             }
         }
     }
-    let randomdividendcall = document.querySelector("#randomdividendbutton");
-    randomdividendcall.addEventListener('click', randomdividend);
-    randomdividendcall.addEventListener('click', divisorbuttonenable);
-    randomdividendcall.addEventListener('click', oddevenbuttonenable);
+// 1. S Rajarajan's original DOM assignments at the end of dividendoperation()
+        document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
+        document.getElementById("biganswer").innerHTML = window.biganswer;
 
+        // 🌟 KEEP ONLY THIS NEW BLOCK (Delete the older one from yesterday!):
+        let selectedInput = document.querySelector('input[type="radio"][value="' + window.divisor + '"]');
+        if (selectedInput) {
+            if (window.biganswer === window.yes) {
+                selectedInput.classList.add('correct-fill'); // Locks black background
+                selectedInput.setAttribute('data-correct', 'true'); // S Rajarajan's bulletproof fallback!
+            } else {
+                selectedInput.classList.remove('correct-fill');
+                selectedInput.removeAttribute('data-correct');
+            }
+        }
+    // <-- This is S Rajarajan's final closing bracket of the function dividendoperation()
 
-    let newdividendcall = document.querySelector("#newdividendbutton");
-    newdividendcall.addEventListener('click', divisorbutton);
-    newdividendcall.addEventListener('click', dividendoperation);
-    newdividendcall.addEventListener('click', diviruledescription);
-    newdividendcall.addEventListener('click', challengemode);
-
-    let divisorcall = document.querySelector("#randomdividendbox");
-    divisorcall.addEventListener('change', divisorbuttonenable);
     </script>
 </body>
 
