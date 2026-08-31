@@ -120,10 +120,13 @@ input[type=radio]:checked {
     background-size: 8px 8px;
 }
 
-/* Permanent black background class for correct divisors */
-.correct-fill {
+/* Permanent black background class for correct divisors - Specificity locked! */
+input[type="radio"].correct-fill {
     background-color: #000000 !important;
+    background: #000000 !important;
     border-color: #000000 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
 }
 
 input[type=radio]:focus {
@@ -520,19 +523,49 @@ th {
 
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
-    /* Reset layout to stack naturally on mobile screen viewports */
+    /* Use a smart CSS Grid for Mobile to pair Refresh and YES/NO side-by-side */
     .container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 12px !important;
+        width: 100% !important;
+        padding: 8px !important;
     }
     
-    .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
-    .twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
+    /* Standard elements take full 100% mobile width (span 2 columns) */
+    .one, .two, .three, .four, .five, .six, .eight, .nine, .ten,
+    .twelvea, .twelveb, .thirteen, .fourteen, .fifteen,
     .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
-        grid-column: auto !important;
-        grid-row: auto !important;
+        grid-column: 1 / 3 !important;
         width: 100% !important;
+    }
+    
+    /* .seven (Refresh button) takes the left half on mobile */
+    .seven {
+        grid-column: 1 / 2 !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    /* .twelvec (YES/NO answer box) takes the right half on mobile! Sits next to Refresh! */
+    .twelvec {
+        grid-column: 2 / 3 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-color: #F9FBFD !important;
+        border: 1px solid #003F87 !important;
+        border-radius: 8px !important;
+        padding: 5px !important;
+    }
+    
+    /* Make YES/NO typography highly visible but fit perfectly on mobile */
+    .twelvec * {
+        font-size: 1.6rem !important;
+        margin: 0 !important;
+        font-weight: 800 !important;
     }
 }
 
@@ -829,7 +862,7 @@ th {
         </div>
        
         <div class="seven">
-            <input type="button" id="newdividendbutton" value="Refresh new Dividend after edit" class="dbuttons" disabled />
+            <input type="button" id="newdividendbutton" value="Refresh<br>Dividend" class="dbuttons" disabled />
         </div>
         <div class="eight">
             <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
