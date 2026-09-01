@@ -510,40 +510,40 @@ th {
     /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below controls! */
     .thirteen { 
         grid-column: 1 / 5 !important; 
-        grid-row: 5 / 6 !important; 
-        margin-top: -15px !important; /* Pulled up close! */
+        grid-row: 7 / 8 !important; 
+        margin-top: -10px !important; 
         margin-bottom: 2px !important;
     }
     .fourteen { 
         grid-column: 1 / 5 !important; 
-        grid-row: 6 / 7 !important; 
+        grid-row: 8 / 9 !important; 
         align-self: center !important; 
-        margin-top: -15px !important; /* Pulled up close! */
+        margin-top: -10px !important; 
         margin-bottom: 2px !important;
     }
     .fifteen { 
         grid-column: 1 / 5 !important; 
-        grid-row: 7 / 8 !important; 
-        margin-top: -15px !important; /* Pulled up close! */
+        grid-row: 9 / 10 !important; 
+        margin-top: -10px !important; 
         margin-bottom: 2px !important;
     }
     
-    /* ROW 8: Result Header (Spans full width, cleanly separated) */
+    /* ROW 5: Result Header (Brought to the absolute top of the explanation block!) */
     .twelvea { 
         grid-column: 1 / 5 !important; 
-        grid-row: 8 / 9 !important; 
+        grid-row: 5 / 6 !important; 
         align-self: center !important; 
-        margin-top: 5px !important;
-        margin-bottom: 5px !important;
+        margin-top: -15px !important;
+        margin-bottom: 2px !important;
     }
     
-    /* ROW 9: Result Question Text (Spans full width, no overlapping!) */
+    /* ROW 6: Result Question Text (Brought next up top under the header!) */
     .twelveb { 
         grid-column: 1 / 5 !important; 
-        grid-row: 9 / 10 !important; 
+        grid-row: 6 / 7 !important; 
         align-self: center !important; 
-        margin-top: 5px !important;
-        margin-bottom: 5px !important;
+        margin-top: -10px !important;
+        margin-bottom: 2px !important;
     }
     
     /* ROW 10: Timed Challenge and Results Board side-by-side (v31 Symmetrical Challenge Layout) */
@@ -897,7 +897,7 @@ a<body>
             <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>n
         </div>
         <div class="eight">
-            <div id="quizbutton"> <input type="button" id="quiz" value="Start Quiz/Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
+            <div id="quizbutton"> <input type="button" id="quiz" value="Start Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
         </div>
         
         
@@ -2027,15 +2027,33 @@ a<body>
 
     }
 
-    function togglequiz() {
-        if (document.getElementById("quiz").value == "Start Quiz/Challenge") {
-            document.getElementById("quiz").value = "Quit Quiz/Challenge";
-            quizvisible();
-        } else {
-            document.getElementById("quiz").value = "Start Quiz/Challenge";
-            quizhide();
-        }
+function togglequiz() {
+    let mainBtn = document.getElementById("quiz");
+    let challengeText = document.getElementById("challenge111");
+    let startBtn = document.getElementById("cstart1");
+    let stopBtn = document.getElementById("cstopquit1");
+    let tableBoard = document.getElementById("ttable");
+
+    // Check if the button is in 'Start' state
+    if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Challenge") {
+        // 🌟 1. Open the Timed Challenge part safely
+        if (challengeText) challengeText.style.visibility = "visible";
+        if (startBtn) startBtn.style.visibility = "visible";
+        if (stopBtn) stopBtn.style.visibility = "visible";
+        if (tableBoard) tableBoard.style.visibility = "visible";
+        
+        mainBtn.value = "Quit Challenge";
+    } else {
+        // 🌟 2. Close and restore the page cleanly
+        if (challengeText) challengeText.style.visibility = "hidden";
+        if (startBtn) startBtn.style.visibility = "hidden";
+        if (stopBtn) stopBtn.style.visibility = "hidden";
+        if (tableBoard) tableBoard.style.visibility = "hidden";
+        
+        mainBtn.value = "Start Challenge";
+        location.reload(); // Soft-reloads to reset all counters and selections!
     }
+}
 
     function quizvisible() {
         document.getElementById("question1").style.visibility = "visible";
