@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RAJARAJAN TESTING WEBSITE</title>
     <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="responsive-style-v31.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">;</script>
     <script>
         $(function() { 
@@ -22,7 +23,7 @@
 /* 
   =================================================
   Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility (v28 - Ultimate Symmetrical Layout)
+  S Rajarajan - Math Divisibility (v31 - Symmetrical Challenge Layout (Concise Game))
   =================================================
 */
 
@@ -112,6 +113,15 @@ input[type="radio"][data-correct="true"] {
     background: #000000 !important;
     box-shadow: inset 0 0 0 20px #000000 !important; /* Force solid color on mobile safari/chrome */
     border-color: #000000 !important;
+}
+
+/* Permanent red background class for incorrect divisors (v31 compact gameplay) */
+input[type="radio"].incorrect-fill,
+input[type="radio"][data-incorrect="true"] {
+    background-color: #D32F2F !important;
+    background: #D32F2F !important;
+    box-shadow: inset 0 0 0 20px #D32F2F !important; /* Force solid red color on mobile safari/chrome */
+    border-color: #D32F2F !important;
 }
 
 input[type=radio] {
@@ -398,7 +408,7 @@ th {
 /* On mobile/tablet, reset all absolute grid item spans to flow naturally */
 .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
 .twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
-.sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
+.twentyfive, .twentysix {
     grid-column: auto !important;
     grid-row: auto !important;
     width: 100% !important;
@@ -536,13 +546,17 @@ th {
         margin-bottom: 5px !important;
     }
     
-    /* ROW 10 & 11: Quizzes and timed challenge sections */
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 10 / 11 !important; }
-    .eighteen { grid-column: 2 / 3 !important; grid-row: 10 / 11 !important; }
-    .twenty { grid-column: 3 / 4 !important; grid-row: 10 / 11 !important; }
-    
-    .twentyfive { grid-column: 4 / 5 !important; grid-row: 10 / 12 !important; }
-    .twentysix { grid-column: 1 / 4 !important; grid-row: 11 / 12 !important; }
+    /* ROW 10: Timed Challenge and Results Board side-by-side (v31 Symmetrical Challenge Layout) */
+    .twentyfive { 
+        grid-column: 1 / 3 !important; 
+        grid-row: 10 / 11 !important; 
+        width: 100% !important;
+    }
+    .twentysix { 
+        grid-column: 3 / 5 !important; 
+        grid-row: 10 / 11 !important; 
+        width: 100% !important;
+    }
 }
 
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
@@ -556,7 +570,7 @@ th {
     
     .one, .two, .three, .four, .five, .six, .eight, .nine, .ten,
     .twelvea, .twelveb, .thirteen, .fourteen, .fifteen,
-    .sixteen, .eighteen, .twenty, .twentyfive, .twentysix {
+    .twentyfive, .twentysix {
         grid-column: auto !important;
         grid-row: auto !important;
         width: 100% !important;
@@ -739,8 +753,6 @@ th {
         border-bottom: none;
     }
 }
-
-
     </style>
 </head>
 
@@ -959,58 +971,7 @@ a<body>
         </div>
         
        
-        <div class="sixteen">
-            <div>
-                <h4 style='color:brown;font-weight: bold; visibility: hidden;' id="question1">Q1. What is the smallest dividend that is divisible by first 10 divisors in the above list (maximum 4 tries allowed)</h4>
-            </div>
-            <div class="answerandbutton1">
-                <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer1" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
-                <div><input type="button" style='visibility: hidden;' id="confirm1" value="Confirm" class="qbuttons" onclick="checkanswer1();" /></div>
-            </div>
-            <div class="twentytwo">
-                <div>
-                    <h4 style='color:#3300FF;visibility: hidden;margin-right: 20px;' id="result1"></h4>
-                </div>
-                <div>
-                    <h4 style='color:brown;visibility: hidden;' id="hitsq1"></h4>
-                </div>
-            </div>
-            <h5 style='visibility: hidden;'id="hfpw">e113c194-v132k176j157</h5>
-        </div>
-        <div class="eighteen">
-            <div>
-                <h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question2">Q2. What is the smallest dividend that is divisible by remaining 5 divisors in the list (maximum 4 tries allowed)</h4>
-            </div>
-            <div class="answerandbutton2">
-                <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer2" class="qtextbox" value=0 onkeypress="return isNumber(event)" /></div>
-                <div><input type="button" style='visibility: hidden;' id="confirm2" value="Confirm" class="qbuttons" onclick="checkanswer2();" /></div>
-            </div>
-            <div class="twentythree">
-                <div>
-                    <h4 style='color:#3300FF;visibility: hidden;margin-right: 20px;' id="result2"></h4>
-                </div>
-                <div>
-                    <h4 style='color:brown;visibility: hidden;' id="hitsq2"></h4>
-                </div>
-            </div>
-        </div>
-        <div class="twenty">
-            <div>
-                <h4 style='color:brown;font-weight: bold;visibility: hidden;' id="question3">Q3. What is the smallest dividend that is divisible by all the 15 divisors in the list (maximum 4 tries allowed)</h4>
-            </div>
-            <div class="answerandbutton3">
-                <div><input type="number" style='visibility: hidden;margin-left: 5px;' id="answer3" class="qtextbox" value=0 onkeypress="return isNumber(event); " /></div>
-                <div><input type="button" style='visibility: hidden;' id="confirm3" value="Confirm" class="qbuttons" onclick="checkanswer3();" /></div>
-            </div>
-            <div class="twentyfour">
-                <div>
-                    <h4 style='color:#3300FF;visibility: hidden;margin-right: 20px;' id="result3"></h4>
-                </div>
-                <div>
-                    <h4 style='color:brown0;visibility: hidden;' id="hitsq3"></h4>
-                </div>
-            </div>
-        </div>
+        
         
         
         <div class="twentyfive">
@@ -2527,27 +2488,43 @@ a<body>
         document.getElementById("diviresultdes1").innerHTML = window.resultdes1;
         document.getElementById("diviresultdes2").innerHTML = window.resultdes2;
         document.getElementById("diviresultdes3").innerHTML = window.resultdes3;
-         document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
+          document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
         document.getElementById("biganswer").innerHTML = window.biganswer;
 
-         //CHANGE S RAJARAJAN'S OLD SELECTOR TO THIS (Note the .six prefix!):
+        // 🌟 LOCK CORRECT BLACK FILLS & INCORRECT RED FILLS (v31 DUAL GAMEPLAY)
         let selectedInput = document.querySelector('.six input[type="radio"][value="' + window.divisor + '"]');
         if (selectedInput) {
             if (window.biganswer === window.yes) {
-                selectedInput.classList.add('correct-fill'); // Locks black background
-                selectedInput.setAttribute('data-correct', 'true'); // S Rajarajan's bulletproof fallback!
+                // Correct Choice -> Permanent Black Fill
+                selectedInput.classList.add('correct-fill');
+                selectedInput.setAttribute('data-correct', 'true');
+                
+                // Remove any old red stamp
+                selectedInput.classList.remove('incorrect-fill');
+                selectedInput.removeAttribute('data-incorrect');
             } else {
+                // Incorrect Choice -> Permanent Red Fill
+                selectedInput.classList.add('incorrect-fill');
+                selectedInput.setAttribute('data-incorrect', 'true');
+                
+                // Remove any old black stamp
                 selectedInput.classList.remove('correct-fill');
                 selectedInput.removeAttribute('data-correct');
             }
         }
     }
-//  1. DEFINE THE FRESH START RESET FUNCTION
+ // 🌟 1. DEFINE S RAJARAJAN'S UPDATED RESET FUNCTION
     function resetDivisorButtons() {
         document.querySelectorAll('input[type="radio"]').forEach(input => {
+            // Wash away black fills
             input.classList.remove('correct-fill');
-            input.removeAttribute('data-correct'); // Clears the permanent black fill stamp
-            input.checked = false;                 // Resets the button to hollow/unchecked
+            input.removeAttribute('data-correct'); 
+            
+            // Wash away red fills
+            input.classList.remove('incorrect-fill');
+            input.removeAttribute('data-incorrect'); 
+            
+            input.checked = false; // Reset to hollow unchecked states
         });
     }
 
