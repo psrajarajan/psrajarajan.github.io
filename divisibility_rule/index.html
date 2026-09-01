@@ -518,24 +518,31 @@ th {
         margin-bottom: 2px !important;
     }
     
-    /* ROW 8: Remaining auxiliary headings (Spans columns 1 and 4 on the sides) */
-    .twelveb { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 8 / 9 !important; 
-        align-self: center !important; 
-    }
+    /* ROW 8: Result Header (Spans full width, cleanly separated) */
     .twelvea { 
         grid-column: 1 / 5 !important; 
         grid-row: 8 / 9 !important; 
         align-self: center !important; 
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
     }
     
-    .sixteen { grid-column: 1 / 2 !important; grid-row: 9 / 10 !important; }
-    .eighteen { grid-column: 2 / 3 !important; grid-row: 9 / 10 !important; }
-    .twenty { grid-column: 3 / 4 !important; grid-row: 9 / 10 !important; }
+    /* ROW 9: Result Question Text (Spans full width, no overlapping!) */
+    .twelveb { 
+        grid-column: 1 / 5 !important; 
+        grid-row: 9 / 10 !important; 
+        align-self: center !important; 
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
     
-    .twentyfive { grid-column: 4 / 5 !important; grid-row: 9 / 11 !important; }
-    .twentysix { grid-column: 1 / 4 !important; grid-row: 10 / 11 !important; }
+    /* ROW 10 & 11: Quizzes and timed challenge sections */
+    .sixteen { grid-column: 1 / 2 !important; grid-row: 10 / 11 !important; }
+    .eighteen { grid-column: 2 / 3 !important; grid-row: 10 / 11 !important; }
+    .twenty { grid-column: 3 / 4 !important; grid-row: 10 / 11 !important; }
+    
+    .twentyfive { grid-column: 4 / 5 !important; grid-row: 10 / 12 !important; }
+    .twentysix { grid-column: 1 / 4 !important; grid-row: 11 / 12 !important; }
 }
 
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
@@ -2522,8 +2529,8 @@ a<body>
          document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
         document.getElementById("biganswer").innerHTML = window.biganswer;
 
-        //LOCK CORRECT BLACK FILLS (WORKS EVEN WHEN UNCHECKED!)
-        let selectedInput = document.querySelector('input[type="radio"][value="' + window.divisor + '"]');
+         //CHANGE S RAJARAJAN'S OLD SELECTOR TO THIS (Note the .six prefix!):
+        let selectedInput = document.querySelector('.six input[type="radio"][value="' + window.divisor + '"]');
         if (selectedInput) {
             if (window.biganswer === window.yes) {
                 selectedInput.classList.add('correct-fill'); // Locks black background
@@ -2534,7 +2541,7 @@ a<body>
             }
         }
     }
-// 🌟 1. DEFINE THE FRESH START RESET FUNCTION
+//  1. DEFINE THE FRESH START RESET FUNCTION
     function resetDivisorButtons() {
         document.querySelectorAll('input[type="radio"]').forEach(input => {
             input.classList.remove('correct-fill');
