@@ -930,8 +930,10 @@ a<body>
             <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>n
         </div>
         <div class="eight">
-            <div id="quizbutton"> <input type="button" id="quiz" value="Start Challenge" class="dbuttons" onclick="togglequiz();" /> </div>
-        </div>
+            <div id="quizbutton">
+        <input type="button" id="quiz" value="Start Challenge" class="dbuttons" style="visibility: hidden;" onclick="togglequiz();" />
+    </div>
+</div>
         
         
         <div class="nine">
@@ -1090,13 +1092,16 @@ a<body>
         window.rtgtag = 0;
     }
 
-    function divisorbutton() {
-        window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
-        window.divisor = Number(window.divisorstring);
-        document.getElementById("newdividendbutton").disabled = false;
-        document.getElementById("biganswer").style.visibility = "visible";
+   function divisorbutton() {
+    window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
+    window.divisor = Number(window.divisorstring);
+    document.getElementById("newdividendbutton").disabled = false;
+    document.getElementById("biganswer").style.visibility = "visible";
 
-    }
+    // 🌟 HIDE S RAJARAJAN'S CHALLENGE BUTTON INSTANTLY:
+    document.getElementById("quiz").style.visibility = "hidden";
+}
+
 
     function divisorbuttonenable() {
         for (j = 0; j < 15; j++) {
@@ -1125,9 +1130,13 @@ a<body>
 
 
     function randomdividend() {
-        document.getElementById("randomdividendbox").value = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
-        document.getElementById("cstart1").disabled = false;
-    }
+    document.getElementById("randomdividendbox").value = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
+    document.getElementById("cstart1").disabled = false;
+
+    // 🌟 REVEAL S RAJARAJAN'S CHALLENGE BUTTON:
+    document.getElementById("quiz").style.visibility = "visible";
+}
+
 
     function oddevenbuttondisable() {
         document.gendivisorForm.gendivisor[0].disabled = true;
