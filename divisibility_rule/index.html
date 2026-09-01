@@ -499,51 +499,66 @@ th {
         margin: 0 !important;
     }
     
-    /* ROW 4: Rule details display box (spans full width directly below controls) */
-    .ten { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 4 / 5 !important; 
-        margin-top: -12px !important; /* Extremely compressed white-space! */
+    /* S Rajarajan's v33 Symmetrical Grid Ordering (COMPLETELY COMPRESSED GAP) */
+    
+    /* Hide empty Odd/Even details box (.ten) when empty to collapse all space! */
+    .ten:not(.active) {
+        display: none !important;
+    }
+    .ten.active {
+        display: flex !important;
+        grid-column: 1 / 5 !important;
+        grid-row: 4 / 5 !important;
+        margin: 0 !important;
+    }
+    
+    /* First: "Divisibility Rule for 2" (.twelvea) */
+    .twelvea {
+        grid-column: 1 / 5 !important;
+        grid-row: 4 / 5 !important;
+        align-self: center !important;
+        text-align: left !important;
+        margin-top: 0px !important; /* Squeezed out space entirely! */
+        margin-bottom: 2px !important;
+        padding-top: 0px !important;
+    }
+    
+    /* Second: "The dividend must be an Even..." (.thirteen) */
+    .thirteen {
+        grid-column: 1 / 5 !important;
+        grid-row: 5 / 6 !important;
+        text-align: left !important;
+        margin-top: -5px !important; /* Pushed up snug! */
         margin-bottom: 2px !important;
     }
     
-    /* ROW 5, 6 & 7: Explanations area PUSHED UP-CLOSE directly below controls! */
-    .thirteen { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 7 / 8 !important; 
-        margin-top: -10px !important; 
-        margin-bottom: 2px !important;
-    }
-    .fourteen { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 8 / 9 !important; 
-        align-self: center !important; 
-        margin-top: -10px !important; 
-        margin-bottom: 2px !important;
-    }
-    .fifteen { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 9 / 10 !important; 
-        margin-top: -10px !important; 
+    /* Third: "Is 77346 divisible by 2?" (.twelveb) */
+    .twelveb {
+        grid-column: 1 / 5 !important;
+        grid-row: 6 / 7 !important;
+        align-self: center !important;
+        text-align: left !important;
+        margin-top: -5px !important; /* Pushed up snug! */
         margin-bottom: 2px !important;
     }
     
-    /* ROW 5: Result Header (Brought to the absolute top of the explanation block!) */
-    .twelvea { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 5 / 6 !important; 
-        align-self: center !important; 
-        margin-top: -15px !important;
+    /* Fourth: "Now apply the Divisibility Rule for 2 on 77346." (.fourteen) */
+    .fourteen {
+        grid-column: 1 / 5 !important;
+        grid-row: 7 / 8 !important;
+        align-self: center !important;
+        text-align: left !important;
+        margin-top: -5px !important; /* Pushed up snug! */
         margin-bottom: 2px !important;
     }
     
-    /* ROW 6: Result Question Text (Brought next up top under the header!) */
-    .twelveb { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 6 / 7 !important; 
-        align-self: center !important; 
-        margin-top: -10px !important;
-        margin-bottom: 2px !important;
+    /* Next line: S Rajarajan's calculation steps (.fifteen) */
+    .fifteen {
+        grid-column: 1 / 5 !important;
+        grid-row: 8 / 9 !important;
+        text-align: left !important;
+        margin-top: -5px !important; /* Pushed up snug! */
+        margin-bottom: 5px !important;
     }
     
     /* ROW 10: Timed Challenge and Results Board side-by-side (v31 Symmetrical Challenge Layout) */
@@ -577,7 +592,7 @@ th {
     }
     
     /* 🌟 Make S Rajarajan's Refresh button and S Rajarajan's YES/NO Card share the same row side-by-side on mobile! */
-    .seven, .twelvec {
+    .twelvec { /* Unbundled .seven from default mobile flex sharing */
         display: inline-flex !important;
         width: 48% !important;
         box-sizing: border-box !important;
@@ -604,10 +619,7 @@ th {
     }
 
     /* Place them on the same mobile row flow */
-    .seven {
-        float: left;
-        margin-right: 4% !important;
-    }
+    
     .twelvec {
         float: right;
     }
@@ -615,6 +627,7 @@ th {
 
 /* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
 .navbar {
+    display: none !important; /* Completely removed red menubar */
     background-color: #D32F2F !important; 
     background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
@@ -712,6 +725,7 @@ th {
 /* Mobile responsive navigation overrides */
 @media screen and (max-width: 768px) {
     .navbar {
+    display: none !important; /* Completely removed red menubar */
         padding: 10px 0;
     }
 
@@ -751,6 +765,25 @@ th {
     
     .nav-item:last-child {
         border-bottom: none;
+    }
+}
+
+/* S Rajarajan's Refresh button hidden on load - revealed during Challenge! */
+.seven {
+    display: none !important;
+}
+/* When challenge mode adds .active-challenge to container, reveal S Rajarajan's Refresh button */
+.container.active-challenge .seven {
+    display: inline-flex !important;
+}
+@media screen and (min-width: 768px) {
+    .container.active-challenge .seven {
+        display: block !important;
+        grid-column: 3 / 4 !important;
+        grid-row: 3 / 4 !important;
+        align-self: center !important;
+        width: 100% !important;
+        margin: 0 !important;
     }
 }
     </style>
@@ -1188,6 +1221,8 @@ a<body>
             document.getElementById("diviresultdes2").innerHTML = "";
             document.getElementById("diviresultdes3").innerHTML = ""
         }
+          // 🌟 ADD S RAJARAJAN'S NEW LINE HERE (Just before the closing brace):
+    document.querySelector(".ten").classList.add("active"); // Reveals the form safely!
     }
 
     function checkoddno() {
@@ -1412,7 +1447,9 @@ a<body>
         let radioButtonArray2 = document.getElementsByName('gendivisor');
         radioButtonArray2[0].checked = false;
         radioButtonArray2[1].checked = false;
-    }
+       document.querySelector(".ten").classList.remove("active"); // Collapses the gap back to zero!
+}
+    
 
     function cdivisorscleared() {
         window.cdivcleared = 0;
@@ -2033,28 +2070,33 @@ function togglequiz() {
     let startBtn = document.getElementById("cstart1");
     let stopBtn = document.getElementById("cstopquit1");
     let tableBoard = document.getElementById("ttable");
+    let container = document.querySelector(".container"); // 🌟 Get main container
 
-    // Check if the button is in 'Start' state
-    if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Challenge") {
-        // 🌟 1. Open the Timed Challenge part safely
+    if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
+        // Open Challenge
         if (challengeText) challengeText.style.visibility = "visible";
         if (startBtn) startBtn.style.visibility = "visible";
         if (stopBtn) stopBtn.style.visibility = "visible";
         if (tableBoard) tableBoard.style.visibility = "visible";
         
+        // 🌟 REVEAL S RAJARAJAN'S REFRESH BUTTON:
+        if (container) container.classList.add("active-challenge");
+        
         mainBtn.value = "Quit Challenge";
     } else {
-        // 🌟 2. Close and restore the page cleanly
+        // Close Challenge
         if (challengeText) challengeText.style.visibility = "hidden";
         if (startBtn) startBtn.style.visibility = "hidden";
         if (stopBtn) stopBtn.style.visibility = "hidden";
         if (tableBoard) tableBoard.style.visibility = "hidden";
         
+        // 🌟 HIDE S RAJARAJAN'S REFRESH BUTTON:
+        if (container) container.classList.remove("active-challenge");
+        
         mainBtn.value = "Start Challenge";
-        location.reload(); // Soft-reloads to reset all counters and selections!
+        location.reload(); // Reset round
     }
 }
-
     function quizvisible() {
         document.getElementById("question1").style.visibility = "visible";
         document.getElementById("answer1").style.visibility = "visible";
