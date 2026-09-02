@@ -172,6 +172,7 @@ legend {
     font-size: 1.1rem;
 }
 
+.dbuttons, .qbuttons { display: inline-flex !important; }
 .dbuttons, .qbuttons, .oebuttons {
     border: none !important;
     border-radius: 8px !important;
@@ -179,7 +180,7 @@ legend {
     font-weight: bold !important;
     cursor: pointer !important;
     outline: none !important;
-    display: inline-flex !important;
+    display: inline-flex;
     align-items: center !important;
     justify-content: center !important;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -368,7 +369,7 @@ th {
     border: none !important; /* No border box */
     box-shadow: none !important; /* No box shadow */
     padding: 0 !important;
-    display: inline-flex !important;
+    display: inline-flex;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
@@ -461,7 +462,7 @@ th {
     
     /* Position 2: Start Challenge Button (Row 3, Column 2) */
     .eight { 
-        grid-column: 2 / 3 !important; 
+        grid-column: 4 / 5 !important; 
         grid-row: 3 / 4 !important; 
         align-self: center !important; 
         width: 100% !important;
@@ -480,7 +481,7 @@ th {
     
     /* Position 4: YES/NO Feedback Text (Row 3, Column 4) - Centered in column */
     .twelvec { 
-        grid-column: 4 / 5 !important; 
+        grid-column: 2 / 3 !important; 
         grid-row: 3 / 4 !important; 
         align-self: center !important;
         justify-self: center !important; /* Center-align container itself in grid column! */
@@ -495,11 +496,39 @@ th {
     .ten:not(.active) {
         display: none !important;
     }
+    /* 🌟 DYNAMIC ROW SHIFTING (When custom Odd/Even divisor .ten is active, push everything down safely by 1 row!) */
     .ten.active {
         display: flex !important;
+        flex-direction: column !important; /* Stack 'You can edit' box and check buttons vertically! */
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
         grid-column: 1 / 5 !important;
         grid-row: 4 / 5 !important;
-        margin: 0 !important;
+        margin: 15px auto !important;
+        width: 100% !important;
+        max-width: 320px !important;
+    }
+    
+    .ten.active ~ .twelvea {
+        grid-row: 5 / 6 !important;
+        margin-top: 10px !important;
+    }
+    
+    .ten.active ~ .thirteen {
+        grid-row: 6 / 7 !important;
+    }
+    
+    .ten.active ~ .twelveb {
+        grid-row: 7 / 8 !important;
+    }
+    
+    .ten.active ~ .fourteen {
+        grid-row: 8 / 9 !important;
+    }
+    
+    .ten.active ~ .fifteen {
+        grid-row: 9 / 10 !important;
     }
     
     /* 🥞 THE EXACT TEXT ORDER IN THE COMPRESSED GAP 🥞 */
@@ -584,7 +613,7 @@ th {
     
     /* YES/NO and Refresh buttons flow naturally */
     .twelvec {
-        display: inline-flex !important;
+        display: inline-flex;
         width: auto !important;
         margin: 5px auto !important;
         text-align: center !important;
@@ -888,7 +917,8 @@ th {
         
         <!--challengeresult-->
     </div>
-op    <script language="javascript" type="text/javascript">
+  <script language="javascript" type="text/javascript">
+    window.originalDividend = ""; // Stores our frozen anchor X
     function isNumber(evt) {
         evt = (evt) ? evt : window.event;
         var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -944,13 +974,15 @@ op    <script language="javascript" type="text/javascript">
     }
 
 
-    function randomdividend() {
-    updateDividendGuideline();
-    document.getElementById("randomdividendbox").value = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
+function randomdividend() {
+    let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
+    document.getElementById("randomdividendbox").value = generatedValue;
     document.getElementById("cstart1").disabled = false;
-
-    // 🌟 REVEAL S RAJARAJAN'S CHALLENGE BUTTON:
     document.getElementById("quiz").style.visibility = "visible";
+
+    // 🌟 CAPTURE S RAJARAJAN'S FROZEN REFERENCE:
+    window.originalDividend = generatedValue;
+    updateDividendGuideline(); // Refreshes text only on fresh generations!
 }
 
 
@@ -1024,6 +1056,16 @@ op    <script language="javascript" type="text/javascript">
             document.getElementById("diviresultdes1").innerHTML = "";
             document.getElementById("diviresultdes2").innerHTML = "";
             document.getElementById("diviresultdes3").innerHTML = "";
+            
+                // 🌟 FORCE EVEN BUTTON VISIBLE & HIDE ODD BUTTON:
+    let oddBtn = document.getElementById("getoddbutton");
+    let evenBtn = document.getElementById("getevenbutton");
+    if (oddBtn) { oddBtn.style.visibility = "hidden"; oddBtn.style.display = "none"; }
+    if (evenBtn) { evenBtn.style.visibility = "visible"; evenBtn.style.display = "inline-flex"; }
+    
+    document.getElementById("newdividendbutton").style.visibility = "hidden";
+    document.getElementById("biganswer").style.visibility = "hidden";
+    // ... (remaining Even rules code remains untouched) ...
 
         } else if (window.primecomdivisor == "Odd") {
             document.getElementById("biganswer").innerHTML = "";
@@ -1045,6 +1087,16 @@ op    <script language="javascript" type="text/javascript">
             document.getElementById("diviresultdes1").innerHTML = "";
             document.getElementById("diviresultdes2").innerHTML = "";
             document.getElementById("diviresultdes3").innerHTML = ""
+
+             // 🌟 FORCE ODD BUTTON VISIBLE & HIDE EVEN BUTTON:
+    let oddBtn = document.getElementById("getoddbutton");
+    let evenBtn = document.getElementById("getevenbutton");
+    if (oddBtn) { oddBtn.style.visibility = "visible"; oddBtn.style.display = "inline-flex"; }
+    if (evenBtn) { evenBtn.style.visibility = "hidden"; evenBtn.style.display = "none"; }
+    
+    document.getElementById("getevenbutton").style.display = "none";
+    document.getElementById("getoddbutton").style.display = "inline";
+    // ... (remaining Odd rules code remains untouched) ...
         }
           // 🌟 ADD S RAJARAJAN'S NEW LINE HERE (Just before the closing brace):
     document.querySelector(".ten").classList.add("active"); // Reveals the form safely!
@@ -1272,6 +1324,11 @@ op    <script language="javascript" type="text/javascript">
         let radioButtonArray2 = document.getElementsByName('gendivisor');
         radioButtonArray2[0].checked = false;
         radioButtonArray2[1].checked = false;
+        // 🌟 HIDDEN SAFETY OVERRIDES FOR BOTH BUTTONS:
+        let oddBtn = document.getElementById("getoddbutton");
+        let evenBtn = document.getElementById("getevenbutton");
+        if (oddBtn) { oddBtn.style.visibility = "hidden"; oddBtn.style.display = "none"; }
+        if (evenBtn) { evenBtn.style.visibility = "hidden"; evenBtn.style.display = "none"; }
        document.querySelector(".ten").classList.remove("active"); // Collapses the gap back to zero!
 }
     
@@ -1516,14 +1573,16 @@ op    <script language="javascript" type="text/javascript">
         document.getElementById("hitsq3").innerHTML = "Hits: " + window.q3hits;
     }
 
-    function updateDividendGuideline() {
-    let currentVal = document.getElementById("randomdividendbox").value || "0";
+function updateDividendGuideline() {
     let guidelineLabel = document.getElementById("edit-guideline");
     if (guidelineLabel) {
-        guidelineLabel.innerHTML = "You can edit " + currentVal + " &plusmn; 15 digits";
+        if (window.originalDividend) {
+            guidelineLabel.innerHTML = "You can edit " + window.originalDividend + " &plusmn; 15 digits";
+        } else {
+            guidelineLabel.innerHTML = "You can edit (max. 15 digits only)"; // Initial default view
+        }
     }
 }
-
 
     function cstart() {
         window.divisor = 1;
@@ -2440,13 +2499,7 @@ function togglequiz() {
 
     let divisorcall = document.querySelector("#randomdividendbox");
     divisorcall.addEventListener('change', divisorbuttonenable);
-    // 🌟 SYNC GUIDELINE DYNAMICALLY WITH TYPING, CLICKS & RESETS:
-    let dividendBox = document.getElementById("randomdividendbox");
-    if (dividendBox) {
-        dividendBox.addEventListener('input', updateDividendGuideline);  // Updates with every single keystroke!
-        dividendBox.addEventListener('keyup', updateDividendGuideline);  // Backup listener for older browsers
-        dividendBox.addEventListener('change', updateDividendGuideline); // Updates when leaving the box
-    }
+
 
     // Attach sync triggers to S Rajarajan's main action buttons:
     let randomBtnCall = document.querySelector("#randomdividendbutton");
@@ -2460,15 +2513,6 @@ function togglequiz() {
 
     // Run once on page load to initialize S Rajarajan's default view:
     updateDividendGuideline();
-
-
-
-
-
-
-
-
-
     </script>
 </body>
 
