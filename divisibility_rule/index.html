@@ -23,15 +23,15 @@
 /* 
   =================================================
   Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility (v31 - Symmetrical Challenge Layout (Concise Game))
+  S Rajarajan - Math Divisibility (v36 - Symmetrical & Clean)
   =================================================
 */
 
 /* ─── 1. BASE AND TYPOGRAPHY SCALE ────────────────────────────────────── */
 html {
-    font-size: 16px; /* Base font size */
+    font-size: 16px;
     box-sizing: border-box;
-    scroll-behavior: smooth; /* Enable smooth scrolling natively */
+    scroll-behavior: smooth;
 }
 
 *, *:before, *:after {
@@ -57,7 +57,6 @@ span {
     color: #800000;
 }
 
-/* Base Headings */
 h1 {
     font-size: 2.2rem;
     display: inline-block;
@@ -106,21 +105,19 @@ img {
 
 /* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
 
-/* Permanent black background class for correct divisors (robust specificity with box shadow) */
 input[type="radio"].correct-fill,
 input[type="radio"][data-correct="true"] {
     background-color: #000000 !important;
     background: #000000 !important;
-    box-shadow: inset 0 0 0 20px #000000 !important; /* Force solid color on mobile safari/chrome */
+    box-shadow: inset 0 0 0 20px #000000 !important;
     border-color: #000000 !important;
 }
 
-/* Permanent red background class for incorrect divisors (v31 compact gameplay) */
 input[type="radio"].incorrect-fill,
 input[type="radio"][data-incorrect="true"] {
     background-color: #D32F2F !important;
     background: #D32F2F !important;
-    box-shadow: inset 0 0 0 20px #D32F2F !important; /* Force solid red color on mobile safari/chrome */
+    box-shadow: inset 0 0 0 20px #D32F2F !important;
     border-color: #D32F2F !important;
 }
 
@@ -158,7 +155,6 @@ label input[type="radio"] {
     margin: 0.25rem auto;
 }
 
-/* Make form fieldsets look like clean cards */
 fieldset {
     border: 1px solid #003F87;
     border-radius: 10px;
@@ -176,7 +172,6 @@ legend {
     font-size: 1.1rem;
 }
 
-/* Premium Buttons with Hover Lifting & Active Snapping */
 .dbuttons, .qbuttons, .oebuttons {
     border: none !important;
     border-radius: 8px !important;
@@ -190,12 +185,11 @@ legend {
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
-    white-space: normal !important; /* Prevents text truncation */
-    word-wrap: break-word !important; /* Handles wrap beautifully */
+    white-space: normal !important;
+    word-wrap: break-word !important;
     text-align: center !important;
 }
 
-/* Premium Emerald Green for Dividend Generation */
 .dbuttons {
     background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
     padding: 12px 20px !important;
@@ -206,7 +200,6 @@ legend {
     max-width: 250px !important;
 }
 
-/* Deep Royal Blue for Quiz Operations */
 .qbuttons {
     background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
     padding: 12px 20px !important;
@@ -215,17 +208,15 @@ legend {
     width: 100% !important;
 }
 
-/* Vivid Crimson/Orange for Utility Actions (Refresh, etc.) */
 .oebuttons {
     background: linear-gradient(135deg, #B71C1C 0%, #E53935 100%) !important;
-    padding: 12px 10px !important; /* Extremely neat and compact padding! */
+    padding: 12px 10px !important;
     font-size: 1rem !important;
     margin: 0 auto !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
 
-/* Interactive Hover States with Lift Effect and Inner Glow */
 .dbuttons:hover {
     background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%) !important;
     transform: translateY(-2px) !important;
@@ -244,13 +235,11 @@ legend {
     box-shadow: 0 8px 15px rgba(183, 28, 28, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Active click states: Snaps downward */
 .dbuttons:active, .qbuttons:active, .oebuttons:active {
     transform: translateY(1px) !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Disabled buttons */
 .dbuttons:disabled, .qbuttons:disabled, .oebuttons:disabled {
     background: #E0E0E0 !important;
     color: #9E9E9E !important;
@@ -259,7 +248,6 @@ legend {
     cursor: not-allowed !important;
 }
 
-/* Textboxes */
 .dtextbox {
     background-color: #FFFFFF;
     border: 2px solid #003F87;
@@ -312,6 +300,11 @@ legend {
     padding: 10px;
 }
 
+/* Reduced margin for guideline text underneath dividend box */
+.dividendgroup3 label {
+    margin: 2px auto !important;
+}
+
 .highlight {
     display: inline-block;
     padding: .25em .5em;
@@ -336,23 +329,22 @@ th {
     color: white;
 }
 
-/* Base header card styles to preserve rounded corners */
 .one {
     padding: 20px !important;
     border-radius: 12px !important;
-    background-color: #003F87 !important; /* Rich blue background */
+    background-color: #003F87 !important;
     color: #FFFFFF !important;
     text-align: center !important;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
 }
 
 .one h1, .one h2, .one h3, .one h4, .one p, .one span {
-    color: #FFFFFF !important; /* Force white text */
+    color: #FFFFFF !important;
 }
 
 /* ─── 3.5 TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
 .thirteen, .fourteen, .fifteen {
-    font-size: 1.3rem !important; /* Exactly matches the question font size of 1.3rem! */
+    font-size: 1.3rem !important;
     line-height: 1.5 !important;
     font-weight: bold !important;
 }
@@ -369,18 +361,17 @@ th {
     padding: 8px 12px !important;
 }
 
-/* YES/NO Feedback Textbox Optimization (Beautiful, compact, matching font size) */
+/* YES/NO Feedback Text - Clean, Borderless & Centered */
 .twelvec {
     text-align: center !important;
-    background-color: #F9FBFD !important;
-    border: 1px solid #003F87 !important;
-    border-radius: 8px !important;
-    padding: 6px 12px !important;
+    background-color: transparent !important; /* No background box */
+    border: none !important; /* No border box */
+    box-shadow: none !important; /* No box shadow */
+    padding: 0 !important;
     display: inline-flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
     box-sizing: border-box !important;
     min-height: auto !important;
     width: auto !important;
@@ -389,15 +380,13 @@ th {
 }
 
 .twelvec *, .twelvec {
-    font-size: 1.45rem !important; /* Perfectly sized to fit next to S Rajarajan's button */
+    font-size: 3rem !important; /* Standout display size */
     font-weight: 800 !important;
     margin: 0 !important;
-    color: #800000 !important; /* Maintain signature S Rajarajan font colors */
+    color: #800000 !important;
 }
 
 /* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
-
-/* Base container uses a flexible vertical column layout for mobile/tablet */
 .container {
     display: flex;
     flex-direction: column;
@@ -408,7 +397,6 @@ th {
     padding: 10px;
 }
 
-/* On mobile/tablet, reset all absolute grid item spans to flow naturally */
 .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
 .twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
 .twentyfive, .twentysix {
@@ -419,15 +407,14 @@ th {
 
 /* ─── 5. SCREEN SIZE MEDIA QUERIES ───────────────────────────────────── */
 
-/* --- TABLET & DESKTOP LAYOUT (768px and wider) --- */
 @media screen and (min-width: 768px) {
     .container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Perfect, symmetrical 4-column system! */
-        grid-gap: 15px; /* Compact, balanced spacing */
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
     }
     
-    /* ROW 1: Header Banner (Spans full 4 columns on top!) */
+    /* ROW 1: Header Banner */
     .one { 
         grid-column: 1 / 5 !important; 
         grid-row: 1 / 2 !important; 
@@ -435,18 +422,16 @@ th {
         margin-bottom: 10px !important;
     }
     
-    /* Navigation Guide Image: Completely hidden */
     .two { 
         display: none !important; 
     }
     
-    /* ROW 2: Symmetrical 4-column Inputs (S Rajarajan's Row 1 of Controls) */
-    /* Position 1: Choose digits */
+    /* ROW 2: Symmetrical Inputs */
     .three { 
         grid-column: 1 / 2 !important; 
         grid-row: 2 / 3 !important; 
     }
-    /* Position 2: Generate Dividend Button (perfectly aligned centered button) */
+    
     .four { 
         grid-column: 2 / 3 !important; 
         grid-row: 2 / 3 !important; 
@@ -454,7 +439,7 @@ th {
         margin: 0 !important;
         width: 100% !important;
     }
-    /* Position 3: Dividend display box */
+    
     .five { 
         grid-column: 3 / 4 !important; 
         grid-row: 2 / 3 !important; 
@@ -462,40 +447,19 @@ th {
         flex-direction: column;
         justify-content: center;
     }
-    /* Position 4: Click the correct divisor */
+    
     .six { 
         grid-column: 4 / 5 !important; 
         grid-row: 2 / 3 !important; 
     }
     
-    /* ROW 3: Symmetrical Actions & YES/NO Card (S Rajarajan's Row 2 of Controls) */
-    /* Position 1: Check the Divisibility rule (matches height with Choose Digits above it!) */
+    /* ROW 3: Symmetrical Actions */
     .nine { 
         grid-column: 1 / 2 !important; 
         grid-row: 3 / 4 !important; 
     }
     
-    /* Position 2: YES/NO Feedback Card brought up next to buttons into the empty desktop slot! */
-    .twelvec { 
-        grid-column: 4 / 5 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important;
-        text-align: center !important;
-        margin: 0 !important;
-        padding: 6px 12px !important;
-        width: auto !important;
-        max-width: max-content !important;
-    }
-    
-    /* Position 3: Refresh Dividend Button (Aligned underneath Dividend Display) */
-    .seven { 
-        grid-column: 3 / 4 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    /* Position 4: Start Quiz/Challenge button (Aligned underneath Click Correct Divisor) */
+    /* Position 2: Start Challenge Button (Row 3, Column 2) */
     .eight { 
         grid-column: 2 / 3 !important; 
         grid-row: 3 / 4 !important; 
@@ -504,9 +468,30 @@ th {
         margin: 0 !important;
     }
     
-    /* S Rajarajan's v33 Symmetrical Grid Ordering (COMPLETELY COMPRESSED GAP) */
+    /* Position 3: Refresh Dividend Button (Row 3, Column 3) - Centered in column */
+    .seven { 
+        grid-column: 3 / 4 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center !important; 
+        width: 100% !important;
+        margin: 0 !important;
+        text-align: center !important; /* Centered alignment for texts and buttons inside! */
+    }
     
-    /* Hide empty Odd/Even details box (.ten) when empty to collapse all space! */
+    /* Position 4: YES/NO Feedback Text (Row 3, Column 4) - Centered in column */
+    .twelvec { 
+        grid-column: 4 / 5 !important; 
+        grid-row: 3 / 4 !important; 
+        align-self: center !important;
+        justify-self: center !important; /* Center-align container itself in grid column! */
+        text-align: center !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        width: auto !important;
+        max-width: max-content !important;
+    }
+    
+    /* Hide empty Odd/Even details box (.ten) when empty */
     .ten:not(.active) {
         display: none !important;
     }
@@ -517,56 +502,58 @@ th {
         margin: 0 !important;
     }
     
-    /* First: "Divisibility Rule for 2" (.twelvea) */
+    /* 🥞 THE EXACT TEXT ORDER IN THE COMPRESSED GAP 🥞 */
+    
+    /* First: "Divisibility Rule for 2" (.twelvea) - Row 4 */
     .twelvea {
         grid-column: 1 / 5 !important;
         grid-row: 4 / 5 !important;
         align-self: center !important;
         text-align: left !important;
-        margin-top: 0px !important; /* Squeezed out space entirely! */
+        margin-top: 0px !important;
         margin-bottom: 2px !important;
         padding-top: 0px !important;
     }
     
-    /* Second: "The dividend must be an Even..." (.thirteen) */
+    /* Second: "The dividend must be an Even..." (.thirteen) - Row 5 */
     .thirteen {
         grid-column: 1 / 5 !important;
         grid-row: 5 / 6 !important;
         text-align: left !important;
-        margin-top: -5px !important; /* Pushed up snug! */
+        margin-top: -5px !important;
         margin-bottom: 2px !important;
     }
     
-    /* Third: "Is 77346 divisible by 2?" (.twelveb) */
+    /* Third: "Is 77346 divisible by 2?" (.twelveb) - Row 6 */
     .twelveb {
         grid-column: 1 / 5 !important;
         grid-row: 6 / 7 !important;
         align-self: center !important;
         text-align: left !important;
-        margin-top: -5px !important; /* Pushed up snug! */
+        margin-top: -5px !important;
         margin-bottom: 2px !important;
     }
     
-    /* Fourth: "Now apply the Divisibility Rule for 2 on 77346." (.fourteen) */
+    /* Fourth: "Now apply the Divisibility Rule for 2 on 77346." (.fourteen) - Row 7 */
     .fourteen {
         grid-column: 1 / 5 !important;
         grid-row: 7 / 8 !important;
         align-self: center !important;
         text-align: left !important;
-        margin-top: -5px !important; /* Pushed up snug! */
+        margin-top: -5px !important;
         margin-bottom: 2px !important;
     }
     
-    /* Next line: S Rajarajan's calculation steps (.fifteen) */
+    /* Next line: S Rajarajan's calculation steps (.fifteen) - Row 8 */
     .fifteen {
         grid-column: 1 / 5 !important;
         grid-row: 8 / 9 !important;
         text-align: left !important;
-        margin-top: -5px !important; /* Pushed up snug! */
+        margin-top: -5px !important;
         margin-bottom: 5px !important;
     }
     
-    /* ROW 10: Timed Challenge and Results Board side-by-side (v31 Symmetrical Challenge Layout) */
+    /* ROW 10: Symmetrical Challenge Board */
     .twentyfive { 
         grid-column: 1 / 3 !important; 
         grid-row: 10 / 11 !important; 
@@ -581,7 +568,6 @@ th {
 
 /* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
 @media screen and (max-width: 767px) {
-    /* Reset layout to stack naturally on mobile screen viewports */
     .container {
         display: flex;
         flex-direction: column;
@@ -596,210 +582,21 @@ th {
         width: 100% !important;
     }
     
-    /* 🌟 Make S Rajarajan's Refresh button and S Rajarajan's YES/NO Card share the same row side-by-side on mobile! */
-    .twelvec { /* Unbundled .seven from default mobile flex sharing */
-        display: inline-flex !important;
-        width: 48% !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        vertical-align: middle !important;
-        align-self: center !important;
-    }
-    
-    /* Compact visual sizes for mobile display elements */
-    .seven button, .seven input, .seven .oebuttons {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 8px 10px !important;
-        font-size: 0.9rem !important;
-    }
-
+    /* YES/NO and Refresh buttons flow naturally */
     .twelvec {
-        padding: 8px 10px !important;
-        min-height: auto !important;
+        display: inline-flex !important;
+        width: auto !important;
+        margin: 5px auto !important;
+        text-align: center !important;
     }
     
     .twelvec *, .twelvec {
-        font-size: 1.15rem !important; /* Perfect fit on phone screens next to button! */
-    }
-
-    /* Place them on the same mobile row flow */
-    
-    .twelvec {
-        float: right;
+        font-size: 2.2rem !important;
     }
 }
 
-/* ─── 6. RESPONSIVE NAVIGATION BAR (navbar.html) ───────────────────────── */
 .navbar {
-    display: none !important; /* Completely removed red menubar */
-    background-color: #D32F2F !important; 
-    background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    padding: 12px 0;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: #FFFFFF !important; 
-    font-size: 1.55rem !important; /* Slightly increased brand title! */
-    font-weight: bold;
-    transition: opacity 0.2s ease;
-}
-
-.nav-brand span {
-    color: #FFFFFF !important; 
-}
-
-.nav-brand:hover {
-    opacity: 0.9;
-}
-
-.nav-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: none; 
-}
-
-/* Toggle Hamburger Button for Mobile Views */
-.nav-toggle {
-    display: none; 
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    outline: none;
-}
-
-.nav-toggle .bar {
-    height: 3px;
-    width: 100%;
-    background-color: #FFFFFF;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.nav-item {
-    text-decoration: none;
-    color: #E2E8F0;
-    font-size: 1.15rem !important; /* Slightly increased menu item size! */
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.nav-item:hover, .nav-item.active {
-    color: #FFFF00; 
-    background-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Mobile responsive navigation overrides */
-@media screen and (max-width: 768px) {
-    .navbar {
-    display: none !important; /* Completely removed red menubar */
-        padding: 10px 0;
-    }
-
-    .nav-brand {
-        font-size: 1.2rem;
-    }
-
-    .nav-toggle {
-        display: flex; 
-    }
-
-    .nav-menu {
-        display: none; 
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #B71C1C !important; 
-        padding: 15px 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        box-sizing: border-box;
-        gap: 8px;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-item {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 0;
-    }
-    
-    .nav-item:last-child {
-        border-bottom: none;
-    }
-}
-
-/* S Rajarajan's Refresh button hidden on load - revealed during Challenge! */
-.seven {
     display: none !important;
-}
-/* When challenge mode adds .active-challenge to container, reveal S Rajarajan's Refresh button */
-.container.active-challenge .seven {
-    display: inline-flex !important;
-}
-@media screen and (min-width: 768px) {
-    .container.active-challenge .seven {
-        display: block !important;
-        grid-column: 3 / 4 !important;
-        grid-row: 3 / 4 !important;
-        align-self: center !important;
-        width: 100% !important;
-        margin: 0 !important;
-    }
-}
-
-.dividendgroup3 label {
-    margin: 0 !important;
-    padding-top: 2px !important;
-    display: block !important;
-    font-size: 13px !important;
-}
-.dtextbox {
-    margin-bottom: 2px !important;
 }
 
     </style>
@@ -2643,7 +2440,34 @@ function togglequiz() {
 
     let divisorcall = document.querySelector("#randomdividendbox");
     divisorcall.addEventListener('change', divisorbuttonenable);
-    // <-- This is S Rajarajan's final closing bracket of the function dividendoperation()
+    // 🌟 SYNC GUIDELINE DYNAMICALLY WITH TYPING, CLICKS & RESETS:
+    let dividendBox = document.getElementById("randomdividendbox");
+    if (dividendBox) {
+        dividendBox.addEventListener('input', updateDividendGuideline);  // Updates with every single keystroke!
+        dividendBox.addEventListener('keyup', updateDividendGuideline);  // Backup listener for older browsers
+        dividendBox.addEventListener('change', updateDividendGuideline); // Updates when leaving the box
+    }
+
+    // Attach sync triggers to S Rajarajan's main action buttons:
+    let randomBtnCall = document.querySelector("#randomdividendbutton");
+    if (randomBtnCall) {
+        randomBtnCall.addEventListener('click', updateDividendGuideline);
+    }
+    let newBtnCall = document.querySelector("#newdividendbutton");
+    if (newBtnCall) {
+        newBtnCall.addEventListener('click', updateDividendGuideline);
+    }
+
+    // Run once on page load to initialize S Rajarajan's default view:
+    updateDividendGuideline();
+
+
+
+
+
+
+
+
 
     </script>
 </body>
