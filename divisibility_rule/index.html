@@ -375,14 +375,17 @@ th {
     background-color: #F9FBFD !important;
     border: 1px solid #003F87 !important;
     border-radius: 8px !important;
-    padding: 10px !important;
-    display: flex !important;
+    padding: 6px 12px !important;
+    display: inline-flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
     box-sizing: border-box !important;
-    min-height: 50px !important;
+    min-height: auto !important;
+    width: auto !important;
+    max-width: max-content !important;
+    margin: 0 auto !important;
 }
 
 .twelvec *, .twelvec {
@@ -479,7 +482,9 @@ th {
         align-self: center !important;
         text-align: center !important;
         margin: 0 !important;
-        padding: 5px !important;
+        padding: 6px 12px !important;
+        width: auto !important;
+        max-width: max-content !important;
     }
     
     /* Position 3: Refresh Dividend Button (Aligned underneath Dividend Display) */
@@ -796,6 +801,7 @@ th {
 .dtextbox {
     margin-bottom: 2px !important;
 }
+
     </style>
 </head>
 
@@ -861,7 +867,7 @@ th {
                     <input type="number" id="randomdividendbox" class="dtextbox" onkeypress="return isNumber(event)" />
                 </div>
                 <div class="dividendgroup3">
-                    <label style="font-size:14px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px">You can edit (max. 15 digits only)</label>
+                    <label id="edit-guideline" style="font-size:14px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px">You can edit (max. 15 digits only)</label>
                 </div>
             </div>
             <!--dividendgroup-->
@@ -935,10 +941,11 @@ th {
                 </fieldset>
             </form>
         </div>
-       
-        <div class="seven">
+       <div class="seven">
             <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>
+        <div style="font-size: 11px; font-weight: bold; color: #800000; margin-top: 4px;">Required only for Challenge mode</div>
         </div>
+        
         <div class="eight">
             <div id="quizbutton">
         <input type="button" id="quiz" value="Start Challenge" class="dbuttons" style="visibility: hidden;" onclick="togglequiz();" />
@@ -1084,7 +1091,7 @@ th {
         
         <!--challengeresult-->
     </div>
-    <script language="javascript" type="text/javascript">
+op    <script language="javascript" type="text/javascript">
     function isNumber(evt) {
         evt = (evt) ? evt : window.event;
         var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -1095,6 +1102,7 @@ th {
     }
 
     function digitsbutton() {
+        updateDividendGuideline();
         window.digitsvalue = document.querySelector('input[name = digits]:checked').value;
         document.getElementById("randomdividendbutton").disabled = false;
         document.getElementById("randomdividendbutton").value = "Get " + window.digitsvalue +
@@ -1140,6 +1148,7 @@ th {
 
 
     function randomdividend() {
+    updateDividendGuideline();
     document.getElementById("randomdividendbox").value = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
     document.getElementById("cstart1").disabled = false;
 
@@ -1710,6 +1719,14 @@ th {
         document.getElementById("hitsq3").innerHTML = "Hits: " + window.q3hits;
     }
 
+    function updateDividendGuideline() {
+    let currentVal = document.getElementById("randomdividendbox").value || "0";
+    let guidelineLabel = document.getElementById("edit-guideline");
+    if (guidelineLabel) {
+        guidelineLabel.innerHTML = "You can edit " + currentVal + " &plusmn; 15 digits";
+    }
+}
+
 
     function cstart() {
         window.divisor = 1;
@@ -1718,6 +1735,7 @@ th {
         clearoddevenbuttons();
         oddevenbuttondisable();
         digitsbuttondisable();
+        divisorbuttonenable();
         document.getElementById("randomdividendbutton").disabled = true;
         document.getElementById("ttable").style.visibility = "visible";
         document.getElementById("theader").innerHTML = "Number of clicks to clear the divisor (divisor-wise)";
@@ -2091,7 +2109,7 @@ function togglequiz() {
     let tableBoard = document.getElementById("ttable");
     let container = document.querySelector(".container"); // 🌟 Get main container
 
-    if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
+    if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Challenge") {
         // Open Challenge
         if (challengeText) challengeText.style.visibility = "visible";
         if (startBtn) startBtn.style.visibility = "visible";
@@ -2102,6 +2120,7 @@ function togglequiz() {
         if (container) container.classList.add("active-challenge");
         
         mainBtn.value = "Quit Challenge";
+        divisorbuttondisable();
     } else {
         // Close Challenge
         if (challengeText) challengeText.style.visibility = "hidden";
@@ -2133,7 +2152,7 @@ function togglequiz() {
         document.getElementById("result3").style.visibility = "visible";
         document.getElementById("hitsq3").style.visibility = "visible";
         document.getElementById("challenge111").style.visibility = "visible";
-        document.getElementById("cstart1").style.visibility = "visible";
+        document.getElementById("ttart1").style.visibility = "visible";
         document.getElementById("cstart1").disabled = "true";
         document.getElementById("divirulehead").style.visibility = "visible";
         document.getElementById("diviruledes").style.visibility = "visible";
