@@ -1029,6 +1029,16 @@ function randomdividend() {
             document.getElementById("oddevenbox").style.visibility = "visible";
             document.getElementById("oddevenbox").value = 18;
             document.getElementById("youcanedit").style.visibility = "visible";
+           
+            // 🌟 FORCE EVEN BUTTON VISIBLE & HIDE ODD BUTTON:
+            let oddBtn = document.getElementById("getoddbutton");
+            let evenBtn = document.getElementById("getevenbutton");
+            if (oddBtn) { oddBtn.style.visibility = "hidden"; oddBtn.style.display = "none"; }
+            if (evenBtn) { evenBtn.style.visibility = "visible"; evenBtn.style.display = "inline-flex"; }
+
+            document.getElementById("newdividendbutton").style.visibility = "hidden";
+            document.getElementById("biganswer").style.visibility = "hidden";
+                       
             document.getElementById("getevenbutton").style.visibility = "visible";
             document.getElementById("getoddbutton").style.visibility = "visible";
             document.getElementById("getoddbutton").style.display = "none";
@@ -1056,22 +1066,23 @@ function randomdividend() {
             document.getElementById("diviresultdes1").innerHTML = "";
             document.getElementById("diviresultdes2").innerHTML = "";
             document.getElementById("diviresultdes3").innerHTML = "";
-            
-                // 🌟 FORCE EVEN BUTTON VISIBLE & HIDE ODD BUTTON:
-    let oddBtn = document.getElementById("getoddbutton");
-    let evenBtn = document.getElementById("getevenbutton");
-    if (oddBtn) { oddBtn.style.visibility = "hidden"; oddBtn.style.display = "none"; }
-    if (evenBtn) { evenBtn.style.visibility = "visible"; evenBtn.style.display = "inline-flex"; }
-    
-    document.getElementById("newdividendbutton").style.visibility = "hidden";
-    document.getElementById("biganswer").style.visibility = "hidden";
-    // ... (remaining Even rules code remains untouched) ...
+ 
 
         } else if (window.primecomdivisor == "Odd") {
             document.getElementById("biganswer").innerHTML = "";
             document.getElementById("oddevenbox").style.visibility = "visible";
             document.getElementById("oddevenbox").value = 17;
             document.getElementById("youcanedit").style.visibility = "visible";
+
+             // 🌟 FORCE ODD BUTTON VISIBLE & HIDE EVEN BUTTON:
+             let oddBtn = document.getElementById("getoddbutton");
+             let evenBtn = document.getElementById("getevenbutton");
+            if (oddBtn) { oddBtn.style.visibility = "visible"; oddBtn.style.display = "inline-flex"; }
+            if (evenBtn) { evenBtn.style.visibility = "hidden"; evenBtn.style.display = "none"; }
+    
+            document.getElementById("getevenbutton").style.display = "none";
+            document.getElementById("getoddbutton").style.display = "inline";
+
             document.getElementById("getoddbutton").style.visibility = "visible";
             document.getElementById("getevenbutton").style.visibility = "visible";
             document.getElementById("getevenbutton").style.display = "none";
@@ -1088,15 +1099,6 @@ function randomdividend() {
             document.getElementById("diviresultdes2").innerHTML = "";
             document.getElementById("diviresultdes3").innerHTML = ""
 
-             // 🌟 FORCE ODD BUTTON VISIBLE & HIDE EVEN BUTTON:
-    let oddBtn = document.getElementById("getoddbutton");
-    let evenBtn = document.getElementById("getevenbutton");
-    if (oddBtn) { oddBtn.style.visibility = "visible"; oddBtn.style.display = "inline-flex"; }
-    if (evenBtn) { evenBtn.style.visibility = "hidden"; evenBtn.style.display = "none"; }
-    
-    document.getElementById("getevenbutton").style.display = "none";
-    document.getElementById("getoddbutton").style.display = "inline";
-    // ... (remaining Odd rules code remains untouched) ...
         }
           // 🌟 ADD S RAJARAJAN'S NEW LINE HERE (Just before the closing brace):
     document.querySelector(".ten").classList.add("active"); // Reveals the form safely!
