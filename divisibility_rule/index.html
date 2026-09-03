@@ -965,10 +965,13 @@ function divisorbutton() {
     // HIDE S RAJARAJAN'S CHALLENGE BUTTON (Students chose practice mode):
     document.getElementById("quiz").style.visibility = "hidden";
 
-    // 🌟 HIDE ENTIRE REFRESH DIVIDEND COLUMN AND ITS TEXT:
-    let sevenContainer = document.querySelector(".seven");
-    if (sevenContainer) {
-        sevenContainer.style.setProperty("display", "none", "important");
+    // 🌟 ONLY HIDE REFRESH AREA IF WE ARE NOT IN THE CHALLENGE MODE!
+    let mainBtn = document.getElementById("quiz");
+    if (mainBtn && mainBtn.value !== "Quit Challenge") {
+        let sevenContainer = document.querySelector(".seven");
+        if (sevenContainer) {
+            sevenContainer.style.setProperty("display", "none", "important");
+        }
     }
 }
 
@@ -1126,16 +1129,17 @@ function randomdividend() {
             document.getElementById("diviresultdes3").innerHTML = ""
 
         }
-        // 🌟 HIDE ENTIRE REFRESH DIVIDEND AREA AND ITS TEXT:
-    let sevenContainer = document.querySelector(".seven");
-    if (sevenContainer) {
-        sevenContainer.style.setProperty("display", "none", "important");
+       // 🌟 ONLY HIDE REFRESH AREA IF WE ARE NOT IN THE CHALLENGE MODE!
+    let mainBtn = document.getElementById("quiz");
+    if (mainBtn && mainBtn.value !== "Quit Challenge") {
+        let sevenContainer = document.querySelector(".seven");
+        if (sevenContainer) {
+            sevenContainer.style.setProperty("display", "none", "important");
+        }
     }
 
-          // 🌟 ADD S RAJARAJAN'S NEW LINE HERE (Just before the closing brace):
-    document.querySelector(".ten").classList.add("active"); // Reveals the form safely!
-    }
-
+    document.querySelector(".ten").classList.add("active");
+}
     function checkoddno() {
         document.getElementById("biganswer").style.visibility = "visible";
         document.getElementById("divirulehead").style.visibility = "visible";
