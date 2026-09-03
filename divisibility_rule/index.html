@@ -637,6 +637,7 @@ th {
     /* .seven completely removed on desktop */
 }
 
+
     </style>
 </head>
 
@@ -783,6 +784,9 @@ th {
         <input type="button" id="quiz" value="Start Challenge" class="dbuttons" style="visibility: hidden;" onclick="togglequiz();" />
     </div>
 </div>
+
+<!-- Put this invisible dummy button anywhere in S Rajarajan's HTML body to prevent JS reference crashes: -->
+<input type="button" id="newdividendbutton" style="display: none !important; visibility: hidden !important;" />
         
         
         <div class="nine">
@@ -1053,11 +1057,16 @@ function randomdividend() {
         document.gendivisorForm.gendivisor[0].disabled = false;
         document.gendivisorForm.gendivisor[1].disabled = false;
     }
+
+    // 🌟 1. Safe legacy placeholders to prevent ReferenceErrors if called by older game code:
+function quizvisible() { /* Safe empty legacy dummy */ }
+function quizhide() { /* Safe empty legacy dummy */ }
+// 🌟 2. 100% Clean, Non-Crashing oddeven() Function:
 function oddeven() {
     window.divisor = 1;
     cleardivisorbuttons();
     
-    // 1. Gather all required mathematical description tokens
+    // Restore exact original IDs from Gist to prevent null-pointer crashes!
     window.twotoex = document.getElementById("twotox").innerHTML;
     window.twotozero = document.getElementById("twoto0").innerHTML;
     window.twotoone = document.getElementById("twoto1").innerHTML;
@@ -1065,33 +1074,30 @@ function oddeven() {
     window.twotothree = document.getElementById("twoto3").innerHTML;
     window.twotofour = document.getElementById("twoto4").innerHTML;
     window.twotofive = document.getElementById("twoto5").innerHTML;
-    window.twotosix = document.getElementById("twotosix").innerHTML || (document.getElementById("twoto6") ? document.getElementById("twoto6").innerHTML : "");
-    window.twotoseven = document.getElementById("twotoseven").innerHTML || (document.getElementById("twotoseven") ? document.getElementById("twotoseven").innerHTML : "");
-    window.twotoeight = document.getElementById("twotoeight").innerHTML || (document.getElementById("twoto8") ? document.getElementById("twoto8").innerHTML : "");
+    window.twotosix = document.getElementById("twoto6").innerHTML;
+    window.twotoseven = document.getElementById("twoto7").innerHTML;
+    window.twotoeight = document.getElementById("twoto8").innerHTML;
     window.threetoone = document.getElementById("threeto1").innerHTML;
-    window.threetotwo = document.getElementById("threetotwo").innerHTML || (document.getElementById("threeto2") ? document.getElementById("threeto2").innerHTML : "");
-    window.threetothree = document.getElementById("threetothree").innerHTML || (document.getElementById("threeto3") ? document.getElementById("threeto3").innerHTML : "");
+    window.threetotwo = document.getElementById("threeto2").innerHTML;
+    window.threetothree = document.getElementById("threeto3").innerHTML;
     window.fivetoex = document.getElementById("fivetox").innerHTML;
     window.fivetoone = document.getElementById("fiveto1").innerHTML;
-    window.fivetotwo = document.getElementById("fivetotwo").innerHTML || (document.getElementById("fiveto2") ? document.getElementById("fiveto2").innerHTML : "");
-    window.fivetothree = document.getElementById("fivetothree").innerHTML || (document.getElementById("fiveto3") ? document.getElementById("fiveto3").innerHTML : "");
+    window.fivetotwo = document.getElementById("fiveto2").innerHTML;
+    window.fivetothree = document.getElementById("fiveto3").innerHTML;
     window.seventoone = document.getElementById("sevento1").innerHTML;
-    window.seventotwo = document.getElementById("seventotwo").innerHTML || (document.getElementById("sevento2") ? document.getElementById("sevento2").innerHTML : "");
-    window.seventothree = document.getElementById("seventothree").innerHTML || (document.getElementById("sevento3") ? document.getElementById("sevento3").innerHTML : "");
+    window.seventotwo = document.getElementById("sevento2").innerHTML;
+    window.seventothree = document.getElementById("sevento3").innerHTML;
     window.noofcoprime = document.getElementById("twotonminusonw").innerHTML;
     window.twototwominusone = document.getElementById("twoto21").innerHTML;
     window.divisor = 1;
 
-    // 🌟 Case-3 Mutual Exclusivity: Hide standard divisor list (.six) and Challenge button (.eight / #quiz)
-    
-    // Hide Option 1: Standard Divisors group (.six)
+    // 🌟 Case-3: Hide standard divisor list (.six) and Challenge button (.eight / #quiz)
     let clickDivisorGroup = document.querySelector(".six");
     if (clickDivisorGroup) {
         clickDivisorGroup.style.display = "none";
         clickDivisorGroup.style.visibility = "hidden";
     }
 
-    // Hide Option 2: Start Challenge button (.eight) and element
     let startChallengeBtn = document.getElementById("quiz");
     let challengeContainer = document.querySelector(".eight");
     if (startChallengeBtn) {
@@ -1105,14 +1111,13 @@ function oddeven() {
 
     window.primecomdivisor = document.querySelector('input[name = gendivisor]:checked').value;
 
-    // ─── CASE-3A: EVEN DIVISOR PATH ───────────────────────────────────
+    // ─── Case-3A: Even Divisor Stacking ───
     if (window.primecomdivisor == "Even") {
         document.getElementById("biganswer").innerHTML = "";
         document.getElementById("oddevenbox").style.visibility = "visible";
         document.getElementById("oddevenbox").value = 18;
         document.getElementById("youcanedit").style.visibility = "visible";
         
-        // 🌟 CLEAN VISIBILITY TOGGLE (NO DUPLICATES!):
         let oddBtn = document.getElementById("getoddbutton");
         let evenBtn = document.getElementById("getevenbutton");
         if (oddBtn) { 
@@ -1127,8 +1132,6 @@ function oddeven() {
         document.getElementById("biganswer").style.visibility = "hidden";
         document.getElementById("divirulehead").innerHTML = "Divisibility Rule for any Even Number";
         document.getElementById("isdivisible").innerHTML = "";
-        
-        // Mathematical Description String
         document.getElementById("diviruledes").innerHTML = "<span>To check the divisibility of any number, one should check the divisibility of the highest power of each of its prime factors.</span> So, as a first step in the divisibility check, one should find the prime factorisation of that number. <span>Example-1:</span> To check the divisibility of 17 (prime number), one should find the prime factorisation of 17, (i.e.) 17 = 17. <span>Example-2:</span> To check the divisibility of 36 (composite number), one should find the prime factorisation of 36, (i.e.) 36 = 2 x 2 x 3 x 3 and re-arranging them as product of prime numbers with their highest powers, 36 = " + window.twototwo + " x " + window.threetotwo + ". So 36 = 4 (i.e " + window.twototwo + ") x 9 (i.e. " + window.threetotwo + "). The set (4, 9) to be considered for divisibility check. This set (4, 9) is called co-prime set for 36. Additionally, another co-prime set (1, 36) also available, but that should not be considered, because the numbers 1 & 36 do not represent the highest power of each prime factors. By definition, co-prime numbers in a set has the Highest Common Factor (or also called Greatest Common Divisor) as 1. That means, there is no common factor other than '1' exists for any set of co-prime numbers. Example: (5, 10) is not co-prime set (common factor 2 exists), but (5, 6) is co-prime set (no common factor other than '1')." + "<br>" + "<br>" + " We must always use co-prime set to check the divisibility of any number, because by definition, <span>if a number (N) is divisible by 'a' and 'b' individually, and if 'a' and 'b' are co-prime numbers, then the number (N) is also divisible by the product of 'a' and 'b' (a x b).</span>" + " Note: The formula to get the number of co-prime sets for a given number is : " + window.noofcoprime + ", where ‘n’ is the number of distinct prime factors of that number. For the number 36, number of distinct prime factors are 2 and 3 (n=2). The number of co-prime sets for 36 = " + window.noofcoprime + " = " + window.twototwominusone + " = 2 , which are (1, 36) and (4, 9)." + "<br>" + "<br>" + " Now, let us start to explore the divisibility rule for any even number. Express the even number as a product of co-prime numbers. Let an even number be 56. This number can be expressed as a product of any one of these pairs: (1, 56), (2, 28), (4, 14), (7, 8). Among these pairs, co-prime set is only (7, 8), leaving the common set for every number, i.e. (1, 56). To check the divisibility rule for 56, it is same as checking the divisibility rule for both '7' and '8' jointly. P, if any of the sets (2, 28) or (4, 14) is used instead of (7, 8), it would give a wrong result, because (2,28) or (4,14) does not co-prime numbers. When a composite number is expressed as a product of more than one co-prime numbers, in that set, at the most there would be ONLY one even number present. If more than one co-prime set exists for a number, choose a convenient co-prime set where the even number is small, to easily apply the existing known divisibility rule for that even numbers. For example, to check the divisibility rule for divisor 198 on any dividend, first find the co-prime sets for 198. Among the co-prime sets (9 x 22), (2, 99) and (11 x 18), one should prefer (2 x 99) for easy application of divisibility rule for 2 and 99. Applying the divisibility rule for '2' is easy, i.e. dividend must be an even number and the divisibility rule for '99' is known (single divisibility rule for all odd numbers)" + "<br>" + " <span>" + "Note:" + "</span>" + "No odd number is divisible by an even number, but an even number may be divisible by an odd number." + "<br>" + "<span>" + "Note:" + "</span>" + " If a number is purely " + "<span>" + window.twotoex + "</span>" + " form, there must be a single co-prime set (like for any prime number). For example, co-prime set of 256 (" + window.twotoeight + ") is (1 x 256) and nothing else. To check the divisibility of " + window.twotoex + ", the following divisibility rules can be applied:" + "<br>" + "<br>" + "...for " + window.twotoone + "...(" + Math.pow(2, 1) + ")...dividend must be just an " + "<span>" + "even" + "</span>" + " number" + "<br>" + "...for " + window.twototwo + "...(" + Math.pow(2, 2) + ")...the last " + "<span>" + "two" + "</span>" + " digits must be multiple of 4" + "<br>" + "...for " + window.twotothree + "...(" + Math.pow(2, 3) + ")...the last " + "<span>" + "three" + "</span>" + " digits must be multiple of 8" + "<br>" + "...for " + window.twotofour + "...(" + Math.pow(2, 4) + ")...when N = .." + "<span>" + "d" + "<sub>" + "1" + "</sub>" + "</span>" + "d" + "<sub>" + "2" + "</sub>" + "d" + "<sub>" + "3" + "</sub>" + "d" + "<sub>" + "4" + "</sub>" + ", if " + "<span>" + "d" + "<sub>" + "1" + "</sub>" + "</span>" + " is even, " + "d" + "<sub>" + "2" + "</sub>" + "d" + "<sub>" + "3" + "</sub>" + "d" + "<sub>" + "4" + "</sub>" + " must be multiple of 16, if " + "<span>" + "d" + "<sub>" + "1" + "</sub>" + "</span>" + " is odd, " + "(d" + "<sub>" + "2" + "</sub>" + "d" + "<sub>" + "3" + "</sub>" + "d" + "<sub>" + "4" + "</sub>" + "+ 8)" + " must be multiple of 16 " + "<br>" + "...for " + window.twotofive + "...(" + Math.pow(2, 5) + ")...halfing the dividend continuously " + "<span>" + "four" + "</span>" + " times and finally get an even number" + "<br>" + "...for " + window.twotosix + "...(" + Math.pow(2, 6) + ")...halfing the dividend continuously " + "<span>" + "five" + "</span>" + " times and finally get an even number" + "<br>" + "...for " + window.twotoseven + "...(" + Math.pow(2, 7) + ")...halfing the dividend continuously " + "<span>" + "six" + "</span>" + " times and finally get an even number" + "<br>" + "...for " + window.twotoeight + "...(" + Math.pow(2, 8) + ")...halfing the dividend continuously " + "<span>" + "seven" + "</span>" + " times and finally get an even number";
         
         document.getElementById("diviresultdes").innerHTML = "";
@@ -1136,14 +1139,13 @@ function oddeven() {
         document.getElementById("diviresultdes2").innerHTML = "";
         document.getElementById("diviresultdes3").innerHTML = "";
 
-    // ─── CASE-3B: ODD DIVISOR PATH ────────────────────────────────────
+    // ─── Case-3B: Odd Divisor Stacking ───
     } else if (window.primecomdivisor == "Odd") {
         document.getElementById("biganswer").innerHTML = "";
         document.getElementById("oddevenbox").style.visibility = "visible";
         document.getElementById("oddevenbox").value = 17;
         document.getElementById("youcanedit").style.visibility = "visible";
         
-        // 🌟 CLEAN VISIBILITY TOGGLE (NO DUPLICATES!):
         let oddBtn = document.getElementById("getoddbutton");
         let evenBtn = document.getElementById("getevenbutton");
         if (oddBtn) { 
@@ -1158,8 +1160,6 @@ function oddeven() {
         document.getElementById("biganswer").style.visibility = "visible";
         document.getElementById("divirulehead").innerHTML = "Divisibility Rule for any Odd Number";
         document.getElementById("isdivisible").innerHTML = "";
-        
-        // Mathematical Description String
         document.getElementById("diviruledes").innerHTML = "<span>Believe it or not! </span> there is a <span>single </span> divisibility rule available to test <span>ALL </span> odd numbers, that includes all prime numbers except 2 & 5. No more stuggles to remember different divisibility rules for different ODD numbers. For any odd number, the divisibility rule is the same. Wow! Is that so simple?...Wait...Please don't get so excited. A small 'if' clause to be introduced in this statement. For any odd number that ends with <span>1, 3, 7, 9 </span> the divisibility rule is the same. It means this common rule is not applicable for any odd number that ends with 5. Hope this exception does not disappoint us, because we do not want any extra rule for the odd number that ends with 5. We already know a simple rule for that (i.e. the last digit of the dividend must be '5' or '0')" + "<br>" + "<br>" + "Before go into the rule, let us recall the <span>Stem and Leaf </span> concept. For a given number, \\'Leaf\\' part is the last digit (ones place) of that number and \\'Stem\\' part is the other digits of that number. If the number is 24873, 3 is \\'leaf\\' and 2487 is \\'stem\\'." + "<br>" + "<br>" + "Below is the <span> Generalised (or Univeral) Divisibility Rule </span> for any Odd number that ends with <span> 1, 3, 7 , 9 </span> " + "<br>" + "Let the dividend be \\'N\\' and divisor be \\'D\\'. To check the divisibility of \\'D\\' on \\'N\\', follow these steps." + "<br>" + "<br>" + "<span> Step1: </span> Break the dividend \\'N\\' into \\'Leaf\\' (L) and \\'Stem\\'(S). " + "<br>" + "<span> Step2: </span>: If the last digit of the divisor (D) is not 9, we have to modify the divisor to make its last digit as 9. That means, if the last digit of the divisor is 1, we have to multiply it with 9; if the last digit of the divisor is 3, we have to multiply it with 3; if the last digit of the divisor is 7, we have to multiply it with 7; if the last digit of the divisor is 9, no change is required." + "<br>" + "<span> Step3: </span>: Add \\'1\\' to the modified divisor (same divisor if its last digit is already \\'9\\') got in \\'Step2\\' and divide the result by 10. Let this final number be R." + "<br>" + "<span> Step4: </span>: Calculate the value C as C = S + (R * L)." + "<br>" + "<span> **A very important note:** </span> If (D-R) is a convenient smaller <span> positive </span> number compare to R itself, the formula for finding 'C' is re-written as C = S - (R" + "<sup>" + "'" + "</sup>" + "* L), where R" + "<sup>" + "'" + "</sup>" + " = (D-R), but we should stick to ONLY either one formula throughout the proces of calculating C value (Re-call the Divisibility Rule for 7, mentioned earlier in other place of this application). <br> Repeat this calculation, every time using C as a new dividend \\'N\\' and until C becomes a smaller number to quickly inspect whether it is a multiply of \\'D\\'. <br> <span>Step5: </span> If final C is divisible by \\'D\\', then the original number \\'N\\' is divisible by the divisor \\'D\\'" + "<br>" + "<br>";
         
         document.getElementById("diviresultdes").innerHTML = "";
@@ -1168,12 +1168,14 @@ function oddeven() {
         document.getElementById("diviresultdes3").innerHTML = "";
     }
 
-    // 🌟 3. Reveal the custom Odd/Even panel with S Rajarajan's class accordion:
+    // Reveal custom Odd/Even container
     let tenContainer = document.querySelector(".ten");
     if (tenContainer) {
         tenContainer.classList.add("active");
     }
 }
+
+
     function checkoddno() {
         document.getElementById("biganswer").style.visibility = "visible";
         document.getElementById("divirulehead").style.visibility = "visible";
