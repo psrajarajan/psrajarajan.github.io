@@ -1307,6 +1307,57 @@ function oddeven() {
         }
     }
 
+    // 🌟 PRISTINE NATIVE QUIZ VISIBILITY CONTROLLERS
+function quizvisible() {
+    // 1. Safely reveal and arrange the quiz column containers
+    const containers = [".sixteen", ".eighteen", ".twenty"];
+    containers.forEach(selector => {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.style.display = "flex";
+            el.style.visibility = "visible";
+        }
+    });
+
+    // 2. Safely reveal the individual questions, inputs, and buttons
+    const quizElementIds = [
+        "question1", "answer1", "confirm1", "result1", "hitsq1",
+        "question2", "answer2", "confirm2", "result2", "hitsq2",
+        "question3", "answer3", "confirm3", "result3", "hitsq3"
+    ];
+    quizElementIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.visibility = "visible";
+        }
+    });
+}
+
+function quizhide() {
+    // 1. Safely collapse and hide the quiz column containers
+    const containers = [".sixteen", ".eighteen", ".twenty"];
+    containers.forEach(selector => {
+        const el = document.querySelector(selector);
+        if (el) {
+            el.style.display = "none";
+            el.style.visibility = "hidden";
+        }
+    });
+
+    // 2. Safely hide individual quiz elements
+    const quizElementIds = [
+        "question1", "answer1", "confirm1", "result1", "hitsq1",
+        "question2", "answer2", "confirm2", "result2", "hitsq2",
+        "question3", "answer3", "confirm3", "result3", "hitsq3"
+    ];
+    quizElementIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.visibility = "hidden";
+        }
+    });
+}
+
 
     function oddanswer() {
 
