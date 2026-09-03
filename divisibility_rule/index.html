@@ -1714,16 +1714,38 @@ function updateDividendGuideline() {
 
     }
 
-    function togglestopquit() {
-        if (document.getElementById("cstopquit1").value == "Stop") {
-            document.getElementById("cstopquit1").value = "Quit";
-            cstop();
-        } else if (document.getElementById("cstopquit1").value == "Quit") {
-            document.getElementById("cstopquit1").value = "Stop";
-            cquit();
+function togglestopquit() {
+    let stopBtn = document.getElementById("cstopquit1");
+    if (stopBtn.value === "Stop") {
+        // 🌟 1. Standard challenge stop logic (stops timer and prints report)
+        stopchallenge(); // Triggers S Rajarajan's native scoring reporter!
+        stopBtn.value = "Quit";
+    } else {
+        // 🌟 2. Gentle reset instead of hard page reload:
+        
+        // Hide only the challenge instructions box
+        let challengeText = document.getElementById("challenge111");
+        if (challengeText) challengeText.style.visibility = "hidden";
+        
+        // Hide S Rajarajan's start button
+        let startBtn = document.getElementById("cstart1");
+        if (startBtn) startBtn.style.visibility = "hidden";
+        
+        // Re-enable S Rajarajan's digit selection forms for a fresh game round
+        digitsbuttonenable();
+        
+        // Hide only S Rajarajan's Quit button, but KEEP THE REPORT ON S RAJARAJAN'S SCREEN!
+        stopBtn.style.visibility = "hidden";
+        
+        // Change S Rajarajan's main button back to "Start Challenge"
+        let mainBtn = document.getElementById("quiz");
+        if (mainBtn) {
+            mainBtn.value = "Start Challenge";
+            mainBtn.style.visibility = "visible";
+            mainBtn.style.display = "inline-block";
         }
-
     }
+}
 
     function cleardivisorbuttons() {
         let radioButtonArray1 = document.getElementsByName('divisor');
