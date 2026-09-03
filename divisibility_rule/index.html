@@ -1716,34 +1716,12 @@ function updateDividendGuideline() {
 
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    if (stopBtn.value === "Stop") {
-        // 🌟 1. Standard challenge stop logic (stops timer and prints report)
-        stopchallenge(); // Triggers S Rajarajan's native scoring reporter!
+    if (stopBtn.value == "Stop") {
         stopBtn.value = "Quit";
-    } else {
-        // 🌟 2. Gentle reset instead of hard page reload:
-        
-        // Hide only the challenge instructions box
-        let challengeText = document.getElementById("challenge111");
-        if (challengeText) challengeText.style.visibility = "hidden";
-        
-        // Hide S Rajarajan's start button
-        let startBtn = document.getElementById("cstart1");
-        if (startBtn) startBtn.style.visibility = "hidden";
-        
-        // Re-enable S Rajarajan's digit selection forms for a fresh game round
-        digitsbuttonenable();
-        
-        // Hide only S Rajarajan's Quit button, but KEEP THE REPORT ON S RAJARAJAN'S SCREEN!
-        stopBtn.style.visibility = "hidden";
-        
-        // Change S Rajarajan's main button back to "Start Challenge"
-        let mainBtn = document.getElementById("quiz");
-        if (mainBtn) {
-            mainBtn.value = "Start Challenge";
-            mainBtn.style.visibility = "visible";
-            mainBtn.style.display = "inline-block";
-        }
+        cstop(); // 🌟 Flawlessly stops S Rajarajan's timer, calculates accuracy, and prints the report!
+    } else if (stopBtn.value == "Quit") {
+        stopBtn.value = "Stop";
+        cquit(); // 🌟 Cleanly resets variables and returns the portal to its standard state!
     }
 }
 
