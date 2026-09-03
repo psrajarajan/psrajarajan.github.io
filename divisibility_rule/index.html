@@ -23,7 +23,7 @@
 /* 
   =================================================
   Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility (v36 - Symmetrical & Clean)
+  S Rajarajan - Math Divisibility (v39 - Breakthrough Clean Layout)
   =================================================
 */
 
@@ -462,7 +462,7 @@ th {
     
     /* Position 2: Start Challenge Button (Row 3, Column 2) */
     .eight { 
-        grid-column: 4 / 5 !important; 
+        grid-column: 3 / 5 !important; 
         grid-row: 3 / 4 !important; 
         align-self: center !important; 
         width: 100% !important;
@@ -627,24 +627,14 @@ th {
 .navbar { display: none !important; }
 
 /* S Rajarajan's Refresh button and text hidden on load - revealed during Challenge! */
+/* Hide Refresh Area completely */
 .seven {
     display: none !important;
 }
 /* When challenge mode adds .active-challenge to container, reveal S Rajarajan's Refresh button and label */
-.container.active-challenge .seven {
-    display: block !important;
-    text-align: center !important;
-}
+/* .seven completely removed on desktop */
 @media screen and (min-width: 768px) {
-    .container.active-challenge .seven {
-        display: block !important;
-        grid-column: 3 / 4 !important;
-        grid-row: 3 / 4 !important;
-        align-self: center !important;
-        width: 100% !important;
-        margin: 0 !important;
-        text-align: center !important;
-    }
+    /* .seven completely removed on desktop */
 }
 
     </style>
@@ -786,10 +776,7 @@ th {
                 </fieldset>
             </form>
         </div>
-       <div class="seven" style="display: none !important; text-align: center;">
-            <button type="button" id="newdividendbutton" class="oebuttons" disabled>Refresh<br>Dividend</button>
-            <div style="font-size: 11px; font-weight: bold; color: #800000; margin-top: 4px;">Required only for Challenge mode</div>
-        </div>
+       
         
         <div class="eight">
             <div id="quizbutton">
@@ -959,7 +946,6 @@ th {
 function divisorbutton() {
     window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
     window.divisor = Number(window.divisorstring);
-    document.getElementById("newdividendbutton").disabled = false;
     document.getElementById("biganswer").style.visibility = "visible";
 
     // HIDE S RAJARAJAN'S CHALLENGE BUTTON (Students chose practice mode):
@@ -1064,7 +1050,6 @@ function randomdividend() {
         if (oddBtn) { oddBtn.style.visibility = "hidden"; oddBtn.style.display = "none"; }
         if (evenBtn) { evenBtn.style.visibility = "visible"; evenBtn.style.display = "inline-flex"; }
 
-            document.getElementById("newdividendbutton").style.visibility = "hidden";
             document.getElementById("biganswer").style.visibility = "hidden";
                        
             document.getElementById("getevenbutton").style.visibility = "visible";
@@ -2001,8 +1986,16 @@ function togglequiz() {
     let startBtn = document.getElementById("cstart1");
     let stopBtn = document.getElementById("cstopquit1");
     let tableBoard = document.getElementById("ttable");
-    let container = document.querySelector(".container");
-    let sevenContainer = document.querySelector(".seven"); // 🌟 S Rajarajan's entire column 3 container
+
+    // Gather all explanation elements we want to hide/show
+    let detailsBlocks = [
+        document.querySelector(".twelvea"),  // Rule Title
+        document.querySelector(".twelveb"),  // Is Divisible Question Text
+        document.querySelector(".twelvec"),  // Big YES/NO Feedback Text Card
+        document.querySelector(".thirteen"), // Rule Description
+        document.querySelector(".fourteen"), // Rule Result Description
+        document.querySelector(".fifteen")   // Calculations/Math details
+    ];
 
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         // Open Challenge Mode
@@ -2011,12 +2004,13 @@ function togglequiz() {
         if (stopBtn) stopBtn.style.visibility = "visible";
         if (tableBoard) tableBoard.style.visibility = "visible";
         
-        // 🌟 REVEAL ENTIRE COLUMN 3 REFRESH AREA (BUTTON & LABEL):
-        if (sevenContainer) {
-            sevenContainer.style.setProperty("display", "block", "important");
-            sevenContainer.style.setProperty("visibility", "visible", "important");
-        }
-        if (container) container.classList.add("active-challenge");
+        // 🌟 HIDE ALL EXPLANATIONS AND YES/NO TEXTS IMMEDIATELY:
+        detailsBlocks.forEach(el => {
+            if (el) el.style.setProperty("display", "none", "important");
+        });
+
+        // Lock divisor buttons initially (must click "Start" under challenge description to unlock)
+        divisorbuttondisable();
         
         mainBtn.value = "Quit Challenge";
     } else {
@@ -2026,87 +2020,13 @@ function togglequiz() {
         if (stopBtn) stopBtn.style.visibility = "hidden";
         if (tableBoard) tableBoard.style.visibility = "hidden";
         
-        // 🌟 HIDE ENTIRE COLUMN 3 REFRESH AREA:
-        if (sevenContainer) {
-            sevenContainer.style.setProperty("display", "none", "important");
-        }
-        if (container) container.classList.remove("active-challenge");
-        
+        // 🌟 RESTORE ALL EXPLANATIONS (Restored naturally on soft-reload):
         mainBtn.value = "Start Challenge";
-        location.reload(); // Soft-reloads S Rajarajan's game cleanly
+        location.reload(); 
     }
 }
-    function quizvisible() {
-        document.getElementById("question1").style.visibility = "visible";
-        document.getElementById("answer1").style.visibility = "visible";
-        document.getElementById("confirm1").style.visibility = "visible";
-        document.getElementById("result1").style.visibility = "visible";
-        document.getElementById("hitsq1").style.visibility = "visible";
-        document.getElementById("question2").style.visibility = "visible";
-        document.getElementById("answer2").style.visibility = "visible";
-        document.getElementById("confirm2").style.visibility = "visible";
-        document.getElementById("result2").style.visibility = "visible";
-        document.getElementById("hitsq2").style.visibility = "visible";
-        document.getElementById("question3").style.visibility = "visible";
-        document.getElementById("answer3").style.visibility = "visible";
-        document.getElementById("confirm3").style.visibility = "visible";
-        document.getElementById("result3").style.visibility = "visible";
-        document.getElementById("hitsq3").style.visibility = "visible";
-        document.getElementById("challenge111").style.visibility = "visible";
-        document.getElementById("ttart1").style.visibility = "visible";
-        document.getElementById("cstart1").disabled = "true";
-        document.getElementById("divirulehead").style.visibility = "visible";
-        document.getElementById("diviruledes").style.visibility = "visible";
-        document.getElementById("diviresultdes").style.visibility = "visible";
-        document.getElementById("diviresultdes1").style.visibility = "visible";
-        document.getElementById("diviresultdes2").style.visibility = "visible";
-        document.getElementById("diviresultdes3").style.visibility = "visible";
 
-
-        window.q1hits = 0;
-        window.q2hits = 0;
-        window.q3hits = 0;
-
-    }
-
-    function quizhide() {
-        document.getElementById("question1").style.visibility = "hidden";
-        document.getElementById("answer1").style.visibility = "hidden";
-        document.getElementById("confirm1").style.visibility = "hidden";
-        document.getElementById("result1").style.visibility = "hidden";
-        document.getElementById("hitsq1").style.visibility = "hidden";
-        document.getElementById("question2").style.visibility = "hidden";
-        document.getElementById("answer2").style.visibility = "hidden";
-        document.getElementById("confirm2").style.visibility = "hidden";
-        document.getElementById("result2").style.visibility = "hidden";
-        document.getElementById("hitsq2").style.visibility = "hidden";
-        document.getElementById("question3").style.visibility = "hidden";
-        document.getElementById("answer3").style.visibility = "hidden";
-        document.getElementById("confirm3").style.visibility = "hidden";
-        document.getElementById("result3").style.visibility = "hidden";
-        document.getElementById("hitsq3").style.visibility = "hidden";
-        document.getElementById("challenge111").style.visibility = "hidden";
-        document.getElementById("ttable").style.visibility = "hidden";
-        document.getElementById("cstart1").style.visibility = "hidden";
-        document.getElementById("cstopquit1").style.visibility = "hidden";
-        document.getElementById("ctime").style.visibility = "hidden";
-        document.getElementById("cdivisors").style.visibility = "hidden";
-        document.getElementById("cdivispan").style.visibility = "hidden";
-        window.q1hits = 0;
-        window.q2hits = 0;
-        window.q3hits = 0;
-        document.getElementById("answer1").value = 0;
-        document.getElementById("answer2").value = 0;
-        document.getElementById("answer3").value = 0;
-        document.getElementById("result1").innerHTML = "";
-        document.getElementById("hitsq1").innerHTML = "";
-        document.getElementById("result2").innerHTML = "";
-        document.getElementById("hitsq2").innerHTML = "";
-        document.getElementById("result3").innerHTML = "";
-        document.getElementById("hitsq3").innerHTML = "";
-
-    }
-
+   
     function diviruledescription() {
         let diviruledesarr = [];
         diviruledesarr[0] =
@@ -2534,14 +2454,7 @@ function togglequiz() {
     randomdividendcall.addEventListener('click', oddevenbuttonenable);
     randomdividendcall.addEventListener('click', resetDivisorButtons); // Clear black boxes on new random numbers!
 
-
-    let newdividendcall = document.querySelector("#newdividendbutton");
-    newdividendcall.addEventListener('click', divisorbutton);
-    newdividendcall.addEventListener('click', dividendoperation);
-    newdividendcall.addEventListener('click', diviruledescription);
-    newdividendcall.addEventListener('click', challengemode);
-    newdividendcall.addEventListener('click', resetDivisorButtons); // Clear black boxes when manual dividend is refreshed!
-
+    
     let divisorcall = document.querySelector("#randomdividendbox");
     divisorcall.addEventListener('change', divisorbuttonenable);
 
