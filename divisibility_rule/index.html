@@ -858,9 +858,26 @@ th {
             <h2 style='visibility:hidden;' id="twoto21">2<sup>(2-1)</sup></h2>
         </div>
         
-      
-        
-        
+      <!-- ===================================================================
+     🌟 S Rajarajan's Student Verification & Send Report Panel
+     Responsive flexbox: fields stack on mobile and sit side-by-side on desktop!
+     =================================================================== -->
+<div id="report-send-panel" style="display: none; width: 100%; margin: 20px 0; padding: 20px; border: 2px solid #003F87; border-radius: 12px; background-color: #F9FBFD; box-sizing: border-box;">
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end; justify-content: space-between; width: 100%;">
+        <div style="flex: 1 1 250px; display: flex; flex-direction: column; gap: 8px;">
+            <label for="studentName" style="text-align: left; margin: 0; font-size: 1rem; color: #003F87; font-weight: bold;">Type your name (CAPITAL letters)</label>
+            <input type="text" id="studentName" class="qtextbox" style="max-width: 100% !important; text-align: left; padding: 10px; font-size: 1.1rem; text-transform: uppercase;" placeholder="R. MANIGANDAN" oninput="this.value = this.value.toUpperCase();" />
+        </div>
+        <div style="flex: 1 1 250px; display: flex; flex-direction: column; gap: 8px;">
+            <label for="studentMobile" style="text-align: left; margin: 0; font-size: 1rem; color: #003F87; font-weight: bold;">Type your mobile number (optional)</label>
+            <input type="text" id="studentMobile" class="qtextbox" style="max-width: 100% !important; text-align: left; padding: 10px; font-size: 1.1rem;" placeholder="98356 97456" onkeypress="return isNumber(event)" />
+        </div>
+        <div style="flex: 1 1 300px; display: flex; align-items: center;">
+            <input type="button" id="sendReportBtn" class="dbuttons" style="background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important; color: #FFFFFF !important; font-weight: bold !important; width: 100% !important; padding: 12px !important; font-size: 1rem !important; max-width: 100% !important; margin: 0 !important; cursor: pointer !important; border-radius: 8px !important; border: none !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;" value="Send Report Automatically" onclick="sendBackgroundEmail();" />
+        </div>
+    </div>
+</div>
+       
         
         <div class="twentyfive">
             <div>
@@ -1765,6 +1782,10 @@ function updateDividendGuideline() {
         document.getElementById("cstart1").style.visibility = "hidden";
         document.getElementById("quiz").style.visibility = "hidden";
 
+        // Add this line at the bottom of S Rajarajan's cstart():
+        let sendPanel = document.getElementById("report-send-panel");
+        if (sendPanel) sendPanel.style.display = "none";
+
     }
 
 function togglestopquit() {
@@ -1839,17 +1860,17 @@ function togglestopquit() {
     window.rtgtag = 0;
     document.getElementById("isdivisible").innerHTML = "";
     
-    // 🌟 1. Safely restore display properties of all hidden detail panels!
+    // 🌟 1. RESTORE DISPLAY PROPERTIES OF ALL HIDDEN DETAIL PANELS (Reveals S Rajarajan's Report!)
     let detailsBlocks = [
-        document.querySelector(".twelvea"),  // Rule Title (Wraps divirulehead)
-        document.querySelector(".twelveb"),  // Is Divisible Question Text
-        document.querySelector(".twelvec"),  // Big YES/NO Feedback Card
-        document.querySelector(".thirteen"), // Rule Description (Wraps diviruledes)
+        document.querySelector(".twelvea"),  // Rule Title wrapper (wraps #divirulehead)
+        document.querySelector(".twelveb"),  // Is Divisible Question Text wrapper
+        document.querySelector(".twelvec"),  // Big YES/NO Feedback Text Card
+        document.querySelector(".thirteen"), // Rule Description wrapper (wraps #diviruledes)
         document.querySelector(".fourteen"), // Rule Result Description
         document.querySelector(".fifteen")   // Calculations/Math details
     ];
     detailsBlocks.forEach(el => {
-        if (el) el.style.removeProperty("display"); // Restores normal responsive CSS layout!
+        if (el) el.style.removeProperty("display"); // Erases the "display: none" override cleanly!
     });
 
     document.getElementById("divirulehead").style.display = "block";
@@ -1888,17 +1909,23 @@ function togglestopquit() {
     document.getElementById("cdivisors").style.visibility = "hidden";
     document.getElementById("cdivispan").style.visibility = "hidden";
     
-    // 🌟 2. Fully restore both the button and its parent grid cell container (.eight)
+    // 🌟 2. FULLY RESTORE BOTH THE BUTTON AND ITS PARENT GRID CONTAINER (.eight)
     let quizBtn = document.getElementById("quiz");
     let quizContainer = document.querySelector(".eight");
     if (quizBtn) {
-        quizBtn.value = "Quit Report"; // S Rajarajan's beautiful contextual label!
+        quizBtn.value = "Quit Report"; // Sets S Rajarajan's beautiful contextual label!
         quizBtn.style.visibility = "visible";
         quizBtn.style.display = "inline-block";
     }
     if (quizContainer) {
         quizContainer.style.display = "block";
         quizContainer.style.visibility = "visible";
+    }
+
+    // 🌟 3. REVEAL S RAJARAJAN'S BACKGROUND SEND EMAIL REPORT PANEL
+    let sendPanel = document.getElementById("report-send-panel");
+    if (sendPanel) {
+        sendPanel.style.display = "block";
     }
 
     cleardivisorbuttons();
@@ -2600,6 +2627,80 @@ function togglequiz() {
     if (newBtnCall) {
         newBtnCall.addEventListener('click', updateDividendGuideline);
     }
+
+    function sendBackgroundEmail() {
+    let name = document.getElementById("studentName").value.trim().toUpperCase();
+    let mobile = document.getElementById("studentMobile").value.trim();
+    
+    if (!name) {
+        alert("Please enter your name in CAPITAL letters first.");
+        document.getElementById("studentName").focus();
+        return;
+    }
+    
+    let sendBtn = document.getElementById("sendReportBtn");
+    sendBtn.value = "Sending Scorecard...";
+    sendBtn.disabled = true;
+
+    // Gather report details
+    let reportTitle = document.getElementById("divirulehead").innerText;
+    let reportDetails = document.getElementById("diviruledes").innerText;
+    
+    // Gather divisor clicks matrix
+    let clicksTable = "";
+    for (let i = 2; i <= 16; i++) {
+        let scoreCell = document.getElementById("divis" + i);
+        let clicks = scoreCell ? scoreCell.innerText : "";
+        let buttonState = document.getElementById("divisor" + i);
+        let status = (buttonState && buttonState.style.visibility === "hidden") ? "Cleared (YES)" : "Not Cleared";
+        if (clicks !== "") {
+            clicksTable += "  • Divisor " + i + ": " + clicks + " clicks [" + status + "]\n";
+        }
+    }
+    
+    let emailBody = "=========================================\n" +
+                   " DIVISIBILITY CHALLENGE PERFORMANCE REPORT\n" +
+                   "=========================================\n\n" +
+                   "Student Details:\n" +
+                   "  - Name: " + name + "\n" +
+                   "  - Contact/Mobile: " + (mobile ? mobile : "Not provided") + "\n\n" +
+                   "Challenge Overview:\n" +
+                   "  - " + reportTitle + "\n" +
+                   "  - " + reportDetails.replace(/<br>/g, "\n") + "\n\n" +
+                   "Performance Statistics (Divisor-Wise):\n" +
+                   clicksTable + "\n" +
+                   "=========================================\n" +
+                   "Generated by Math Divisibility Portal\n" +
+                   "=========================================";
+
+    // Direct, silent POST to Web3Forms API
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // 🌟 Paste your free token here!
+            subject: "Divisibility Scorecard: " + name,
+            from_name: "Math Portal Reporter",
+            message: emailBody
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Scorecard successfully submitted to " + name + "'s teacher records!");
+            sendBtn.value = "Report Sent successfully! ✓";
+            sendBtn.style.background = "linear-gradient(135deg, #0D47A1 0%, #1976D2 100%)";
+        } else {
+            alert("Submission failed. Please write down or screenshot your scorecard.");
+            sendBtn.value = "Send Report Automatically";
+            sendBtn.disabled = false;
+        }
+    })
+    .catch(() => {
+        alert("Network error. Please check your connection and try again.");
+        sendBtn.value = "Send Report Automatically";
+        sendBtn.disabled = false;
+    });
+}
 
     // Run once on page load to initialize S Rajarajan's default view:
     updateDividendGuideline();
