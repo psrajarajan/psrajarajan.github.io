@@ -2157,8 +2157,15 @@ function togglequiz() {
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         // Open Challenge Mode
         if (challengeText) challengeText.style.visibility = "visible";
-        if (startBtn) startBtn.style.visibility = "visible";
-        if (stopBtn) stopBtn.style.visibility = "visible";
+
+if (startBtn) {
+    startBtn.style.visibility = "visible";
+    startBtn.disabled = false; // 🌟 Ensures the Start button is active and ready to be clicked!
+}
+if (stopBtn) {
+    stopBtn.style.visibility = "hidden"; // 🌟 Keeps "Stop" hidden initially to maintain S Rajarajan's clean screen flow!
+}
+
         if (tableBoard) tableBoard.style.visibility = "visible";
         
         // Hide all math explanations and YES/NO display
