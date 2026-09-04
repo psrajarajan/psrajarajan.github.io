@@ -858,25 +858,7 @@ th {
             <h2 style='visibility:hidden;' id="twoto21">2<sup>(2-1)</sup></h2>
         </div>
         
-       <!-- ===================================================================
-     🌟 S Rajarajan's Student Verification & Send Report Panel
-     Responsive flexbox: fields stack on mobile and sit side-by-side on desktop!
-     =================================================================== -->
-<div id="report-send-panel" style="display: none; width: 100%; margin: 20px 0; padding: 15px; border: 2px solid #003F87; border-radius: 10px; background-color: #F9FBFD; box-sizing: border-box;">
-    <div style="display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end; justify-content: space-between; width: 100%;">
-        <div style="flex: 1 1 250px; display: flex; flex-direction: column; gap: 5px;">
-            <label for="studentName" style="text-align: left; margin: 0; font-size: 1rem; color: #003F87; font-weight: bold;">Type your name (CAPITAL letters)</label>
-            <input type="text" id="studentName" class="qtextbox" style="max-width: 100% !important; text-align: left; padding: 10px; font-size: 1.1rem; text-transform: uppercase;" placeholder="R. MANIGANDAN" oninput="this.value = this.value.toUpperCase();" />
-        </div>
-        <div style="flex: 1 1 250px; display: flex; flex-direction: column; gap: 5px;">
-            <label for="studentMobile" style="text-align: left; margin: 0; font-size: 1rem; color: #003F87; font-weight: bold;">Type your mobile number (optional)</label>
-            <input type="text" id="studentMobile" class="qtextbox" style="max-width: 100% !important; text-align: left; padding: 10px; font-size: 1.1rem;" placeholder="98356 97456" onkeypress="return isNumber(event)" />
-        </div>
-        <div style="flex: 1 1 320px; display: flex; align-items: center;">
-            <input type="button" id="sendReportBtn" class="dbuttons" style="background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important; color: #FFFFFF !important; font-weight: bold !important; width: 100% !important; padding: 12px !important; font-size: 1rem !important; max-width: 100% !important; margin: 0 !important; cursor: pointer !important; border-radius: 8px !important;" value="Send Report to Author's Email" onclick="sendEmailReport();" />
-        </div>
-    </div>
-</div>
+      
         
         
         
@@ -1783,10 +1765,6 @@ function updateDividendGuideline() {
         document.getElementById("cstart1").style.visibility = "hidden";
         document.getElementById("quiz").style.visibility = "hidden";
 
-        // Add this line at the very bottom of S Rajarajan's cstart() function:
-        let sendPanel = document.getElementById("report-send-panel");
-        if (sendPanel) sendPanel.style.display = "none";
-
     }
 
 function togglestopquit() {
@@ -1857,21 +1835,21 @@ function togglestopquit() {
 
     }
 
-   function cquit() {
+    function cquit() {
     window.rtgtag = 0;
     document.getElementById("isdivisible").innerHTML = "";
     
-    // 🌟 1. RESTORE EXPLANATION PANEL WRAPPERS (Reveals S Rajarajan's Report Text!)
+    // 🌟 1. Safely restore display properties of all hidden detail panels!
     let detailsBlocks = [
-        document.querySelector(".twelvea"),  // Title wrapper (wraps #divirulehead)
-        document.querySelector(".twelveb"),  // Question wrapper
-        document.querySelector(".twelvec"),  // Big YES/NO Feedback card
-        document.querySelector(".thirteen"), // Description wrapper (wraps #diviruledes)
-        document.querySelector(".fourteen"), // Result description wrapper
-        document.querySelector(".fifteen")   // Calculation steps wrapper
+        document.querySelector(".twelvea"),  // Rule Title (Wraps divirulehead)
+        document.querySelector(".twelveb"),  // Is Divisible Question Text
+        document.querySelector(".twelvec"),  // Big YES/NO Feedback Card
+        document.querySelector(".thirteen"), // Rule Description (Wraps diviruledes)
+        document.querySelector(".fourteen"), // Rule Result Description
+        document.querySelector(".fifteen")   // Calculations/Math details
     ];
     detailsBlocks.forEach(el => {
-        if (el) el.style.removeProperty("display"); // Erases the "display: none" override cleanly
+        if (el) el.style.removeProperty("display"); // Restores normal responsive CSS layout!
     });
 
     document.getElementById("divirulehead").style.display = "block";
@@ -1909,12 +1887,12 @@ function togglestopquit() {
     document.getElementById("ctime").style.visibility = "hidden";
     document.getElementById("cdivisors").style.visibility = "hidden";
     document.getElementById("cdivispan").style.visibility = "hidden";
-
-    // 🌟 2. REVEAL THE "QUIT REPORT" BUTTON AND ITS PARENT COLUMN
+    
+    // 🌟 2. Fully restore both the button and its parent grid cell container (.eight)
     let quizBtn = document.getElementById("quiz");
     let quizContainer = document.querySelector(".eight");
     if (quizBtn) {
-        quizBtn.value = "Quit Report"; // S Rajarajan's pristine contextual label!
+        quizBtn.value = "Quit Report"; // S Rajarajan's beautiful contextual label!
         quizBtn.style.visibility = "visible";
         quizBtn.style.display = "inline-block";
     }
@@ -1923,18 +1901,13 @@ function togglestopquit() {
         quizContainer.style.visibility = "visible";
     }
 
-    // 🌟 3. REVEAL THE NAME-AND-MOBILE EMAIL REPORT PANEL
-    let sendPanel = document.getElementById("report-send-panel");
-    if (sendPanel) {
-        sendPanel.style.display = "block";
-    }
-
     cleardivisorbuttons();
     divisorbuttonenable();
     digitsbuttonenable();
     document.getElementById("randomdividendbutton").disabled = false;
     oddevenbuttonenable();
 }
+
 
     function challenge2() {
         if (window.rtgtag == 1) {
@@ -2631,54 +2604,7 @@ function togglequiz() {
     // Run once on page load to initialize S Rajarajan's default view:
     updateDividendGuideline();
 
-    function sendEmailReport() {
-    let name = document.getElementById("studentName").value.trim().toUpperCase();
-    let mobile = document.getElementById("studentMobile").value.trim();
     
-    if (!name) {
-        alert("Please enter your name in CAPITAL letters before sending the report.");
-        document.getElementById("studentName").focus();
-        return;
-    }
-    
-    // Gather S Rajarajan's report text
-    let reportTitle = document.getElementById("divirulehead").innerText;
-    let reportDetails = document.getElementById("diviruledes").innerText;
-    
-    // Compile divisor clicks matrix
-    let clicksTable = "";
-    for (let i = 2; i <= 16; i++) {
-        let scoreCell = document.getElementById("divis" + i);
-        let clicks = scoreCell ? scoreCell.innerText : "";
-        let buttonState = document.getElementById("divisor" + i);
-        let status = (buttonState && buttonState.style.visibility === "hidden") ? "Cleared (YES)" : "Not Cleared";
-        if (clicks !== "") {
-            clicksTable += "  • Divisor " + i + ": " + clicks + " clicks [" + status + "]\n";
-        }
-    }
-    
-    let subject = "Divisibility Rule Challenge Report: " + name;
-    let body = "=========================================\n" +
-               " DIVISIBILITY CHALLENGE PERFORMANCE REPORT\n" +
-               "=========================================\n\n" +
-               "Student Details:\n" +
-               "  - Name: " + name + "\n" +
-               "  - Contact/Mobile: " + (mobile ? mobile : "Not provided") + "\n\n" +
-               "Challenge Overview:\n" +
-               "  - " + reportTitle + "\n" +
-               "  - " + reportDetails.replace(/<br>/g, "\n") + "\n\n" +
-               "Performance Statistics (Divisor-Wise):\n" +
-               clicksTable + "\n" +
-               "=========================================\n" +
-               "Generated by Math Divisibility Portal\n" +
-               "=========================================";
-               
-    let mailtoUrl = "mailto:rajarajan.seetharaman@gmail.com" +
-                    "?subject=" + encodeURIComponent(subject) +
-                    "&body=" + encodeURIComponent(body);
-                    
-    window.location.href = mailtoUrl;
-}
     </script>
 </body>
 
