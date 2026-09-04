@@ -1024,7 +1024,8 @@ function randomdividend() {
     let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
     document.getElementById("randomdividendbox").value = generatedValue;
     document.getElementById("cstart1").disabled = false;
-    // 🌟 UNLOCK ALL STUDY PATHS (Restore Option 1, 2, and 3):
+
+    // 🌟 1. UNLOCK STANDARD PRACTICE PATHS:
     
     // Restore Option 1: "Click the correct divisor(s)" group
     let clickDivisorGroup = document.querySelector(".six");
@@ -1032,7 +1033,7 @@ function randomdividend() {
         clickDivisorGroup.style.display = "block";
         clickDivisorGroup.style.visibility = "visible";
     }
-    
+
     // Restore Option 2: "Start Challenge" button
     let challengeBtn = document.getElementById("quiz");
     let challengeContainer = document.querySelector(".eight");
@@ -1044,12 +1045,19 @@ function randomdividend() {
         challengeContainer.style.display = "block";
         challengeContainer.style.visibility = "visible";
     }
-    
-    // Restore Option 3: "Check the Divisibility rule" group
+
+    // 🌟 2. CONTEXTUAL LOCK FOR OPTION 3 (Only reveal if NOT preparing a Challenge):
     let checkDivisorGroup = document.querySelector(".nine");
     if (checkDivisorGroup) {
-        checkDivisorGroup.style.display = "block";
-        checkDivisorGroup.style.visibility = "visible";
+        if (challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report")) {
+            // Keep Option 3 hidden to prevent messing up the challenge screen flow!
+            checkDivisorGroup.style.display = "none";
+            checkDivisorGroup.style.visibility = "hidden";
+        } else {
+            // Practice Mode: Show S Rajarajan's panel normally
+            checkDivisorGroup.style.display = "block";
+            checkDivisorGroup.style.visibility = "visible";
+        }
     }
 
     // Hide S Rajarajan's custom Odd/Even divisor fields block (.ten)
@@ -1058,8 +1066,12 @@ function randomdividend() {
         tenContainer.classList.remove("active");
     }
 
-    // Enable divisor radio buttons
-    divisorbuttonenable();
+    // 🌟 3. CONTEXTUAL LOCK FOR DIVISOR RADIO BUTTONS:
+    if (challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report")) {
+        divisorbuttondisable(); // Keep divisor inputs locked until "Start" is clicked!
+    } else {
+        divisorbuttonenable();  // Enable them for practice rounds
+    }
 
     // Freeze our reference X
     window.originalDividend = generatedValue;
