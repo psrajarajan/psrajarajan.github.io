@@ -40,8 +40,8 @@ html {
 
 body {
     font-size: 1rem;
-    background-color: #FFFAC8;
-    background-color: #FFFFFF;
+    /* 🌟 THE MERGED GRADIENT BACKGROUND: Pure visual candy! */
+    background: linear-gradient(135deg, #F0F4F8 0%, #E2E8F0 100%) !important;
     margin: 8px;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
@@ -105,21 +105,39 @@ img {
 
 /* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
 
+/* ===================================================================
+   🎯 S RAJARAJAN'S GAMIFIED COLOR-FILL VALIDATION
+   =================================================================== */
 input[type="radio"].correct-fill,
 input[type="radio"][data-correct="true"] {
-    background-color: #000000 !important;
-    background: #000000 !important;
-    box-shadow: inset 0 0 0 20px #000000 !important;
-    border-color: #000000 !important;
+    background-color: #2E7D32 !important; /* Crisp forest green for success! */
+    border-color: #2E7D32 !important;
+    box-shadow: inset 0 0 0 4px #FFFFFF !important;
+    animation: popCheck 0.3s ease-out; /* Pop bounce transition */
 }
 
 input[type="radio"].incorrect-fill,
 input[type="radio"][data-incorrect="true"] {
-    background-color: #D32F2F !important;
-    background: #D32F2F !important;
-    box-shadow: inset 0 0 0 20px #D32F2F !important;
+    background-color: #D32F2F !important; /* Stark red for error check! */
     border-color: #D32F2F !important;
+    box-shadow: inset 0 0 0 4px #FFFFFF !important;
+    animation: shakeCheck 0.3s ease-out; /* Error rumble transition */
 }
+
+/* Dynamic Animation Timelines */
+@keyframes popCheck {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shakeCheck {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+    100% { transform: translateX(0); }
+}
+
 
 input[type=radio] {
     border: 2px solid #8B0000;
@@ -155,14 +173,26 @@ label input[type="radio"] {
     margin: 0.25rem auto;
 }
 
+/* ===================================================================
+   🎨 S RAJARAJAN'S UNIFIED SHADOW CARD LAYOUT
+   =================================================================== */
 fieldset {
-    border: 1px solid #003F87;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #F9FBFD;
+    border: none !important; /* Removes S Rajarajan's old harsh borders */
+    border-radius: 16px !important;
+    padding: 20px !important;
+    background: #FFFFFF !important; /* Pure white surface */
     margin-bottom: 10px;
     height: 100%;
     box-sizing: border-box;
+    /* Beautiful floating card shadows */
+    box-shadow: 0 10px 25px rgba(0, 63, 135, 0.05) !important;
+    border-top: 5px solid #003F87 !important; /* Premium brand line on top */
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+fieldset:hover {
+    transform: translateY(-4px); /* Smooth micro-interaction on hover! */
+    box-shadow: 0 15px 30px rgba(0, 63, 135, 0.1) !important;
 }
 
 legend {
