@@ -40,8 +40,8 @@ html {
 
 body {
     font-size: 1rem;
-    /* 🌟 THE MERGED GRADIENT BACKGROUND: Pure visual candy! */
-    background: linear-gradient(135deg, #F0F4F8 0%, #E2E8F0 100%) !important;
+    background-color: #FFFAC8;
+    background-color: #FFFFFF;
     margin: 8px;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
@@ -105,39 +105,21 @@ img {
 
 /* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
 
-/* ===================================================================
-   🎯 S RAJARAJAN'S GAMIFIED COLOR-FILL VALIDATION
-   =================================================================== */
 input[type="radio"].correct-fill,
 input[type="radio"][data-correct="true"] {
-    background-color: #2E7D32 !important; /* Crisp forest green for success! */
-    border-color: #2E7D32 !important;
-    box-shadow: inset 0 0 0 4px #FFFFFF !important;
-    animation: popCheck 0.3s ease-out; /* Pop bounce transition */
+    background-color: #000000 !important;
+    background: #000000 !important;
+    box-shadow: inset 0 0 0 20px #000000 !important;
+    border-color: #000000 !important;
 }
 
 input[type="radio"].incorrect-fill,
 input[type="radio"][data-incorrect="true"] {
-    background-color: #D32F2F !important; /* Stark red for error check! */
+    background-color: #D32F2F !important;
+    background: #D32F2F !important;
+    box-shadow: inset 0 0 0 20px #D32F2F !important;
     border-color: #D32F2F !important;
-    box-shadow: inset 0 0 0 4px #FFFFFF !important;
-    animation: shakeCheck 0.3s ease-out; /* Error rumble transition */
 }
-
-/* Dynamic Animation Timelines */
-@keyframes popCheck {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-}
-
-@keyframes shakeCheck {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-4px); }
-    75% { transform: translateX(4px); }
-    100% { transform: translateX(0); }
-}
-
 
 input[type=radio] {
     border: 2px solid #8B0000;
@@ -173,26 +155,14 @@ label input[type="radio"] {
     margin: 0.25rem auto;
 }
 
-/* ===================================================================
-   🎨 S RAJARAJAN'S UNIFIED SHADOW CARD LAYOUT
-   =================================================================== */
 fieldset {
-    border: none !important; /* Removes S Rajarajan's old harsh borders */
-    border-radius: 16px !important;
-    padding: 20px !important;
-    background: #FFFFFF !important; /* Pure white surface */
+    border: 1px solid #003F87;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #F9FBFD;
     margin-bottom: 10px;
     height: 100%;
     box-sizing: border-box;
-    /* Beautiful floating card shadows */
-    box-shadow: 0 10px 25px rgba(0, 63, 135, 0.05) !important;
-    border-top: 5px solid #003F87 !important; /* Premium brand line on top */
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-fieldset:hover {
-    transform: translateY(-4px); /* Smooth micro-interaction on hover! */
-    box-shadow: 0 15px 30px rgba(0, 63, 135, 0.1) !important;
 }
 
 legend {
@@ -675,345 +645,11 @@ th {
     /* .seven completely removed on desktop */
 }
 
-/* ===================================================================
-   🎨 S RAJARAJAN'S DYNAMIC FLOWCHART TOUR & GLOW STYLES
-   =================================================================== */
 
-/* Full Screen Dimming Backdrop */
-#welcome-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(15, 23, 42, 0.97); /* Premium deep slate glass */
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #1E293B;
-    transition: opacity 0.4s ease;
-}
-
-/* Modal Card */
-.tour-card {
-    background: #FFFFFF;
-    width: 95%;
-    max-width: 850px;
-    padding: 30px;
-    border-radius: 28px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-    text-align: center;
-    border-bottom: 8px solid #003F87;
-    animation: tourCardSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes tourCardSlideUp {
-    0% { transform: translateY(40px) scale(0.96); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-/* Tour Header */
-.tour-header h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #003F87;
-    margin: 5px 0 15px 0;
-}
-
-/* The Live Flowchart Grid Container */
-.flowchart-canvas {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 20px;
-    padding: 25px;
-    margin: 20px 0;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Flowchart Box Items */
-.flow-box {
-    background: #FFFFFF;
-    border: 2px solid #CBD5E1;
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: #475569;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.3; /* Initially dimmed */
-    transform: scale(0.95);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-
-/* Symmetrical Flowchart Columns */
-.flow-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    width: 32%;
-}
-
-/* Active Highlight States (Glows!) */
-.flow-box.active-step {
-    opacity: 1;
-    transform: scale(1.05);
-    border-color: #003F87;
-    box-shadow: 0 10px 20px rgba(0, 63, 135, 0.15);
-}
-
-.flow-box.active-step-green {
-    opacity: 1;
-    transform: scale(1.05);
-    border-color: #2E7D32;
-    background: #E8F5E9;
-    color: #1B5E20;
-    box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
-}
-
-.flow-box.active-step-purple {
-    opacity: 1;
-    transform: scale(1.05);
-    border-color: #7B1FA2;
-    background: #F3E5F5;
-    color: #4A148C;
-    box-shadow: 0 10px 20px rgba(123, 31, 162, 0.2);
-}
-
-/* SVG Connector Lines */
-.flow-arrow-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.flow-line {
-    stroke: #CBD5E1;
-    stroke-width: 3;
-    fill: none;
-    transition: stroke 0.4s, stroke-dashoffset 1s ease-in-out;
-}
-
-.flow-line.active-line {
-    stroke: #003F87;
-    stroke-width: 4;
-}
-
-/* Tooltip Description Block */
-.tour-desc-box {
-    background: #EFF6FF;
-    border-left: 5px solid #1D4ED8;
-    padding: 15px 20px;
-    border-radius: 12px;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #1E3A8A;
-    min-height: 80px;
-    text-align: left;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-}
-
-/* Navigation Indicator Dots */
-.tour-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 25px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background: #E2E8F0;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: #003F87;
-    width: 24px;
-    border-radius: 10px;
-}
-
-/* Actions Wrapper */
-.tour-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Responsive Overrides for Smaller Mobile Screens */
-@media screen and (max-width: 767px) {
-    .flowchart-canvas {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-    .flow-column {
-        width: 100%;
-    }
-    .flow-arrow-svg {
-        display: none; /* Hide SVG lines on mobile to preserve screen space cleanly */
-    }
-    .flow-box {
-        width: 100%;
-    }
-}
     </style>
 </head>
 
 <body>
-
-   /* ===================================================================
-   🎨 S INTERACTIVE VECTOR FLOWCHART TOUR OVERLAY STYLES
-   =================================================================== */
-
-#welcome-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(15, 23, 42, 0.98); /* Premium slate backdrop */
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1E293B;
-}
-
-.tour-card {
-    background: #FFFFFF;
-    width: 95%;
-    max-width: 980px; /* Expands to fit S beautiful layout beautifully */
-    padding: 25px;
-    border-radius: 24px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    text-align: center;
-    border-bottom: 8px solid #003F87;
-}
-
-/* SVG Vector Styles */
-.svg-flow-box {
-    fill: #FFFFFF;
-    stroke: #E2E8F0;
-    stroke-width: 2.5;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.svg-box-text {
-    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    fill: #475569;
-    pointer-events: none;
-    transition: all 0.4s;
-}
-
-.svg-guide-text {
-    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    fill: #64748B;
-    opacity: 0.15; /* Symmetrical dimmed text */
-    pointer-events: none;
-    transition: all 0.4s;
-}
-
-.svg-flow-line {
-    stroke: #CBD5E1;
-    stroke-width: 2.5;
-    fill: none;
-    transition: all 0.4s;
-}
-
-/* 🌟 DYNAMIC ACTIVE GLOWS (Coloring S Mathematical Paths!) */
-
-/* Step 1: Blue Glow */
-.active-box-blue {
-    fill: #E3F2FD !important;
-    stroke: #0D47A1 !important;
-    filter: drop-shadow(0 4px 6px rgba(13, 71, 161, 0.15));
-}
-.active-text-blue { fill: #0D47A1 !important; font-weight: 800 !important; }
-.active-guide-blue { fill: #0D47A1 !important; font-weight: 700 !important; opacity: 1 !important; }
-
-/* Step 2: Green Glow */
-.active-box-green {
-    fill: #E8F5E9 !important;
-    stroke: #2E7D32 !important;
-    filter: drop-shadow(0 4px 6px rgba(46, 125, 50, 0.15));
-}
-.active-text-green { fill: #1B5E20 !important; font-weight: 800 !important; }
-.active-guide-green { fill: #1B5E20 !important; font-weight: 700 !important; opacity: 1 !important; }
-
-/* Step 3: Gold Glow */
-.active-box-gold {
-    fill: #FFFDE7 !important;
-    stroke: #F57F17 !important;
-    filter: drop-shadow(0 4px 6px rgba(245, 127, 23, 0.15));
-}
-.active-text-gold { fill: #F57F17 !important; font-weight: 800 !important; }
-.active-guide-gold { fill: #F57F17 !important; font-weight: 700 !important; opacity: 1 !important; }
-
-/* Mode 1: Forest Green */
-.active-box-forest {
-    fill: #E8F5E9 !important;
-    stroke: #1B5E20 !important;
-    filter: drop-shadow(0 4px 6px rgba(27, 94, 32, 0.15));
-}
-.active-text-forest { fill: #1B5E20 !important; font-weight: 800 !important; }
-.active-guide-forest { fill: #1B5E20 !important; font-weight: 700 !important; opacity: 1 !important; }
-
-/* Mode 2: Purple Glow */
-.active-box-purple {
-    fill: #F3E5F5 !important;
-    stroke: #4A148C !important;
-    filter: drop-shadow(0 4px 6px rgba(74, 20, 140, 0.15));
-}
-.active-text-purple { fill: #4A148C !important; font-weight: 800 !important; }
-.active-guide-purple { fill: #4A148C !important; font-weight: 700 !important; opacity: 1 !important; }
-
-/* Mode 3: Royal Blue */
-.active-box-royal {
-    fill: #E8EAF6 !important;
-    stroke: #1A237E !important;
-    filter: drop-shadow(0 4px 6px rgba(26, 35, 126, 0.15));
-}
-.active-text-royal { fill: #1A237E !important; font-weight: 800 !important; }
-.active-guide-royal { fill: #1A237E !important; font-weight: 700 !important; opacity: 1 !important; }
-
-/* Connection Line Color Fills */
-.active-line-blue { stroke: #0D47A1 !important; stroke-width: 3.5 !important; }
-.active-line-green { stroke: #2E7D32 !important; stroke-width: 3.5 !important; }
-.active-line-gold { stroke: #F57F17 !important; stroke-width: 3.5 !important; }
-.active-line-forest { stroke: #1B5E20 !important; stroke-width: 3.5 !important; }
-.active-line-purple { stroke: #4A148C !important; stroke-width: 3.5 !important; }
-.active-line-royal { stroke: #1A237E !important; stroke-width: 3.5 !important; }
-
-/* Dots and Actions */
-.tour-dots { display: flex; justify-content: center; gap: 8px; }
-.dot { width: 10px; height: 10px; background: #E2E8F0; border-radius: 50%; transition: all 0.3s ease; }
-.dot.active { background: #003F87; width: 24px; border-radius: 10px; }
-
-@media screen and (max-width: 767px) {
-    #welcome-overlay { display: none !important; } /* Soft collapse tour on mobile to keep layout pristine */
-}
-
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
     <div class="container">
@@ -1320,166 +956,6 @@ th {
 
   <script language="javascript" type="text/javascript">
     window.originalDividend = ""; // Stores our frozen anchor X
-
-   /* ===================================================================
-   🌟 S RAJARAJAN'S INTERACTIVE FLOWCHART MATH TOUR ENGINE
-   =================================================================== */
-let currentTourSlide = 0;
-
-const tourSlides = [
-    {
-        // Slide 0: Welcome Frame
-        activeBoxes: [],
-        activeLines: [],
-        buttonText: "Start Tour"
-    },
-    {
-        // Slide 1: Step 1 (Choose Digits)
-        activeBoxes: ["svg-box1"],
-        activeTexts: ["1. Choose Digits"],
-        activeGuides: ["svg-guide1"],
-        activeLines: [],
-        buttonText: "Next Step",
-        theme: "blue"
-    },
-    {
-        // Slide 2: Step 2 (Get Dividend)
-        activeBoxes: ["svg-box1", "svg-box2"],
-        activeTexts: ["1. Choose Digits", "2. Get Dividend"],
-        activeGuides: ["svg-guide1", "svg-guide2"],
-        activeLines: ["svg-line1"],
-        buttonText: "Next Step",
-        theme: "green"
-    },
-    {
-        // Slide 3: Step 3 (Dividend Input)
-        activeBoxes: ["svg-box1", "svg-box2", "svg-box3"],
-        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input"],
-        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3"],
-        activeLines: ["svg-line1", "svg-line2"],
-        buttonText: "Next Step",
-        theme: "gold"
-    },
-    {
-        // Slide 4: Mode 1 (Learn by Doing)
-        activeBoxes: ["svg-box1", "svg-box2", "svg-box3", "svg-box4"],
-        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input", "Mode 1: Learn by Doing"],
-        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3", "svg-guide4"],
-        activeLines: ["svg-line1", "svg-line2", "svg-line3"],
-        buttonText: "Next Step",
-        theme: "forest"
-    },
-    {
-        // Slide 5: Mode 2 (Universal Odd Rule)
-        activeBoxes: ["svg-box1", "svg-box2", "svg-box3", "svg-box5"],
-        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input", "Mode 2: Universal Odd Rule"],
-        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3", "svg-guide5"],
-        activeLines: ["svg-line1", "svg-line2", "svg-line4"],
-        buttonText: "Next Step",
-        theme: "purple"
-    },
-    {
-        // Slide 6: Mode 3 (Timed Challenge)
-        activeBoxes: ["svg-box1", "svg-box2", "svg-box3", "svg-box6"],
-        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input", "Mode 3: Timed Challenge"],
-        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3", "svg-guide6"],
-        activeLines: ["svg-line1", "svg-line2", "svg-line5"],
-        buttonText: "Play Now! ✓",
-        theme: "royal"
-    }
-];
-
-function nextTourSlide() {
-    currentTourSlide++;
-    if (currentTourSlide >= tourSlides.length) {
-        skipTour();
-        return;
-    }
-    updateFlowchartTour();
-}
-
-function updateFlowchartTour() {
-    let slide = tourSlides[currentTourSlide];
-    
-    // Update Button caption
-    document.getElementById("tourNextBtn").innerText = slide.buttonText;
-    
-    // 1. Reset all Symmetrical SVGs back to dimmed states
-    document.querySelectorAll(".svg-flow-box").forEach(el => {
-        el.setAttribute("class", "svg-flow-box");
-        el.style.filter = "none";
-    });
-    document.querySelectorAll(".svg-box-text").forEach(el => {
-        el.setAttribute("class", "svg-box-text");
-    });
-    document.querySelectorAll(".svg-guide-text").forEach(el => {
-        el.setAttribute("class", "svg-guide-text");
-    });
-    document.querySelectorAll(".svg-flow-line").forEach(el => {
-        el.setAttribute("class", "svg-flow-line");
-        el.setAttribute("marker-end", "url(#arrow-grey)");
-    });
-
-    // 2. Map Active slide highlights sequentially based on the slide's unique theme
-    if (currentTourSlide > 0) {
-        slide.activeBoxes.forEach(id => {
-            let el = document.getElementById(id);
-            if (el) el.classList.add("active-box-" + slide.theme);
-        });
-
-        // Highlight box text
-        document.querySelectorAll(".svg-box-text").forEach(el => {
-            if (slide.activeTexts.includes(el.textContent.trim())) {
-                el.classList.add("active-text-" + slide.theme);
-            }
-        });
-
-        // Highlight and Reveal Guide Text
-        slide.activeGuides.forEach(id => {
-            let el = document.getElementById(id);
-            if (el) el.classList.add("active-guide-" + slide.theme);
-        });
-
-        // Highlight connection lines and swap arrowheads
-        slide.activeLines.forEach(id => {
-            let el = document.getElementById(id);
-            if (el) {
-                el.classList.add("active-line-" + slide.theme);
-                el.setAttribute("marker-end", "url(#arrow-" + slide.theme + ")");
-            }
-        });
-    }
-
-    // 3. Update Milestones for Progress Dots
-    let dots = document.querySelectorAll(".tour-dots .dot");
-    dots.forEach((dot, idx) => {
-        let activeMilestone = 0;
-        if (currentTourSlide >= 1 && currentTourSlide <= 3) activeMilestone = 1;
-        if (currentTourSlide >= 4 && currentTourSlide <= 5) activeMilestone = 2;
-        if (currentTourSlide === 6) activeMilestone = 3;
-
-        if (idx === activeMilestone) {
-            dot.classList.add("active");
-        } else {
-            dot.classList.remove("active");
-        }
-    });
-}
-
-function skipTour() {
-    let overlay = document.getElementById("welcome-overlay");
-    if (overlay) {
-        overlay.style.opacity = "0";
-        setTimeout(() => { overlay.style.display = "none"; }, 400);
-    }
-}
-
-// Fire on DOM load
-window.addEventListener('DOMContentLoaded', () => {
-    updateFlowchartTour();
-});
-
-
     function isNumber(evt) {
         evt = (evt) ? evt : window.event;
         var charCode = (evt.which) ? evt.which : evt.keyCode;
