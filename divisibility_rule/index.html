@@ -881,7 +881,7 @@ th {
             <input type="text" id="studentMobile" class="qtextbox" style="max-width: 100% !important; text-align: left; padding: 10px; font-size: 1.1rem;" placeholder="YOUR MOBILE NUMBER" onkeypress="return isNumber(event)" />
         </div>
         <div style="flex: 1 1 300px; display: flex; align-items: center;">
-            <input type="button" id="sendReportBtn" class="dbuttons" style="background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important; color: #FFFFFF !important; font-weight: bold !important; width: 100% !important; padding: 12px !important; font-size: 1rem !important; max-width: 100% !important; margin: 0 !important; cursor: pointer !important; border-radius: 8px !important; border: none !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;" value="Send Report Automatically" onclick="sendBackgroundEmail();" />
+            <input type="button" id="sendReportBtn" class="dbuttons" style="background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important; color: #FFFFFF !important; font-weight: bold !important; width: 100% !important; padding: 12px !important; font-size: 1rem !important; max-width: 100% !important; margin: 0 !important; cursor: pointer !important; border-radius: 8px !important; border: none !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;" value="Submit Scorecard to Author's Email" onclick="sendBackgroundEmail();" />
         </div>
     </div>
 </div>
@@ -1031,7 +1031,7 @@ function divisorbutton() {
 function randomdividend() {
     let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
     document.getElementById("randomdividendbox").value = generatedValue;
-    document.getElementById("cstart1").disabled = false;
+    validateChallengeStart(); // 🌟 Re-evaluates on new random rolls!
 
     // Detect if the portal is currently in Challenge Mode setup
     let challengeBtn = document.getElementById("quiz");
@@ -1876,11 +1876,11 @@ function togglestopquit() {
 
     }
 
-    function cquit() {
+   function cquit() {
     window.rtgtag = 0;
     document.getElementById("isdivisible").innerHTML = "";
     
-    // 🌟 1. RESTORE DISPLAY PROPERTIES OF ALL HIDDEN DETAIL PANELS (Reveals S Rajarajan's Report!)
+    // 🌟 1. RESTORE EXPLANATION PANEL WRAPPERS (Reveals S Rajarajan's Report Text!)
     let detailsBlocks = [
         document.querySelector(".twelvea"),  // Rule Title wrapper (wraps #divirulehead)
         document.querySelector(".twelveb"),  // Is Divisible Question Text wrapper
@@ -1933,7 +1933,7 @@ function togglestopquit() {
     let quizBtn = document.getElementById("quiz");
     let quizContainer = document.querySelector(".eight");
     if (quizBtn) {
-        quizBtn.value = "Quit Report"; // Sets S Rajarajan's beautiful contextual label!
+        quizBtn.value = "Quit Report"; // S Rajarajan's contextual label
         quizBtn.style.visibility = "visible";
         quizBtn.style.display = "inline-block";
     }
@@ -1950,8 +1950,10 @@ function togglestopquit() {
 
     cleardivisorbuttons();
     divisorbuttonenable();
-    digitsbuttonenable();
-    document.getElementById("randomdividendbutton").disabled = false;
+    
+    // 🌟 4. THE DIGITS FREEZE UPGRADES (Fix 1)
+    digitsbuttondisable(); // Disable S Rajarajan's choosing panel during report review!
+    document.getElementById("randomdividendbutton").disabled = true; // Lock roll button!
     oddevenbuttonenable();
 }
 
@@ -2180,8 +2182,9 @@ function togglequiz() {
 
 if (startBtn) {
     startBtn.style.visibility = "visible";
-    startBtn.disabled = false; // 🌟 Ensures the Start button is active and ready to be clicked!
+    validateChallengeStart(); // 🌟 Runs validation on S Rajarajan's current dividend!
 }
+
 if (stopBtn) {
     stopBtn.style.visibility = "hidden"; // 🌟 Keeps "Stop" hidden initially to maintain S Rajarajan's clean screen flow!
 }
@@ -2618,6 +2621,36 @@ if (stopBtn) {
             }
         }
     }
+
+    // 🌟 1. S Rajarajan's Dynamic Challenge Gate Validator (Fix 3)
+function validateChallengeStart() {
+    let startBtn = document.getElementById("cstart1");
+    if (!startBtn) return;
+
+    let dividendVal = document.getElementById("randomdividendbox").value.trim();
+    let isFiveDigits = (dividendVal.length === 5);
+    let isOdd = (Number(dividendVal) % 2 !== 0);
+
+    // Verify if S Rajarajan's portal is actively in Challenge preparation mode
+    let mainBtn = document.getElementById("quiz");
+    let isChallengePrep = mainBtn && (mainBtn.value === "Quit Challenge");
+
+    if (isChallengePrep) {
+        if (isFiveDigits && isOdd) {
+            startBtn.disabled = false;
+            startBtn.style.setProperty("background", "linear-gradient(135deg, #0D47A1 0%, #1976D2 100%)", "important");
+            startBtn.style.setProperty("cursor", "pointer", "important");
+            startBtn.style.setProperty("opacity", "1", "important");
+        } else {
+            startBtn.disabled = true;
+            startBtn.style.setProperty("background", "#cccccc", "important");
+            startBtn.style.setProperty("cursor", "not-allowed", "important");
+            startBtn.style.setProperty("opacity", "0.6", "important");
+        }
+    }
+}
+
+
  // 🌟 1. DEFINE S RAJARAJAN'S UPDATED RESET FUNCTION
     function resetDivisorButtons() {
         document.querySelectorAll('input[type="radio"]').forEach(input => {
@@ -2634,9 +2667,9 @@ if (stopBtn) {
     }
 
     // ✅ REPLACE WITH THIS UNIFIED, CONTEXT-AWARE LISTENER:
-let randomdividendcall = document.querySelector("#randomdividendbutton");
-if (randomdividendcall) {
-    randomdividendcall.addEventListener('click', function() {
+    let randomdividendcall = document.querySelector("#randomdividendbutton");
+    if (randomdividendcall) {
+        randomdividendcall.addEventListener('click', function() {
         randomdividend();
         resetDivisorButtons(); // Safely clears any active black or red divisor boxes
     });
@@ -2655,6 +2688,13 @@ if (randomdividendcall) {
     if (newBtnCall) {
         newBtnCall.addEventListener('click', updateDividendGuideline);
     }
+
+    // 🌟 2. S Rajarajan's Stepper Arrow Active Change Listeners (Fix 3)
+    let dividendBox = document.getElementById("randomdividendbox");
+    if (dividendBox) {
+    dividendBox.addEventListener('input', validateChallengeStart);
+    dividendBox.addEventListener('change', validateChallengeStart);
+}
 
     function sendBackgroundEmail() {
     let name = document.getElementById("studentName").value.trim().toUpperCase();
@@ -2713,16 +2753,15 @@ if (randomdividendcall) {
         })
     })
     .then(response => {
-        if (response.ok) {
-            alert("Scorecard successfully submitted to " + name + "'s teacher records!");
-            
-            // 🌟 THE FINAL CONTRAST FIX (Maintains a beautiful, high-contrast success state):
-            sendBtn.value = "Report Sent successfully! ✓";
-            sendBtn.onclick = null; // Unbinds click to prevent multiple submissions safely
-            sendBtn.style.setProperty("background", "linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%)", "important");
-            sendBtn.style.setProperty("color", "#FFFFFF", "important");
-            sendBtn.style.setProperty("cursor", "default", "important");
-        } else {
+        // Update S Rajarajan's button state inside S Rajarajan's fetch callback:
+    if (response.ok) {
+        alert("Scorecard successfully submitted to S. Rajarajan (author)");
+        sendBtn.value = "Scorecard Submitted to Author! ✓";
+        sendBtn.onclick = null; // Unbinds click to prevent multiple submissions safely
+        sendBtn.style.setProperty("background", "linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%)", "important");
+        sendBtn.style.setProperty("color", "#FFFFFF", "important");
+        sendBtn.style.setProperty("cursor", "default", "important");
+    } else {
             alert("Submission failed. Please write down or screenshot your scorecard.");
             sendBtn.value = "Send Report Automatically";
             sendBtn.disabled = false;
