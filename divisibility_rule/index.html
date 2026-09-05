@@ -2166,7 +2166,7 @@ function togglequiz() {
     let stopBtn = document.getElementById("cstopquit1");
     let tableBoard = document.getElementById("ttable");
 
-    // Gather all explanation elements we want to hide during Challenge
+    // Gather all explanation elements we want to hide during Challenge [3]
     let detailsBlocks = [
         document.querySelector(".twelvea"),  // Rule Title
         document.querySelector(".twelveb"),  // Is Divisible Question Text
@@ -2177,44 +2177,71 @@ function togglequiz() {
     ];
 
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
-        // Open Challenge Mode
+        // Open Challenge Mode [2]
         if (challengeText) challengeText.style.visibility = "visible";
-
-if (startBtn) {
-    startBtn.style.visibility = "visible";
-    validateChallengeStart(); // 🌟 Sets the correct disabled/enabled state initially!
-}
-
-if (stopBtn) {
-    stopBtn.style.visibility = "hidden"; // 🌟 Keeps "Stop" hidden initially to maintain S Rajarajan's clean screen flow!
-}
-
-        if (tableBoard) tableBoard.style.visibility = "visible";
         
-        // Hide all math explanations and YES/NO display
+        // 🌟 1. PERFECT CHRONOLOGICAL FLOW: Show only "Start" button initially!
+        if (startBtn) {
+            startBtn.style.visibility = "visible";
+        }
+        if (stopBtn) {
+            stopBtn.style.visibility = "hidden"; // Keeps "Stop" button hidden initially!
+        }
+        if (tableBoard) tableBoard.style.visibility = "visible";
+
+        // Hide all math explanations and YES/NO display [2]
         detailsBlocks.forEach(el => {
             if (el) el.style.setProperty("display", "none", "important");
         });
 
-        // 🌟 Case-2: Disable divisor button group and hide S Rajarajan's Check Divisibility (.nine) group:
-        divisorbuttondisable(); // Disables Option 1
-        
+        divisorbuttondisable(); // Disables Option 1 [4]
         let checkDivisorGroup = document.querySelector(".nine");
-        if (checkDivisorGroup) checkDivisorGroup.style.display = "none"; // Hides Option 3
-        
+        if (checkDivisorGroup) checkDivisorGroup.style.display = "none"; // Hides Option 3 [4]
+
         mainBtn.value = "Quit Challenge";
+
+        // 🌟 2. CHALLENGE VALIDATION CHECK: Forces immediate rule gate calculation!
+        validateChallengeStart(); 
+
     } else {
-        // Close Challenge Mode
+        // Close Challenge Mode [4]
         if (challengeText) challengeText.style.visibility = "hidden";
         if (startBtn) startBtn.style.visibility = "hidden";
         if (stopBtn) stopBtn.style.visibility = "hidden";
         if (tableBoard) tableBoard.style.visibility = "hidden";
-        
+
         mainBtn.value = "Start Challenge";
-        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
+        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states! [5]
     }
 }
 
+function validateChallengeStart() {
+    let startBtn = document.getElementById("cstart1");
+    if (!startBtn) return;
+
+    // Safely pull S Rajarajan's string representation of S Rajarajan's dividend value
+    let dividendVal = document.getElementById("randomdividendbox").value.toString().trim();
+    let isFiveDigits = (dividendVal.length === 5);
+    let isOdd = (Number(dividendVal) % 2 !== 0);
+
+    // Verify if S Rajarajan's portal is actively in Challenge preparation mode
+    let quizBtn = document.getElementById("quiz");
+    let isChallengePrep = quizBtn && (quizBtn.value === "Quit Challenge");
+
+    if (isChallengePrep) {
+        if (isFiveDigits && isOdd) {
+            startBtn.disabled = false;
+            startBtn.style.setProperty("background", "linear-gradient(135deg, #0D47A1 0%, #1976D2 100%)", "important");
+            startBtn.style.setProperty("cursor", "pointer", "important");
+            startBtn.style.setProperty("opacity", "1", "important");
+        } else {
+            startBtn.disabled = true;
+            startBtn.style.setProperty("background", "#cccccc", "important");
+            startBtn.style.setProperty("cursor", "not-allowed", "important");
+            startBtn.style.setProperty("opacity", "0.6", "important");
+        }
+    }
+}
    
     function diviruledescription() {
         let diviruledesarr = [];
@@ -2622,34 +2649,6 @@ if (stopBtn) {
         }
     }
 
-// 🌟 S Rajarajan's Dynamic Challenge Gate Validator
-function validateChallengeStart() {
-    let startBtn = document.getElementById("cstart1");
-    if (!startBtn) return;
-
-    let dividendVal = document.getElementById("randomdividendbox").value.toString().trim();
-    let isFiveDigits = (dividendVal.length === 5);
-    let isOdd = (Number(dividendVal) % 2 !== 0);
-
-    // Verify if S Rajarajan's portal is actively in Challenge preparation mode
-    let mainBtn = document.getElementById("quiz");
-    let isChallengePrep = mainBtn && (mainBtn.value === "Quit Challenge");
-
-    if (isChallengePrep) {
-        if (isFiveDigits && isOdd) {
-            startBtn.disabled = false;
-            startBtn.style.setProperty("background", "linear-gradient(135deg, #0D47A1 0%, #1976D2 100%)", "important");
-            startBtn.style.setProperty("cursor", "pointer", "important");
-            startBtn.style.setProperty("opacity", "1", "important");
-        } else {
-            startBtn.disabled = true;
-            startBtn.style.setProperty("background", "#cccccc", "important");
-            startBtn.style.setProperty("cursor", "not-allowed", "important");
-            startBtn.style.setProperty("opacity", "0.6", "important");
-        }
-    }
-}
-
 
  // 🌟 1. DEFINE S RAJARAJAN'S UPDATED RESET FUNCTION
     function resetDivisorButtons() {
@@ -2747,7 +2746,7 @@ function validateChallengeStart() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-            access_key: "YOUR_ACCESS_KEY_HERE", // Paste your free Web3Forms token here!
+            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // Paste your free Web3Forms token here!
             subject: "Divisibility Scorecard: " + name,
             from_name: "Math Portal Reporter",
             message: emailBody
