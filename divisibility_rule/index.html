@@ -1929,11 +1929,11 @@ function togglestopquit() {
     document.getElementById("cdivisors").style.visibility = "hidden";
     document.getElementById("cdivispan").style.visibility = "hidden";
     
-    // 🌟 2. FULLY RESTORE BOTH THE BUTTON AND ITS PARENT GRID CONTAINER (.eight)
+    // 🌟 2. RESTORE S MAIN ACTION BUTTON (Shows "Quit Report")
     let quizBtn = document.getElementById("quiz");
     let quizContainer = document.querySelector(".eight");
     if (quizBtn) {
-        quizBtn.value = "Quit Report"; // S Rajarajan's pristine contextual label
+        quizBtn.value = "Quit Report"; 
         quizBtn.style.visibility = "visible";
         quizBtn.style.display = "inline-block";
     }
@@ -1942,19 +1942,13 @@ function togglestopquit() {
         quizContainer.style.visibility = "visible";
     }
 
-    // 🌟 3. REVEAL S RAJARAJAN'S BACKGROUND SEND EMAIL REPORT PANEL
-    let sendPanel = document.getElementById("report-send-panel");
-    if (sendPanel) {
-        sendPanel.style.display = "block";
-    }
-
     cleardivisorbuttons();
     divisorbuttonenable();
     
-    // 🌟 4. THE DIGITS FREEZE UPGRADES (Point 1 Fix)
-    digitsbuttondisable(); // Disable S Rajarajan's digits choosing panel during report review!
-    document.getElementById("randomdividendbutton").disabled = true; // Lock S Rajarajan's roll button during report review!
-    oddevenbuttonenable();
+    // 🌟 3. S TIMED CHALLENGE PANEL LOCKS (Point 1 Fix)
+    digitsbuttondisable(); // Keep digits choosing panel disabled during report review!
+    document.getElementById("randomdividendbutton").disabled = true; // Lock S Rajarajan's generate button!
+    oddevenbuttondisable(); // Keep practice modules disabled!
 }
 
 
