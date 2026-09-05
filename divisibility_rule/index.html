@@ -878,80 +878,141 @@ th {
 
 <body>
 
-    <!-- ===================================================================
-     🌟 S RAJARAJAN'S INTERACTIVE FLOWCHART MATH TOUR
-     Uses responsive SVG vector lines to animate S Rajarajan's new layout!
-     =================================================================== -->
-<div id="welcome-overlay">
-    <div class="tour-card" id="tourCard">
-        <div class="tour-header">
-            <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: #0D47A1; letter-spacing: 1.5px;">Visual Mathematics Masterclass</span>
-            <h2 id="tourTitle">How the Portal Works</h2>
-        </div>
+   /* ===================================================================
+   🎨 S INTERACTIVE VECTOR FLOWCHART TOUR OVERLAY STYLES
+   =================================================================== */
 
-        <!-- 📐 Dynamic Flowchart Drawing Canvas -->
-        <div class="flowchart-canvas">
-            
-            <!-- SVG Vector Lines (Drawn symmetrically on Desktop) -->
-            <svg class="flow-arrow-svg">
-                <defs>
-                    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 2 L 10 5 L 0 8 z" fill="#003F87" />
-                    </marker>
-                    <marker id="arrow-grey" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                        <path d="M 0 2 L 10 5 L 0 8 z" fill="#CBD5E1" />
-                    </marker>
-                </defs>
-                <!-- Line: Step 1 -> Step 2 -->
-                <path id="line1" class="flow-line" d="M 120 70 L 120 120" marker-end="url(#arrow-grey)" />
-                <!-- Line: Step 2 -> Step 3 -->
-                <path id="line2" class="flow-line" d="M 120 170 L 120 220" marker-end="url(#arrow-grey)" />
-                
-                <!-- Symmetrical Fork Lines (Step 3 -> Modes) -->
-                <path id="line3" class="flow-line" d="M 210 240 L 460 65" marker-end="url(#arrow-grey)" />
-                <path id="line4" class="flow-line" d="M 210 245 L 460 150" marker-end="url(#arrow-grey)" />
-                <path id="line5" class="flow-line" d="M 210 250 L 460 235" marker-end="url(#arrow-grey)" />
-            </svg>
+#welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.98); /* Premium slate backdrop */
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1E293B;
+}
 
-            <!-- Column 1: Core Dividend Engine -->
-            <div class="flow-column">
-                <div class="flow-box" id="box1" style="width: 100%;">1. Choose Digits</div>
-                <div style="height: 35px; pointer-events: none;"></div> <!-- Spacer for Arrow Line -->
-                <div class="flow-box" id="box2" style="width: 100%;">2. Get Dividend</div>
-                <div style="height: 35px; pointer-events: none;"></div> <!-- Spacer for Arrow Line -->
-                <div class="flow-box" id="box3" style="width: 100%;">3. Dividend Input</div>
-            </div>
+.tour-card {
+    background: #FFFFFF;
+    width: 95%;
+    max-width: 980px; /* Expands to fit S beautiful layout beautifully */
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    text-align: center;
+    border-bottom: 8px solid #003F87;
+}
 
-            <!-- Column 2: Empty Spacer Column on Desktop to Let Lines Fork Beautifully -->
-            <div style="width: 15%; pointer-events: none; height: 1px;" class="desktop-only-spacer"></div>
+/* SVG Vector Styles */
+.svg-flow-box {
+    fill: #FFFFFF;
+    stroke: #E2E8F0;
+    stroke-width: 2.5;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-            <!-- Column 3: The Three Branched Modes -->
-            <div class="flow-column" style="gap: 20px;">
-                <div class="flow-box" id="box4" style="width: 100%;">Mode 1: Learn by Doing</div>
-                <div class="flow-box" id="box5" style="width: 100%;">Mode 2: Universal Odd Rule</div>
-                <div class="flow-box" id="box6" style="width: 100%;">Mode 3: Timed Challenge</div>
-            </div>
+.svg-box-text {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    fill: #475569;
+    pointer-events: none;
+    transition: all 0.4s;
+}
 
-        </div>
+.svg-guide-text {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    fill: #64748B;
+    opacity: 0.15; /* Symmetrical dimmed text */
+    pointer-events: none;
+    transition: all 0.4s;
+}
 
-        <!-- 💬 Description Guide Panel -->
-        <div class="tour-desc-box">
-            <span id="tourDesc" style="font-weight: 600;">Welcome! Click Next Step to explore how this math portal is laid out.</span>
-        </div>
+.svg-flow-line {
+    stroke: #CBD5E1;
+    stroke-width: 2.5;
+    fill: none;
+    transition: all 0.4s;
+}
 
-        <!-- Indicators & Next Buttons -->
-        <div class="tour-actions">
-            <button class="tour-btn tour-btn-secondary" onclick="skipTour()" style="background: transparent; color: #64748B; font-weight: 700;">Skip Tour</button>
-            <div class="tour-dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-            <button class="tour-btn tour-btn-primary" id="tourNextBtn" onclick="nextTourSlide()" style="background: #003F87; color: #FFFFFF; font-weight: bold; border-radius: 12px; padding: 10px 20px; border: none; cursor: pointer;">Next Step</button>
-        </div>
-    </div>
-</div>
+/* 🌟 DYNAMIC ACTIVE GLOWS (Coloring S Mathematical Paths!) */
+
+/* Step 1: Blue Glow */
+.active-box-blue {
+    fill: #E3F2FD !important;
+    stroke: #0D47A1 !important;
+    filter: drop-shadow(0 4px 6px rgba(13, 71, 161, 0.15));
+}
+.active-text-blue { fill: #0D47A1 !important; font-weight: 800 !important; }
+.active-guide-blue { fill: #0D47A1 !important; font-weight: 700 !important; opacity: 1 !important; }
+
+/* Step 2: Green Glow */
+.active-box-green {
+    fill: #E8F5E9 !important;
+    stroke: #2E7D32 !important;
+    filter: drop-shadow(0 4px 6px rgba(46, 125, 50, 0.15));
+}
+.active-text-green { fill: #1B5E20 !important; font-weight: 800 !important; }
+.active-guide-green { fill: #1B5E20 !important; font-weight: 700 !important; opacity: 1 !important; }
+
+/* Step 3: Gold Glow */
+.active-box-gold {
+    fill: #FFFDE7 !important;
+    stroke: #F57F17 !important;
+    filter: drop-shadow(0 4px 6px rgba(245, 127, 23, 0.15));
+}
+.active-text-gold { fill: #F57F17 !important; font-weight: 800 !important; }
+.active-guide-gold { fill: #F57F17 !important; font-weight: 700 !important; opacity: 1 !important; }
+
+/* Mode 1: Forest Green */
+.active-box-forest {
+    fill: #E8F5E9 !important;
+    stroke: #1B5E20 !important;
+    filter: drop-shadow(0 4px 6px rgba(27, 94, 32, 0.15));
+}
+.active-text-forest { fill: #1B5E20 !important; font-weight: 800 !important; }
+.active-guide-forest { fill: #1B5E20 !important; font-weight: 700 !important; opacity: 1 !important; }
+
+/* Mode 2: Purple Glow */
+.active-box-purple {
+    fill: #F3E5F5 !important;
+    stroke: #4A148C !important;
+    filter: drop-shadow(0 4px 6px rgba(74, 20, 140, 0.15));
+}
+.active-text-purple { fill: #4A148C !important; font-weight: 800 !important; }
+.active-guide-purple { fill: #4A148C !important; font-weight: 700 !important; opacity: 1 !important; }
+
+/* Mode 3: Royal Blue */
+.active-box-royal {
+    fill: #E8EAF6 !important;
+    stroke: #1A237E !important;
+    filter: drop-shadow(0 4px 6px rgba(26, 35, 126, 0.15));
+}
+.active-text-royal { fill: #1A237E !important; font-weight: 800 !important; }
+.active-guide-royal { fill: #1A237E !important; font-weight: 700 !important; opacity: 1 !important; }
+
+/* Connection Line Color Fills */
+.active-line-blue { stroke: #0D47A1 !important; stroke-width: 3.5 !important; }
+.active-line-green { stroke: #2E7D32 !important; stroke-width: 3.5 !important; }
+.active-line-gold { stroke: #F57F17 !important; stroke-width: 3.5 !important; }
+.active-line-forest { stroke: #1B5E20 !important; stroke-width: 3.5 !important; }
+.active-line-purple { stroke: #4A148C !important; stroke-width: 3.5 !important; }
+.active-line-royal { stroke: #1A237E !important; stroke-width: 3.5 !important; }
+
+/* Dots and Actions */
+.tour-dots { display: flex; justify-content: center; gap: 8px; }
+.dot { width: 10px; height: 10px; background: #E2E8F0; border-radius: 50%; transition: all 0.3s ease; }
+.dot.active { background: #003F87; width: 24px; border-radius: 10px; }
+
+@media screen and (max-width: 767px) {
+    #welcome-overlay { display: none !important; } /* Soft collapse tour on mobile to keep layout pristine */
+}
 
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
@@ -1260,57 +1321,71 @@ th {
   <script language="javascript" type="text/javascript">
     window.originalDividend = ""; // Stores our frozen anchor X
 
-    /* ===================================================================
-   🌟 S RAJARAJAN'S INTERACTIVE FLOWCHART TIMELINE RUNNER
-   Sequentially lights up S Rajarajan's connecting arrows and boxes!
+   /* ===================================================================
+   🌟 S RAJARAJAN'S INTERACTIVE FLOWCHART MATH TOUR ENGINE
    =================================================================== */
 let currentTourSlide = 0;
 
 const tourSlides = [
     {
-        desc: "Welcome to S Rajarajan's Math Divisibility Portal! This application is designed to easily master divisibility rules from 2 to 16 using active, visual simulations.",
+        // Slide 0: Welcome Frame
         activeBoxes: [],
         activeLines: [],
         buttonText: "Start Tour"
     },
     {
-        desc: "👉 **Step 1: Choose Digits.** First, select your level of difficulty by picking how many digits you want your starting dividend to have (from 2 to 9 digits).",
-        activeBoxes: ["box1"],
+        // Slide 1: Step 1 (Choose Digits)
+        activeBoxes: ["svg-box1"],
+        activeTexts: ["1. Choose Digits"],
+        activeGuides: ["svg-guide1"],
         activeLines: [],
-        buttonText: "Next Step"
-    },
-    {
-        desc: "👉 **Step 2: Get Dividend.** Once you select the digits, click the green 'Get Dividend' button to automatically roll a random mathematical canvas onto your dashboard.",
-        activeBoxes: ["box1", "box2"],
-        activeLines: ["line1"],
-        buttonText: "Next Step"
-    },
-    {
-        desc: "👉 **Step 3: Dividend Box.** Your active dividend appears in the main box. At any time, you can also increase/decrease it digit-by-digit using the up/down stepper arrows!",
-        activeBoxes: ["box1", "box2", "box3"],
-        activeLines: ["line1", "line2"],
-        buttonText: "Next Step"
-    },
-    {
-        desc: "🚀 **Mode 1: Learn by Doing.** Once your dividend is set, click any divisor card on the right to see if it divides your dividend. Correct answers turn green, incorrect ones turn red!",
-        activeBoxes: ["box1", "box2", "box3", "box4"],
-        activeLines: ["line1", "line2", "line3"],
         buttonText: "Next Step",
-        specialColors: { "box4": "active-step-green" }
+        theme: "blue"
     },
     {
-        desc: "⚙️ **Mode 2: The Universal Rule.** Discover S Rajarajan's famous 'Stem and Leaf' algorithm! It uses a single unified formula to solve any odd divisor ending in 1, 3, 7, or 9.",
-        activeBoxes: ["box1", "box2", "box3", "box5"],
-        activeLines: ["line1", "line2", "line4"],
+        // Slide 2: Step 2 (Get Dividend)
+        activeBoxes: ["svg-box1", "svg-box2"],
+        activeTexts: ["1. Choose Digits", "2. Get Dividend"],
+        activeGuides: ["svg-guide1", "svg-guide2"],
+        activeLines: ["svg-line1"],
         buttonText: "Next Step",
-        specialColors: { "box5": "active-step-purple" }
+        theme: "green"
     },
     {
-        desc: "🏆 **Mode 3: Timed Challenge.** Ready to test your speed? Enter Challenge Mode to generate a timed, 5-digit ODD dividend, clear divisor targets, and submit your score directly to your teacher!",
-        activeBoxes: ["box1", "box2", "box3", "box6"],
-        activeLines: ["line1", "line2", "line5"],
+        // Slide 3: Step 3 (Dividend Input)
+        activeBoxes: ["svg-box1", "svg-box2", "svg-box3"],
+        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input"],
+        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3"],
+        activeLines: ["svg-line1", "svg-line2"],
+        buttonText: "Next Step",
+        theme: "gold"
+    },
+    {
+        // Slide 4: Mode 1 (Learn by Doing)
+        activeBoxes: ["svg-box1", "svg-box2", "svg-box3", "svg-box4"],
+        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input", "Mode 1: Learn by Doing"],
+        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3", "svg-guide4"],
+        activeLines: ["svg-line1", "svg-line2", "svg-line3"],
+        buttonText: "Next Step",
+        theme: "forest"
+    },
+    {
+        // Slide 5: Mode 2 (Universal Odd Rule)
+        activeBoxes: ["svg-box1", "svg-box2", "svg-box3", "svg-box5"],
+        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input", "Mode 2: Universal Odd Rule"],
+        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3", "svg-guide5"],
+        activeLines: ["svg-line1", "svg-line2", "svg-line4"],
+        buttonText: "Next Step",
+        theme: "purple"
+    },
+    {
+        // Slide 6: Mode 3 (Timed Challenge)
+        activeBoxes: ["svg-box1", "svg-box2", "svg-box3", "svg-box6"],
+        activeTexts: ["1. Choose Digits", "2. Get Dividend", "3. Dividend Input", "Mode 3: Timed Challenge"],
+        activeGuides: ["svg-guide1", "svg-guide2", "svg-guide3", "svg-guide6"],
+        activeLines: ["svg-line1", "svg-line2", "svg-line5"],
         buttonText: "Play Now! ✓",
-        specialColors: { "box6": "active-step-green" }
+        theme: "royal"
     }
 ];
 
@@ -1326,51 +1401,58 @@ function nextTourSlide() {
 function updateFlowchartTour() {
     let slide = tourSlides[currentTourSlide];
     
-    // 1. Update Guide Text
-    document.getElementById("tourDesc").innerHTML = slide.desc;
+    // Update Button caption
     document.getElementById("tourNextBtn").innerText = slide.buttonText;
     
-    // 2. Reset All Box Highlights
-    for (let i = 1; i <= 6; i++) {
-        let box = document.getElementById("box" + i);
-        if (box) {
-            box.className = "flow-box"; // Resets styles to default faded look
-        }
-    }
-    
-    // 3. Reset All Line Highlights
-    for (let i = 1; i <= 5; i++) {
-        let line = document.getElementById("line" + i);
-        if (line) {
-            line.className.baseVal = "flow-line";
-            line.setAttribute("marker-end", "url(#arrow-grey)");
-        }
-    }
+    // 1. Reset all Symmetrical SVGs back to dimmed states
+    document.querySelectorAll(".svg-flow-box").forEach(el => {
+        el.setAttribute("class", "svg-flow-box");
+        el.style.filter = "none";
+    });
+    document.querySelectorAll(".svg-box-text").forEach(el => {
+        el.setAttribute("class", "svg-box-text");
+    });
+    document.querySelectorAll(".svg-guide-text").forEach(el => {
+        el.setAttribute("class", "svg-guide-text");
+    });
+    document.querySelectorAll(".svg-flow-line").forEach(el => {
+        el.setAttribute("class", "svg-flow-line");
+        el.setAttribute("marker-end", "url(#arrow-grey)");
+    });
 
-    // 4. Apply Highlights For Active Step Symmetrically
-    slide.activeBoxes.forEach(boxId => {
-        let box = document.getElementById(boxId);
-        if (box) {
-            if (slide.specialColors && slide.specialColors[boxId]) {
-                box.classList.add(slide.specialColors[boxId]);
-            } else {
-                box.classList.add("active-step");
+    // 2. Map Active slide highlights sequentially based on the slide's unique theme
+    if (currentTourSlide > 0) {
+        slide.activeBoxes.forEach(id => {
+            let el = document.getElementById(id);
+            if (el) el.classList.add("active-box-" + slide.theme);
+        });
+
+        // Highlight box text
+        document.querySelectorAll(".svg-box-text").forEach(el => {
+            if (slide.activeTexts.includes(el.textContent.trim())) {
+                el.classList.add("active-text-" + slide.theme);
             }
-        }
-    });
+        });
 
-    slide.activeLines.forEach(lineId => {
-        let line = document.getElementById(lineId);
-        if (line) {
-            line.className.baseVal = "flow-line active-line";
-            line.setAttribute("marker-end", "url(#arrow)");
-        }
-    });
+        // Highlight and Reveal Guide Text
+        slide.activeGuides.forEach(id => {
+            let el = document.getElementById(id);
+            if (el) el.classList.add("active-guide-" + slide.theme);
+        });
 
-    // 5. Update Indicator Dots
+        // Highlight connection lines and swap arrowheads
+        slide.activeLines.forEach(id => {
+            let el = document.getElementById(id);
+            if (el) {
+                el.classList.add("active-line-" + slide.theme);
+                el.setAttribute("marker-end", "url(#arrow-" + slide.theme + ")");
+            }
+        });
+    }
+
+    // 3. Update Milestones for Progress Dots
     let dots = document.querySelectorAll(".tour-dots .dot");
     dots.forEach((dot, idx) => {
-        // Map 7 slides to 4 indicator milestones cleanly
         let activeMilestone = 0;
         if (currentTourSlide >= 1 && currentTourSlide <= 3) activeMilestone = 1;
         if (currentTourSlide >= 4 && currentTourSlide <= 5) activeMilestone = 2;
@@ -1388,16 +1470,15 @@ function skipTour() {
     let overlay = document.getElementById("welcome-overlay");
     if (overlay) {
         overlay.style.opacity = "0";
-        setTimeout(() => {
-            overlay.style.display = "none";
-        }, 400);
+        setTimeout(() => { overlay.style.display = "none"; }, 400);
     }
 }
 
-// Automatically trigger S Rajarajan's flowchart layout on initial load!
+// Fire on DOM load
 window.addEventListener('DOMContentLoaded', () => {
     updateFlowchartTour();
 });
+
 
     function isNumber(evt) {
         evt = (evt) ? evt : window.event;
