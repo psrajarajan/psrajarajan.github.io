@@ -1880,7 +1880,7 @@ function togglestopquit() {
     window.rtgtag = 0;
     document.getElementById("isdivisible").innerHTML = "";
     
-    // 🌟 1. RESTORE EXPLANATION PANEL WRAPPERS (Reveals S Rajarajan's Report Text!)
+    // 🌟 1. RESTORE EXPLANATION PANEL WRAPPERS (Reveals S Rajarajan's Report!)
     let detailsBlocks = [
         document.querySelector(".twelvea"),  // Rule Title wrapper (wraps #divirulehead)
         document.querySelector(".twelveb"),  // Is Divisible Question Text wrapper
@@ -1933,7 +1933,7 @@ function togglestopquit() {
     let quizBtn = document.getElementById("quiz");
     let quizContainer = document.querySelector(".eight");
     if (quizBtn) {
-        quizBtn.value = "Quit Report"; // S Rajarajan's contextual label
+        quizBtn.value = "Quit Report"; // S Rajarajan's pristine contextual label
         quizBtn.style.visibility = "visible";
         quizBtn.style.display = "inline-block";
     }
@@ -1951,9 +1951,9 @@ function togglestopquit() {
     cleardivisorbuttons();
     divisorbuttonenable();
     
-    // 🌟 4. THE DIGITS FREEZE UPGRADES (Fix 1)
-    digitsbuttondisable(); // Disable S Rajarajan's choosing panel during report review!
-    document.getElementById("randomdividendbutton").disabled = true; // Lock roll button!
+    // 🌟 4. THE DIGITS FREEZE UPGRADES (Point 1 Fix)
+    digitsbuttondisable(); // Disable S Rajarajan's digits choosing panel during report review!
+    document.getElementById("randomdividendbutton").disabled = true; // Lock S Rajarajan's roll button during report review!
     oddevenbuttonenable();
 }
 
@@ -2182,7 +2182,7 @@ function togglequiz() {
 
 if (startBtn) {
     startBtn.style.visibility = "visible";
-    validateChallengeStart(); // 🌟 Runs validation on S Rajarajan's current dividend!
+    validateChallengeStart(); // 🌟 Sets the correct disabled/enabled state initially!
 }
 
 if (stopBtn) {
@@ -2622,12 +2622,12 @@ if (stopBtn) {
         }
     }
 
-    // 🌟 1. S Rajarajan's Dynamic Challenge Gate Validator (Fix 3)
+// 🌟 S Rajarajan's Dynamic Challenge Gate Validator
 function validateChallengeStart() {
     let startBtn = document.getElementById("cstart1");
     if (!startBtn) return;
 
-    let dividendVal = document.getElementById("randomdividendbox").value.trim();
+    let dividendVal = document.getElementById("randomdividendbox").value.toString().trim();
     let isFiveDigits = (dividendVal.length === 5);
     let isOdd = (Number(dividendVal) % 2 !== 0);
 
@@ -2689,7 +2689,8 @@ function validateChallengeStart() {
         newBtnCall.addEventListener('click', updateDividendGuideline);
     }
 
-    // 🌟 2. S Rajarajan's Stepper Arrow Active Change Listeners (Fix 3)
+
+// 🌟 Stepper Arrow Event Listeners
     let dividendBox = document.getElementById("randomdividendbox");
     if (dividendBox) {
     dividendBox.addEventListener('input', validateChallengeStart);
