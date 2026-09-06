@@ -646,21 +646,21 @@ th {
 }
 
 /* ===================================================================
-   📧 RESPONSIVE SCORECARD & EMAIL PANEL ALIGNMENT (REVISED LAYOUT)
+   📧 S RAJARAJAN'S RESPONSIVE SCORECARD SIDE-BY-SIDE GRID LAYOUT
    =================================================================== */
 #report-send-panel {
     width: 100% !important;
 }
 
 @media screen and (min-width: 768px) {
-    /* 1. When review is active, converts the canvas into a balanced grid layout */
+    /* 1. When review is active, splits the main container into a balanced grid layout */
     .container.review-active {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         grid-gap: 15px !important;
     }
     
-    /* 2. Locks the Submit card on the left side (Column 1) spanning parallel rows */
+    /* 2. Locks your Submit card in the left column (Column 1) spanning rows gracefully */
     .container.review-active #report-send-panel {
         grid-column: 1 / 2 !important;
         grid-row: 4 / 8 !important;
@@ -669,7 +669,7 @@ th {
         margin-top: 15px !important;
     }
     
-    /* 3. Shifts the Report Header text block to the right (Columns 2 to 5) */
+    /* 3. Shifts your Report Activity Header to the right column (Columns 2 to 5) */
     .container.review-active .twelvea {
         grid-column: 2 / 5 !important;
         grid-row: 4 / 5 !important;
@@ -678,7 +678,7 @@ th {
         padding-left: 20px !important;
     }
     
-    /* 4. Shifts the Time & Clicks stats block to the right (Columns 2 to 5) */
+    /* 4. Shifts your Scorecard statistics block to the right column (Columns 2 to 5) */
     .container.review-active .thirteen {
         grid-column: 2 / 5 !important;
         grid-row: 5 / 6 !important;
@@ -686,7 +686,17 @@ th {
         margin-bottom: 2px !important;
         padding-left: 20px !important;
     }
+    
+    /* 5. Shifts your dividend operation text to the right column (Columns 2 to 5) */
+    .container.review-active .twelveb {
+        grid-column: 2 / 5 !important;
+        grid-row: 6 / 7 !important;
+        margin-top: -5px !important;
+        margin-bottom: 2px !important;
+        padding-left: 20px !important;
+    }
 }
+
 
 
     </style>
@@ -1848,14 +1858,14 @@ function updateDividendGuideline() {
 
     }
 
+/* ===================================================================
+   ⏱️ S RAJARAJAN'S STABLE GAME-STATE SWITCHERS
+   =================================================================== */
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    if (stopBtn.value == "Stop") {
-        stopBtn.value = "Quit";
-        cstop(); // 🌟 Flawlessly stops S Rajarajan's timer, calculates accuracy, and prints the report!
-    } else if (stopBtn.value == "Quit") {
-        stopBtn.value = "Stop";
-        cquit(); // 🌟 Cleanly resets variables and returns the portal to its standard state!
+    // Directly call our core stop function when the student finishes clicking!
+    if (stopBtn && stopBtn.value === "Stop") {
+        cstop(); 
     }
 }
 
@@ -1936,24 +1946,23 @@ function togglestopquit() {
     }
 }
 
-   /* ===================================================================
-   🌟 UPGRADED cquit() FUNCTION
-   Fixes Point 1 (Reveals Scorecard Form) and Point 2 (Freezes Inputs)
-   =================================================================== */
-function cstop() {
+ function cstop() {
+    // Lock all practice panels and numbers from being manipulated
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
+    document.getElementById("isdivisible").innerHTML = "";
     document.getElementById("randomdividendbutton").disabled = true;
-    document.getElementById("divirulehead").style.display = "none";
-    document.getElementById("diviruledes").style.display = "none";
-    document.getElementById("diviresultdes").style.display = "none";
-    document.getElementById("diviresultdes1").style.display = "none";
-    document.getElementById("diviresultdes2").style.display = "none";
-    document.getElementById("diviresultdes3").style.display = "none";
+    
+    // 🌟 1. REVEAL YOUR SCORECARD DETAILS PANELS
+    document.getElementById("divirulehead").style.display = "block";
+    document.getElementById("diviruledes").style.display = "block";
+    document.getElementById("diviresultdes").style.display = "block";
+    document.getElementById("diviresultdes1").style.display = "block";
+    document.getElementById("diviresultdes2").style.display = "block";
+    document.getElementById("diviresultdes3").style.display = "block";
     
     window.rtgtag = 1;
     document.getElementById("biganswer").innerHTML = "";
@@ -1980,10 +1989,10 @@ function cstop() {
     window.cdividend2 = window.finaldividend;
     window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
     
-    alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
+    alert("Report is available now. Please check. Thanks for your time!");
     cdivisorscleared();
     
-    // 🌟 1. POPULATE SCORECARD TEXT FIELDS
+    // Populate Scorecard Summary Texts
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1991,12 +2000,12 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 🌟 2. APPEND DYNAMIC TICKS TO CORRECT DIVISORS IN THE TABLE
+    // 🌟 2. INJECT SUCCESS GREEN CHECKMARKS INTO YOUR HTML DIVISORS HIT TABLE (Point 1 Fix)
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // A right answer is any divisor that divides the final dividend with zero remainder
+            // Evaluates if the divisor successfully divides the final dividend with zero remainder
             let isCorrect = (window.cdividend2 % i === 0); 
             if (isCorrect) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
@@ -2004,6 +2013,28 @@ function cstop() {
                 cell.innerHTML = clicks;
             }
         }
+    }
+
+    // 🌟 3. REVEAL YOUR SCORECARD SEND PANEL FOR INPUTS (Point 2 Fix)
+    let sendPanel = document.getElementById("report-send-panel");
+    if (sendPanel) {
+        sendPanel.style.display = "block";
+    }
+
+    // 🌟 4. ACTIVATE GRID LAYOUT OVERRIDES (Aligns left and right side-by-side)
+    let container = document.querySelector(".container");
+    if (container) {
+        container.classList.add("review-active");
+    }
+
+    // 🌟 5. SWITCH FOOTER BUTTON STATES (Hides active Stop, and opens Quit Report as exit gateway)
+    document.getElementById("cstopquit1").style.visibility = "hidden";
+    
+    let quizBtn = document.getElementById("quiz");
+    if (quizBtn) {
+        quizBtn.value = "Quit Report";
+        quizBtn.style.visibility = "visible";
+        quizBtn.style.display = "inline-block";
     }
 }
 
@@ -2747,7 +2778,7 @@ function validateChallengeStart() {
 }
 
 /* ===================================================================
-   📧 S BACKGROUND SCORECARD SEND SYSTEM (via Web3Forms API)
+   📧 BACKGROUND SCORECARD SEND SYSTEM (via Web3Forms)
    =================================================================== */
 function sendBackgroundEmail() {
     let name = document.getElementById("studentName").value.trim().toUpperCase();
@@ -2762,7 +2793,7 @@ function sendBackgroundEmail() {
     sendBtn.value = "Submitting Scorecard...";
     sendBtn.disabled = true;
 
-    // Gather global scorecard variables from active session
+    // Retrieve active challenge sessions statistics
     let totalClicks = window.totalchits || 0;
     let timeTaken = window.celapsedtime || 0;
     let clearedCount = window.cdivcleared || 0;
@@ -2770,10 +2801,10 @@ function sendBackgroundEmail() {
     let finalDividend = window.cdividend2 || "";
     let deviation = window.cdividendspan || 0;
     
-    // Your Exact Report ID Generator:
+    // S Exact Report ID Generator:
     let reportID = (window.seconds + 13) * 2 + (window.day + 17) * 6 + (window.months + 15) * 7 + (window.celapsedtime + 11) * 3 + (window.cdivcleared + 19) * 4;
 
-    // Compile divisor clicks profile with text checkmarks for correct divisors
+    // Log divisor click profiles with text ticks
     let divisorDataLog = "";
     for (let i = 2; i <= 16; i++) {
         let clicks = window["try" + i] || 0;
@@ -2781,7 +2812,7 @@ function sendBackgroundEmail() {
         divisorDataLog += "Divisor " + i + ": " + clicks + " clicks" + isCorrect + "\n";
     }
 
-    // Build professional high-contrast email body
+    // Body blueprint
     let emailBody = "STUDENT MATH SCORECARD REPORT\n";
     emailBody += "=============================\n\n";
     emailBody += "Student Name: " + name + "\n";
@@ -2798,12 +2829,12 @@ function sendBackgroundEmail() {
     emailBody += "CLICK PROFILE BY DIVISOR:\n";
     emailBody += divisorDataLog;
 
-    // Secure, silent submission to Web3Forms API gateway
+    // Secure Web3Forms POST payload
     fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // Your preserved active key
+            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // Your active token
             subject: "Divisibility Scorecard: " + name,
             from_name: "Math Portal Reporter",
             message: emailBody
@@ -2830,6 +2861,7 @@ function sendBackgroundEmail() {
         sendBtn.disabled = false;
     });
 }
+
 
     // Run once on page load to initialize S Rajarajan's default view:
     updateDividendGuideline();
