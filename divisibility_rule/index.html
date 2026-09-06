@@ -646,44 +646,39 @@ th {
 }
 
 /* ===================================================================
-   📧 S RAJARAJAN'S RESPONSIVE SCORECARD & EMAIL PANEL ALIGNMENT
+   📧 RESPONSIVE SCORECARD & EMAIL PANEL ALIGNMENT (REVISED LAYOUT)
    =================================================================== */
 #report-send-panel {
     width: 100% !important;
 }
 
-/* Form textbox inputs styling */
-#report-send-panel .dtextbox {
-    font-size: 1.1rem !important;
-    padding: 10px !important;
-    max-width: 100% !important;
-    margin: 5px 0 !important;
-    border-color: #003F87 !important;
-    background-color: #FFFFFF !important;
-}
-
 @media screen and (min-width: 768px) {
-    /* When active, splits the screen side-by-side on desktop */
+    /* 1. When review is active, converts the canvas into a balanced grid layout */
     .container.review-active {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         grid-gap: 15px !important;
     }
     
+    /* 2. Locks the Submit card on the left side (Column 1) spanning parallel rows */
     .container.review-active #report-send-panel {
         grid-column: 1 / 2 !important;
-        grid-row: 4 / 8 !important; /* Matches S Rajarajan's report rows perfectly */
+        grid-row: 4 / 8 !important;
         display: block !important;
+        align-self: start !important;
+        margin-top: 15px !important;
     }
     
+    /* 3. Shifts the Report Header text block to the right (Columns 2 to 5) */
     .container.review-active .twelvea {
         grid-column: 2 / 5 !important;
         grid-row: 4 / 5 !important;
-        margin-top: 0px !important;
+        margin-top: 15px !important;
         margin-bottom: 2px !important;
         padding-left: 20px !important;
     }
     
+    /* 4. Shifts the Time & Clicks stats block to the right (Columns 2 to 5) */
     .container.review-active .thirteen {
         grid-column: 2 / 5 !important;
         grid-row: 5 / 6 !important;
@@ -691,15 +686,8 @@ th {
         margin-bottom: 2px !important;
         padding-left: 20px !important;
     }
-    
-    .container.review-active .twelveb {
-        grid-column: 2 / 5 !important;
-        grid-row: 6 / 7 !important;
-        margin-top: -5px !important;
-        margin-bottom: 2px !important;
-        padding-left: 20px !important;
-    }
 }
+
 
     </style>
 </head>
@@ -1882,119 +1870,141 @@ function togglestopquit() {
     }
 
     function cstop() {
-        digitsbuttondisable();
-        divisorbuttondisable();
-        clearoddevenbuttons();
-        oddevenbuttondisable();
-        document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
-        document.getElementById("randomdividendbutton").disabled = true;
-        document.getElementById("divirulehead").style.display = "none";
-        document.getElementById("diviruledes").style.display = "none";
-        document.getElementById("diviresultdes").style.display = "none";
-        document.getElementById("diviresultdes1").style.display = "none";
-        document.getElementById("diviresultdes2").style.display = "none";
-        document.getElementById("diviresultdes3").style.display = "none";
+    digitsbuttondisable();
+    divisorbuttondisable();
+    clearoddevenbuttons();
+    oddevenbuttondisable();
+    
+    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
+    document.getElementById("randomdividendbutton").disabled = true;
+    document.getElementById("divirulehead").style.display = "none";
+    document.getElementById("diviruledes").style.display = "none";
+    document.getElementById("diviresultdes").style.display = "none";
+    document.getElementById("diviresultdes1").style.display = "none";
+    document.getElementById("diviresultdes2").style.display = "none";
+    document.getElementById("diviresultdes3").style.display = "none";
+    
+    window.rtgtag = 1;
+    document.getElementById("biganswer").innerHTML = "";
+    
+    window.enddate = new Date();
+    window.endtime = window.enddate.getTime();
+    window.endyear = window.enddate.getFullYear();
+    window.endmonth = window.enddate.getMonth() + 1;
+    window.enddate1 = window.enddate.getDate();
+    window.endhour = window.enddate.getHours();
+    window.endminute = window.enddate.getMinutes();
+    window.endsecond = window.enddate.getSeconds();
+    
+    document.getElementById("theader").innerHTML =
+        "Number of clicks to clear the divisor (divisor-wise) on " + window.enddate1 + "/" + window.endmonth +
+        "/" + window.endyear + " at " + window.endhour + ":" + window.endminute + ":" + window.endsecond;
+        
+    window.celapsedtime = Math.round((window.endtime - window.starttime) / 1000);
+    
+    window.totalchits = window.try2 + window.try3 + window.try4 + window.try5 + window.try6 + window.try7 +
+        window.try8 + window.try9 + window.try10 + window.try11 + window.try12 + window.try13 + window.try14 +
+        window.try15 + window.try16;
+        
+    window.cdividend2 = window.finaldividend;
+    window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
+    
+    alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
+    cdivisorscleared();
+    
+    // 🌟 1. POPULATE SCORECARD TEXT FIELDS
+    document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
+    
+    document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
+        window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
+        " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
+        window.cdividendspan;
 
-        window.rtgtag = 1;
-        document.getElementById("biganswer").innerHTML = "";
-        window.enddate = new Date();
-        window.endtime = window.enddate.getTime();
-        window.endyear = window.enddate.getFullYear();
-        window.endmonth = window.enddate.getMonth() + 1;
-        window.enddate1 = window.enddate.getDate();
-        window.endhour = window.enddate.getHours();
-        window.endminute = window.enddate.getMinutes();
-        window.endsecond = window.enddate.getSeconds();
-        document.getElementById("theader").innerHTML =
-            "Number of clicks to clear the divisor (divisor-wise) on " + window.enddate1 + "/" + window.endmonth +
-            "/" + window.endyear + " at " + window.endhour + ":" + window.endminute + ":" + window.endsecond;
-
-        window.celapsedtime = Math.round((window.endtime - window.starttime) / 1000);
-
-        window.totalchits = window.try2 + window.try3 + window.try4 + window.try5 + window.try6 + window.try7 +
-            window.try8 + window.try9 + window.try10 + window.try11 + window.try12 + window.try13 + window.try14 +
-            window.try15 + window.try16;
-        window.cdividend2 = window.finaldividend;
-        window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
-        alert(
-            "Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge"
-        );
-        cdivisorscleared();
-        document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
-       document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
-            window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
-            " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
-            window.cdividendspan;
-
+    // 🌟 2. APPEND DYNAMIC TICKS TO CORRECT DIVISORS IN THE TABLE
+    for (let i = 2; i <= 16; i++) {
+        let cell = document.getElementById("divis" + i);
+        if (cell) {
+            let clicks = window["try" + i] || 0;
+            // A right answer is any divisor that divides the final dividend with zero remainder
+            let isCorrect = (window.cdividend2 % i === 0); 
+            if (isCorrect) {
+                cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
+            } else {
+                cell.innerHTML = clicks;
+            }
+        }
     }
+}
 
    /* ===================================================================
    🌟 UPGRADED cquit() FUNCTION
    Fixes Point 1 (Reveals Scorecard Form) and Point 2 (Freezes Inputs)
    =================================================================== */
-function cquit() {
-    window.rtgtag = 0;
-    document.getElementById("isdivisible").innerHTML = "";
+function cstop() {
+    digitsbuttondisable();
+    divisorbuttondisable();
+    clearoddevenbuttons();
+    oddevenbuttondisable();
     
-    // 1. Restore explanation panel wrappers cleanly
-    let detailsBlocks = [
-        document.querySelector(".twelvea"),
-        document.querySelector(".twelveb"),
-        document.querySelector(".twelvec"),
-        document.querySelector(".thirteen"),
-        document.querySelector(".fourteen"),
-        document.querySelector(".fifteen")
-    ];
-    detailsBlocks.forEach(el => {
-        if (el) el.style.removeProperty("display");
-    });
+    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
+    document.getElementById("randomdividendbutton").disabled = true;
+    document.getElementById("divirulehead").style.display = "none";
+    document.getElementById("diviruledes").style.display = "none";
+    document.getElementById("diviresultdes").style.display = "none";
+    document.getElementById("diviresultdes1").style.display = "none";
+    document.getElementById("diviresultdes2").style.display = "none";
+    document.getElementById("diviresultdes3").style.display = "none";
+    
+    window.rtgtag = 1;
+    document.getElementById("biganswer").innerHTML = "";
+    
+    window.enddate = new Date();
+    window.endtime = window.enddate.getTime();
+    window.endyear = window.enddate.getFullYear();
+    window.endmonth = window.enddate.getMonth() + 1;
+    window.enddate1 = window.enddate.getDate();
+    window.endhour = window.enddate.getHours();
+    window.endminute = window.enddate.getMinutes();
+    window.endsecond = window.enddate.getSeconds();
+    
+    document.getElementById("theader").innerHTML =
+        "Number of clicks to clear the divisor (divisor-wise) on " + window.enddate1 + "/" + window.endmonth +
+        "/" + window.endyear + " at " + window.endhour + ":" + window.endminute + ":" + window.endsecond;
+        
+    window.celapsedtime = Math.round((window.endtime - window.starttime) / 1000);
+    
+    window.totalchits = window.try2 + window.try3 + window.try4 + window.try5 + window.try6 + window.try7 +
+        window.try8 + window.try9 + window.try10 + window.try11 + window.try12 + window.try13 + window.try14 +
+        window.try15 + window.try16;
+        
+    window.cdividend2 = window.finaldividend;
+    window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
+    
+    alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
+    cdivisorscleared();
+    
+    // 🌟 1. POPULATE SCORECARD TEXT FIELDS
+    document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
+    
+    document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
+        window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
+        " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
+        window.cdividendspan;
 
-    document.getElementById("divirulehead").style.display = "block";
-    document.getElementById("diviruledes").style.display = "block";
-    document.getElementById("diviresultdes").style.display = "block";
-    document.getElementById("diviresultdes1").style.display = "block";
-    document.getElementById("diviresultdes2").style.display = "block";
-    document.getElementById("diviresultdes3").style.display = "block";
-    
-    document.getElementById("diviresultdes").innerHTML = "";
-    document.getElementById("diviresultdes1").innerHTML = "";
-    document.getElementById("diviresultdes2").innerHTML = "";
-    document.getElementById("diviresultdes3").innerHTML = "";
-    
+    // 🌟 2. APPEND DYNAMIC TICKS TO CORRECT DIVISORS IN THE TABLE
     for (let i = 2; i <= 16; i++) {
-        let divisorEl = document.getElementById("divisor" + i);
-        if (divisorEl) divisorEl.style.visibility = "visible";
+        let cell = document.getElementById("divis" + i);
+        if (cell) {
+            let clicks = window["try" + i] || 0;
+            // A right answer is any divisor that divides the final dividend with zero remainder
+            let isCorrect = (window.cdividend2 % i === 0); 
+            if (isCorrect) {
+                cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
+            } else {
+                cell.innerHTML = clicks;
+            }
+        }
     }
-    
-    document.getElementById("challenge111").style.visibility = "hidden";
-    document.getElementById("ttable").style.visibility = "hidden";
-    document.getElementById("cstart1").style.visibility = "hidden";
-    document.getElementById("cstopquit1").style.visibility = "hidden";
-    document.getElementById("ctime").style.visibility = "hidden";
-    document.getElementById("cdivisors").style.visibility = "hidden";
-    document.getElementById("cdivispan").style.visibility = "hidden";
-
-    // 🌟 FIX 1: REVEAL YOUR SCORECARD SEND EMAIL PANEL
-    let sendPanel = document.getElementById("report-send-panel");
-    if (sendPanel) {
-        sendPanel.style.display = "block";
-    }
-
-    // 🌟 FIX 2: CONTEXTUAL QUIT BUTTON ADJUSTMENT
-    let quizBtn = document.getElementById("quiz");
-    if (quizBtn) {
-        quizBtn.value = "Quit Report"; // S Rajarajan's contextual scorecard state
-        quizBtn.style.visibility = "visible";
-        quizBtn.style.display = "inline-block";
-    }
-
-    cleardivisorbuttons();
-    divisorbuttonenable();
-    
-    // 🌟 FIX 3: THE DIGITS & SELECTION FREEZE UPGRADES
-    digitsbuttondisable(); // Keep digits choosing panel disabled during report review!
-    document.getElementById("randomdividendbutton").disabled = true; // Lock S Rajarajan's generate button!
-    oddevenbuttondisable(); // Keep custom odd/even practice modules locked!
 }
 
 
@@ -2752,7 +2762,7 @@ function sendBackgroundEmail() {
     sendBtn.value = "Submitting Scorecard...";
     sendBtn.disabled = true;
 
-    // Gather global scorecard variables from session
+    // Gather global scorecard variables from active session
     let totalClicks = window.totalchits || 0;
     let timeTaken = window.celapsedtime || 0;
     let clearedCount = window.cdivcleared || 0;
@@ -2760,17 +2770,18 @@ function sendBackgroundEmail() {
     let finalDividend = window.cdividend2 || "";
     let deviation = window.cdividendspan || 0;
     
-    // S Exact Report ID Generator:
+    // Your Exact Report ID Generator:
     let reportID = (window.seconds + 13) * 2 + (window.day + 17) * 6 + (window.months + 15) * 7 + (window.celapsedtime + 11) * 3 + (window.cdivcleared + 19) * 4;
 
-    // Compile divisor data profile
+    // Compile divisor clicks profile with text checkmarks for correct divisors
     let divisorDataLog = "";
     for (let i = 2; i <= 16; i++) {
         let clicks = window["try" + i] || 0;
-        divisorDataLog += "Divisor " + i + ": " + clicks + " clicks\n";
+        let isCorrect = (window.cdividend2 % i === 0) ? " ✔ (Correct Divisor)" : "";
+        divisorDataLog += "Divisor " + i + ": " + clicks + " clicks" + isCorrect + "\n";
     }
 
-    // Build professional email plain text
+    // Build professional high-contrast email body
     let emailBody = "STUDENT MATH SCORECARD REPORT\n";
     emailBody += "=============================\n\n";
     emailBody += "Student Name: " + name + "\n";
@@ -2787,12 +2798,12 @@ function sendBackgroundEmail() {
     emailBody += "CLICK PROFILE BY DIVISOR:\n";
     emailBody += divisorDataLog;
 
-    // Secure, silent AJAX fetch to Web3Forms API gateway
+    // Secure, silent submission to Web3Forms API gateway
     fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // S Web3Forms Active Token
+            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // Your preserved active key
             subject: "Divisibility Scorecard: " + name,
             from_name: "Math Portal Reporter",
             message: emailBody
