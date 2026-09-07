@@ -665,7 +665,7 @@ th {
         display: none !important;
     }
     
-    /* 3. REPORT on LEFT (Columns 1 & 2) */
+    /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
     .container.review-active .twelvea {
         grid-column: 1 / 3 !important;
         grid-row: 4 / 5 !important;
@@ -693,7 +693,7 @@ th {
         padding-right: 15px !important;
     }
     
-    /* 4. SEND PANEL on RIGHT (Columns 3 & 4) */
+    /* 4. SEND REPORT PANEL on the RIGHT (Columns 3 & 4) */
     .container.review-active #report-send-panel {
         grid-column: 3 / 5 !important;
         grid-row: 4 / 7 !important;
@@ -703,7 +703,7 @@ th {
         margin-bottom: 0px !important;
     }
     
-    /* 5. TABLE below S REPORT and SEND PANEL (Columns 1 to 4) */
+    /* 5. CLICK PROFILE TABLE centered full-width BELOW both (Columns 1 to 4) */
     .container.review-active .twentysix {
         grid-column: 1 / 5 !important;
         grid-row: 7 / 8 !important;
@@ -711,9 +711,6 @@ th {
         margin-top: 20px !important;
     }
 }
-
-
-
     </style>
 </head>
 
@@ -1898,21 +1895,26 @@ function togglestopquit() {
 
     }
 
- function cstop() {
+ /* ===================================================================
+   ⏱️ S RAJARAJAN'S UNIFIED STATE TRANSITIONS & TABLE TICK FIXES
+   =================================================================== */
+
+function cstop() {
+    // 1. Freeze input interfaces so students cannot alter their scores
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Set S guide text for the student on where to exit
+    // Set a friendly guide notice in the middle of the board
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 1. REVEAL REPORT CONTAINERS
+    // 2. DISPLAY YOUR REPORT DETAILS (Must be "block" to be visible!)
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
-    // Keep internal detail blocks hidden to preserve scorecard beauty
+    // Keep internal practice explanations hidden to keep the scorecard layout neat
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1946,7 +1948,7 @@ function togglestopquit() {
     alert("Report is available now. Please check. Thanks for your time!");
     cdivisorscleared();
     
-    // Populate Scorecard Summary Text Blocks
+    // Populate Scorecard Summary Texts
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1954,39 +1956,40 @@ function togglestopquit() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 2. INJECT GREEN SUCCESS TICKS INTO THE HIT PROFILE TABLE NEXT TO CORRECT DIVISORS
+    // 3. INJECT GREEN SUCCESS TICKS NEXT TO COMMITTED CLEARED DIVISORS ONLY (Fixes the tick issue!)
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if the divisor successfully divides S final dividend with zero remainder
-            let isCorrect = (window.cdividend2 % i === 0); 
-            if (isCorrect) {
+            // Check if the divisor button was actually cleared (hidden) during the game
+            let isCleared = (document.getElementById("divisor" + i).style.visibility === "hidden"); 
+            if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
-                cell.innerHTML = clicks;
+                cell.innerHTML = clicks; // Shows count only, no tick!
             }
         }
     }
 
-    // 3. REVEAL THE SCORECARD SUBMIT FORM CARD
+    // 4. Reveal the student verification and email send panel
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 4. ACTIVATE GRID LAYOUT SPLIT
+    // 5. Activate the side-by-side grid split style
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 5. GUARANTEE TABLE IS FULLY VISIBLE AT THE BOTTOM
+    // 6. Guarantee table is fully visible at the bottom
     document.getElementById("ttable").style.visibility = "visible";
 
-    // 6. SWAP FOOTER ACTION BUTTONS
+    // 7. Hide the active "Stop" button to prevent state conflict clicks
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
+    // 8. Recycle the "quiz" button to be the "Quit Report" exit path and show it
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -1996,7 +1999,7 @@ function togglestopquit() {
 }
 
 function cquit() {
-    // A clean soft-reload resets all values, clears active classes, and defaults the page instantly!
+    // Elegant soft-reload resets all values, clears active layout classes, and defaults the page!
     location.reload();
 }
 
