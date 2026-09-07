@@ -653,7 +653,7 @@ th {
 }
 
 @media screen and (min-width: 768px) {
-    /* 1. Split container into a 4-column balanced layout grid */
+    /* 1. When review is active, convert main container into a 4-column layout grid */
     .container.review-active {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
@@ -665,7 +665,7 @@ th {
         display: none !important;
     }
     
-    /* 3. REPORT on LEFT (Columns 1 & 2) */
+    /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
     .container.review-active .twelvea {
         grid-column: 1 / 3 !important;
         grid-row: 4 / 5 !important;
@@ -693,7 +693,7 @@ th {
         padding-right: 15px !important;
     }
     
-    /* 4. SEND PANEL on RIGHT (Columns 3 & 4) */
+    /* 4. SEND REPORT PANEL on the RIGHT (Columns 3 & 4) */
     .container.review-active #report-send-panel {
         grid-column: 3 / 5 !important;
         grid-row: 4 / 7 !important;
@@ -703,7 +703,7 @@ th {
         margin-bottom: 0px !important;
     }
     
-    /* 5. TABLE below REPORT and SEND PANEL (Columns 1 to 4) */
+    /* 5. CLICK PROFILE TABLE centered full-width BELOW both (Columns 1 to 4) */
     .container.review-active .twentysix {
         grid-column: 1 / 5 !important;
         grid-row: 7 / 8 !important;
@@ -711,6 +711,7 @@ th {
         margin-top: 20px !important;
     }
 }
+
 
     </style>
 </head>
@@ -1874,12 +1875,12 @@ function updateDividendGuideline() {
 
 
 /* ===================================================================
-   ⏱️ S RAJARAJAN'S STABLE CHALLENGE TRANSITIONS & SCORECARD COMPILE
+   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & TABLE TICK CONTROLLER
    =================================================================== */
 
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    // Directly trigger our stop process when the student clicks "Stop"
+    // Directly freeze and compile S scorecard report on stop click
     if (stopBtn && stopBtn.value === "Stop") {
         cstop(); 
     }
@@ -1896,30 +1897,26 @@ function togglestopquit() {
 
     }
 
- /* ===================================================================
-   ⏱️ S RAJARAJAN'S UNIFIED STATE TRANSITIONS & TABLE TICK FIXES
-   =================================================================== */
-
 /* ===================================================================
    ⏱️ S RAJARAJAN'S UNIFIED STATE TRANSITIONS & TABLE TICK FIXES
    =================================================================== */
 
 function cstop() {
-    // 1. Freeze input interfaces so students cannot alter their scores
+    // 1. Lock difficulty panels and random rolls from being altered
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Set a friendly guide notice in the middle of the board
+    // Display S clear exit directive
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 2. DISPLAY YOUR REPORT DETAILS (Must be "block" to be visible!)
+    // 2. REVEAL REPORT TEXT BLOCKS (Display explicitly set to "block")
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
-    // Keep internal practice explanations hidden to keep the scorecard layout neat
+    // Keep study-path detail paragraphs hidden to preserve scorecard grid layout
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1953,7 +1950,7 @@ function cstop() {
     alert("Report is available now. Please check. Thanks for your time!");
     cdivisorscleared();
     
-    // Populate Scorecard Summary Texts
+    // Write S scorecard texts
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1961,40 +1958,40 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 3. INJECT GREEN SUCCESS TICKS NEXT TO COMMITTED CLEARED DIVISORS ONLY
+    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING THE GAME
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if the divisor button was actually cleared (hidden) during the game
+            // Evaluates if S divisor button was successfully cleared (hidden) during S active game
             let isCleared = (document.getElementById("divisor" + i).style.visibility === "hidden"); 
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
-                cell.innerHTML = clicks; // Shows count only, no tick!
+                cell.innerHTML = clicks; // Displays click count only, no tick
             }
         }
     }
 
-    // 4. Reveal the student verification and email send panel
+    // 4. Reveal your Student Submission scorecard card
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 5. Activate the side-by-side grid split style
+    // 5. Activate S side-by-side grid split style class
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 6. Guarantee table is fully visible at the bottom
+    // 6. Force the click profile table board to be explicitly visible at S bottom
     document.getElementById("ttable").style.visibility = "visible";
 
-    // 7. Hide the active "Stop" button to prevent state conflict clicks
+    // 7. Hide S Stop button cleanly to prevent cycling conflicts
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
-    // 8. Recycle the "quiz" button to be the "Quit Report" exit path and show it
+    // 8. Recycle S "quiz" button as your high-visibility exit gate "Quit Report" and show it
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -2004,7 +2001,7 @@ function cstop() {
 }
 
 function cquit() {
-    // Soft-reloads the page to cleanly reset all values, active layout classes, and game states!
+    // Soft-reloads S page to guarantee counters, timers, grids, and styles are wiped cleanly!
     location.reload();
 }
 
