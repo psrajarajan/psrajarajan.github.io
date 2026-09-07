@@ -665,7 +665,7 @@ th {
         display: none !important;
     }
     
-    /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
+    /* 3. REPORT on LEFT (Columns 1 & 2) */
     .container.review-active .twelvea {
         grid-column: 1 / 3 !important;
         grid-row: 4 / 5 !important;
@@ -693,7 +693,7 @@ th {
         padding-right: 15px !important;
     }
     
-    /* 4. SEND REPORT PANEL on the RIGHT (Columns 3 & 4) */
+    /* 4. SEND PANEL on RIGHT (Columns 3 & 4) */
     .container.review-active #report-send-panel {
         grid-column: 3 / 5 !important;
         grid-row: 4 / 7 !important;
@@ -703,7 +703,7 @@ th {
         margin-bottom: 0px !important;
     }
     
-    /* 5. CLICK PROFILE TABLE centered full-width BELOW both (Columns 1 to 4) */
+    /* 5. TABLE below REPORT and SEND PANEL (Columns 1 to 4) */
     .container.review-active .twentysix {
         grid-column: 1 / 5 !important;
         grid-row: 7 / 8 !important;
@@ -711,6 +711,7 @@ th {
         margin-top: 20px !important;
     }
 }
+
     </style>
 </head>
 
@@ -1899,6 +1900,10 @@ function togglestopquit() {
    ⏱️ S RAJARAJAN'S UNIFIED STATE TRANSITIONS & TABLE TICK FIXES
    =================================================================== */
 
+/* ===================================================================
+   ⏱️ S RAJARAJAN'S UNIFIED STATE TRANSITIONS & TABLE TICK FIXES
+   =================================================================== */
+
 function cstop() {
     // 1. Freeze input interfaces so students cannot alter their scores
     digitsbuttondisable();
@@ -1956,12 +1961,12 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 3. INJECT GREEN SUCCESS TICKS NEXT TO COMMITTED CLEARED DIVISORS ONLY (Fixes the tick issue!)
+    // 3. INJECT GREEN SUCCESS TICKS NEXT TO COMMITTED CLEARED DIVISORS ONLY
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Check if the divisor button was actually cleared (hidden) during the game
+            // Evaluates if the divisor button was actually cleared (hidden) during the game
             let isCleared = (document.getElementById("divisor" + i).style.visibility === "hidden"); 
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
@@ -1999,7 +2004,7 @@ function cstop() {
 }
 
 function cquit() {
-    // Elegant soft-reload resets all values, clears active layout classes, and defaults the page!
+    // Soft-reloads the page to cleanly reset all values, active layout classes, and game states!
     location.reload();
 }
 
