@@ -1879,90 +1879,29 @@ function togglestopquit() {
 
     }
 
-    function cstop() {
+    /* ===================================================================
+   ⏱️ S RAJARAJAN'S UNIFIED CHALLENGE GAME-STATE ENGY
+   =================================================================== */
+
+function cstop() {
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
+    // 1. Guide the student to click "Quit Report" to proceed
+    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to proceed";
     document.getElementById("randomdividendbutton").disabled = true;
-    document.getElementById("divirulehead").style.display = "none";
-    document.getElementById("diviruledes").style.display = "none";
+    
+    // 2. Display the scorecard report text containers
+    document.getElementById("divirulehead").style.display = "block";
+    document.getElementById("diviruledes").style.display = "block";
+    
+    // Keep internal calculations containers hidden for a neat scorecard view
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
     document.getElementById("diviresultdes3").style.display = "none";
-    
-    window.rtgtag = 1;
-    document.getElementById("biganswer").innerHTML = "";
-    
-    window.enddate = new Date();
-    window.endtime = window.enddate.getTime();
-    window.endyear = window.enddate.getFullYear();
-    window.endmonth = window.enddate.getMonth() + 1;
-    window.enddate1 = window.enddate.getDate();
-    window.endhour = window.enddate.getHours();
-    window.endminute = window.enddate.getMinutes();
-    window.endsecond = window.enddate.getSeconds();
-    
-    document.getElementById("theader").innerHTML =
-        "Number of clicks to clear the divisor (divisor-wise) on " + window.enddate1 + "/" + window.endmonth +
-        "/" + window.endyear + " at " + window.endhour + ":" + window.endminute + ":" + window.endsecond;
-        
-    window.celapsedtime = Math.round((window.endtime - window.starttime) / 1000);
-    
-    window.totalchits = window.try2 + window.try3 + window.try4 + window.try5 + window.try6 + window.try7 +
-        window.try8 + window.try9 + window.try10 + window.try11 + window.try12 + window.try13 + window.try14 +
-        window.try15 + window.try16;
-        
-    window.cdividend2 = window.finaldividend;
-    window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
-    
-    alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
-    cdivisorscleared();
-    
-    // 🌟 1. POPULATE SCORECARD TEXT FIELDS
-    document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
-    
-    document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
-        window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
-        " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
-        window.cdividendspan;
-
-    // 🌟 2. APPEND DYNAMIC TICKS TO CORRECT DIVISORS IN THE TABLE
-    for (let i = 2; i <= 16; i++) {
-        let cell = document.getElementById("divis" + i);
-        if (cell) {
-            let clicks = window["try" + i] || 0;
-            // A right answer is any divisor that divides the final dividend with zero remainder
-            let isCorrect = (window.cdividend2 % i === 0); 
-            if (isCorrect) {
-                cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
-            } else {
-                cell.innerHTML = clicks;
-            }
-        }
-    }
-}
-
- function cstop() {
-    // Lock all practice panels and numbers from being manipulated
-    digitsbuttondisable();
-    divisorbuttondisable();
-    clearoddevenbuttons();
-    oddevenbuttondisable();
-    
-    document.getElementById("isdivisible").innerHTML = "";
-    document.getElementById("randomdividendbutton").disabled = true;
-    
-    // 🌟 1. REVEAL YOUR SCORECARD DETAILS PANELS
-    document.getElementById("divirulehead").style.display = "block";
-    document.getElementById("diviruledes").style.display = "block";
-    document.getElementById("diviresultdes").style.display = "block";
-    document.getElementById("diviresultdes1").style.display = "block";
-    document.getElementById("diviresultdes2").style.display = "block";
-    document.getElementById("diviresultdes3").style.display = "block";
     
     window.rtgtag = 1;
     document.getElementById("biganswer").innerHTML = "";
@@ -2000,12 +1939,12 @@ function togglestopquit() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 🌟 2. INJECT SUCCESS GREEN CHECKMARKS INTO YOUR HTML DIVISORS HIT TABLE (Point 1 Fix)
+    // 3. Inject green checkmarks (✔) into the live table next to correct divisors
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if the divisor successfully divides the final dividend with zero remainder
+            // Evaluates if the divisor divides the final dividend with zero remainder
             let isCorrect = (window.cdividend2 % i === 0); 
             if (isCorrect) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
@@ -2015,21 +1954,22 @@ function togglestopquit() {
         }
     }
 
-    // 🌟 3. REVEAL YOUR SCORECARD SEND PANEL FOR INPUTS (Point 2 Fix)
+    // 4. Reveal the student verification and email send panel
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 🌟 4. ACTIVATE GRID LAYOUT OVERRIDES (Aligns left and right side-by-side)
+    // 5. Activate the dual-column grid split style
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 🌟 5. SWITCH FOOTER BUTTON STATES (Hides active Stop, and opens Quit Report as exit gateway)
+    // 6. Hide active Stop button to prevent state-cycling clicks
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
+    // 7. Change the quiz button value to "Quit Report" and display it
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -2037,6 +1977,78 @@ function togglestopquit() {
         quizBtn.style.display = "inline-block";
     }
 }
+
+function cquit() {
+    window.rtgtag = 0;
+    document.getElementById("isdivisible").innerHTML = "";
+    
+    // Restore all math description panel wrappers
+    let detailsBlocks = [
+        document.querySelector(".twelvea"),
+        document.querySelector(".twelveb"),
+        document.querySelector(".twelvec"),
+        document.querySelector(".thirteen"),
+        document.querySelector(".fourteen"),
+        document.querySelector(".fifteen")
+    ];
+    detailsBlocks.forEach(el => {
+        if (el) el.style.removeProperty("display");
+    });
+
+    document.getElementById("divirulehead").style.display = "block";
+    document.getElementById("diviruledes").style.display = "block";
+    document.getElementById("diviresultdes").style.display = "block";
+    document.getElementById("diviresultdes1").style.display = "block";
+    document.getElementById("diviresultdes2").style.display = "block";
+    document.getElementById("diviresultdes3").style.display = "block";
+    
+    document.getElementById("diviresultdes").innerHTML = "";
+    document.getElementById("diviresultdes1").innerHTML = "";
+    document.getElementById("diviresultdes2").innerHTML = "";
+    document.getElementById("diviresultdes3").innerHTML = "";
+    
+    for (let i = 2; i <= 16; i++) {
+        let divisorEl = document.getElementById("divisor" + i);
+        if (divisorEl) divisorEl.style.visibility = "visible";
+    }
+    
+    document.getElementById("challenge111").style.visibility = "hidden";
+    document.getElementById("ttable").style.visibility = "hidden";
+    document.getElementById("cstart1").style.visibility = "hidden";
+    document.getElementById("cstopquit1").style.visibility = "hidden";
+    document.getElementById("ctime").style.visibility = "hidden";
+    document.getElementById("cdivisors").style.visibility = "hidden";
+    document.getElementById("cdivispan").style.visibility = "hidden";
+
+    // Hide the send report panel
+    let sendPanel = document.getElementById("report-send-panel");
+    if (sendPanel) {
+        sendPanel.style.display = "none";
+    }
+
+    // Deactivate the review grid layout
+    let container = document.querySelector(".container");
+    if (container) {
+        container.classList.remove("review-active");
+    }
+
+    // Restore the standard "Start Challenge" action button
+    let quizBtn = document.getElementById("quiz");
+    if (quizBtn) {
+        quizBtn.value = "Start Challenge";
+        quizBtn.style.visibility = "visible";
+        quizBtn.style.display = "inline-block";
+    }
+
+    cleardivisorbuttons();
+    divisorbuttonenable();
+    
+    // Unlock input interfaces for next rounds
+    digitsbuttonenable(); 
+    document.getElementById("randomdividendbutton").disabled = false; 
+    oddevenbuttonenable(); 
+}
+
 
 
     function challenge2() {
