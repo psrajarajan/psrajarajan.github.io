@@ -1859,12 +1859,14 @@ function updateDividendGuideline() {
     document.getElementById("quiz").style.visibility = "hidden";
 }
 
+
 /* ===================================================================
-   ⏱️ S RAJARAJAN'S STABLE GAME-STATE SWITCHERS
+   ⏱️ S RAJARAJAN'S STABLE CHALLENGE TRANSITIONS & SCORECARD COMPILE
    =================================================================== */
+
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    // Directly run cstop() when the student clicks Stop!
+    // Directly trigger our stop process when the student clicks "Stop"
     if (stopBtn && stopBtn.value === "Stop") {
         cstop(); 
     }
@@ -1881,25 +1883,22 @@ function togglestopquit() {
 
     }
 
-    /* ===================================================================
-   ⏱️ S RAJARAJAN'S UNIFIED CHALLENGE GAME-STATE ENGY
-   =================================================================== */
-
-function cstop() {
+ function cstop() {
+    // 1. Lock input panels so the student cannot alter their score
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Guide the student to click "Quit Report" to exit
-    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to proceed";
+    // Set a friendly guide notice in the middle of the board
+    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 🌟 1. DISPLAY YOUR REPORT CONTAINERS (Must be display: "block"!)
+    // 2. DISPLAY YOUR SCORECARD REPORT DETAILS (Must be "block"!)
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
-    // Keep internal details boxes hidden for a neat scorecard view
+    // Keep internal rule explanation blocks hidden to keep the review grid neat
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1941,12 +1940,12 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 🌟 2. INJECT SUCCESS GREEN CHECKMARKS INTO YOUR HTML DIVISORS HIT TABLE (Point 1 Fix)
+    // 3. DYNAMICALLY INJECT GREEN TICKS NEXT TO CORRECT DIVISORS (Scorecard Rule)
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if the divisor successfully divides the final dividend with zero remainder
+            // Evaluates if the divisor cleanly divides the final dividend with zero remainder
             let isCorrect = (window.cdividend2 % i === 0); 
             if (isCorrect) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
@@ -1956,21 +1955,22 @@ function cstop() {
         }
     }
 
-    // 🌟 3. REVEAL YOUR SCORECARD SEND PANEL FOR INPUTS
+    // 4. Reveal the student verification and email send panel
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 🌟 4. ACTIVATE GRID LAYOUT OVERRIDES (Aligns left and right side-by-side)
+    // 5. Activate the side-by-side grid split style
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 🌟 5. SWITCH FOOTER BUTTON STATES (Hides Stop, and opens Quit Report as exit gateway)
+    // 6. Hide the active "Stop" button to prevent duplicate clicks
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
+    // 7. Recycle the "quiz" button to be the "Quit Report" exit path and show it
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -1980,74 +1980,8 @@ function cstop() {
 }
 
 function cquit() {
-    window.rtgtag = 0;
-    document.getElementById("isdivisible").innerHTML = "";
-    
-    // Restore all math explanation panel wrappers cleanly
-    let detailsBlocks = [
-        document.querySelector(".twelvea"),
-        document.querySelector(".twelveb"),
-        document.querySelector(".twelvec"),
-        document.querySelector(".thirteen"),
-        document.querySelector(".fourteen"),
-        document.querySelector(".fifteen")
-    ];
-    detailsBlocks.forEach(el => {
-        if (el) el.style.removeProperty("display");
-    });
-
-    document.getElementById("divirulehead").style.display = "block";
-    document.getElementById("diviruledes").style.display = "block";
-    document.getElementById("diviresultdes").style.display = "block";
-    document.getElementById("diviresultdes1").style.display = "block";
-    document.getElementById("diviresultdes2").style.display = "block";
-    document.getElementById("diviresultdes3").style.display = "block";
-    
-    document.getElementById("diviresultdes").innerHTML = "";
-    document.getElementById("diviresultdes1").innerHTML = "";
-    document.getElementById("diviresultdes2").innerHTML = "";
-    document.getElementById("diviresultdes3").innerHTML = "";
-    
-    for (let i = 2; i <= 16; i++) {
-        let divisorEl = document.getElementById("divisor" + i);
-        if (divisorEl) divisorEl.style.visibility = "visible";
-    }
-    
-    document.getElementById("challenge111").style.visibility = "hidden";
-    document.getElementById("ttable").style.visibility = "hidden";
-    document.getElementById("cstart1").style.visibility = "hidden";
-    document.getElementById("cstopquit1").style.visibility = "hidden";
-    document.getElementById("ctime").style.visibility = "hidden";
-    document.getElementById("cdivisors").style.visibility = "hidden";
-    document.getElementById("cdivispan").style.visibility = "hidden";
-
-    // Hide the send report panel
-    let sendPanel = document.getElementById("report-send-panel");
-    if (sendPanel) {
-        sendPanel.style.display = "none";
-    }
-
-    // Deactivate the review grid layout
-    let container = document.querySelector(".container");
-    if (container) {
-        container.classList.remove("review-active");
-    }
-
-    // Restore the standard "Start Challenge" action button
-    let quizBtn = document.getElementById("quiz");
-    if (quizBtn) {
-        quizBtn.value = "Start Challenge";
-        quizBtn.style.visibility = "visible";
-        quizBtn.style.display = "inline-block";
-    }
-
-    cleardivisorbuttons();
-    divisorbuttonenable();
-    
-    // Unlock input interfaces for next rounds
-    digitsbuttonenable(); 
-    document.getElementById("randomdividendbutton").disabled = false; 
-    oddevenbuttonenable(); 
+    // A clean soft-reload resets all values, clears active classes, and defaults the page instantly!
+    location.reload();
 }
 
 
