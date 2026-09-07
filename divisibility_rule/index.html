@@ -1799,75 +1799,77 @@ function updateDividendGuideline() {
 }
 
     function cstart() {
-        window.divisor = 1;
-        dividendoperation();
-        cleardivisorbuttons();
-        clearoddevenbuttons();
-        oddevenbuttondisable();
-        digitsbuttondisable();
-        divisorbuttonenable();
-        document.getElementById("randomdividendbutton").disabled = true;
-        document.getElementById("ttable").style.visibility = "visible";
-        document.getElementById("theader").innerHTML = "Number of clicks to clear the divisor (divisor-wise)";
-        alert("Now Challenge Mode is ON. To end the Challenge mode, press \"STOP\"button");
-        window.try2 = 0;
-        window.try3 = 0;
-        window.try4 = 0;
-        window.try5 = 0;
-        window.try6 = 0;
-        window.try7 = 0;
-        window.try8 = 0;
-        window.try9 = 0;
-        window.try10 = 0;
-        window.try11 = 0;
-        window.try12 = 0;
-        window.try13 = 0;
-        window.try14 = 0;
-        window.try15 = 0;
-        window.try16 = 0;
-        window.startdate = new Date();
-        window.starttime = window.startdate.getTime();
-        window.hours = window.startdate.getHours();
-        window.minutes = window.startdate.getMinutes();
-        window.seconds = window.startdate.getSeconds();
-        window.months = window.startdate.getMonth();
-        window.day = window.startdate.getDay();
-        window.rtgtag = 1;
-        challengemode();
-        window.celapsedtime = 0;
-        window.cdivcleared = 0;
-        window.cdividendspan = 0;
-        window.totalchits = 0;
-
-        document.getElementById("divirulehead").style.display = "none";
-        document.getElementById("diviruledes").style.display = "none";
-        document.getElementById("diviresultdes").style.display = "none";
-        document.getElementById("diviresultdes1").style.display = "none";
-        document.getElementById("diviresultdes2").style.display = "none";
-        document.getElementById("diviresultdes3").style.display = "none";
-
-        window.cdividend1 = 0;
-        window.cdividend1 = window.finaldividend;
-        document.getElementById("cstopquit1").style.visibility = "visible";
-        document.getElementById("cstart1").style.visibility = "hidden";
-        document.getElementById("quiz").style.visibility = "hidden";
-
-        // Add this line at the bottom of S Rajarajan's cstart():
-        let sendPanel = document.getElementById("report-send-panel");
-        if (sendPanel) sendPanel.style.display = "none";
-
-    }
+    window.divisor = 1;
+    dividendoperation();
+    cleardivisorbuttons();
+    clearoddevenbuttons();
+    oddevenbuttondisable();
+    digitsbuttondisable();
+    document.getElementById("randomdividendbutton").disabled = true;
+    document.getElementById("ttable").style.visibility = "visible";
+    document.getElementById("theader").innerHTML = "Number of clicks to clear the divisor (divisor-wise)";
+    
+    alert("Now Challenge Mode is ON. To end the Challenge mode, press \"STOP\"button");
+    
+    window.try2 = 0;
+    window.try3 = 0;
+    window.try4 = 0;
+    window.try5 = 0;
+    window.try6 = 0;
+    window.try7 = 0;
+    window.try8 = 0;
+    window.try9 = 0;
+    window.try10 = 0;
+    window.try11 = 0;
+    window.try12 = 0;
+    window.try13 = 0;
+    window.try14 = 0;
+    window.try15 = 0;
+    window.try16 = 0;
+    
+    window.startdate = new Date();
+    window.starttime = window.startdate.getTime();
+    window.hours = window.startdate.getHours();
+    window.minutes = window.startdate.getMinutes();
+    window.seconds = window.startdate.getSeconds();
+    window.months = window.startdate.getMonth();
+    window.day = window.startdate.getDay();
+    window.rtgtag = 1;
+    challengemode();
+    
+    window.celapsedtime = 0;
+    window.cdivcleared = 0;
+    window.cdividendspan = 0;
+    window.totalchits = 0;
+    
+    document.getElementById("divirulehead").style.display = "none";
+    document.getElementById("diviruledes").style.display = "none";
+    document.getElementById("diviresultdes").style.display = "none";
+    document.getElementById("diviresultdes1").style.display = "none";
+    document.getElementById("diviresultdes2").style.display = "none";
+    document.getElementById("diviresultdes3").style.display = "none";
+    
+    window.cdividend1 = 0;
+    window.cdividend1 = window.finaldividend;
+    
+    // Reveal "Stop" button and hide "Start"
+    document.getElementById("cstopquit1").style.visibility = "visible";
+    document.getElementById("cstopquit1").value = "Stop"; // Lock starting text value
+    document.getElementById("cstart1").style.visibility = "hidden";
+    document.getElementById("quiz").style.visibility = "hidden";
+}
 
 /* ===================================================================
    ⏱️ S RAJARAJAN'S STABLE GAME-STATE SWITCHERS
    =================================================================== */
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    // Directly call our core stop function when the student finishes clicking!
+    // Directly run cstop() when the student clicks Stop!
     if (stopBtn && stopBtn.value === "Stop") {
         cstop(); 
     }
 }
+
 
     function cleardivisorbuttons() {
         let radioButtonArray1 = document.getElementsByName('divisor');
@@ -1889,15 +1891,15 @@ function cstop() {
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // 1. Guide the student to click "Quit Report" to proceed
+    // Guide the student to click "Quit Report" to exit
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to proceed";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 2. Display the scorecard report text containers
+    // 🌟 1. DISPLAY YOUR REPORT CONTAINERS (Must be display: "block"!)
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
-    // Keep internal calculations containers hidden for a neat scorecard view
+    // Keep internal details boxes hidden for a neat scorecard view
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1939,12 +1941,12 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 3. Inject green checkmarks (✔) into the live table next to correct divisors
+    // 🌟 2. INJECT SUCCESS GREEN CHECKMARKS INTO YOUR HTML DIVISORS HIT TABLE (Point 1 Fix)
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if the divisor divides the final dividend with zero remainder
+            // Evaluates if the divisor successfully divides the final dividend with zero remainder
             let isCorrect = (window.cdividend2 % i === 0); 
             if (isCorrect) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
@@ -1954,22 +1956,21 @@ function cstop() {
         }
     }
 
-    // 4. Reveal the student verification and email send panel
+    // 🌟 3. REVEAL YOUR SCORECARD SEND PANEL FOR INPUTS
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 5. Activate the dual-column grid split style
+    // 🌟 4. ACTIVATE GRID LAYOUT OVERRIDES (Aligns left and right side-by-side)
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 6. Hide active Stop button to prevent state-cycling clicks
+    // 🌟 5. SWITCH FOOTER BUTTON STATES (Hides Stop, and opens Quit Report as exit gateway)
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
-    // 7. Change the quiz button value to "Quit Report" and display it
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -1982,7 +1983,7 @@ function cquit() {
     window.rtgtag = 0;
     document.getElementById("isdivisible").innerHTML = "";
     
-    // Restore all math description panel wrappers
+    // Restore all math explanation panel wrappers cleanly
     let detailsBlocks = [
         document.querySelector(".twelvea"),
         document.querySelector(".twelveb"),
@@ -2259,7 +2260,7 @@ function togglequiz() {
     let stopBtn = document.getElementById("cstopquit1");
     let tableBoard = document.getElementById("ttable");
 
-    // Gather all explanation elements we want to hide during Challenge [3]
+    // Gather all explanation elements we want to hide during Challenge
     let detailsBlocks = [
         document.querySelector(".twelvea"),  // Rule Title
         document.querySelector(".twelveb"),  // Is Divisible Question Text
@@ -2270,43 +2271,41 @@ function togglequiz() {
     ];
 
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
-        // Open Challenge Mode [2]
+        // Open Challenge Mode
         if (challengeText) challengeText.style.visibility = "visible";
+        if (startBtn) startBtn.style.visibility = "visible";
         
-        // 🌟 1. PERFECT CHRONOLOGICAL FLOW: Show only "Start" button initially!
-        if (startBtn) {
-            startBtn.style.visibility = "visible";
-        }
+        // 🌟 Chronological Flow: Keep "Stop" button hidden on startup!
         if (stopBtn) {
-            stopBtn.style.visibility = "hidden"; // Keeps "Stop" button hidden initially!
+            stopBtn.style.visibility = "hidden";
+            stopBtn.value = "Stop"; // Reset value back to Stop
         }
         if (tableBoard) tableBoard.style.visibility = "visible";
 
-        // Hide all math explanations and YES/NO display [2]
+        // Hide all math explanations and YES/NO display
         detailsBlocks.forEach(el => {
             if (el) el.style.setProperty("display", "none", "important");
         });
 
-        divisorbuttondisable(); // Disables Option 1 [4]
+        divisorbuttondisable(); // Disables Option 1
         let checkDivisorGroup = document.querySelector(".nine");
-        if (checkDivisorGroup) checkDivisorGroup.style.display = "none"; // Hides Option 3 [4]
+        if (checkDivisorGroup) checkDivisorGroup.style.display = "none"; // Hides Option 3
 
         mainBtn.value = "Quit Challenge";
-
-        // 🌟 2. CHALLENGE VALIDATION CHECK: Forces immediate rule gate calculation!
         validateChallengeStart(); 
 
     } else {
-        // Close Challenge Mode [4]
+        // Close Challenge Mode / Quit Report
         if (challengeText) challengeText.style.visibility = "hidden";
         if (startBtn) startBtn.style.visibility = "hidden";
         if (stopBtn) stopBtn.style.visibility = "hidden";
         if (tableBoard) tableBoard.style.visibility = "hidden";
 
         mainBtn.value = "Start Challenge";
-        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states! [5]
+        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
     }
 }
+
 
 function validateChallengeStart() {
     let startBtn = document.getElementById("cstart1");
