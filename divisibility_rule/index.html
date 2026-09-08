@@ -713,6 +713,7 @@ th {
 }
 
 
+
     </style>
 </head>
 
@@ -1880,7 +1881,7 @@ function updateDividendGuideline() {
 
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    // Directly freeze and compile S scorecard report on stop click
+    // Direct stop execution with no cyclic value jumps
     if (stopBtn && stopBtn.value === "Stop") {
         cstop(); 
     }
@@ -1897,10 +1898,6 @@ function togglestopquit() {
 
     }
 
-/* ===================================================================
-   ⏱️ S RAJARAJAN'S UNIFIED STATE TRANSITIONS & TABLE TICK FIXES
-   =================================================================== */
-
 function cstop() {
     // 1. Lock difficulty panels and random rolls from being altered
     digitsbuttondisable();
@@ -1908,11 +1905,11 @@ function cstop() {
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Display S clear exit directive
+    // Display a clear exit directive for the user
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 2. REVEAL REPORT TEXT BLOCKS (Display explicitly set to "block")
+    // 2. REVEAL REPORT TEXT BLOCKS (Display explicitly set to "block"!)
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
@@ -1958,17 +1955,17 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING THE GAME
+    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED (Fixes the divisor 4 tick bug!)
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if S divisor button was successfully cleared (hidden) during S active game
+            // Evaluates if the divisor button was successfully cleared (hidden) during the active game
             let isCleared = (document.getElementById("divisor" + i).style.visibility === "hidden"); 
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
-                cell.innerHTML = clicks; // Displays click count only, no tick
+                cell.innerHTML = clicks; // Displays click count only, no tick!
             }
         }
     }
@@ -1979,19 +1976,19 @@ function cstop() {
         sendPanel.style.display = "block";
     }
 
-    // 5. Activate S side-by-side grid split style class
+    // 5. Activate your side-by-side grid split style class
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 6. Force the click profile table board to be explicitly visible at S bottom
+    // 6. Force the click profile table board to be explicitly visible at the bottom
     document.getElementById("ttable").style.visibility = "visible";
 
-    // 7. Hide S Stop button cleanly to prevent cycling conflicts
+    // 7. Hide Stop button cleanly to prevent cycling conflicts
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
-    // 8. Recycle S "quiz" button as your high-visibility exit gate "Quit Report" and show it
+    // 8. Recycle the "quiz" button as your high-visibility exit gate "Quit Report" and show it
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -2001,7 +1998,7 @@ function cstop() {
 }
 
 function cquit() {
-    // Soft-reloads S page to guarantee counters, timers, grids, and styles are wiped cleanly!
+    // Soft-reloads the page to guarantee counters, timers, grids, and styles are wiped cleanly!
     location.reload();
 }
 
@@ -2187,7 +2184,7 @@ function cquit() {
         }
         document.getElementById("divis16").innerHTML = window.try16;
     }
-    .0
+
 
     function challengemode() {
         challenge2();
