@@ -1813,7 +1813,7 @@ function updateDividendGuideline() {
     }
 }
 
-    function cstart() {
+ function cstart() {
     window.divisor = 1;
     dividendoperation();
     cleardivisorbuttons();
@@ -1867,25 +1867,22 @@ function updateDividendGuideline() {
     window.cdividend1 = 0;
     window.cdividend1 = window.finaldividend;
     
-    // Reveal "Stop" button and hide "Start"
+    // Reveal Stop button and hide others
     document.getElementById("cstopquit1").style.visibility = "visible";
-    document.getElementById("cstopquit1").value = "Stop"; // Lock starting text value
+    document.getElementById("cstopquit1").value = "Stop";
     document.getElementById("cstart1").style.visibility = "hidden";
     document.getElementById("quiz").style.visibility = "hidden";
 }
 
 
-/* ===================================================================
-   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & TABLE TICK CONTROLLER
-   =================================================================== */
 
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    // Direct stop execution with no cyclic value jumps
     if (stopBtn && stopBtn.value === "Stop") {
         cstop(); 
     }
 }
+
 
 
     function cleardivisorbuttons() {
@@ -1905,7 +1902,7 @@ function cstop() {
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Display a clear exit directive for the user
+    // Display a clear exit directive for the student
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
@@ -1913,7 +1910,7 @@ function cstop() {
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
-    // Keep study-path detail paragraphs hidden to preserve scorecard grid layout
+    // Keep study-path detail paragraphs hidden to preserve scorecard layout
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1947,7 +1944,7 @@ function cstop() {
     alert("Report is available now. Please check. Thanks for your time!");
     cdivisorscleared();
     
-    // Write S scorecard texts
+    // Write report details on screen
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1955,17 +1952,17 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED (Fixes the divisor 4 tick bug!)
+    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING THE GAME
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Evaluates if the divisor button was successfully cleared (hidden) during the active game
+            // Check if the divisor button was actually cleared (hidden) during the game
             let isCleared = (document.getElementById("divisor" + i).style.visibility === "hidden"); 
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
-                cell.innerHTML = clicks; // Displays click count only, no tick!
+                cell.innerHTML = clicks; // Shows count only, no tick!
             }
         }
     }
@@ -2001,7 +1998,6 @@ function cquit() {
     // Soft-reloads the page to guarantee counters, timers, grids, and styles are wiped cleanly!
     location.reload();
 }
-
 
 
     function challenge2() {
@@ -2205,6 +2201,10 @@ function cquit() {
 
     }
 
+/* ===================================================================
+   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & TABLE TICK CONTROLLER
+   =================================================================== */
+
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2226,12 +2226,7 @@ function togglequiz() {
         // Open Challenge Mode
         if (challengeText) challengeText.style.visibility = "visible";
         if (startBtn) startBtn.style.visibility = "visible";
-        
-        // 🌟 Chronological Flow: Keep "Stop" button hidden on startup!
-        if (stopBtn) {
-            stopBtn.style.visibility = "hidden";
-            stopBtn.value = "Stop"; // Reset value back to Stop
-        }
+        if (stopBtn) stopBtn.style.visibility = "hidden"; // Keep Stop hidden until Start is clicked
         if (tableBoard) tableBoard.style.visibility = "visible";
 
         // Hide all math explanations and YES/NO display
@@ -2244,17 +2239,10 @@ function togglequiz() {
         if (checkDivisorGroup) checkDivisorGroup.style.display = "none"; // Hides Option 3
 
         mainBtn.value = "Quit Challenge";
-        validateChallengeStart(); 
 
     } else {
         // Close Challenge Mode / Quit Report
-        if (challengeText) challengeText.style.visibility = "hidden";
-        if (startBtn) startBtn.style.visibility = "hidden";
-        if (stopBtn) stopBtn.style.visibility = "hidden";
-        if (tableBoard) tableBoard.style.visibility = "hidden";
-
-        mainBtn.value = "Start Challenge";
-        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
+        location.reload(); // Soft-reloads cleanly to restore all default states!
     }
 }
 
