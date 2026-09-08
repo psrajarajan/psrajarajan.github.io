@@ -711,9 +711,6 @@ th {
         margin-top: 20px !important;
     }
 }
-
-
-
     </style>
 </head>
 
@@ -1080,12 +1077,13 @@ function divisorbutton() {
     }
 
 
-    // 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
+   // 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
 function digitsbuttonenable() {
     for (j = 0; j < 8; j++) {
         document.digitsForm.digits[j].disabled = false;
     }
 }
+
     function digitsbuttondisable() {
         for (j = 0; j < 8; j++) {
             document.digitsForm.digits[j].disabled = true;
@@ -1147,6 +1145,7 @@ function randomdividend() {
     window.originalDividend = generatedValue;
     updateDividendGuideline();
 }
+
 
     function oddevenbuttondisable() {
         document.gendivisorForm.gendivisor[0].disabled = true;
@@ -1809,7 +1808,8 @@ function updateDividendGuideline() {
     }
 }
 
- function cstart() {
+ // 6. Starts the timer and unlocks manual editing
+function cstart() {
     window.divisor = 1;
     dividendoperation();
     cleardivisorbuttons();
@@ -1821,6 +1821,9 @@ function updateDividendGuideline() {
     document.getElementById("theader").innerHTML = "Number of clicks to clear the divisor (divisor-wise)";
     
     alert("Now Challenge Mode is ON. To end the Challenge mode, press \"STOP\"button");
+    
+    // Unlock dividend box manual editing now that game is actively playing!
+    document.getElementById("randomdividendbox").readOnly = false;
     
     window.try2 = 0;
     window.try3 = 0;
@@ -1871,7 +1874,6 @@ function updateDividendGuideline() {
 }
 
 
-
 // 5. Safe legacy togglers
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
@@ -1879,9 +1881,6 @@ function togglestopquit() {
         cstop(); 
     }
 }
-
-
-
 
     function cleardivisorbuttons() {
         let radioButtonArray1 = document.getElementsByName('divisor');
@@ -1893,7 +1892,7 @@ function togglestopquit() {
 
     }
 
-// 6. Freezes game values, calculates score, and splits layout
+// 7. Freezes game values, calculates score, and splits layout
 function cstop() {
     digitsbuttondisable();
     divisorbuttondisable();
@@ -1903,7 +1902,7 @@ function cstop() {
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 🌟 REVEAL REPORT TEXT BLOCKS (display: "block"!)
+    // 🌟 REVEAL REPORT TEXT BLOCKS (Display explicitly set to "block"!)
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
@@ -1941,7 +1940,7 @@ function cstop() {
     alert("Report is available now. Please check. Thanks for your time!");
     cdivisorscleared();
     
-    // Write scores and summary data
+    // Write scorecard report summary texts
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1949,7 +1948,7 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 🌟 INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING S ACTIVE GAME
+    // 🌟 INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING THE ACTIVE GAME
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
@@ -1992,12 +1991,10 @@ function cstop() {
     }
 }
 
-// 7. Single-line soft-reload reset function
+// 8. Single-line soft-reload reset function
 function cquit() {
     location.reload();
 }
-
-
 
     function challenge2() {
         if (window.rtgtag == 1) {
@@ -2200,7 +2197,7 @@ function cquit() {
 
     }
 
-// 4. Starts the challenge environment
+// 4. Starts the challenge setup environment
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2236,6 +2233,17 @@ function togglequiz() {
         // 🌟 LOCK difficulty selectors immediately on entering Challenge mode
         digitsbuttondisable();
 
+        // 🌟 If current digits value is less than 5 or undefined, automatically select 5 digits
+        if (!window.digitsvalue || window.digitsvalue < 5) {
+            document.getElementById("digit5").checked = true;
+            window.digitsvalue = 5;
+            document.getElementById("randomdividendbutton").disabled = false;
+            document.getElementById("randomdividendbutton").value = "Get 5 digits dividend";
+        }
+
+        // 🌟 Make dividend input read-only before "Start" is clicked to prevent manual entries
+        document.getElementById("randomdividendbox").readOnly = true;
+
         mainBtn.value = "Quit Challenge";
         
         // Evaluate the 5-digits + odd dividend parameters immediately
@@ -2245,6 +2253,7 @@ function togglequiz() {
         location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
     }
 }
+
 
 // 2. Evaluates the 5-digits + ODD validation condition
 function validateChallengeStart() {
@@ -2265,10 +2274,12 @@ function validateChallengeStart() {
                 startBtn.disabled = true;
             }
         } else {
+            // Standard practice mode
             startBtn.disabled = false;
         }
     }
 }
+
    
     function diviruledescription() {
         let diviruledesarr = [];
