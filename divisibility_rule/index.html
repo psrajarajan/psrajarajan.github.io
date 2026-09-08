@@ -1881,30 +1881,35 @@ function cstart() {
             radioButton1.checked = false;
         }
     }
-// 5. Safe legacy togglers
+// 2. Dual-state button handler (Stop -> Quit -> Exit)
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
-    if (stopBtn && stopBtn.value === "Stop") {
-        cstop(); 
+    if (stopBtn.value === "Stop") {
+        stopBtn.value = "Quit";
+        cstop(); // First Click: Runs S stop stats calculation
+    } else if (stopBtn.value === "Quit") {
+        stopBtn.value = "Stop";
+        cquit(); // Second Click: Triggers S beautiful scorecard layout transition!
     }
 }
 
 
-// 7. Freezes game variables, calculates score, and splits layout
+
+// 3. First Click: Locks S board, populates data, and guides students to click "Quit"
 function cstop() {
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
+    // Set S explicit text instruction in S center
+    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 🌟 REVEAL REPORT TEXT BLOCKS (Display explicitly set to "block"!)
-    document.getElementById("divirulehead").style.display = "block";
-    document.getElementById("diviruledes").style.display = "block";
+    // 🌟 KEEP containers hidden for Step 1
+    document.getElementById("divirulehead").style.display = "none";
+    document.getElementById("diviruledes").style.display = "none";
     
-    // Keep internal detail blocks hidden to preserve scorecard layout
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1915,7 +1920,6 @@ function cstop() {
     
     window.enddate = new Date();
     window.endtime = window.enddate.getTime();
-    window.endyear = window.enddate.getTime();
     window.endyear = window.enddate.getFullYear();
     window.endmonth = window.enddate.getMonth() + 1;
     window.enddate1 = window.enddate.getDate();
@@ -1936,23 +1940,29 @@ function cstop() {
     window.cdividend2 = window.finaldividend;
     window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
     
-    alert("Report is available now. Please check. Thanks for your time!");
+    alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
     cdivisorscleared();
     
-    // Write scorecard report summary texts
+    // Populate Scorecard Summary Texts (remains hidden until Quit is pressed!)
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
         window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
+}
 
-    // 🌟 INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING THE ACTIVE GAME
+// 4. Second Click: Reveals S scorecard report and S Quit Report exit button side-by-side!
+function cquit() {
+    // 🌟 1. DISPLAY YOUR REPORT CONTAINERS
+    document.getElementById("divirulehead").style.display = "block";
+    document.getElementById("diviruledes").style.display = "block";
+    
+    // 🌟 2. INJECT GREEN SUCCESS TICKS NEXT TO CORRECT DIVISORS ONLY
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Check if divisor button was actually hidden (cleared) during active gameplay
             let divisorBtn = document.getElementById("divisor" + i);
             let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden"); 
             if (isCleared) {
@@ -1963,25 +1973,26 @@ function cstop() {
         }
     }
 
-    // Reveal Submit Scorecard panel on the right
+    // 🌟 3. REVEAL YOUR SCORECARD SEND PANEL FOR STUDENT DETAILS
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // Activate side-by-side split grid styling class
+    // 🌟 4. ACTIVATE GRID LAYOUT OVERRIDES (Aligns Left Report, Right Send Panel, Bottom Table)
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // Ensure click profile table is visible full-width below both
+    // 🌟 5. KEEP S CLICK PROFILE TABLE VISIBLE AT THE BOTTOM
     document.getElementById("ttable").style.visibility = "visible";
 
-    // Hide active Stop button to prevent duplicate clicks
+    // 🌟 6. HIDE THE ACTIVE "Quit" BUTTON TO CLEAR THE FOOTER AREA
     document.getElementById("cstopquit1").style.visibility = "hidden";
+    document.getElementById("isdivisible").innerHTML = ""; // Clear temporary helper text
     
-    // Reveal recycled Quit Report button as our clean exit gate
+    // 🌟 7. REVEAL S RECYCLED ACTION BUTTON Labeled as "Quit Report"
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -1990,10 +2001,6 @@ function cstop() {
     }
 }
 
-// 8. Single-line soft-reload reset function
-function cquit() {
-    location.reload();
-}
 
     function challenge2() {
         if (window.rtgtag == 1) {
@@ -2196,7 +2203,11 @@ function cquit() {
 
     }
 
-// 4. Starts the challenge setup environment and FREEZES digit choices
+/* ===================================================================
+   ⏱️ S RAJARAJAN'S STABLE TWO-STEP CHALLENGE FLOW CONTROLLER
+   =================================================================== */
+
+// 1. Starts the challenge setup and FREEZES S digit chooser radio buttons
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2216,9 +2227,7 @@ function togglequiz() {
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         if (challengeText) challengeText.style.visibility = "visible";
         if (startBtn) startBtn.style.visibility = "visible";
-        
-        // Chronological order: Keep "Stop" button hidden until "Start" is clicked
-        if (stopBtn) stopBtn.style.visibility = "hidden"; 
+        if (stopBtn) stopBtn.style.visibility = "hidden"; // Keep Stop hidden until Start is clicked
         if (tableBoard) tableBoard.style.visibility = "visible";
 
         detailsBlocks.forEach(el => {
@@ -2249,7 +2258,7 @@ function togglequiz() {
         validateChallengeStart();
 
     } else {
-        location.reload(); // Soft-reloads cleanly to restore all default states!
+        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
     }
 }
 
