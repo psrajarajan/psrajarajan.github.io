@@ -645,72 +645,7 @@ th {
     /* .seven completely removed on desktop */
 }
 
-/* ===================================================================
-   📧 S RAJARAJAN'S BALANCED SCORECARD - LEFT REPORT, RIGHT SEND PANEL, BOTTOM TABLE
-   =================================================================== */
-#report-send-panel {
-    width: 100% !important;
-}
 
-@media screen and (min-width: 768px) {
-    /* 1. When review is active, convert main container into a 4-column layout grid */
-    .container.review-active {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        grid-gap: 15px !important;
-    }
-    
-    /* 2. Hide the instructions card to focus entirely on report details */
-    .container.review-active .twentyfive {
-        display: none !important;
-    }
-    
-    /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
-    .container.review-active .twelvea {
-        grid-column: 1 / 3 !important;
-        grid-row: 4 / 5 !important;
-        margin-top: 15px !important;
-        margin-bottom: 2px !important;
-        text-align: left !important;
-        padding-right: 15px !important;
-    }
-    
-    .container.review-active .thirteen {
-        grid-column: 1 / 3 !important;
-        grid-row: 5 / 6 !important;
-        margin-top: 0px !important;
-        margin-bottom: 2px !important;
-        text-align: left !important;
-        padding-right: 15px !important;
-    }
-    
-    .container.review-active .twelveb {
-        grid-column: 1 / 3 !important;
-        grid-row: 6 / 7 !important;
-        margin-top: 0px !important;
-        margin-bottom: 2px !important;
-        text-align: left !important;
-        padding-right: 15px !important;
-    }
-    
-    /* 4. SEND REPORT PANEL on the RIGHT (Columns 3 & 4) */
-    .container.review-active #report-send-panel {
-        grid-column: 3 / 5 !important;
-        grid-row: 4 / 7 !important;
-        display: block !important;
-        align-self: start !important;
-        margin-top: 15px !important;
-        margin-bottom: 0px !important;
-    }
-    
-    /* 5. CLICK PROFILE TABLE centered full-width BELOW both (Columns 1 to 4) */
-    .container.review-active .twentysix {
-        grid-column: 1 / 5 !important;
-        grid-row: 7 / 8 !important;
-        width: 100% !important;
-        margin-top: 20px !important;
-    }
-}
     </style>
 </head>
 
@@ -1083,7 +1018,16 @@ function digitsbuttonenable() {
         document.digitsForm.digits[j].disabled = false;
     }
 }
+/* ===================================================================
+   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & VALIDATION ENGINE
+   =================================================================== */
 
+// 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
+function digitsbuttonenable() {
+    for (var j = 0; j < 8; j++) {
+        document.digitsForm.digits[j].disabled = false;
+    }
+}
 
     function digitsbuttondisable() {
         for (j = 0; j < 8; j++) {
@@ -1119,7 +1063,7 @@ function randomdividend() {
     }
 
     // Keep learning rules hidden on active setups
-    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report");
+    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
     let checkDivisorGroup = document.querySelector(".nine");
     if (isChallengeMode) {
         if (checkDivisorGroup) {
@@ -1146,6 +1090,7 @@ function randomdividend() {
     window.originalDividend = generatedValue;
     updateDividendGuideline();
 }
+
 
     function oddevenbuttondisable() {
         document.gendivisorForm.gendivisor[0].disabled = true;
@@ -1881,32 +1826,29 @@ function cstart() {
             radioButton1.checked = false;
         }
     }
-// 2. Dual-state button handler (Stop -> Quit -> Exit)
+// 5. Dual-state action button switcher (Stop -> Quit -> Exit)
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
     if (stopBtn.value === "Stop") {
         stopBtn.value = "Quit";
-        cstop(); // First Click: Runs S stop stats calculation
+        cstop(); // Step 1: Locks inputs, alerts, and guides student to click "Quit"
     } else if (stopBtn.value === "Quit") {
         stopBtn.value = "Stop";
-        cquit(); // Second Click: Triggers S beautiful scorecard layout transition!
+        cquit(); // Step 2: Renders side-by-side scorecard dashboard & "Quit Report" exit path!
     }
 }
 
-
-
-// 3. First Click: Locks S board, populates data, and guides students to click "Quit"
+// 7. Step 1: Locks inputs and alerts student to proceed to "Quit"
 function cstop() {
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Set S explicit text instruction in S center
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
     document.getElementById("randomdividendbutton").disabled = true;
     
-    // 🌟 KEEP containers hidden for Step 1
+    // Keep report text blocks hidden for Step 1
     document.getElementById("divirulehead").style.display = "none";
     document.getElementById("diviruledes").style.display = "none";
     
@@ -1943,7 +1885,7 @@ function cstop() {
     alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
     cdivisorscleared();
     
-    // Populate Scorecard Summary Texts (remains hidden until Quit is pressed!)
+    // Write scores and summary data (remains hidden until step 2)
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1952,17 +1894,18 @@ function cstop() {
         window.cdividendspan;
 }
 
-// 4. Second Click: Reveals S scorecard report and S Quit Report exit button side-by-side!
+// 8. Step 2: Reveals your beautiful side-by-side scorecard grid layout!
 function cquit() {
-    // 🌟 1. DISPLAY YOUR REPORT CONTAINERS
+    // 🌟 Reveal report summary texts
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
-    
-    // 🌟 2. INJECT GREEN SUCCESS TICKS NEXT TO CORRECT DIVISORS ONLY
+
+    // 🌟 Inject green ticks next to cleared divisors
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
+            // Check if divisor button was actually cleared (hidden) during active gameplay
             let divisorBtn = document.getElementById("divisor" + i);
             let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden"); 
             if (isCleared) {
@@ -1973,26 +1916,26 @@ function cquit() {
         }
     }
 
-    // 🌟 3. REVEAL YOUR SCORECARD SEND PANEL FOR STUDENT DETAILS
+    // 🌟 Reveal S Submit Scorecard panel on the right side
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 🌟 4. ACTIVATE GRID LAYOUT OVERRIDES (Aligns Left Report, Right Send Panel, Bottom Table)
+    // 🌟 Activate dual-column desktop split styling class
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
     }
 
-    // 🌟 5. KEEP S CLICK PROFILE TABLE VISIBLE AT THE BOTTOM
+    // Ensure click profile table is visible full-width below both
     document.getElementById("ttable").style.visibility = "visible";
 
-    // 🌟 6. HIDE THE ACTIVE "Quit" BUTTON TO CLEAR THE FOOTER AREA
+    // Hide active "Quit" button to clear footer navigation
     document.getElementById("cstopquit1").style.visibility = "hidden";
-    document.getElementById("isdivisible").innerHTML = ""; // Clear temporary helper text
+    document.getElementById("isdivisible").innerHTML = ""; // Clear helper text
     
-    // 🌟 7. REVEAL S RECYCLED ACTION BUTTON Labeled as "Quit Report"
+    // 🌟 Reveal recycled Quit Report exit button
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -2000,7 +1943,6 @@ function cquit() {
         quizBtn.style.display = "inline-block";
     }
 }
-
 
     function challenge2() {
         if (window.rtgtag == 1) {
@@ -2207,7 +2149,7 @@ function cquit() {
    ⏱️ S RAJARAJAN'S STABLE TWO-STEP CHALLENGE FLOW CONTROLLER
    =================================================================== */
 
-// 1. Starts the challenge setup and FREEZES S digit chooser radio buttons
+// 4. Starts the challenge setup environment and FREEZES digit choices immediately
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2227,7 +2169,9 @@ function togglequiz() {
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         if (challengeText) challengeText.style.visibility = "visible";
         if (startBtn) startBtn.style.visibility = "visible";
-        if (stopBtn) stopBtn.style.visibility = "hidden"; // Keep Stop hidden until Start is clicked
+        
+        // Chronological order: Keep "Stop" button hidden until "Start" is clicked
+        if (stopBtn) stopBtn.style.visibility = "hidden"; 
         if (tableBoard) tableBoard.style.visibility = "visible";
 
         detailsBlocks.forEach(el => {
@@ -2262,7 +2206,6 @@ function togglequiz() {
     }
 }
 
-
 // 2. Evaluates the 5-digits + ODD validation condition
 function validateChallengeStart() {
     let val = document.getElementById("randomdividendbox").value;
@@ -2271,7 +2214,7 @@ function validateChallengeStart() {
     let isOdd = (numVal % 2 !== 0);
     let startBtn = document.getElementById("cstart1");
     let challengeBtn = document.getElementById("quiz");
-    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report");
+    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
 
     if (startBtn) {
         if (isChallengeMode) {
