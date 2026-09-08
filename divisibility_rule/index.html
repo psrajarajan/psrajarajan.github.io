@@ -1876,8 +1876,13 @@ function updateDividendGuideline() {
 
 
 
+/* ===================================================================
+   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & TABLE TICK CONTROLLER
+   =================================================================== */
+
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
+    // Direct stop execution on click
     if (stopBtn && stopBtn.value === "Stop") {
         cstop(); 
     }
@@ -1902,7 +1907,7 @@ function cstop() {
     clearoddevenbuttons();
     oddevenbuttondisable();
     
-    // Display a clear exit directive for the student
+    // Display a clear exit directive for the user
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit Report" + "</span>" + " button to exit";
     document.getElementById("randomdividendbutton").disabled = true;
     
@@ -1910,7 +1915,7 @@ function cstop() {
     document.getElementById("divirulehead").style.display = "block";
     document.getElementById("diviruledes").style.display = "block";
     
-    // Keep study-path detail paragraphs hidden to preserve scorecard layout
+    // Keep study-path detail paragraphs hidden to preserve scorecard grid layout
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
@@ -1944,7 +1949,7 @@ function cstop() {
     alert("Report is available now. Please check. Thanks for your time!");
     cdivisorscleared();
     
-    // Write report details on screen
+    // Write scorecard report summary texts
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
     
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
@@ -1952,13 +1957,14 @@ function cstop() {
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 
-    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING THE GAME
+    // 3. INJECT GREEN TICKS NEXT TO DIVISORS ACTUALLY CLEARED DURING S CHALLENGE
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
             // Check if the divisor button was actually cleared (hidden) during the game
-            let isCleared = (document.getElementById("divisor" + i).style.visibility === "hidden"); 
+            let divisorBtn = document.getElementById("divisor" + i);
+            let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden"); 
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
@@ -1998,6 +2004,7 @@ function cquit() {
     // Soft-reloads the page to guarantee counters, timers, grids, and styles are wiped cleanly!
     location.reload();
 }
+
 
 
     function challenge2() {
@@ -2201,10 +2208,6 @@ function cquit() {
 
     }
 
-/* ===================================================================
-   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & TABLE TICK CONTROLLER
-   =================================================================== */
-
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2238,13 +2241,17 @@ function togglequiz() {
         let checkDivisorGroup = document.querySelector(".nine");
         if (checkDivisorGroup) checkDivisorGroup.style.display = "none"; // Hides Option 3
 
+        // 🌟 DISABLE DIGIT CHOOING radio buttons right now!
+        digitsbuttondisable();
+
         mainBtn.value = "Quit Challenge";
 
     } else {
         // Close Challenge Mode / Quit Report
-        location.reload(); // Soft-reloads cleanly to restore all default states!
+        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
     }
 }
+
 
 
 function validateChallengeStart() {
