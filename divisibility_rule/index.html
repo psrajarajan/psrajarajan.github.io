@@ -1077,12 +1077,13 @@ function divisorbutton() {
     }
 
 
-   // 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
+// 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
 function digitsbuttonenable() {
-    for (j = 0; j < 8; j++) {
+    for (var j = 0; j < 8; j++) {
         document.digitsForm.digits[j].disabled = false;
     }
 }
+
 
     function digitsbuttondisable() {
         for (j = 0; j < 8; j++) {
@@ -1145,7 +1146,6 @@ function randomdividend() {
     window.originalDividend = generatedValue;
     updateDividendGuideline();
 }
-
 
     function oddevenbuttondisable() {
         document.gendivisorForm.gendivisor[0].disabled = true;
@@ -1873,7 +1873,14 @@ function cstart() {
     document.getElementById("quiz").style.visibility = "hidden";
 }
 
+    function cleardivisorbuttons() {
+        let radioButtonArray1 = document.getElementsByName('divisor');
 
+        for (let i = 0; i < radioButtonArray1.length; i++) {
+            let radioButton1 = radioButtonArray1[i];
+            radioButton1.checked = false;
+        }
+    }
 // 5. Safe legacy togglers
 function togglestopquit() {
     let stopBtn = document.getElementById("cstopquit1");
@@ -1882,17 +1889,8 @@ function togglestopquit() {
     }
 }
 
-    function cleardivisorbuttons() {
-        let radioButtonArray1 = document.getElementsByName('divisor');
 
-        for (let i = 0; i < radioButtonArray1.length; i++) {
-            let radioButton1 = radioButtonArray1[i];
-            radioButton1.checked = false;
-        }
-
-    }
-
-// 7. Freezes game values, calculates score, and splits layout
+// 7. Freezes game variables, calculates score, and splits layout
 function cstop() {
     digitsbuttondisable();
     divisorbuttondisable();
@@ -1917,6 +1915,7 @@ function cstop() {
     
     window.enddate = new Date();
     window.endtime = window.enddate.getTime();
+    window.endyear = window.enddate.getTime();
     window.endyear = window.enddate.getFullYear();
     window.endmonth = window.enddate.getMonth() + 1;
     window.enddate1 = window.enddate.getDate();
@@ -1953,7 +1952,7 @@ function cstop() {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Check if divisor button was actually hidden (cleared) during the game
+            // Check if divisor button was actually hidden (cleared) during active gameplay
             let divisorBtn = document.getElementById("divisor" + i);
             let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden"); 
             if (isCleared) {
@@ -1964,13 +1963,13 @@ function cstop() {
         }
     }
 
-    // 🌟 Reveal S Submit Scorecard panel on the right side
+    // Reveal Submit Scorecard panel on the right
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
     }
 
-    // 🌟 Activate dual-column desktop split
+    // Activate side-by-side split grid styling class
     let container = document.querySelector(".container");
     if (container) {
         container.classList.add("review-active");
@@ -1979,10 +1978,10 @@ function cstop() {
     // Ensure click profile table is visible full-width below both
     document.getElementById("ttable").style.visibility = "visible";
 
-    // Hide active Stop button to prevent duplicate click conflicts
+    // Hide active Stop button to prevent duplicate clicks
     document.getElementById("cstopquit1").style.visibility = "hidden";
     
-    // Reveal recycled Quit Report exit path button
+    // Reveal recycled Quit Report button as our clean exit gate
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -2197,7 +2196,7 @@ function cquit() {
 
     }
 
-// 4. Starts the challenge setup environment
+// 4. Starts the challenge setup environment and FREEZES digit choices
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2233,7 +2232,7 @@ function togglequiz() {
         // 🌟 LOCK difficulty selectors immediately on entering Challenge mode
         digitsbuttondisable();
 
-        // 🌟 If current digits value is less than 5 or undefined, automatically select 5 digits
+        // 🌟 Force at least 5 digits difficulty if a smaller one was selected
         if (!window.digitsvalue || window.digitsvalue < 5) {
             document.getElementById("digit5").checked = true;
             window.digitsvalue = 5;
@@ -2241,16 +2240,16 @@ function togglequiz() {
             document.getElementById("randomdividendbutton").value = "Get 5 digits dividend";
         }
 
-        // 🌟 Make dividend input read-only before "Start" is clicked to prevent manual entries
+        // Lock dividend manual edits until the game is officially playing
         document.getElementById("randomdividendbox").readOnly = true;
 
         mainBtn.value = "Quit Challenge";
         
-        // Evaluate the 5-digits + odd dividend parameters immediately
+        // Check dividend parameters immediately to set Start button states
         validateChallengeStart();
 
     } else {
-        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
+        location.reload(); // Soft-reloads cleanly to restore all default states!
     }
 }
 
@@ -2279,8 +2278,6 @@ function validateChallengeStart() {
         }
     }
 }
-
-   
     function diviruledescription() {
         let diviruledesarr = [];
         diviruledesarr[0] =
