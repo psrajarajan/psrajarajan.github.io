@@ -639,8 +639,6 @@ th {
 .seven {
     display: none !important;
 }
-
-
 /* ===================================================================
    📧 S RAJARAJAN'S SCORECARD GRID LAYOUT (REVIEW MODE OVERRIDES)
    =================================================================== */
@@ -648,7 +646,7 @@ th {
     width: 100% !important;
 }
 
-/* Base override: Force inner report text elements to display */
+/* Force report text elements to display when review mode is active */
 .container.review-active .twelvea,
 .container.review-active #divirulehead,
 .container.review-active .thirteen,
@@ -658,14 +656,14 @@ th {
 }
 
 @media screen and (min-width: 768px) {
-    /* 1. Split main container into a 4-column grid */
+    /* 1. Split container into a 4-column grid when review mode is active */
     .container.review-active {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         grid-gap: 15px !important;
     }
     
-    /* 2. Hide the red instruction box */
+    /* 2. Hide the red Challenge Guide instruction card completely */
     .container.review-active .twentyfive {
         display: none !important;
     }
@@ -1052,14 +1050,33 @@ th {
         return true;
     }
 
-    function digitsbutton() {
-        updateDividendGuideline();
-        window.digitsvalue = document.querySelector('input[name = digits]:checked').value;
-        document.getElementById("randomdividendbutton").disabled = false;
-        document.getElementById("randomdividendbutton").value = "Get " + window.digitsvalue +
-            " digits dividend";
-        window.rtgtag = 0;
+/* ===================================================================
+   🎯 DIGIT SELECTION & 5-DIGIT + ODD CHALLENGE VALIDATION FLOW
+   =================================================================== */
+
+// 1. Handles Digit Radio Button Clicks
+function digitsbutton() {
+    updateDividendGuideline();
+    let checkedRadio = document.querySelector('input[name = digits]:checked');
+    if (checkedRadio) {
+        window.digitsvalue = checkedRadio.value;
     }
+    
+    let randBtn = document.getElementById("randomdividendbutton");
+    if (randBtn) {
+        randBtn.disabled = false;
+        randBtn.value = "Get " + window.digitsvalue + " digits dividend";
+    }
+    window.rtgtag = 0;
+
+    // 🌟 IF IN CHALLENGE MODE & USER SELECTS 5 DIGITS -> FREEZE DIGITS PANEL NOW!
+    let challengeBtn = document.getElementById("quiz");
+    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
+    
+    if (isChallengeMode && window.digitsvalue == 5) {
+        digitsbuttondisable();
+    }
+}
 
 function divisorbutton() {
     window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
@@ -1126,15 +1143,14 @@ function digitsbuttonenable() {
     }
 
 
-// 3. Runs when "Generate Random Dividend" is clicked
+// 4. Random Dividend Generator
 function randomdividend() {
     let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
     document.getElementById("randomdividendbox").value = generatedValue;
 
-    // Evaluate our validation rules to enable/disable the "Start" button
+    // 🌟 Re-check BOTH 5-digit length AND ODD parity
     validateChallengeStart();
 
-    // Unlock Option 1 and Option 2 panels
     let clickDivisorGroup = document.querySelector(".six");
     if (clickDivisorGroup) {
         clickDivisorGroup.style.display = "block";
@@ -1152,7 +1168,6 @@ function randomdividend() {
         challengeContainer.style.visibility = "visible";
     }
 
-    // Keep learning rules hidden on active setups
     let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
     let checkDivisorGroup = document.querySelector(".nine");
     if (isChallengeMode) {
@@ -2276,7 +2291,7 @@ function cquit() {
    ⏱️ S RAJARAJAN'S STABLE TWO-STEP CHALLENGE FLOW CONTROLLER
    =================================================================== */
 
-// 4. Starts the challenge setup environment and FREEZES digit choices immediately
+// 3. Challenge Mode Screen Initialization
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2285,57 +2300,52 @@ function togglequiz() {
     let tableBoard = document.getElementById("ttable");
 
     let detailsBlocks = [
-        document.querySelector(".twelvea"),  // Rule Title
-        document.querySelector(".twelveb"),  // Is Divisible Question Text
-        document.querySelector(".twelvec"),  // Big YES/NO Feedback Text Card
-        document.querySelector(".thirteen"), // Rule Description
-        document.querySelector(".fourteen"), // Rule Result Description
-        document.querySelector(".fifteen")   // Calculations/Math details
+        document.querySelector(".twelvea"),
+        document.querySelector(".twelveb"),
+        document.querySelector(".twelvec"),
+        document.querySelector(".thirteen"),
+        document.querySelector(".fourteen"),
+        document.querySelector(".fifteen")
     ];
 
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         if (challengeText) challengeText.style.visibility = "visible";
         if (startBtn) startBtn.style.visibility = "visible";
-        
-        // Chronological order: Keep "Stop" button hidden until "Start" is clicked
-        if (stopBtn) stopBtn.style.visibility = "hidden"; 
+        if (stopBtn) stopBtn.style.visibility = "hidden";
         if (tableBoard) tableBoard.style.visibility = "visible";
 
         detailsBlocks.forEach(el => {
-            if (el) el.style.setProperty("display", "none", "important");
+            if (el) el.style.display = "none";
         });
 
         divisorbuttondisable();
         let checkDivisorGroup = document.querySelector(".nine");
         if (checkDivisorGroup) checkDivisorGroup.style.display = "none";
 
-        // 🌟 LOCK difficulty selectors immediately on entering Challenge mode
-        digitsbuttondisable();
-
-        // 🌟 Force at least 5 digits difficulty if a smaller one was selected
-        if (!window.digitsvalue || window.digitsvalue < 5) {
-            document.getElementById("digit5").checked = true;
-            window.digitsvalue = 5;
-            document.getElementById("randomdividendbutton").disabled = false;
-            document.getElementById("randomdividendbutton").value = "Get 5 digits dividend";
-        }
-
-        // Lock dividend manual edits until the game is officially playing
-        document.getElementById("randomdividendbox").readOnly = true;
+        // 🌟 KEEP DIGITS PANEL ENABLED INITIALLY so student can switch to 5 digits!
+        digitsbuttonenable();
 
         mainBtn.value = "Quit Challenge";
-        
-        // Check dividend parameters immediately to set Start button states
+
+        // If 5 digits is already selected, freeze it immediately; otherwise leave enabled for selection
+        if (window.digitsvalue == 5) {
+            digitsbuttondisable();
+        }
+
+        // Evaluate dividend to set Start button enabled/disabled state
         validateChallengeStart();
 
     } else {
-        location.reload(); // Soft-reloads S Rajarajan's game cleanly to restore all default states!
+        location.reload();
     }
 }
 
-// 2. Evaluates the 5-digits + ODD validation condition
+// 2. Evaluates BOTH conditions: AT LEAST 5 DIGITS AND ODD
 function validateChallengeStart() {
-    let val = document.getElementById("randomdividendbox").value;
+    let valBox = document.getElementById("randomdividendbox");
+    if (!valBox) return;
+
+    let val = valBox.value;
     let numVal = Number(val);
     let numDigits = val.toString().trim().length;
     let isOdd = (numVal % 2 !== 0);
@@ -2345,14 +2355,13 @@ function validateChallengeStart() {
 
     if (startBtn) {
         if (isChallengeMode) {
-            // Challenge mode requires AT LEAST 5 digits AND an ODD dividend
+            // 🌟 REQUIRES BOTH: AT LEAST 5 DIGITS AND ODD
             if (numDigits >= 5 && isOdd) {
                 startBtn.disabled = false;
             } else {
                 startBtn.disabled = true;
             }
         } else {
-            // Standard practice mode
             startBtn.disabled = false;
         }
     }
