@@ -1143,12 +1143,12 @@ function digitsbuttonenable() {
     }
 
 
-// 4. Random Dividend Generator
+// 3. Random Dividend Generator
 function randomdividend() {
     let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
     document.getElementById("randomdividendbox").value = generatedValue;
 
-    // 🌟 Re-check BOTH 5-digit length AND ODD parity
+    // Re-check 5-digit length AND ODD parity to determine if "Start" button should unlock
     validateChallengeStart();
 
     let clickDivisorGroup = document.querySelector(".six");
@@ -2267,10 +2267,10 @@ function cquit() {
     }
 
 /* ===================================================================
-   ⏱️ S RAJARAJAN'S STABLE TWO-STEP CHALLENGE FLOW CONTROLLER
+   🎯 CHALLENGE MODE SETUP & 5-DIGIT ODD VALIDATION FLOW
    =================================================================== */
 
-// 3. Challenge Mode Screen Initialization
+// 1. Challenge Mode Initialization (Start button ALWAYS disabled on load)
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
@@ -2289,7 +2289,13 @@ function togglequiz() {
 
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         if (challengeText) challengeText.style.visibility = "visible";
-        if (startBtn) startBtn.style.visibility = "visible";
+        
+        // 🌟 "Start" button MUST ALWAYS BE DISABLED upon entering Challenge Mode!
+        if (startBtn) {
+            startBtn.style.visibility = "visible";
+            startBtn.disabled = true; // Always disabled when Challenge mode opens
+        }
+
         if (stopBtn) stopBtn.style.visibility = "hidden";
         if (tableBoard) tableBoard.style.visibility = "visible";
 
@@ -2301,23 +2307,25 @@ function togglequiz() {
         let checkDivisorGroup = document.querySelector(".nine");
         if (checkDivisorGroup) checkDivisorGroup.style.display = "none";
 
-        // 🌟 KEEP DIGITS PANEL ENABLED INITIALLY so student can switch to 5 digits!
+        // Enable digits panel so student can select 5 digits if needed
         digitsbuttonenable();
 
         mainBtn.value = "Quit Challenge";
 
-        // If 5 digits is already selected, freeze it immediately; otherwise leave enabled for selection
+        // If 5 digits is already selected, freeze digits panel
         if (window.digitsvalue == 5) {
             digitsbuttondisable();
         }
 
-        // Evaluate dividend to set Start button enabled/disabled state
-        validateChallengeStart();
+        // Make dividend box read-only until active play starts
+        let divInput = document.getElementById("randomdividendbox");
+        if (divInput) divInput.readOnly = true;
 
     } else {
         location.reload();
     }
 }
+
 
 // 2. Evaluates BOTH conditions: AT LEAST 5 DIGITS AND ODD
 function validateChallengeStart() {
@@ -2332,16 +2340,12 @@ function validateChallengeStart() {
     let challengeBtn = document.getElementById("quiz");
     let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
 
-    if (startBtn) {
-        if (isChallengeMode) {
-            // 🌟 REQUIRES BOTH: AT LEAST 5 DIGITS AND ODD
-            if (numDigits >= 5 && isOdd) {
-                startBtn.disabled = false;
-            } else {
-                startBtn.disabled = true;
-            }
-        } else {
+    if (startBtn && isChallengeMode) {
+        // 🌟 Enables ONLY when BOTH conditions are met: AT LEAST 5 DIGITS AND ODD
+        if (numDigits >= 5 && isOdd) {
             startBtn.disabled = false;
+        } else {
+            startBtn.disabled = true;
         }
     }
 }
@@ -2799,13 +2803,15 @@ function validateChallengeStart() {
 }
 
 /* ===================================================================
-   📧 ACCURATE SCORECARD EMAIL GENERATOR (MATCHES ON-SCREEN TABLE)
+   📧 WEB3FORMS SCORECARD EMAIL GENERATOR
    =================================================================== */
 
-// 3. Updated sendBackgroundEmail(): Reads from window.clearedDivisorsMap for 100% email accuracy
 function sendBackgroundEmail() {
-    let name = document.getElementById("studentName").value.trim() || "S RAJARAJAN";
-    let mobile = document.getElementById("studentMobile").value.trim() || "Not provided";
+    // 🌟 PASTE YOUR WEB3FORMS ACCESS KEY HERE:
+    const WEB3FORMS_ACCESS_KEY = "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b";
+
+    let name = document.getElementById("studentName").value.trim() || "Type Your Name";
+    let mobile = document.getElementById("studentMobile").value.trim() || "Your Mobile Number";
     let btn = document.getElementById("sendReportBtn");
 
     if (btn) {
@@ -2821,7 +2827,7 @@ function sendBackgroundEmail() {
     let totalHits = window.totalchits || 0;
     let reportId = (window.seconds + 13) * 2 + (window.day + 17) * 6 + (window.months + 15) * 7 + (window.celapsedtime + 11) * 3 + (window.cdivcleared + 19) * 4;
 
-    // 🌟 CONSTRUCT EMAIL CLICK PROFILE USING STORED MAP
+    // Construct Click Profile lines matching the on-screen table EXACTLY
     let clickProfileLines = [];
     for (let i = 2; i <= 16; i++) {
         let clicks = window["try" + i] || 0;
@@ -2834,6 +2840,7 @@ function sendBackgroundEmail() {
         clickProfileLines.push(line);
     }
 
+    // Construct email text payload
     let emailBody = "STUDENT MATH SCORECARD REPORT\n";
     emailBody += "========================================\n\n";
     emailBody += "Student Name: " + name + "\n";
@@ -2850,28 +2857,40 @@ function sendBackgroundEmail() {
     emailBody += "CLICK PROFILE BY DIVISOR:\n";
     emailBody += clickProfileLines.join("\n");
 
-    fetch("https://formspree.io/f/a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", {  // Replace with your Formspree ID
+    // 🌟 WEB3FORMS API ENDPOINT & PAYLOAD STRUCTURE
+    fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
         body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: "Math Scorecard Report - " + name,
+            from_name: "Divisibility Rule App",
             name: name,
             mobile: mobile,
             message: emailBody
         })
     })
-    .then(response => {
-        if (btn) {
-            btn.style.background = "#2E7D32";
-            btn.value = "Report Sent successfully! ✔";
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status === 200 && json.success) {
+            if (btn) {
+                btn.style.background = "#2E7D32";
+                btn.value = "Report Sent successfully! ✔";
+            }
+            alert("Scorecard emailed successfully to author!");
+        } else {
+            throw new Error(json.message || "Form submission failed");
         }
-        alert("Scorecard emailed successfully to teacher!");
     })
     .catch(error => {
         if (btn) {
             btn.disabled = false;
             btn.value = "Submit Scorecard to Teacher's Email";
         }
-        alert("Failed to send email. Please check internet connection.");
+        alert("Failed to send email: " + error.message);
     });
 }
 
