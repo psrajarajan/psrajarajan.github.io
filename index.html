@@ -105,52 +105,11 @@
     .scrollbar-thin::-webkit-scrollbar-thumb:hover {
       background: #0d9488;
     }
-
-    /* ===================================================================
-   📍 LEFT-ALIGNMENT FOR FMSLOGO & GEOGEBRA GALLERIES (DESKTOP & MOBILE)
-   =================================================================== */
-
-/* 1. Force Left Alignment for Heading Elements & Cards */
-.fmslogo-section,
-#fmslogo-heading,
-.geogebra-section,
-#geogebra-heading,
-.gallery-section,
-.gallery-card {
+/* Forces left-alignment on gallery headings */
+h2{
     text-align: left !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
-    display: flex !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-}
-
-/* 2. Ensure Parent Containers Align All Children to the Left */
-.gallery-container,
-.gallery-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    width: 100% !important;
-}
-
-/* 3. Responsive Alignment Overrides for Mobile Screens (Max 767px) */
-@media screen and (max-width: 767px) {
-    .fmslogo-section,
-    #fmslogo-heading,
-    .geogebra-section,
-    #geogebra-heading,
-    .gallery-section,
-    .gallery-card {
-        text-align: left !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-        margin-left: 0 !important;
-        padding-left: 10px !important; /* Matches mobile padding edge */
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
 }
 
 
