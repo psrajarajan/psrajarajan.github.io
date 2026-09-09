@@ -1143,12 +1143,12 @@ function digitsbuttonenable() {
     }
 
 
-// 3. Random Dividend Generator
+// 3. Generates Dividend using active digit value (5) & evaluates validation
 function randomdividend() {
     let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
     document.getElementById("randomdividendbox").value = generatedValue;
 
-    // Re-check 5-digit length AND ODD parity to determine if "Start" button should unlock
+    // Evaluate 5-digit length AND ODD parity to unlock "Start" button
     validateChallengeStart();
 
     let clickDivisorGroup = document.querySelector(".six");
@@ -2270,13 +2270,19 @@ function cquit() {
    🎯 CHALLENGE MODE SETUP & 5-DIGIT ODD VALIDATION FLOW
    =================================================================== */
 
-// 1. Challenge Mode Initialization (Start button ALWAYS disabled on load)
+/* ===================================================================
+   🎯 AUTOMATIC 5-DIGIT SELECTION & CHALLENGE MODE INITIALIZATION
+   =================================================================== */
+
+// 1. Entering Challenge Mode: Selects Digit 5 & prepares "Get 5 digits dividend" button
 function togglequiz() {
     let mainBtn = document.getElementById("quiz");
     let challengeText = document.getElementById("challenge111");
     let startBtn = document.getElementById("cstart1");
     let stopBtn = document.getElementById("cstopquit1");
     let tableBoard = document.getElementById("ttable");
+    let randBtn = document.getElementById("randomdividendbutton");
+    let digit5Radio = document.getElementById("digit5");
 
     let detailsBlocks = [
         document.querySelector(".twelvea"),
@@ -2290,10 +2296,10 @@ function togglequiz() {
     if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
         if (challengeText) challengeText.style.visibility = "visible";
         
-        // 🌟 "Start" button MUST ALWAYS BE DISABLED upon entering Challenge Mode!
+        // 🌟 1. "Start" button remains visible but blurred/disabled
         if (startBtn) {
             startBtn.style.visibility = "visible";
-            startBtn.disabled = true; // Always disabled when Challenge mode opens
+            startBtn.disabled = true;
         }
 
         if (stopBtn) stopBtn.style.visibility = "hidden";
@@ -2307,27 +2313,33 @@ function togglequiz() {
         let checkDivisorGroup = document.querySelector(".nine");
         if (checkDivisorGroup) checkDivisorGroup.style.display = "none";
 
-        // Enable digits panel so student can select 5 digits if needed
-        digitsbuttonenable();
+        // 🌟 2. Automatically select Digit 5 Radio Button & set window.digitsvalue = 5
+        if (digit5Radio) {
+            digit5Radio.checked = true;
+        }
+        window.digitsvalue = 5;
 
-        mainBtn.value = "Quit Challenge";
+        // 🌟 3. Freeze digits panel immediately
+        digitsbuttondisable();
 
-        // If 5 digits is already selected, freeze digits panel
-        if (window.digitsvalue == 5) {
-            digitsbuttondisable();
+        // 🌟 4. Keep "Get 5 digits dividend" button enabled & ready for user's click
+        if (randBtn) {
+            randBtn.disabled = false;
+            randBtn.value = "Get 5 digits dividend";
         }
 
-        // Make dividend box read-only until active play starts
+        // Lock dividend box manual editing until active play starts
         let divInput = document.getElementById("randomdividendbox");
         if (divInput) divInput.readOnly = true;
+
+        mainBtn.value = "Quit Challenge";
 
     } else {
         location.reload();
     }
 }
 
-
-// 2. Evaluates BOTH conditions: AT LEAST 5 DIGITS AND ODD
+// 2. Unlocks "Start" button ONLY when dividend is AT LEAST 5 DIGITS AND ODD
 function validateChallengeStart() {
     let valBox = document.getElementById("randomdividendbox");
     if (!valBox) return;
@@ -2341,7 +2353,7 @@ function validateChallengeStart() {
     let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
 
     if (startBtn && isChallengeMode) {
-        // 🌟 Enables ONLY when BOTH conditions are met: AT LEAST 5 DIGITS AND ODD
+        // 🌟 Requires BOTH: Length >= 5 AND Number is ODD
         if (numDigits >= 5 && isOdd) {
             startBtn.disabled = false;
         } else {
