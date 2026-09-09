@@ -639,11 +639,7 @@ th {
 .seven {
     display: none !important;
 }
-/* When challenge mode adds .active-challenge to container, reveal S Rajarajan's Refresh button and label */
-/* .seven completely removed on desktop */
-@media screen and (min-width: 768px) {
-    /* .seven completely removed on desktop */
-}
+
 
 /* ===================================================================
    📧 S RAJARAJAN'S SCORECARD GRID LAYOUT (REVIEW MODE OVERRIDES)
@@ -652,21 +648,31 @@ th {
     width: 100% !important;
 }
 
+/* Base override: Force inner report text elements to display */
+.container.review-active .twelvea,
+.container.review-active #divirulehead,
+.container.review-active .thirteen,
+.container.review-active #diviruledes {
+    display: block !important;
+    visibility: visible !important;
+}
+
 @media screen and (min-width: 768px) {
-    /* 1. When review mode is active, split main container into a balanced 4-column grid */
+    /* 1. Split main container into a 4-column grid */
     .container.review-active {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         grid-gap: 15px !important;
     }
     
-    /* 2. HIDE THE RED CHALLENGE GUIDE INSTRUCTIONS CARD COMPLETELY */
+    /* 2. Hide the red instruction box */
     .container.review-active .twentyfive {
         display: none !important;
     }
     
     /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
-    .container.review-active .twelvea {
+    .container.review-active .twelvea,
+    .container.review-active #divirulehead {
         grid-column: 1 / 3 !important;
         grid-row: 4 / 5 !important;
         display: block !important;
@@ -676,7 +682,8 @@ th {
         text-align: left !important;
     }
     
-    .container.review-active .thirteen {
+    .container.review-active .thirteen,
+    .container.review-active #diviruledes {
         grid-column: 1 / 3 !important;
         grid-row: 5 / 6 !important;
         display: block !important;
@@ -686,7 +693,8 @@ th {
         text-align: left !important;
     }
     
-    .container.review-active .twelveb {
+    .container.review-active .twelveb,
+    .container.review-active #isdivisible {
         grid-column: 1 / 3 !important;
         grid-row: 6 / 7 !important;
         display: block !important;
@@ -726,6 +734,7 @@ th {
         margin-top: 20px !important;
     }
 }
+
 
     </style>
 </head>
@@ -1977,51 +1986,88 @@ function cstop() {
 
 // 8. Step 2: Reveals your beautiful side-by-side scorecard grid layout!
 function cquit() {
-    // 🌟 Reveal report summary texts
-    document.getElementById("divirulehead").style.display = "block";
-    document.getElementById("diviruledes").style.display = "block";
+    // 1. Hide the Red Challenge Guide
+    let twentyfive = document.querySelector(".twentyfive");
+    if (twentyfive) {
+        twentyfive.style.display = "none";
+    }
 
-    // 🌟 Inject green ticks next to cleared divisors
+    // 2. REVEAL PARENT WRAPPERS AND INNER REPORT TEXT
+    let twelvea = document.querySelector(".twelvea");
+    if (twelvea) {
+        twelvea.style.display = "block";
+        twelvea.style.visibility = "visible";
+    }
+    let headEl = document.getElementById("divirulehead");
+    if (headEl) {
+        headEl.style.display = "block";
+        headEl.style.visibility = "visible";
+    }
+
+    let thirteen = document.querySelector(".thirteen");
+    if (thirteen) {
+        thirteen.style.display = "block";
+        thirteen.style.visibility = "visible";
+    }
+    let rulesEl = document.getElementById("diviruledes");
+    if (rulesEl) {
+        rulesEl.style.display = "block";
+        rulesEl.style.visibility = "visible";
+    }
+
+    document.getElementById("isdivisible").innerHTML = "";
+
+    // 3. Inject green ticks next to cleared divisors
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            // Check if divisor button was actually cleared (hidden) during active gameplay
             let divisorBtn = document.getElementById("divisor" + i);
-            let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden"); 
+            let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden");
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
-                cell.innerHTML = clicks; // Shows count only, no tick!
+                cell.innerHTML = clicks;
             }
         }
     }
 
-    // 🌟 Reveal S Submit Scorecard panel on the right side
+    // 4. Reveal Submit Scorecard panel
     let sendPanel = document.getElementById("report-send-panel");
     if (sendPanel) {
         sendPanel.style.display = "block";
+        sendPanel.style.visibility = "visible";
     }
 
-    // 🌟 Activate dual-column desktop split styling class
-    let container = document.querySelector(".container");
-    if (container) {
-        container.classList.add("review-active");
+    // 5. Reveal "Quit Report" button and parent container (.eight)
+    let eight = document.querySelector(".eight");
+    if (eight) {
+        eight.style.display = "block";
+        eight.style.visibility = "visible";
     }
-
-    // Ensure click profile table is visible full-width below both
-    document.getElementById("ttable").style.visibility = "visible";
-
-    // Hide active "Quit" button to clear footer navigation
-    document.getElementById("cstopquit1").style.visibility = "hidden";
-    document.getElementById("isdivisible").innerHTML = ""; // Clear helper text
-    
-    // 🌟 Reveal recycled Quit Report exit button
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
         quizBtn.style.visibility = "visible";
         quizBtn.style.display = "inline-block";
+    }
+
+    // 6. Reveal Click Profile Table
+    let twentysix = document.querySelector(".twentysix");
+    if (twentysix) {
+        twentysix.style.display = "block";
+        twentysix.style.visibility = "visible";
+    }
+    let ttable = document.getElementById("ttable");
+    if (ttable) {
+        ttable.style.visibility = "visible";
+        ttable.style.display = "table";
+    }
+
+    // 7. Activate Review Grid Layout
+    let container = document.querySelector(".container");
+    if (container) {
+        container.classList.add("review-active");
     }
 }
 
