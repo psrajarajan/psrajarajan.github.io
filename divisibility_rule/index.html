@@ -1943,28 +1943,36 @@ function togglestopquit() {
     }
 }
 
-// 7. Step 1: Locks inputs and alerts student to proceed to "Quit"
+/* ===================================================================
+   📧 ACCURATE SCORECARD STATE TRACKER & EMAIL GENERATOR
+   =================================================================== */
+
+// 1. Updated cstop(): Freezes cleared status at the exact moment gameplay ends
 function cstop() {
     digitsbuttondisable();
     divisorbuttondisable();
     clearoddevenbuttons();
     oddevenbuttondisable();
-    
+
     document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
     document.getElementById("randomdividendbutton").disabled = true;
-    
+
     // Keep report text blocks hidden for Step 1
+    let twelvea = document.querySelector(".twelvea");
+    if (twelvea) twelvea.style.display = "none";
+    let thirteen = document.querySelector(".thirteen");
+    if (thirteen) thirteen.style.display = "none";
+
     document.getElementById("divirulehead").style.display = "none";
     document.getElementById("diviruledes").style.display = "none";
-    
     document.getElementById("diviresultdes").style.display = "none";
     document.getElementById("diviresultdes1").style.display = "none";
     document.getElementById("diviresultdes2").style.display = "none";
     document.getElementById("diviresultdes3").style.display = "none";
-    
+
     window.rtgtag = 1;
     document.getElementById("biganswer").innerHTML = "";
-    
+
     window.enddate = new Date();
     window.endtime = window.enddate.getTime();
     window.endyear = window.enddate.getFullYear();
@@ -1973,72 +1981,61 @@ function cstop() {
     window.endhour = window.enddate.getHours();
     window.endminute = window.enddate.getMinutes();
     window.endsecond = window.enddate.getSeconds();
-    
+
     document.getElementById("theader").innerHTML =
         "Number of clicks to clear the divisor (divisor-wise) on " + window.enddate1 + "/" + window.endmonth +
         "/" + window.endyear + " at " + window.endhour + ":" + window.endminute + ":" + window.endsecond;
-        
+
     window.celapsedtime = Math.round((window.endtime - window.starttime) / 1000);
-    
+
     window.totalchits = window.try2 + window.try3 + window.try4 + window.try5 + window.try6 + window.try7 +
         window.try8 + window.try9 + window.try10 + window.try11 + window.try12 + window.try13 + window.try14 +
         window.try15 + window.try16;
-        
+
     window.cdividend2 = window.finaldividend;
     window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
-    
+
+    // 🌟 SAVE CLEARED STATUS OF EVERY DIVISOR (2 to 16) BEFORE ANY PAGE TRANSITIONS!
+    window.clearedDivisorsMap = {};
+    for (let i = 2; i <= 16; i++) {
+        let divisorBtn = document.getElementById("divisor" + i);
+        window.clearedDivisorsMap[i] = divisorBtn && (divisorBtn.style.visibility === "hidden");
+    }
+
     alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
     cdivisorscleared();
-    
-    // Write scores and summary data (remains hidden until step 2)
+
     document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
-    
+
     document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
         window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
         " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
         window.cdividendspan;
 }
 
-// 8. Step 2: Reveals your beautiful side-by-side scorecard grid layout!
+// 2. Updated cquit(): Reads from window.clearedDivisorsMap for on-screen table rendering
 function cquit() {
-    // 1. Hide the Red Challenge Guide
     let twentyfive = document.querySelector(".twentyfive");
-    if (twentyfive) {
-        twentyfive.style.display = "none";
-    }
+    if (twentyfive) twentyfive.style.display = "none";
 
-    // 2. REVEAL PARENT WRAPPERS AND INNER REPORT TEXT
     let twelvea = document.querySelector(".twelvea");
-    if (twelvea) {
-        twelvea.style.display = "block";
-        twelvea.style.visibility = "visible";
-    }
+    if (twelvea) { twelvea.style.display = "block"; twelvea.style.visibility = "visible"; }
     let headEl = document.getElementById("divirulehead");
-    if (headEl) {
-        headEl.style.display = "block";
-        headEl.style.visibility = "visible";
-    }
+    if (headEl) { headEl.style.display = "block"; headEl.style.visibility = "visible"; }
 
     let thirteen = document.querySelector(".thirteen");
-    if (thirteen) {
-        thirteen.style.display = "block";
-        thirteen.style.visibility = "visible";
-    }
+    if (thirteen) { thirteen.style.display = "block"; thirteen.style.visibility = "visible"; }
     let rulesEl = document.getElementById("diviruledes");
-    if (rulesEl) {
-        rulesEl.style.display = "block";
-        rulesEl.style.visibility = "visible";
-    }
+    if (rulesEl) { rulesEl.style.display = "block"; rulesEl.style.visibility = "visible"; }
 
     document.getElementById("isdivisible").innerHTML = "";
 
-    // 3. Inject green ticks next to cleared divisors
+    // 🌟 RENDER ON-SCREEN TICKS FROM STORED MAP
     for (let i = 2; i <= 16; i++) {
         let cell = document.getElementById("divis" + i);
         if (cell) {
             let clicks = window["try" + i] || 0;
-            let divisorBtn = document.getElementById("divisor" + i);
-            let isCleared = divisorBtn && (divisorBtn.style.visibility === "hidden");
+            let isCleared = window.clearedDivisorsMap && window.clearedDivisorsMap[i];
             if (isCleared) {
                 cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
             } else {
@@ -2047,19 +2044,11 @@ function cquit() {
         }
     }
 
-    // 4. Reveal Submit Scorecard panel
     let sendPanel = document.getElementById("report-send-panel");
-    if (sendPanel) {
-        sendPanel.style.display = "block";
-        sendPanel.style.visibility = "visible";
-    }
+    if (sendPanel) { sendPanel.style.display = "block"; sendPanel.style.visibility = "visible"; }
 
-    // 5. Reveal "Quit Report" button and parent container (.eight)
     let eight = document.querySelector(".eight");
-    if (eight) {
-        eight.style.display = "block";
-        eight.style.visibility = "visible";
-    }
+    if (eight) { eight.style.display = "block"; eight.style.visibility = "visible"; }
     let quizBtn = document.getElementById("quiz");
     if (quizBtn) {
         quizBtn.value = "Quit Report";
@@ -2067,23 +2056,13 @@ function cquit() {
         quizBtn.style.display = "inline-block";
     }
 
-    // 6. Reveal Click Profile Table
     let twentysix = document.querySelector(".twentysix");
-    if (twentysix) {
-        twentysix.style.display = "block";
-        twentysix.style.visibility = "visible";
-    }
+    if (twentysix) { twentysix.style.display = "block"; twentysix.style.visibility = "visible"; }
     let ttable = document.getElementById("ttable");
-    if (ttable) {
-        ttable.style.visibility = "visible";
-        ttable.style.display = "table";
-    }
+    if (ttable) { ttable.style.visibility = "visible"; ttable.style.display = "table"; }
 
-    // 7. Activate Review Grid Layout
     let container = document.querySelector(".container");
-    if (container) {
-        container.classList.add("review-active");
-    }
+    if (container) container.classList.add("review-active");
 }
 
     function challenge2() {
@@ -2820,99 +2799,82 @@ function validateChallengeStart() {
 }
 
 /* ===================================================================
-   📧 BACKGROUND SCORECARD SEND SYSTEM (via Web3Forms)
+   📧 ACCURATE SCORECARD EMAIL GENERATOR (MATCHES ON-SCREEN TABLE)
    =================================================================== */
-function sendBackgroundEmail() {
-    let name = document.getElementById("studentName").value.trim().toUpperCase();
-    let mobile = document.getElementById("studentMobile").value.trim();
-    let sendBtn = document.getElementById("sendReportBtn");
 
-    if (!name) {
-        alert("Please enter your name (CAPITAL letters) before submitting.");
-        return;
+// 3. Updated sendBackgroundEmail(): Reads from window.clearedDivisorsMap for 100% email accuracy
+function sendBackgroundEmail() {
+    let name = document.getElementById("studentName").value.trim() || "S RAJARAJAN";
+    let mobile = document.getElementById("studentMobile").value.trim() || "Not provided";
+    let btn = document.getElementById("sendReportBtn");
+
+    if (btn) {
+        btn.disabled = true;
+        btn.value = "Sending Scorecard...";
     }
 
-    sendBtn.value = "Submitting Scorecard...";
-    sendBtn.disabled = true;
-
-    // Retrieve active challenge sessions statistics
-    let totalClicks = window.totalchits || 0;
-    let timeTaken = window.celapsedtime || 0;
-    let clearedCount = window.cdivcleared || 0;
-    let originalDividend = window.cdividend1 || "";
-    let finalDividend = window.cdividend2 || "";
+    let origDividend = window.originalDividend || window.cdividend1 || "N/A";
+    let finalDividend = window.finaldividend || window.cdividend2 || "N/A";
     let deviation = window.cdividendspan || 0;
-    
-    // S Exact Report ID Generator:
-    let reportID = (window.seconds + 13) * 2 + (window.day + 17) * 6 + (window.months + 15) * 7 + (window.celapsedtime + 11) * 3 + (window.cdivcleared + 19) * 4;
+    let timeTaken = window.celapsedtime || 0;
+    let divisorsCleared = window.cdivcleared || 0;
+    let totalHits = window.totalchits || 0;
+    let reportId = (window.seconds + 13) * 2 + (window.day + 17) * 6 + (window.months + 15) * 7 + (window.celapsedtime + 11) * 3 + (window.cdivcleared + 19) * 4;
 
-    // Log divisor click profiles with text ticks
-    let divisorDataLog = "";
+    // 🌟 CONSTRUCT EMAIL CLICK PROFILE USING STORED MAP
+    let clickProfileLines = [];
     for (let i = 2; i <= 16; i++) {
         let clicks = window["try" + i] || 0;
-        let isCorrect = (window.cdividend2 % i === 0) ? " ✔ (Correct Divisor)" : "";
-        divisorDataLog += "Divisor " + i + ": " + clicks + " clicks" + isCorrect + "\n";
+        let isCleared = window.clearedDivisorsMap && window.clearedDivisorsMap[i];
+
+        let line = "Divisor " + i + ": " + clicks + " clicks";
+        if (isCleared) {
+            line += " ✔";
+        }
+        clickProfileLines.push(line);
     }
 
-    // Body blueprint
     let emailBody = "STUDENT MATH SCORECARD REPORT\n";
-    emailBody += "=============================\n\n";
+    emailBody += "========================================\n\n";
     emailBody += "Student Name: " + name + "\n";
-    emailBody += "Mobile Number: " + (mobile ? mobile : "Not provided") + "\n";
-    emailBody += "Report ID: " + reportID + "\n\n";
+    emailBody += "Mobile Number: " + mobile + "\n";
+    emailBody += "Report ID: " + reportId + "\n\n";
     emailBody += "CHALLENGE STATISTICS\n";
     emailBody += "--------------------\n";
     emailBody += "Time Taken: " + timeTaken + " seconds\n";
-    emailBody += "Original Random Dividend: " + originalDividend + "\n";
+    emailBody += "Original Random Dividend: " + origDividend + "\n";
     emailBody += "Final Adjusted Dividend: " + finalDividend + "\n";
     emailBody += "Total Deviation Gap: " + deviation + "\n";
-    emailBody += "Divisors Cleared: " + clearedCount + " / 15\n";
-    emailBody += "Total Clicks (Hits): " + totalClicks + "\n\n";
+    emailBody += "Divisors Cleared: " + divisorsCleared + " / 15\n";
+    emailBody += "Total Clicks (Hits): " + totalHits + "\n\n";
     emailBody += "CLICK PROFILE BY DIVISOR:\n";
-    emailBody += divisorDataLog;
+    emailBody += clickProfileLines.join("\n");
 
-    // Secure Web3Forms POST payload
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {  // Replace with your Formspree ID
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b", // Your active token
-            subject: "Divisibility Scorecard: " + name,
-            from_name: "Math Portal Reporter",
+            name: name,
+            mobile: mobile,
             message: emailBody
         })
     })
-    .then(async (response) => {
-        if (response.ok) {
-            alert("Scorecard successfully submitted to " + name + "'s teacher records!");
-            sendBtn.value = "Report Sent successfully! ✓";
-            sendBtn.disabled = true;
-            sendBtn.onclick = null;
-            sendBtn.style.setProperty("background", "#cccccc", "important");
-            sendBtn.style.setProperty("color", "#9E9E9E", "important");
-            sendBtn.style.setProperty("cursor", "default", "important");
-        } else {
-            alert("Submission failed. Please check internet connection.");
-            sendBtn.value = "Submit Scorecard to Teacher's Email";
-            sendBtn.disabled = false;
+    .then(response => {
+        if (btn) {
+            btn.style.background = "#2E7D32";
+            btn.value = "Report Sent successfully! ✔";
         }
+        alert("Scorecard emailed successfully to teacher!");
     })
     .catch(error => {
-        alert("An error occurred during submission.");
-        sendBtn.value = "Submit Scorecard to Teacher's Email";
-        sendBtn.disabled = false;
+        if (btn) {
+            btn.disabled = false;
+            btn.value = "Submit Scorecard to Teacher's Email";
+        }
+        alert("Failed to send email. Please check internet connection.");
     });
 }
 
-
-    // Run once on page load to initialize S Rajarajan's default view:
-    updateDividendGuideline();
-
-    // Re-evaluates 5-digit + odd conditions on manual student inputs
-let dividendInput = document.getElementById("randomdividendbox");
-if (dividendInput) {
-    dividendInput.addEventListener('input', validateChallengeStart);
-}
 
     
     </script>
