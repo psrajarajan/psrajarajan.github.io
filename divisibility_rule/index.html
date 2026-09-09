@@ -645,6 +645,87 @@ th {
     /* .seven completely removed on desktop */
 }
 
+/* ===================================================================
+   📧 S RAJARAJAN'S SCORECARD GRID LAYOUT (REVIEW MODE OVERRIDES)
+   =================================================================== */
+#report-send-panel {
+    width: 100% !important;
+}
+
+@media screen and (min-width: 768px) {
+    /* 1. When review mode is active, split main container into a balanced 4-column grid */
+    .container.review-active {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-gap: 15px !important;
+    }
+    
+    /* 2. HIDE THE RED CHALLENGE GUIDE INSTRUCTIONS CARD COMPLETELY */
+    .container.review-active .twentyfive {
+        display: none !important;
+    }
+    
+    /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
+    .container.review-active .twelvea {
+        grid-column: 1 / 3 !important;
+        grid-row: 4 / 5 !important;
+        display: block !important;
+        visibility: visible !important;
+        margin-top: 15px !important;
+        margin-bottom: 2px !important;
+        text-align: left !important;
+    }
+    
+    .container.review-active .thirteen {
+        grid-column: 1 / 3 !important;
+        grid-row: 5 / 6 !important;
+        display: block !important;
+        visibility: visible !important;
+        margin-top: 0px !important;
+        margin-bottom: 2px !important;
+        text-align: left !important;
+    }
+    
+    .container.review-active .twelveb {
+        grid-column: 1 / 3 !important;
+        grid-row: 6 / 7 !important;
+        display: block !important;
+        visibility: visible !important;
+        margin-top: 0px !important;
+        margin-bottom: 2px !important;
+        text-align: left !important;
+    }
+
+    /* 4. "QUIT REPORT" BUTTON wrapper directly below Report on LEFT (Columns 1 & 2) */
+    .container.review-active .eight {
+        grid-column: 1 / 3 !important;
+        grid-row: 7 / 8 !important;
+        display: block !important;
+        visibility: visible !important;
+        margin-top: 10px !important;
+        text-align: center !important;
+    }
+    
+    /* 5. SUBMIT SCORECARD PANEL on the RIGHT (Columns 3 & 4) */
+    .container.review-active #report-send-panel {
+        grid-column: 3 / 5 !important;
+        grid-row: 4 / 8 !important;
+        display: block !important;
+        visibility: visible !important;
+        align-self: start !important;
+        margin-top: 15px !important;
+    }
+    
+    /* 6. CLICK PROFILE TABLE centered full-width BELOW BOTH (Columns 1 to 4) */
+    .container.review-active .twentysix {
+        grid-column: 1 / 5 !important;
+        grid-row: 8 / 9 !important;
+        display: block !important;
+        visibility: visible !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+    }
+}
 
     </style>
 </head>
