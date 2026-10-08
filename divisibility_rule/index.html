@@ -1,2915 +1,350 @@
+```html
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Divisibility Rule">
-    <meta name="keywords" content="Divisibility Rule in Maths,Divisibility,Divisibility Rule, Divisibility Rule in Mathematics">
+    <meta name="description" content="Divisibility Rule Instructions">
+    <meta name="keywords" content="Divisibility Rule, Mathematics, Study Guide, Instructions">
     <meta name="author" content="Rajarajan Seetharaman">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RAJARAJAN TESTING WEBSITE</title>
+    <title>Divisibility Rule - Instructions & Overview</title>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="responsive-style-v31.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">;</script>
-    <script>
-        $(function() { 
-            $("#nav-placeholder").load("navbar.html");
-        });
-    </script>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* 
-  =================================================
-  Responsive CSS for Divisibility Rule
-  S Rajarajan - Math Divisibility (v39 - Breakthrough Clean Layout)
-  =================================================
-*/
+        html {
+            font-size: 16px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            font-size: 1rem;
+            background-color: #FFFFFF;
+            margin: 8px;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        }
+        h1 {
+            font-size: 2.2rem;
+            display: inline-block;
+            margin-bottom: 0;
+            margin-top: 0;
+            line-height: 1.2;
+            color: #FFFFFF;
+        }
+        .header-banner {
+            padding: 18px !important;
+            border-radius: 12px !important;
+            background-color: #003F87 !important;
+            color: #FFFFFF !important;
+            text-align: center !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+            margin-bottom: 20px;
+        }
+        .header-banner h1, .header-banner p {
+            color: #FFFFFF !important;
+        }
 
-/* ─── 1. BASE AND TYPOGRAPHY SCALE ────────────────────────────────────── */
-html {
-    font-size: 16px;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+        .intro-box {
+            background-color: #F0F4F8;
+            border: 2px solid #003F87;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            color: #003F87;
+            line-height: 1.6;
+        }
+        .intro-box p {
+            margin: 0 0 10px 0;
+        }
+        .intro-box strong.bold-msg {
+            font-weight: 700 !important;
+            font-size: 1.05rem;
+            color: #002D62;
+            display: block;
+            margin-bottom: 8px;
+        }
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 10px;
+        }
 
-body {
-    font-size: 1rem;
-    background-color: #FFFAC8;
-    background-color: #FFFFFF;
-    margin: 8px;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-}
+        .preview-section-title {
+            text-align: center;
+            color: #003F87;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 20px 0 15px 0;
+            border-bottom: 2px solid #003F87;
+            padding-bottom: 8px;
+        }
 
-hr.newline {
-    border: 2px solid #FFFFFF;
-    border-radius: 2px;
-    margin-bottom: 0px;
-    width: 100%;
-}
+        /* Top Layout Row inside Preview */
+        .preview-top-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
 
-span {
-    color: #800000;
-}
+        fieldset {
+            border: 1px solid #003F87;
+            border-radius: 10px;
+            padding: 6px 8px;
+            background-color: #F9FBFD;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        legend {
+            font-weight: bold;
+            color: #003F87;
+            padding: 0 6px;
+            font-size: 1rem;
+        }
+        label {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #003F87;
+            font-weight: bold;
+            margin: 0.2rem;
+            height: 52px;
+            min-height: 52px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        label input[type="radio"] {
+            display: block;
+            margin: 0.2rem auto 0 auto;
+        }
+        input[type=radio] {
+            border: 2px solid #8B0000;
+            padding: 0.3rem;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            vertical-align: middle;
+        }
 
-h1 {
-    font-size: 2.2rem;
-    display: inline-block;
-    margin-bottom: 0;
-    margin-top: 0;
-    line-height: 1.2;
-}
+        .dbuttons {
+            border: none !important;
+            border-radius: 8px !important;
+            color: #FFFFFF !important;
+            font-weight: bold !important;
+            cursor: pointer !important;
+            background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
+            padding: 10px 18px !important;
+            font-size: 1rem !important;
+            margin: 6px auto !important;
+            width: 100% !important;
+            max-width: 250px !important;
+            text-align: center !important;
+            display: block;
+        }
+        .launch-btn {
+            background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
+            font-size: 1.15rem !important;
+            padding: 12px 24px !important;
+            max-width: 320px !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            color: #FFFFFF !important;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
-h2 {
-    font-size: 1.8rem;
-    display: inline;
-}
+        .dtextbox {
+            background-color: #FFFFFF;
+            border: 2px solid #003F87;
+            border-radius: 8px;
+            color: #42526C;
+            padding: 8px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            outline: none;
+            width: 100%;
+            max-width: 280px;
+            margin: 6px auto;
+            display: block;
+        }
+        .dtextbox::placeholder {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #003F87 !important;
+            opacity: 0.7 !important;
+        }
 
-h3 {
-    font-size: 1.6rem;
-    display: inline;
-}
+        .dividendgroup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6px;
+        }
 
-h4 {
-    font-size: 1.3rem;
-    display: inline-block;
-    margin-bottom: 5px;
-    margin-top: 2px;
-}
+        .group-label {
+            font-weight: 800;
+            color: #003F87;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            text-align: center;
+        }
 
-h5 {
-    font-size: 1rem;
-    display: inline;
-}
+        .instruction-box {
+            background-color: #EBF3FA;
+            border-left: 4px solid #003F87;
+            padding: 10px 12px;
+            font-size: 0.92rem;
+            color: #002D62;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            line-height: 1.45;
+        }
 
-/* ─── 2. MEDIA AND IMAGE ADJUSTMENTS ──────────────────────────────────── */
-img {
-    max-width: 100%;
-    height: auto !important;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.pictures {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-}
-
-/* ─── 3. FORM INPUTS & BUTTONS ADJUSTMENTS ────────────────────────────── */
-
-input[type="radio"].correct-fill,
-input[type="radio"][data-correct="true"] {
-    background-color: #000000 !important;
-    background: #000000 !important;
-    box-shadow: inset 0 0 0 20px #000000 !important;
-    border-color: #000000 !important;
-}
-
-input[type="radio"].incorrect-fill,
-input[type="radio"][data-incorrect="true"] {
-    background-color: #D32F2F !important;
-    background: #D32F2F !important;
-    box-shadow: inset 0 0 0 20px #D32F2F !important;
-    border-color: #D32F2F !important;
-}
-
-input[type=radio] {
-    border: 2px solid #8B0000;
-    padding: 0.3rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    vertical-align: middle;
-}
-
-input[type=radio]:checked {
-    background-color: #4B0082;
-    background-size: 8px 8px;
-}
-
-input[type=radio]:focus {
-    outline-color: #FFFF00;
-}
-
-label {
-    display: inline-block;
-    text-align: center;
-    font-size: 1rem;
-    color: #003F87;
-    font-weight: bold;
-    margin: 0.25rem;
-    cursor: pointer;
-}
-
-label input[type="radio"] {
-    display: block;
-    margin: 0.25rem auto;
-}
-
-fieldset {
-    border: 1px solid #003F87;
-    border-radius: 10px;
-    padding: 15px;
-    background-color: #F9FBFD;
-    margin-bottom: 10px;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-legend {
-    font-weight: bold;
-    color: #003F87;
-    padding: 0 10px;
-    font-size: 1.1rem;
-}
-
-.dbuttons, .qbuttons { display: inline-flex; }
-.dbuttons, .qbuttons, .oebuttons {
-    border: none !important;
-    border-radius: 8px !important;
-    color: #FFFFFF !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-    outline: none !important;
-    display: inline-flex;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    text-align: center !important;
-}
-
-.dbuttons {
-    background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
-    padding: 12px 20px !important;
-    font-size: 1rem !important;
-    margin: 10px auto !important;
-    letter-spacing: 0.5px !important;
-    width: 100% !important;
-    max-width: 250px !important;
-}
-
-.qbuttons {
-    background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
-    padding: 12px 20px !important;
-    font-size: 1rem !important;
-    margin-left: 10px !important;
-    width: 100% !important;
-}
-
-.oebuttons {
-    background: linear-gradient(135deg, #B71C1C 0%, #E53935 100%) !important;
-    padding: 12px 10px !important;
-    font-size: 1rem !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-.dbuttons:hover {
-    background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 15px rgba(27, 94, 32, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-.qbuttons:hover {
-    background: linear-gradient(135deg, #1565C0 0%, #42A5F5 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 15px rgba(13, 71, 161, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-.oebuttons:hover {
-    background: linear-gradient(135deg, #C62828 0%, #EF5350 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 15px rgba(183, 28, 28, 0.25), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-.dbuttons:active, .qbuttons:active, .oebuttons:active {
-    transform: translateY(1px) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
-}
-
-.dbuttons:disabled, .qbuttons:disabled, .oebuttons:disabled {
-    background: #E0E0E0 !important;
-    color: #9E9E9E !important;
-    box-shadow: none !important;
-    transform: none !important;
-    cursor: not-allowed !important;
-}
-
-.dtextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 8px;
-    color: #42526C;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 250px;
-    margin: 10px auto;
-}
-
-.qtextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 5px;
-    color: #42526C;
-    padding: 6px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 120px;
-}
-
-/* 🌟 S Rajarajan's Muted Steel-Grey Placeholder Styling */
-#studentName::placeholder, 
-#studentMobile::placeholder {
-    color: #91A3B8 !important; /* Beautiful, professional dim steel-grey */
-    font-weight: 500;
-    opacity: 1; /* Prevents browsers from washing it out further */
-}
-
-.oetextbox {
-    background-color: #FFFFFF;
-    border: 2px solid #003F87;
-    border-radius: 5px;
-    color: #42526C;
-    padding: 6px;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
-    outline: none;
-    width: 100%;
-    max-width: 80px;
-}
-
-.dividendgroup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-}
-
-/* Reduced margin for guideline text underneath dividend box */
-.dividendgroup3 label {
-    margin: 2px auto !important;
-}
-
-.highlight {
-    display: inline-block;
-    padding: .25em .5em;
-    background: #800000;
-    color: #ffffff;
-    border-radius: 4px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #003F87;
-    color: white;
-}
-
-.one {
-    padding: 20px !important;
-    border-radius: 12px !important;
-    background-color: #003F87 !important;
-    color: #FFFFFF !important;
-    text-align: center !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
-}
-
-.one h1, .one h2, .one h3, .one h4, .one p, .one span {
-    color: #FFFFFF !important;
-}
-
-/* ─── 3.5 TYPOGRAPHY FOR MATHEMATICAL EXPLANATIONS ──────────────── */
-.thirteen, .fourteen, .fifteen {
-    font-size: 1.3rem !important;
-    line-height: 1.5 !important;
-    font-weight: bold !important;
-}
-
-.thirteen *, .fourteen *, .fifteen * {
-    font-size: 1.3rem !important;
-    font-weight: bold !important;
-}
-
-.thirteen table, .fourteen table, .fifteen table,
-.thirteen td, .fourteen td, .fifteen td,
-.thirteen th, .fourteen th, .fifteen th {
-    font-size: 1rem !important;
-    padding: 8px 12px !important;
-}
-
-/* YES/NO Feedback Text - Clean, Borderless & Centered */
-.twelvec {
-    text-align: center !important;
-    background-color: transparent !important; /* No background box */
-    border: none !important; /* No border box */
-    box-shadow: none !important; /* No box shadow */
-    padding: 0 !important;
-    display: inline-flex;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    box-sizing: border-box !important;
-    min-height: auto !important;
-    width: auto !important;
-    max-width: max-content !important;
-    margin: 0 auto !important;
-}
-
-.twelvec *, .twelvec {
-    font-size: 3rem !important; /* Standout display size */
-    font-weight: 800 !important;
-    margin: 0 !important;
-    color: #800000 !important;
-}
-
-/* ─── 4. MAIN RESPONSIVE CONTAINER & GRID LAYOUTS ────────────────────── */
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten,
-.twelvea, .twelveb, .twelvec, .thirteen, .fourteen, .fifteen,
-.twentyfive, .twentysix {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    width: 100% !important;
-}
-
-/* ─── 5. SCREEN SIZE MEDIA QUERIES ───────────────────────────────────── */
-
-@media screen and (min-width: 768px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 15px;
-    }
-    
-    /* ROW 1: Header Banner */
-    .one { 
-        grid-column: 1 / 5 !important; 
-        grid-row: 1 / 2 !important; 
-        width: 100% !important;
-        margin-bottom: 10px !important;
-    }
-    
-    .two { 
-        display: none !important; 
-    }
-    
-    /* ROW 2: Symmetrical Inputs */
-    .three { 
-        grid-column: 1 / 2 !important; 
-        grid-row: 2 / 3 !important; 
-    }
-    
-    .four { 
-        grid-column: 2 / 3 !important; 
-        grid-row: 2 / 3 !important; 
-        align-self: center !important; 
-        margin: 0 !important;
-        width: 100% !important;
-    }
-    
-    .five { 
-        grid-column: 3 / 4 !important; 
-        grid-row: 2 / 3 !important; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .six { 
-        grid-column: 4 / 5 !important; 
-        grid-row: 2 / 3 !important; 
-    }
-    
-    /* ROW 3: Symmetrical Actions */
-    .nine { 
-        grid-column: 1 / 2 !important; 
-        grid-row: 3 / 4 !important; 
-    }
-    
-    /* Position 2: Start Challenge Button (Row 3, Column 2) */
-    .eight { 
-        grid-column: 3 / 5 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-        width: 100% !important;
-        margin: 0 !important;
-    }
-    
-    /* Position 3: Refresh Dividend Button (Row 3, Column 3) - Centered in column */
-    .seven { 
-        grid-column: 3 / 4 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important; 
-        width: 100% !important;
-        margin: 0 !important;
-        text-align: center !important; /* Centered alignment for texts and buttons inside! */
-    }
-    
-    /* Position 4: YES/NO Feedback Text (Row 3, Column 4) - Centered in column */
-    .twelvec { 
-        grid-column: 2 / 3 !important; 
-        grid-row: 3 / 4 !important; 
-        align-self: center !important;
-        justify-self: center !important; /* Center-align container itself in grid column! */
-        text-align: center !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        width: auto !important;
-        max-width: max-content !important;
-    }
-    
-    /* Hide empty Odd/Even details box (.ten) when empty */
-    .ten:not(.active) {
-        display: none !important;
-    }
-    /* 🌟 DYNAMIC ROW SHIFTING (When custom Odd/Even divisor .ten is active, push everything down safely by 1 row!) */
-    .ten.active {
-        display: flex !important;
-        flex-direction: column !important; /* Stack 'You can edit' box and check buttons vertically! */
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 12px !important;
-        grid-column: 1 / 5 !important;
-        grid-row: 4 / 5 !important;
-        margin: 15px auto !important;
-        width: 100% !important;
-        max-width: 320px !important;
-    }
-    
-    .ten.active ~ .twelvea {
-        grid-row: 5 / 6 !important;
-        margin-top: 10px !important;
-    }
-    
-    .ten.active ~ .thirteen {
-        grid-row: 6 / 7 !important;
-    }
-    
-    .ten.active ~ .twelveb {
-        grid-row: 7 / 8 !important;
-    }
-    
-    .ten.active ~ .fourteen {
-        grid-row: 8 / 9 !important;
-    }
-    
-    .ten.active ~ .fifteen {
-        grid-row: 9 / 10 !important;
-    }
-    
-    /* 🥞 THE EXACT TEXT ORDER IN THE COMPRESSED GAP 🥞 */
-    
-    /* First: "Divisibility Rule for 2" (.twelvea) - Row 4 */
-    .twelvea {
-        grid-column: 1 / 5 !important;
-        grid-row: 4 / 5 !important;
-        align-self: center !important;
-        text-align: left !important;
-        margin-top: 0px !important;
-        margin-bottom: 2px !important;
-        padding-top: 0px !important;
-    }
-    
-    /* Second: "The dividend must be an Even..." (.thirteen) - Row 5 */
-    .thirteen {
-        grid-column: 1 / 5 !important;
-        grid-row: 5 / 6 !important;
-        text-align: left !important;
-        margin-top: -5px !important;
-        margin-bottom: 2px !important;
-    }
-    
-    /* Third: "Is 77346 divisible by 2?" (.twelveb) - Row 6 */
-    .twelveb {
-        grid-column: 1 / 5 !important;
-        grid-row: 6 / 7 !important;
-        align-self: center !important;
-        text-align: left !important;
-        margin-top: -5px !important;
-        margin-bottom: 2px !important;
-    }
-    
-    /* Fourth: "Now apply the Divisibility Rule for 2 on 77346." (.fourteen) - Row 7 */
-    .fourteen {
-        grid-column: 1 / 5 !important;
-        grid-row: 7 / 8 !important;
-        align-self: center !important;
-        text-align: left !important;
-        margin-top: -5px !important;
-        margin-bottom: 2px !important;
-    }
-    
-    /* Next line: S Rajarajan's calculation steps (.fifteen) - Row 8 */
-    .fifteen {
-        grid-column: 1 / 5 !important;
-        grid-row: 8 / 9 !important;
-        text-align: left !important;
-        margin-top: -5px !important;
-        margin-bottom: 5px !important;
-    }
-    
-    /* ROW 10: Symmetrical Challenge Board */
-    .twentyfive { 
-        grid-column: 1 / 3 !important; 
-        grid-row: 10 / 11 !important; 
-        width: 100% !important;
-    }
-    .twentysix { 
-        grid-column: 3 / 5 !important; 
-        grid-row: 10 / 11 !important; 
-        width: 100% !important;
-    }
-}
-
-/* --- MOBILE LAYOUT OVERRIDES (Max 767px) --- */
-@media screen and (max-width: 767px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .one, .two, .three, .four, .five, .six, .eight, .nine, .ten,
-    .twelvea, .twelveb, .thirteen, .fourteen, .fifteen,
-    .twentyfive, .twentysix {
-        grid-column: auto !important;
-        grid-row: auto !important;
-        width: 100% !important;
-    }
-    
-    /* YES/NO and Refresh buttons flow naturally */
-    .twelvec {
-        display: inline-flex;
-        width: auto !important;
-        margin: 5px auto !important;
-        text-align: center !important;
-    }
-    
-    .twelvec *, .twelvec {
-        font-size: 2.2rem !important;
-    }
-}
-
-.navbar { display: none !important; }
-
-/* S Rajarajan's Refresh button and text hidden on load - revealed during Challenge! */
-/* Hide Refresh Area completely */
-.seven {
-    display: none !important;
-}
-/* ===================================================================
-   📧 S RAJARAJAN'S SCORECARD GRID LAYOUT (REVIEW MODE OVERRIDES)
-   =================================================================== */
-#report-send-panel {
-    width: 100% !important;
-}
-
-/* Force report text elements to display when review mode is active */
-.container.review-active .twelvea,
-.container.review-active #divirulehead,
-.container.review-active .thirteen,
-.container.review-active #diviruledes {
-    display: block !important;
-    visibility: visible !important;
-}
-
-@media screen and (min-width: 768px) {
-    /* 1. Split container into a 4-column grid when review mode is active */
-    .container.review-active {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        grid-gap: 15px !important;
-    }
-    
-    /* 2. Hide the red Challenge Guide instruction card completely */
-    .container.review-active .twentyfive {
-        display: none !important;
-    }
-    
-    /* 3. REPORT DETAILS on the LEFT (Columns 1 & 2) */
-    .container.review-active .twelvea,
-    .container.review-active #divirulehead {
-        grid-column: 1 / 3 !important;
-        grid-row: 4 / 5 !important;
-        display: block !important;
-        visibility: visible !important;
-        margin-top: 15px !important;
-        margin-bottom: 2px !important;
-        text-align: left !important;
-    }
-    
-    .container.review-active .thirteen,
-    .container.review-active #diviruledes {
-        grid-column: 1 / 3 !important;
-        grid-row: 5 / 6 !important;
-        display: block !important;
-        visibility: visible !important;
-        margin-top: 0px !important;
-        margin-bottom: 2px !important;
-        text-align: left !important;
-    }
-    
-    .container.review-active .twelveb,
-    .container.review-active #isdivisible {
-        grid-column: 1 / 3 !important;
-        grid-row: 6 / 7 !important;
-        display: block !important;
-        visibility: visible !important;
-        margin-top: 0px !important;
-        margin-bottom: 2px !important;
-        text-align: left !important;
-    }
-
-    /* 4. "QUIT REPORT" BUTTON wrapper directly below Report on LEFT (Columns 1 & 2) */
-    .container.review-active .eight {
-        grid-column: 1 / 3 !important;
-        grid-row: 7 / 8 !important;
-        display: block !important;
-        visibility: visible !important;
-        margin-top: 10px !important;
-        text-align: center !important;
-    }
-    
-    /* 5. SUBMIT SCORECARD PANEL on the RIGHT (Columns 3 & 4) */
-    .container.review-active #report-send-panel {
-        grid-column: 3 / 5 !important;
-        grid-row: 4 / 8 !important;
-        display: block !important;
-        visibility: visible !important;
-        align-self: start !important;
-        margin-top: 15px !important;
-    }
-    
-    /* 6. CLICK PROFILE TABLE centered full-width BELOW BOTH (Columns 1 to 4) */
-    .container.review-active .twentysix {
-        grid-column: 1 / 5 !important;
-        grid-row: 8 / 9 !important;
-        display: block !important;
-        visibility: visible !important;
-        width: 100% !important;
-        margin-top: 20px !important;
-    }
-}
-
-
+        @media screen and (min-width: 768px) {
+            .preview-top-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-items: center;
+            }
+            .modules-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-items: start;
+            }
+        }
     </style>
 </head>
-
 <body>
-    <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
+
     <div class="container">
-         
-       <div class="one">
-        <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
-        <p style="font-weight: bold; margin-top: 10px;">Created by S Rajarajan</p>
+        <!-- Header Banner -->
+        <div class="header-banner">
+            <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
+            <p style="font-weight: bold; margin-top: 8px;">Created by S Rajarajan</p>
         </div>
-        
-        
-        <div class="three">
-            <form action="" name="digitsForm">
-                <fieldset style="text-align:center;">
-                    <legend align="center">Choose number of Digits for Dividend</legend>
-                    <label for="digit2">
-                        2
-                        <input type="radio" name="digits" id="digit2" value="2" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit3">
-                        3
-                        <input type="radio" name="digits" id="digit3" value="3" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit4">
-                        4
-                        <input type="radio" name="digits" id="digit4" value="4" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit5">
-                        5
-                        <input type="radio" name="digits" id="digit5" value="5" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit6">
-                        6
-                        <input type="radio" name="digits" id="digit6" value="6" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit7">
-                        7
-                        <input type="radio" name="digits" id="digit7" value="7" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit8">
-                        8
-                        <input type="radio" name="digits" id="digit8" value="8" onclick="digitsbutton();">
-                    </label>
-                    <label for="digit9">
-                        9
-                        <input type="radio" name="digits" id="digit9" value="9" onclick="digitsbutton();">
-                    </label>
-                </fieldset>
-            </form>
-        </div>
-        <div class="four">
-            <input type="button" id="randomdividendbutton" value="Generate Random Dividend" class="dbuttons" disabled />
-        </div>
-        <div class="five">
-            <div class="dividendgroup">
-                <div class="dividendgroup1">
-                    <label style="font-size:20px;font-weight:bold;color:#003F87;padding:0px;">Dividend</label>
-                </div>
-                <div class="dividendgroup2">
-                    <input type="number" id="randomdividendbox" class="dtextbox" onkeydown="event.preventDefault()" />
-                </div>
-                <div class="dividendgroup3">
-                    <label id="edit-guideline" style="font-size:14px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px">You can edit (max. 15 digits only)</label>
-                </div>
-            </div>
-            <!--dividendgroup-->
-        </div>
-        
-        
-        <div class="six">
-            <form action="" name="divisorForm">
-                <fieldset style="text-align: center;">
-                    <legend align="center">Click the correct divisor(s) for the given dividend</legend>
-                    <label for="divisor2">
-                        2
-                        <input type="radio" name="divisor" id="divisor2" onchange="divisorbutton(); dividendoperation(); diviruledescription(); challenge2(); clearoddevenbuttons();" value="2" disabled>
-                    </label>
-                    <label for="divisor3">
-                        3
-                        <input type="radio" name="divisor" id="divisor3" onchange="divisorbutton();dividendoperation();diviruledescription();challenge3();clearoddevenbuttons();" value="3" disabled>
-                    </label>
-                    <label for="divisor4">
-                        4
-                        <input type="radio" name="divisor" id="divisor4" onchange="divisorbutton();dividendoperation();diviruledescription();challenge4();clearoddevenbuttons();" value="4" disabled>
-                    </label>
-                    <label for="divisor5">
-                        5
-                        <input type="radio" name="divisor" id="divisor5" onchange="divisorbutton(); dividendoperation(); diviruledescription();challenge5();clearoddevenbuttons();" value="5" disabled>
-                    </label>
-                    <label for="divisor6">
-                        6
-                        <input type="radio" name="divisor" id="divisor6" onchange="divisorbutton();dividendoperation();diviruledescription();challenge6();clearoddevenbuttons();" value="6" disabled>
-                    </label>
-                    <label for="divisor7">
-                        7
-                        <input type="radio" name="divisor" id="divisor7" onchange="divisorbutton();dividendoperation();diviruledescription();challenge7();clearoddevenbuttons();" value="7" disabled>
-                    </label>
-                    <label for="divisor8">
-                        8
-                        <input type="radio" name="divisor" id="divisor8" onchange="divisorbutton();dividendoperation();diviruledescription();challenge8();clearoddevenbuttons();" value="8" disabled>
-                    </label>
-                    <label for="divisor9">
-                        9
-                        <input type="radio" name="divisor" id="divisor9" onchange="divisorbutton();dividendoperation();diviruledescription();challenge9();clearoddevenbuttons();" value="9" disabled>
-                    </label>
-                    <label for="divisor10">
-                        10
-                        <input type="radio" name="divisor" id="divisor10" onchange="divisorbutton();dividendoperation();diviruledescription();challenge10();clearoddevenbuttons();" value="10" disabled>
-                    </label>
-                    <label for="divisor11">
-                        11
-                        <input type="radio" name="divisor" id="divisor11" onchange="divisorbutton();dividendoperation();diviruledescription();challenge11();clearoddevenbuttons();" value="11" disabled>
-                    </label>
-                    <label for="divisor12">
-                        12
-                        <input type="radio" name="divisor" id="divisor12" onchange="divisorbutton();dividendoperation();diviruledescription();challenge12();clearoddevenbuttons();" value="12" disabled>
-                    </label>
-                    <label for="divisor13">
-                        13
-                        <input type="radio" name="divisor" id="divisor13" onchange="divisorbutton();dividendoperation();diviruledescription();challenge13();clearoddevenbuttons();" value="13" disabled>
-                    </label>
-                    <label for="divisor14">
-                        14
-                        <input type="radio" name="divisor" id="divisor14" onchange="divisorbutton();dividendoperation();diviruledescription();challenge14();clearoddevenbuttons();" value="14" disabled>
-                    </label>
-                    <label for="divisor15">
-                        15
-                        <input type="radio" name="divisor" id="divisor15" onchange="divisorbutton();dividendoperation();diviruledescription();challenge15();clearoddevenbuttons();" value="15" disabled>
-                    </label>
-                    <label for="divisor16">
-                        16
-                        <input type="radio" name="divisor" id="divisor16" onchange="divisorbutton();dividendoperation();diviruledescription();challenge16();clearoddevenbuttons();" value="16" disabled>
-                    </label>
-                </fieldset>
-            </form>
-        </div>
-       
-        
-        <div class="eight">
-            <div id="quizbutton">
-        <input type="button" id="quiz" value="Start Challenge" class="dbuttons" style="visibility: hidden;" onclick="togglequiz();" />
-    </div>
-</div>
 
-<!-- Put this invisible dummy button anywhere in S Rajarajan's HTML body to prevent JS reference crashes: -->
-<input type="button" id="newdividendbutton" style="display: none !important; visibility: hidden !important;" />
-        
-        
-        <div class="nine">
-            <form action="" name="gendivisorForm">
-                <fieldset style="text-align:center;">
-                    <legend align="center">Check the Divisibilily rule for any Divisor</legend>
-                    <label for="odddivisor">
-                        Odd
-                        <input type="radio" name="gendivisor" id="odddivisor" onclick="oddeven();" value="Odd" disabled>
-                    </label>
-                    <label for="evendivisor">
-                        Even
-                        <input type="radio" name="gendivisor" id="evendivisor" onclick="oddeven();" value="Even" disabled>
-                    </label>
-                </fieldset>
-            </form>
+        <!-- Introductory Box -->
+        <div class="intro-box">
+            <strong class="bold-msg">This educational application helps students master mathematical divisibility rules through three interactive modules designed for progressive skill building.</strong>
+            <p>Using the <strong>Universal Stem & Leaf Method</strong>, students learn how a single unified procedure can test divisibility for any odd divisor ending in 1, 3, 7, or 9 without memorizing dozens of separate rules.</p>
+            <div style="text-align: center; margin-top: 14px;">
+                <a href="divisibility_rule.html" class="launch-btn">Launch Divisibility Application &rarr;</a>
+            </div>
         </div>
-        <div class="ten">
+
+        <!-- Application Layout Preview Title -->
+        <div class="preview-section-title">Application Layout Preview & Guide</div>
+
+        <!-- Top Layout Row Preview -->
+        <div class="preview-top-row">
+            <!-- 1. Digits Selection Preview -->
             <div>
-                <div><input type="number" style='visibility: hidden;' id="oddevenbox" class="oetextbox" value=0 onkeypress="return isNumber(event)" /></div>
-                <div><label style="font-size:14px;font-weight:bold;margin:10px;color:#003F87;padding-top:0px;visibility: hidden;" id="youcanedit">You can edit</label>
+                <form action="" name="digitsForm">
+                    <fieldset style="text-align:center;">
+                        <legend align="center">Choose number of Digits for Dividend</legend>
+                        <label for="digit2"> 2 <input type="radio" name="digits" id="digit2" value="2"> </label>
+                        <label for="digit3"> 3 <input type="radio" name="digits" id="digit3" value="3"> </label>
+                        <label for="digit4"> 4 <input type="radio" name="digits" id="digit4" value="4"> </label>
+                        <label for="digit5"> 5 <input type="radio" name="digits" id="digit5" value="5"> </label>
+                        <label for="digit6"> 6 <input type="radio" name="digits" id="digit6" value="6"> </label>
+                        <label for="digit7"> 7 <input type="radio" name="digits" id="digit7" value="7"> </label>
+                        <label for="digit8"> 8 <input type="radio" name="digits" id="digit8" value="8"> </label>
+                        <label for="digit9"> 9 <input type="radio" name="digits" id="digit9" value="9"> </label>
+                    </fieldset>
+                </form>
+            </div>
+
+            <!-- 2. Random Dividend Button Preview -->
+            <div style="text-align: center;">
+                <input type="button" value="Generate Random Dividend" class="dbuttons" disabled />
+            </div>
+
+            <!-- 3. Dividend Input Box Preview -->
+            <div>
+                <div class="dividendgroup">
+                    <label style="font-size:18px;font-weight:bold;color:#003F87;height:auto;min-height:0;">Dividend</label>
+                    <input type="text" class="dtextbox" value="" placeholder="Select the number of digits first" disabled />
+                    <label style="font-size:13px;font-weight:bold;margin-top:4px;color:#003F87;height:auto;min-height:0;">You can edit dividend (max 15 digits)</label>
                 </div>
             </div>
-            <div><input type="button" style='visibility: hidden;' id="getoddbutton" class="oebuttons" value="Check for this divisor" onclick="checkoddno();" /></div>
-            <div><input type="button" style='visibility: hidden;' id="getevenbutton" class="oebuttons" value="Check for this divisor" onclick="checkevenno();" /></div>
         </div>
-       
-        <!-- 🌟 S RAJARAJAN'S SECURED SCORECARD EMAIL SYSTEM -->
-<div id="report-send-panel" class="report-panel-card" style="display: none;">
-    <fieldset style="border: 2px solid #003F87 !important; border-radius: 16px !important; padding: 20px !important; background-color: #F9FBFD !important; max-width: 100% !important; margin: 15px auto; box-shadow: 0 10px 25px rgba(0, 63, 135, 0.05) !important;">
-        <legend style="color: #003F87 !important; font-weight: bold !important; font-size: 1.1rem !important; padding: 4px 15px !important; background: #EBF3FC !important; border-radius: 20px !important; text-transform: uppercase !important; letter-spacing: 0.5px !important;">Submit Scorecard</legend>
-        
-        <div style="margin-bottom: 15px; text-align: left;">
-            <label for="studentName" style="color: #003F87 !important; font-weight: bold !important; display: block !important; margin-bottom: 5px !important; font-size: 0.95rem !important;">Type your name (CAPITAL letters)</label>
-            <input type="text" id="studentName" class="dtextbox" style="text-transform: uppercase !important;" placeholder="S RAJARAJAN" oninput="this.value = this.value.toUpperCase();" />
-        </div>
-        
-        <div style="margin-bottom: 15px; text-align: left;">
-            <label for="studentMobile" style="color: #003F87 !important; font-weight: bold !important; display: block !important; margin-bottom: 5px !important; font-size: 0.95rem !important;">Type your mobile number (optional)</label>
-            <input type="tel" id="studentMobile" class="dtextbox" placeholder="9487881870" />
-        </div>
-        
-        <input type="button" id="sendReportBtn" class="dbuttons" style="background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important; color: #FFFFFF !important; font-weight: bold !important; width: 100% !important; padding: 12px !important; font-size: 1rem !important; max-width: 100% !important; margin: 0 !important; cursor: pointer !important; border-radius: 8px !important; border: none !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;" value="Submit Scorecard to Teacher's Email" onclick="sendBackgroundEmail();" />
-    </fieldset>
-</div>
-        
-        <div class="twelvea">
-            <h1 style='color:#808000;' id="divirulehead"></h1>
-        </div>
-                <div class="twelveb">
-            <h2 style='color:#808000;' id="isdivisible"></h2>
-        </div>
-        <div class="twelvec" style='color:#808000;font-size:6rem;font-weight:bold' id="biganswer">
-        </div>
-        
-        <div class="thirteen">
-            <h2 style='color:#3300FF' id="diviruledes"></h2>
-        </div>
-        <div class="fourteen">
-            <h1 style='color:#808000;' id="diviresultdes"></h1>
-        </div>
-        <div class="fifteen">
-            <h2 style='color:#3300FF;' id="diviresultdes1"></h2>
-            <h2 style='color:#228B22;' id="diviresultdes2"></h2>
-            <h2 style='color:#3300FF;' id="diviresultdes3"></h2>
-            <h2 style='visibility:hidden;' id="twotox">2<sup>x</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto0">2<sup>0</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto1">2<sup>1</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto2">2<sup>2</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto3">2<sup>3</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto4">2<sup>4</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto5">2<sup>5</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto6">2<sup>6</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto7">2<sup>7</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto8">2<sup>8</sup></h2>
-            <h2 style='visibility:hidden;' id="threeto1">3<sup>1</sup></h2>
-            <h2 style='visibility:hidden;' id="threeto2">3<sup>2</sup></h2>
-            <h2 style='visibility:hidden;' id="threeto3">3<sup>3</sup></h2>
-            <h2 style='visibility:hidden;' id="fivetox">5<sup>x</sup></h2>
-            <h2 style='visibility:hidden;' id="fiveto1">5<sup>1</sup></h2>
-            <h2 style='visibility:hidden;' id="fiveto2">5<sup>2</sup></h2>
-            <h2 style='visibility:hidden;' id="fiveto3">5<sup>3</sup></h2>
-            <h2 style='visibility:hidden;' id="sevento1">7<sup>1</sup></h2>
-            <h2 style='visibility:hidden;' id="sevento2">7<sup>2</sup></h2>
-            <h2 style='visibility:hidden;' id="sevento3">7<sup>3</sup></h2>
-            <h2 style='visibility:hidden;' id="twotonminusonw">2<sup>(n-1)</sup></h2>
-            <h2 style='visibility:hidden;' id="twoto21">2<sup>(2-1)</sup></h2>
-        </div>
-        
-        <div class="twentyfive">
+
+        <!-- Three Interactive Modules Preview Grid -->
+        <div class="modules-grid">
+            <!-- Module 1: Learn by Practice -->
             <div>
-                <h4 style='color:#800000;font-weight: bold;visibility: hidden;' id="challenge111">
-                    <span class="highlight">&nbsp Take a Challenge &nbsp </span>: (1) Generate (not manually) an ODD dividend (at least 5 digits)(2) Click 'Start' button (3) Carfully click the correct divisor button (or buttons one by one) to get YES (OR) edit the dividend (with minimum deviation & and click 'Check for new Dividend' button) to clear more divisors (4) Try to clear all divisors (5) Click 'Stop' button and get the report (6) Click 'Quit' button
-                </h4>
+                <div class="group-label">1. Learn by Practice</div>
+                <div class="instruction-box">
+                    Select the digit count, generate a dividend, and click divisor options to practice identifying valid factors.
+                </div>
+                <form action="" name="divisorForm">
+                    <fieldset style="text-align: center;">
+                        <legend align="center">Click the correct divisor(s) for the given dividend</legend>
+                        <label for="divisor2"> 2 <input type="radio" name="divisor" id="divisor2" value="2" disabled> </label>
+                        <label for="divisor3"> 3 <input type="radio" name="divisor" id="divisor3" value="3" disabled> </label>
+                        <label for="divisor4"> 4 <input type="radio" name="divisor" id="divisor4" value="4" disabled> </label>
+                        <label for="divisor5"> 5 <input type="radio" name="divisor" id="divisor5" value="5" disabled> </label>
+                        <label for="divisor6"> 6 <input type="radio" name="divisor" id="divisor6" value="6" disabled> </label>
+                        <label for="divisor7"> 7 <input type="radio" name="divisor" id="divisor7" value="7" disabled> </label>
+                        <label for="divisor8"> 8 <input type="radio" name="divisor" id="divisor8" value="8" disabled> </label>
+                        <label for="divisor9"> 9 <input type="radio" name="divisor" id="divisor9" value="9" disabled> </label>
+                        <label for="divisor10"> 10 <input type="radio" name="divisor" id="divisor10" value="10" disabled> </label>
+                        <label for="divisor11"> 11 <input type="radio" name="divisor" id="divisor11" value="11" disabled> </label>
+                        <label for="divisor12"> 12 <input type="radio" name="divisor" id="divisor12" value="12" disabled> </label>
+                        <label for="divisor13"> 13 <input type="radio" name="divisor" id="divisor13" value="13" disabled> </label>
+                        <label for="divisor14"> 14 <input type="radio" name="divisor" id="divisor14" value="14" disabled> </label>
+                        <label for="divisor15"> 15 <input type="radio" name="divisor" id="divisor15" value="15" disabled> </label>
+                        <label for="divisor16"> 16 <input type="radio" name="divisor" id="divisor16" value="16" disabled> </label>
+                    </fieldset>
+                </form>
             </div>
-            <div class="challengebutton" style='margin-left:20px;'>
-                <input type="button" style='visibility: hidden;margin-top: 15px;' id="cstart1" value="Start" class="qbuttons" onclick="cstart();" />
-                <input type="button" style='visibility: hidden;margin-top: 15px;' id="cstopquit1" value="Stop" class="qbuttons" onclick="togglestopquit();" />
+
+            <!-- Module 2: Learn by Theory -->
+            <div>
+                <div class="group-label">2. Learn by Theory</div>
+                <div class="instruction-box">
+                    Explore the Universal Stem & Leaf mathematical rule for any custom divisor with step-by-step reduction breakdowns.
+                </div>
+                <form action="" name="gendivisorForm">
+                    <fieldset style="text-align:center;">
+                        <legend align="center">Check the Divisibility rule for any Divisor</legend>
+                        <label for="checkdivisor"> Check Divisor <input type="radio" name="gendivisor" id="checkdivisor" value="Check" disabled> </label>
+                    </fieldset>
+                </form>
+            </div>
+
+            <!-- Module 3: Start Challenge -->
+            <div>
+                <div class="group-label">3. Start Challenge</div>
+                <div class="instruction-box">
+                    Challenge mode can be started only with the 5-digit hard dividend. In challenge mode, the student has to clear as many devisors as possible and can stop the challenge at any time. After stopping the challenge, the Quit button should be clicked to see the report.
+                </div>
+                <div style="text-align: center;">
+                    <input type="button" value="Start Challenge" class="dbuttons" />
+                </div>
             </div>
         </div>
-        <div class="twentysix">
-            <div class="challengeresult">
-                <table border="1" id="ttable" style="visibility: hidden;">
-                    <tr>
-                        <th colspan="15" class="theader" style='text-align:center; font-size:15px; font-weight:bold;' id="theader"></th>
-                    </tr>
-                    <tr>
-                        <th width="6%">2</th>
-                        <th width="6%">3</th>
-                        <th width="6%">4</th>
-                        <th width="6%">5</th>
-                        <th width="6%">6</th>
-                        <th width="6%">7</th>
-                        <th width="6%">8</th>
-                        <th width="6%">9</th>
-                        <th width="7%">10</th>
-                        <th width="7%">11</th>
-                        <th width="7%">12</th>
-                        <th width="7%">13</th>
-                        <th width="7%">14</th>
-                        <th width="7%">15</th>
-                        <th width="7%">16</th>
-                    </tr>
-                    <tr style='height:20px;'>
-                        <td class="divishit" id="divis2"></td>
-                        <td class="divishit" id="divis3"></td>
-                        <td class="divishit" id="divis4"></td>
-                        <td class="divishit" id="divis5"></td>
-                        <td class="divishit" id="divis6"></td>
-                        <td class="divishit" id="divis7"></td>
-                        <td class="divishit" id="divis8"></td>
-                        <td class="divishit" id="divis9"></td>
-                        <td class="divishit" id="divis10"></td>
-                        <td class="divishit" id="divis11"></td>
-                        <td class="divishit" id="divis12"></td>
-                        <td class="divishit" id="divis13"></td>
-                        <td class="divishit" id="divis14"></td>
-                        <td class="divishit" id="divis15"></td>
-                        <td class="divishit" id="divis16"></td>
-                </table>
-            </div>
-            <div>
-                <h4 style='color:brown;visibility: hidden;padding: 0px' id="ctime"></h4>
-            </div>
-            <div>
-                <h4 style='color:brown;visibility: hidden;padding: 0px' id="cdivisors"></h4>
-            </div>
-            <div>
-                <h4 style='color:brown;visibility: hidden;padding: 0px' id="cdivispan"></h4>
-            </div>
-        </div>
-        
-        <!--challengeresult-->
     </div>
 
-
-  <script language="javascript" type="text/javascript">
-    window.originalDividend = ""; // Stores our frozen anchor X
-    function isNumber(evt) {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if (charCode > 8 && (charCode < 48 || charCode > 57)) {
-            return false;
-        }
-        return true;
-    }
-
-/* ===================================================================
-   🎯 DIGIT SELECTION & 5-DIGIT + ODD CHALLENGE VALIDATION FLOW
-   =================================================================== */
-
-// 1. Handles Digit Radio Button Clicks
-function digitsbutton() {
-    updateDividendGuideline();
-    let checkedRadio = document.querySelector('input[name = digits]:checked');
-    if (checkedRadio) {
-        window.digitsvalue = checkedRadio.value;
-    }
-    
-    let randBtn = document.getElementById("randomdividendbutton");
-    if (randBtn) {
-        randBtn.disabled = false;
-        randBtn.value = "Get " + window.digitsvalue + " digits dividend";
-    }
-    window.rtgtag = 0;
-
-    // 🌟 IF IN CHALLENGE MODE & USER SELECTS 5 DIGITS -> FREEZE DIGITS PANEL NOW!
-    let challengeBtn = document.getElementById("quiz");
-    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
-    
-    if (isChallengeMode && window.digitsvalue == 5) {
-        digitsbuttondisable();
-    }
-}
-
-function divisorbutton() {
-    window.divisorstring = document.querySelector('input[name = divisor]:checked').value;
-    window.divisor = Number(window.divisorstring);
-    document.getElementById("biganswer").style.visibility = "visible";
-
-    // 🌟 Case-1: Completely hide both "Start Challenge" and "Check the Divisibility Rule" button groups
-
-    // 1. Hide Option 2: "Start Challenge" button and its parent grid cell container (.eight)
-    let startChallengeBtn = document.getElementById("quiz");
-    let challengeContainer = document.querySelector(".eight");
-    if (startChallengeBtn) {
-        startChallengeBtn.style.visibility = "hidden";
-        startChallengeBtn.style.display = "none";
-    }
-    if (challengeContainer) {
-        challengeContainer.style.display = "none";
-        challengeContainer.style.visibility = "hidden";
-    }
-
-    // 2. Hide Option 3: "Check the Divisibility rule" odd/even selection container (.nine)
-    let checkDivisorGroup = document.querySelector(".nine");
-    if (checkDivisorGroup) {
-        checkDivisorGroup.style.display = "none";
-        checkDivisorGroup.style.visibility = "hidden";
-    }
-}
-
-
-    function divisorbuttonenable() {
-        for (j = 0; j < 15; j++) {
-            document.divisorForm.divisor[j].disabled = false;
-        }
-    }
-
-    function divisorbuttondisable() {
-        for (j = 0; j < 15; j++) {
-            document.divisorForm.divisor[j].disabled = true;
-        }
-    }
-
-
-// 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
-function digitsbuttonenable() {
-    for (var j = 0; j < 8; j++) {
-        document.digitsForm.digits[j].disabled = false;
-    }
-}
-/* ===================================================================
-   ⏱️ S RAJARAJAN'S STABLE CHALLENGE STATE MACHINE & VALIDATION ENGINE
-   =================================================================== */
-
-// 1. Corrected to run for all 8 digit radio buttons (digits 2 to 9)
-function digitsbuttonenable() {
-    for (var j = 0; j < 8; j++) {
-        document.digitsForm.digits[j].disabled = false;
-    }
-}
-
-    function digitsbuttondisable() {
-        for (j = 0; j < 8; j++) {
-            document.digitsForm.digits[j].disabled = true;
-        }
-    }
-
-
-// 3. Generates Dividend using active digit value (5) & evaluates validation
-function randomdividend() {
-    let generatedValue = Math.floor(Math.random() * (((10 ** window.digitsvalue) - 1) - (10 ** (window.digitsvalue - 1)) + 1)) + 10 ** (window.digitsvalue - 1);
-    document.getElementById("randomdividendbox").value = generatedValue;
-
-    // Evaluate 5-digit length AND ODD parity to unlock "Start" button
-    validateChallengeStart();
-
-    let clickDivisorGroup = document.querySelector(".six");
-    if (clickDivisorGroup) {
-        clickDivisorGroup.style.display = "block";
-        clickDivisorGroup.style.visibility = "visible";
-    }
-
-    let challengeBtn = document.getElementById("quiz");
-    let challengeContainer = document.querySelector(".eight");
-    if (challengeBtn) {
-        challengeBtn.style.visibility = "visible";
-        challengeBtn.style.display = "inline-block";
-    }
-    if (challengeContainer) {
-        challengeContainer.style.display = "block";
-        challengeContainer.style.visibility = "visible";
-    }
-
-    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
-    let checkDivisorGroup = document.querySelector(".nine");
-    if (isChallengeMode) {
-        if (checkDivisorGroup) {
-            checkDivisorGroup.style.display = "none";
-            checkDivisorGroup.style.visibility = "hidden";
-        }
-        divisorbuttondisable();
-        oddevenbuttondisable();
-    } else {
-        if (checkDivisorGroup) {
-            checkDivisorGroup.style.display = "block";
-            checkDivisorGroup.style.visibility = "visible";
-        }
-        divisorbuttonenable();
-        oddevenbuttonenable();
-    }
-
-    let tenContainer = document.querySelector(".ten");
-    if (tenContainer) {
-        tenContainer.classList.remove("active");
-    }
-
-    divisorbuttonenable();
-    window.originalDividend = generatedValue;
-    updateDividendGuideline();
-}
-
-
-    function oddevenbuttondisable() {
-        document.gendivisorForm.gendivisor[0].disabled = true;
-        document.gendivisorForm.gendivisor[1].disabled = true;
-    }
-
-    function oddevenbuttonenable() {
-        document.gendivisorForm.gendivisor[0].disabled = false;
-        document.gendivisorForm.gendivisor[1].disabled = false;
-    }
-
-    // 🌟 1. Safe legacy placeholders to prevent ReferenceErrors if called by older game code:
-function quizvisible() { /* Safe empty legacy dummy */ }
-function quizhide() { /* Safe empty legacy dummy */ }
-// 🌟 2. 100% Clean, Non-Crashing oddeven() Function:
-function oddeven() {
-    window.divisor = 1;
-    cleardivisorbuttons();
-    
-    // Restore exact original IDs from Gist to prevent null-pointer crashes!
-    window.twotoex = document.getElementById("twotox").innerHTML;
-    window.twotozero = document.getElementById("twoto0").innerHTML;
-    window.twotoone = document.getElementById("twoto1").innerHTML;
-    window.twototwo = document.getElementById("twoto2").innerHTML;
-    window.twotothree = document.getElementById("twoto3").innerHTML;
-    window.twotofour = document.getElementById("twoto4").innerHTML;
-    window.twotofive = document.getElementById("twoto5").innerHTML;
-    window.twotosix = document.getElementById("twoto6").innerHTML;
-    window.twotoseven = document.getElementById("twoto7").innerHTML;
-    window.twotoeight = document.getElementById("twoto8").innerHTML;
-    window.threetoone = document.getElementById("threeto1").innerHTML;
-    window.threetotwo = document.getElementById("threeto2").innerHTML;
-    window.threetothree = document.getElementById("threeto3").innerHTML;
-    window.fivetoex = document.getElementById("fivetox").innerHTML;
-    window.fivetoone = document.getElementById("fiveto1").innerHTML;
-    window.fivetotwo = document.getElementById("fiveto2").innerHTML;
-    window.fivetothree = document.getElementById("fiveto3").innerHTML;
-    window.seventoone = document.getElementById("sevento1").innerHTML;
-    window.seventotwo = document.getElementById("sevento2").innerHTML;
-    window.seventothree = document.getElementById("sevento3").innerHTML;
-    window.noofcoprime = document.getElementById("twotonminusonw").innerHTML;
-    window.twototwominusone = document.getElementById("twoto21").innerHTML;
-    window.divisor = 1;
-
-    // 🌟 Case-3: Hide standard divisor list (.six) and Challenge button (.eight / #quiz)
-    let clickDivisorGroup = document.querySelector(".six");
-    if (clickDivisorGroup) {
-        clickDivisorGroup.style.display = "none";
-        clickDivisorGroup.style.visibility = "hidden";
-    }
-
-    let startChallengeBtn = document.getElementById("quiz");
-    let challengeContainer = document.querySelector(".eight");
-    if (startChallengeBtn) {
-        startChallengeBtn.style.visibility = "hidden";
-        startChallengeBtn.style.display = "none";
-    }
-    if (challengeContainer) {
-        challengeContainer.style.display = "none";
-        challengeContainer.style.visibility = "hidden";
-    }
-
-    window.primecomdivisor = document.querySelector('input[name = gendivisor]:checked').value;
-
-    // ─── Case-3A: Even Divisor Stacking ───
-    if (window.primecomdivisor == "Even") {
-        document.getElementById("biganswer").innerHTML = "";
-        document.getElementById("oddevenbox").style.visibility = "visible";
-        document.getElementById("oddevenbox").value = 18;
-        document.getElementById("youcanedit").style.visibility = "visible";
-        
-        let oddBtn = document.getElementById("getoddbutton");
-        let evenBtn = document.getElementById("getevenbutton");
-        if (oddBtn) { 
-            oddBtn.style.visibility = "hidden"; 
-            oddBtn.style.display = "none"; 
-        }
-        if (evenBtn) { 
-            evenBtn.style.visibility = "visible"; 
-            evenBtn.style.display = "inline-flex"; 
-        }
-        
-        document.getElementById("biganswer").style.visibility = "hidden";
-        document.getElementById("divirulehead").innerHTML = "Divisibility Rule for any Even Number";
-        document.getElementById("isdivisible").innerHTML = "";
-        document.getElementById("diviruledes").innerHTML = "<span>To check the divisibility of any number, one should check the divisibility of the highest power of each of its prime factors.</span> So, as a first step in the divisibility check, one should find the prime factorisation of that number. <span>Example-1:</span> To check the divisibility of 17 (prime number), one should find the prime factorisation of 17, (i.e.) 17 = 17. <span>Example-2:</span> To check the divisibility of 36 (composite number), one should find the prime factorisation of 36, (i.e.) 36 = 2 x 2 x 3 x 3 and re-arranging them as product of prime numbers with their highest powers, 36 = " + window.twototwo + " x " + window.threetotwo + ". So 36 = 4 (i.e " + window.twototwo + ") x 9 (i.e. " + window.threetotwo + "). The set (4, 9) to be considered for divisibility check. This set (4, 9) is called co-prime set for 36. Additionally, another co-prime set (1, 36) also available, but that should not be considered, because the numbers 1 & 36 do not represent the highest power of each prime factors. By definition, co-prime numbers in a set has the Highest Common Factor (or also called Greatest Common Divisor) as 1. That means, there is no common factor other than '1' exists for any set of co-prime numbers. Example: (5, 10) is not co-prime set (common factor 2 exists), but (5, 6) is co-prime set (no common factor other than '1')." + "<br>" + "<br>" + " We must always use co-prime set to check the divisibility of any number, because by definition, <span>if a number (N) is divisible by 'a' and 'b' individually, and if 'a' and 'b' are co-prime numbers, then the number (N) is also divisible by the product of 'a' and 'b' (a x b).</span>" + " Note: The formula to get the number of co-prime sets for a given number is : " + window.noofcoprime + ", where ‘n’ is the number of distinct prime factors of that number. For the number 36, number of distinct prime factors are 2 and 3 (n=2). The number of co-prime sets for 36 = " + window.noofcoprime + " = " + window.twototwominusone + " = 2 , which are (1, 36) and (4, 9)." + "<br>" + "<br>" + " Now, let us start to explore the divisibility rule for any even number. Express the even number as a product of co-prime numbers. Let an even number be 56. This number can be expressed as a product of any one of these pairs: (1, 56), (2, 28), (4, 14), (7, 8). Among these pairs, co-prime set is only (7, 8), leaving the common set for every number, i.e. (1, 56). To check the divisibility rule for 56, it is same as checking the divisibility rule for both '7' and '8' jointly. P, if any of the sets (2, 28) or (4, 14) is used instead of (7, 8), it would give a wrong result, because (2,28) or (4,14) does not co-prime numbers. When a composite number is expressed as a product of more than one co-prime numbers, in that set, at the most there would be ONLY one even number present. If more than one co-prime set exists for a number, choose a convenient co-prime set where the even number is small, to easily apply the existing known divisibility rule for that even numbers. For example, to check the divisibility rule for divisor 198 on any dividend, first find the co-prime sets for 198. Among the co-prime sets (9 x 22), (2, 99) and (11 x 18), one should prefer (2 x 99) for easy application of divisibility rule for 2 and 99. Applying the divisibility rule for '2' is easy, i.e. dividend must be an even number and the divisibility rule for '99' is known (single divisibility rule for all odd numbers)" + "<br>" + " <span>" + "Note:" + "</span>" + "No odd number is divisible by an even number, but an even number may be divisible by an odd number." + "<br>" + "<span>" + "Note:" + "</span>" + " If a number is purely " + "<span>" + window.twotoex + "</span>" + " form, there must be a single co-prime set (like for any prime number). For example, co-prime set of 256 (" + window.twotoeight + ") is (1 x 256) and nothing else. To check the divisibility of " + window.twotoex + ", the following divisibility rules can be applied:" + "<br>" + "<br>" + "...for " + window.twotoone + "...(" + Math.pow(2, 1) + ")...dividend must be just an " + "<span>" + "even" + "</span>" + " number" + "<br>" + "...for " + window.twototwo + "...(" + Math.pow(2, 2) + ")...the last " + "<span>" + "two" + "</span>" + " digits must be multiple of 4" + "<br>" + "...for " + window.twotothree + "...(" + Math.pow(2, 3) + ")...the last " + "<span>" + "three" + "</span>" + " digits must be multiple of 8" + "<br>" + "...for " + window.twotofour + "...(" + Math.pow(2, 4) + ")...when N = .." + "<span>" + "d" + "<sub>" + "1" + "</sub>" + "</span>" + "d" + "<sub>" + "2" + "</sub>" + "d" + "<sub>" + "3" + "</sub>" + "d" + "<sub>" + "4" + "</sub>" + ", if " + "<span>" + "d" + "<sub>" + "1" + "</sub>" + "</span>" + " is even, " + "d" + "<sub>" + "2" + "</sub>" + "d" + "<sub>" + "3" + "</sub>" + "d" + "<sub>" + "4" + "</sub>" + " must be multiple of 16, if " + "<span>" + "d" + "<sub>" + "1" + "</sub>" + "</span>" + " is odd, " + "(d" + "<sub>" + "2" + "</sub>" + "d" + "<sub>" + "3" + "</sub>" + "d" + "<sub>" + "4" + "</sub>" + "+ 8)" + " must be multiple of 16 " + "<br>" + "...for " + window.twotofive + "...(" + Math.pow(2, 5) + ")...halfing the dividend continuously " + "<span>" + "four" + "</span>" + " times and finally get an even number" + "<br>" + "...for " + window.twotosix + "...(" + Math.pow(2, 6) + ")...halfing the dividend continuously " + "<span>" + "five" + "</span>" + " times and finally get an even number" + "<br>" + "...for " + window.twotoseven + "...(" + Math.pow(2, 7) + ")...halfing the dividend continuously " + "<span>" + "six" + "</span>" + " times and finally get an even number" + "<br>" + "...for " + window.twotoeight + "...(" + Math.pow(2, 8) + ")...halfing the dividend continuously " + "<span>" + "seven" + "</span>" + " times and finally get an even number";
-        
-        document.getElementById("diviresultdes").innerHTML = "";
-        document.getElementById("diviresultdes1").innerHTML = "";
-        document.getElementById("diviresultdes2").innerHTML = "";
-        document.getElementById("diviresultdes3").innerHTML = "";
-
-    // ─── Case-3B: Odd Divisor Stacking ───
-    } else if (window.primecomdivisor == "Odd") {
-        document.getElementById("biganswer").innerHTML = "";
-        document.getElementById("oddevenbox").style.visibility = "visible";
-        document.getElementById("oddevenbox").value = 17;
-        document.getElementById("youcanedit").style.visibility = "visible";
-        
-        let oddBtn = document.getElementById("getoddbutton");
-        let evenBtn = document.getElementById("getevenbutton");
-        if (oddBtn) { 
-            oddBtn.style.visibility = "visible"; 
-            oddBtn.style.display = "inline-flex"; 
-        }
-        if (evenBtn) { 
-            evenBtn.style.visibility = "hidden"; 
-            evenBtn.style.display = "none"; 
-        }
-        
-        document.getElementById("biganswer").style.visibility = "visible";
-        document.getElementById("divirulehead").innerHTML = "Divisibility Rule for any Odd Number";
-        document.getElementById("isdivisible").innerHTML = "";
-        document.getElementById("diviruledes").innerHTML = "<span>Believe it or not! </span> there is a <span>single </span> divisibility rule available to test <span>ALL </span> odd numbers, that includes all prime numbers except 2 & 5. No more stuggles to remember different divisibility rules for different ODD numbers. For any odd number, the divisibility rule is the same. Wow! Is that so simple?...Wait...Please don't get so excited. A small 'if' clause to be introduced in this statement. For any odd number that ends with <span>1, 3, 7, 9 </span> the divisibility rule is the same. It means this common rule is not applicable for any odd number that ends with 5. Hope this exception does not disappoint us, because we do not want any extra rule for the odd number that ends with 5. We already know a simple rule for that (i.e. the last digit of the dividend must be '5' or '0')" + "<br>" + "<br>" + "Before go into the rule, let us recall the <span>Stem and Leaf </span> concept. For a given number, 'Leaf' part is the last digit (ones place) of that number and 'Stem' part is the other digits of that number. If the number is 24873, 3 is 'leaf' and 2487 is 'stem'." + "<br>" + "<br>" + "Below is the <span> Generalised (or Univeral) Divisibility Rule </span> for any Odd number that ends with <span> 1, 3, 7 , 9 </span> " + "<br>" + "Let the dividend be 'N' and divisor be 'D'. To check the divisibility of 'D' on 'N', follow these steps." + "<br>" + "<br>" + "<span> Step1: </span> Break the dividend 'N' into 'Leaf'(L) and 'Stem'(S). " + "<br>" + "<span> Step2: </span>: If the last digit of the divisor (D) is not 9, we have to modify the divisor to make its last digit as 9. That means, if the last digit of the divisor is 1, we have to multiply it with 9; if the last digit of the divisor is 3, we have to multiply it with 3; if the last digit of the divisor is 7, we have to multiply it with 7; if the last digit of the divisor is 9, no change is required." + "<br>" + "<span> Step3: </span>: Add '1' to the modified divisor (same divisor if its last digit is already '9') got in 'Step2' and divide the result by 10. Let this final number be R." + "<br>" + "<span> Step4: </span>: Calculate the value C as C = S + (R * L)." + "<br>" + "<span> **A very important note:** </span> If (D-R) is a convenient smaller <span> positive </span> number compare to R itself, the formula for finding 'C' is re-written as C = S - (R" + "<sup>" + "'" + "</sup>" + "* L), where R" + "<sup>" + "'" + "</sup>" + " = (D-R), but we should stick to ONLY either one formula throughout the proces of calculating C value (Re-call the Divisibility Rule for 7, mentioned earlier in other place of this application). <br> Repeat this calculation, every time using C as a new dividend 'N' and until C becomes a smaller number to quickly inspect whether it is a multiply of 'D'. <br> <span>Step5: </span> If final C is divisible by 'D', then the original number 'N' is divisible by the divisor 'D'" + "<br>" + "<br>";
-        
-        document.getElementById("diviresultdes").innerHTML = "";
-        document.getElementById("diviresultdes1").innerHTML = "";
-        document.getElementById("diviresultdes2").innerHTML = "";
-        document.getElementById("diviresultdes3").innerHTML = "";
-    }
-
-    // Reveal custom Odd/Even container
-    let tenContainer = document.querySelector(".ten");
-    if (tenContainer) {
-        tenContainer.classList.add("active");
-    }
-}
-
-
-    function checkoddno() {
-        document.getElementById("biganswer").style.visibility = "visible";
-        document.getElementById("divirulehead").style.visibility = "visible";
-        document.getElementById("isdivisible").style.visibility = "visible";
-        document.getElementById("diviresultdes").style.visibility = "visible";
-        document.getElementById("diviresultdes1").style.visibility = "visible";
-        document.getElementById("diviresultdes2").style.visibility = "visible";
-        document.getElementById("diviresultdes3").style.visibility = "visible";
-        window.finaldividendodd = document.getElementById("randomdividendbox").value;
-
-        if (document.getElementById("oddevenbox").value % 2 == 0) {
-            document.getElementById("oddevenbox").value = parseInt(document.getElementById("oddevenbox").value) +
-                1;
-            alert("Since the number box accepts only Odd number, before proceeding with the test, the input number is going to be incremented by '1'.")
-        }
-        window.odddivisor = document.getElementById("oddevenbox").value;
-        document.getElementById("divirulehead").innerHTML = "Divisibility Rule for " + window.odddivisor;
-        document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividendodd + " divisible by " +
-            window.odddivisor + " ?";
-        window.moddivisorodd = 0;
-        moddivisoroddtext = "";
-        if (window.odddivisor % 10 == 1) {
-            window.moddivisorodd = Math.floor(((window.odddivisor * 9) + 1) / 10)
-            moddivisoroddtext = window.moddivisorodd + " ==>" + " ((( " + window.odddivisor + " x  9 ) + 1)/10) = " + " ( " + (window.odddivisor * 9) + " + 1 )/10 = (" + window.moddivisorodd + ")";
-        } else if (window.odddivisor % 10 == 3) {
-            window.moddivisorodd = Math.floor(((window.odddivisor * 3) + 1) / 10)
-            moddivisoroddtext = window.moddivisorodd + " ==>" + " ((( " + window.odddivisor + " x  3 ) + 1)/10) = " + " ( " + (window.odddivisor * 3) + " + 1 )/10 = (" + window.moddivisorodd + ")";
-        } else if (window.odddivisor % 10 == 7) {
-            window.moddivisorodd = Math.floor(((window.odddivisor * 7) + 1) / 10)
-            moddivisoroddtext = window.moddivisorodd + " ==>" + " ((( " + window.odddivisor + " x  7 ) + 1)/10) = " + " ( " + (window.odddivisor * 7) + " + 1 )/10 = (" + window.moddivisorodd + ")";
-        } else if (window.odddivisor % 10 == 9) {
-            window.moddivisorodd = Math.floor(((window.odddivisor * 1) + 1) / 10)
-            moddivisoroddtext = window.moddivisorodd + " ==>" + " ((( " + window.odddivisor + " x  1 ) + 1)/10) = " + " ( " + (window.odddivisor * 1) + " + 1 )/10 = (" + window.moddivisorodd + ")";
-        }
-        window.stemodd = 0;
-        window.leafodd = 0;
-        window.calcresultodd = window.finaldividendodd;
-        let firstitemodd = "<span>" + "Legend: " + "</span>" + "N: " + window.finaldividendodd + " ; D: " + "<span style='text-decoration:underline;'>" + window.odddivisor + "</span>" + " ; R: " + window
-            .moddivisoroddtext + "<br>" + "<br>";
-        window.odddivisorresult = [];
-        let countodd = 1;
-        for (let p = 1; p < (window.finaldividendodd.length + 2); p++) {
-            window.stemodd = Math.floor(window.calcresultodd / 10);
-            window.leafodd = window.calcresultodd % 10;
-            window.calcresultodd = (window.moddivisorodd * window.leafodd) + window.stemodd;
-            window.odddivisorresult.push(" (" + "<span>" + countodd + "</span>" + ")" + " L * R: " + (window.leafodd * window.moddivisorodd) +
-                " ; S: " + window.stemodd + "; C: " + "<span style='text-decoration:underline;'>" + window.calcresultodd + "</span>");
-            countodd = countodd + 1;
-
-        }
-        if ((window.odddivisor % 10 == 1) || (window.odddivisor % 10 == 3) || (window.odddivisor % 10 == 7) || (window.odddivisor % 10 == 9)) {
-            document.getElementById("divirulehead").innerHTML = "Divisibility Rule for " + window.odddivisor;
-
-            document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividendodd + " divisible by " +
-                window.odddivisor + " ?";
-            document.getElementById("diviresultdes").innerHTML = "Now apply the Divisibility Rule for " + window.odddivisor +
-                " on " + window.finaldividendodd + " : ";
-            document.getElementById("diviresultdes1").innerHTML = firstitemodd + window.odddivisorresult;
-            document.getElementById("diviresultdes2").innerHTML = "";
-            document.getElementById("diviresultdes3").innerHTML = "";
-            oddanswer();
-        }
-        if (window.odddivisor % 10 == 5) {
-            window.yes = "YES";
-            window.no = "NO";
-            window.exp = 0;
-            window.countexp = 0;
-            let powerof5 = " ";
-            window.divideby5 = window.odddivisor;
-            for (let b = 1; b < 17; b++) {
-                window.exp = window.divideby5 % 5;
-                if (window.exp == 0) {
-                    window.countexp = countexp + 1;
-                    window.divideby5 = Math.floor(window.divideby5 / 5);
-                }
-            }
-            let coprime5 = "";
-            let coprimepair5 = "";
-            let selectedcoprime5 = "";
-            window.coprimepairs5 = [];
-            window.firstoddnumber = "";
-            window.secondoddnumber = "";
-            for (let e = 1; e < (Math.round(Math.sqrt(window.odddivisor)) + 1); e++) {
-                if (window.odddivisor % e == 0) {
-                    let gcd5 = function(a, b) {
-                        if (b == 0) {
-                            return a;
-                        }
-                    }
-
-                    coprime5 = gcd5(e, window.odddivisor % e);
-                    if ((coprime5 == 1) || (window.odddivisor / coprime5) % coprime5 != 0) {
-                        coprimepair5 = "(" + coprime5 + " , " + window.odddivisor / coprime5 + ")";
-                        window.coprimepairs5.push(" " + coprimepair5);
-                    }
-                }
-            }
-            if (Math.pow(5, window.countexp) == window.odddivisor) {
-                powerof5 = "5" + "<sup>" + window.countexp + "</sup>";
-                alert("This odd number divisor (" + window.odddivisor + ") ends with 5, so \"Generalised Divisibility Rule \" could not be applied for this divisor. Let us see, how can we proceed in this case.");
-                document.getElementById("diviruledes").innerHTML = "<em>The Generalised (or Universal) Divisibility Rule </em> is <span>not applicable for <em>this</em> number </span>, because this odd number (" + "<span>" + window.odddivisor + "</span>" + ") does not end with 1 or 3 or 7 or 9 (it ends with <span> 5</span>). More over, this number is purely " + "<span>" + window.fivetoex + "</span>" + " form. So, this number must have only one co-prime set, which is " + "<span>" + window.coprimepairs5 + "</span>" + ". To check the divisibility rule for " + window.odddivisor + " (" + powerof5 + "), we may use a short-cut method as given below." + "<br>" + "<br>" + "<span>" + "Step-1:" + "</span>" + " Note the integer for the exponent (i.e. in this case " + window.countexp + ")." + "<br>" + "<span>" + "Step-2:" + "</span>" + " Multiply " + window.finaldividendodd + " with <em>\'2 to the power of that integer for the exponent\'</em> (i.e in this case " + "2" + "<sup>" + window.countexp + "</sup>" + "). So, in this case " + window.finaldividendodd + " x " + Math.pow(2, window.countexp) + " = " + window.finaldividendodd * Math.pow(2, window.countexp) + "<br>" + "<span>" + "Step-3:" + "</span>" + " If the product obtained in Step-2 is divisible by <em>\'10 to the power of that integer for the exponent\'</em> (in this case" + "10" + "<sup>" + window.countexp + "</sup>" + "), then the given dividend is divisible by the original divisor." + "<br>" + "<br>" +
-                    "In this case, " + window.finaldividendodd * Math.pow(2, window.countexp) + "  /  " + Math.pow(10, window.countexp);
-                document.getElementById("divirulehead").innerHTML = "";
-                document.getElementById("biganswer").style.visibility = "visible";
-                document.getElementById("diviresultdes").innerHTML = "";
-                document.getElementById("diviresultdes1").innerHTML = "";
-                document.getElementById("diviresultdes2").innerHTML = "";
-                document.getElementById("diviresultdes3").innerHTML = "";
-                if (window.finaldividendodd % window.odddivisor == 0) {
-                    document.getElementById("biganswer").innerHTML = "YES";
-                } else if (window.finaldividendodd % window.odddivisor == 0) {
-                    document.getElementById("biganswer").innerHTML = "NO";
-                }
-            } else if (Math.pow(5, window.countexp) != window.odddivisor) {
-                powerof5 = "";
-                alert("This odd number divisor (" + window.odddivisor + ") ends with 5, so \"Generalised Divisibility Rule \" could not be applied for this divisor. Let us see, how can we proceed in this case.");
-
-
-                window.firstoddnumber = window.coprimepairs5[1].slice(2, 4);
-                window.secondoddnumber = window.coprimepairs5[1].slice(5, window.coprimepairs5[1].length - 1);
-                document.getElementById("diviruledes").innerHTML = "<em>The Generalised (or Universal) Divisibility Rule </em> is <span>not applicable for <em>this</em> number </span>, because this odd number (" + "<span>" + window.odddivisor + "</span>" + ") does not end with 1 or 3 or 7 or 9 (it ends with <span> 5</span>). Since this number is <span style='text-decoration:underline'>not</span> purely " + "<span>" + window.fivetoex + "</span>" + " form, there must be more than one co-prime sets available for this number. The co-prime sets are : " + "<span>" + window.coprimepairs5 + "</span>" + " , where both numbers in all co-prime sets are always odd numbers. To check the divisibility of the given divisor " + window.odddivisor + ", we should check the divisibility of " + window.firstoddnumber + " and " + window.secondoddnumber + ".";
-                document.getElementById("divirulehead").innerHTML = "";
-                document.getElementById("biganswer").innerHTML = "";
-                document.getElementById("diviresultdes").innerHTML = "";
-                document.getElementById("diviresultdes1").innerHTML = "";
-                document.getElementById("diviresultdes2").innerHTML = "";
-                document.getElementById("diviresultdes3").innerHTML = "";
-            }
-        }
-    }
-
-    // 🌟 PRISTINE NATIVE QUIZ VISIBILITY CONTROLLERS
-function quizvisible() {
-    // 1. Safely reveal and arrange the quiz column containers
-    const containers = [".sixteen", ".eighteen", ".twenty"];
-    containers.forEach(selector => {
-        const el = document.querySelector(selector);
-        if (el) {
-            el.style.display = "flex";
-            el.style.visibility = "visible";
-        }
-    });
-
-    // 2. Safely reveal the individual questions, inputs, and buttons
-    const quizElementIds = [
-        "question1", "answer1", "confirm1", "result1", "hitsq1",
-        "question2", "answer2", "confirm2", "result2", "hitsq2",
-        "question3", "answer3", "confirm3", "result3", "hitsq3"
-    ];
-    quizElementIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.style.visibility = "visible";
-        }
-    });
-}
-
-function quizhide() {
-    // 1. Safely collapse and hide the quiz column containers
-    const containers = [".sixteen", ".eighteen", ".twenty"];
-    containers.forEach(selector => {
-        const el = document.querySelector(selector);
-        if (el) {
-            el.style.display = "none";
-            el.style.visibility = "hidden";
-        }
-    });
-
-    // 2. Safely hide individual quiz elements
-    const quizElementIds = [
-        "question1", "answer1", "confirm1", "result1", "hitsq1",
-        "question2", "answer2", "confirm2", "result2", "hitsq2",
-        "question3", "answer3", "confirm3", "result3", "hitsq3"
-    ];
-    quizElementIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.style.visibility = "hidden";
-        }
-    });
-}
-
-
-    function oddanswer() {
-
-        if (window.calcresultodd % window.odddivisor == 0) {
-            document.getElementById("biganswer").innerHTML = "YES";
-
-        } else if (window.calcresultodd % window.odddivisor != 0) {
-            document.getElementById("biganswer").innerHTML = "NO";
-
-        }
-    }
-
-    function checkevenno() {
-
-        document.getElementById("biganswer").style.visibility = "visible";
-        document.getElementById("divirulehead").style.visibility = "visible";
-        document.getElementById("biganswer").style.visibility = "visible";
-        document.getElementById("diviresultdes").style.visibility = "visible";
-        document.getElementById("diviresultdes1").style.visibility = "visible";
-        document.getElementById("diviresultdes2").style.visibility = "visible";
-        document.getElementById("diviresultdes3").style.visibility = "visible";
-        window.finaldividendeven = document.getElementById("randomdividendbox").value;
-        if (document.getElementById("oddevenbox").value % 2 != 0) {
-            document.getElementById("oddevenbox").value = parseInt(document.getElementById("oddevenbox").value) +
-                1;
-            alert("Since the number box accepts only Even number, before proceeding with the test, the input number is going to be incremented by '1'.")
-        }
-        window.evendivisor = document.getElementById("oddevenbox").value;
-        document.getElementById("divirulehead").innerHTML = "Divisibility Rule for " + window.evendivisor;
-        document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividendeven + " divisible by " +
-            window.evendivisor + " ?";
-
-        let coprime = " ";
-        let coprimepair = " ";
-        let selectedcoprime = " ";
-        window.coprimepairs = [];
-        selectedevennumber = 0;
-        selectedoddnumber = 0;
-        window.selectedcoprimepairs = [];
-        for (let e = 1; e < (Math.round(Math.sqrt(window.evendivisor)) + 1); e++) {
-            if (window.evendivisor % e == 0) {
-                let gcd = function(a, b) {
-                    if (b == 0) {
-                        return a;
-                    }
-                }
-
-                coprime = gcd(e, window.evendivisor % e);
-                if ((coprime == 1) || (window.evendivisor / coprime) % coprime != 0) {
-                    coprimepair = "(" + coprime + " , " + window.evendivisor / coprime + ")";
-                    window.coprimepairs.push(" " + coprimepair);
-                }
-                if ((coprime == 1 || (window.evendivisor / coprime) % coprime != 0) && ((window.evendivisor / coprime) + coprime) % 2 != 0) {
-                    selectedcoprimepair = "(" + coprime + " , " + window.evendivisor / coprime + ")";
-                    window.selectedcoprimepairs.push(" " + coprimepair);
-
-                    window.selectedcoprimepairs.sort(function(a, b) {
-                        return a.val < b.val;
-                    });
-
-                    if (window.selectedcoprimepairs.length == 1) {
-
-                        selectedevennumber = coprime;
-                        selectedoddnumber = (window.evendivisor / selectedevennumber);
-                    } else if (window.selectedcoprimepairs.length > 1) {
-                        selectedevennumber = window.selectedcoprimepairs[1].slice(2, 4);
-                        selectedoddnumber = window.selectedcoprimepairs[1].slice(5, window.selectedcoprimepairs[1].length - 1);
-                    }
-                }
-
-            }
-
-        }
-
-        document.getElementById("diviresultdes").innerHTML = "Co-Prime set(s) for " + window.evendivisor + ": " + window.coprimepairs + "<br>";
-        document.getElementById("diviresultdes1").innerHTML = "Preferred Co-Prime set(s) for  " + window.evendivisor + " (with Odd and Even number combination): " + window.selectedcoprimepairs + "<br>";
-        document.getElementById("diviresultdes2").innerHTML = "To check the Divisibility of " + "<span style='text-decoration:underline;'>" + window.evendivisor + "</span>" + ", Divisibility of " + "<span style='text-decoration:underline;'>" + selectedevennumber + "</span>" + " and the Divisibility of " + "<span style='text-decoration:underline;'>" + selectedoddnumber + "</span>" + " to be checked";
-        document.getElementById("diviresultdes3").innerHTML = "";
-
-
-    }
-
-    function clearoddevenbuttons() {
-        document.getElementById("oddevenbox").style.visibility = "hidden";
-        document.getElementById("youcanedit").style.visibility = "hidden";
-        document.getElementById("getoddbutton").style.visibility = "hidden";
-        document.getElementById("getevenbutton").style.visibility = "hidden";
-        document.getElementById("newdividendbutton").style.visibility = "visible";
-        let radioButtonArray2 = document.getElementsByName('gendivisor');
-        radioButtonArray2[0].checked = false;
-        radioButtonArray2[1].checked = false;
-        // 🌟 HIDDEN SAFETY OVERRIDES FOR BOTH BUTTONS:
-        let oddBtn = document.getElementById("getoddbutton");
-        let evenBtn = document.getElementById("getevenbutton");
-        if (oddBtn) { oddBtn.style.visibility = "hidden"; oddBtn.style.display = "none"; }
-        if (evenBtn) { evenBtn.style.visibility = "hidden"; evenBtn.style.display = "none"; }
-       document.querySelector(".ten").classList.remove("active"); // Collapses the gap back to zero!
-}
-    
-
-    function cdivisorscleared() {
-        window.cdivcleared = 0;
-        for (let i = 2; i < 17; i++) {
-            if (document.getElementById("divisor" + i).style.visibility == "hidden") {
-                window.cdivcleared = window.cdivcleared + 1
-            }
-        }
-        return window.cdivcleared;
-
-    }
-
-
-    function three3() {
-        window.chk3_arr = [];
-        let check3 = 0;
-        for (let m = window.fd_len; m > 0; m--) {
-            check3 = Math.floor(window.finaldividend / 10 ** (m - 1)) % 10;
-            window.chk3_arr.push(check3)
-        }
-        return window.chk3_arr;
-
-    }
-
-    function three31() {
-        window.dsum = 0;
-        window.chk3_arr.forEach(element => {
-            window.dsum += element;
-        })
-    }
-
-    function three32() {
-        window.dsumtext = " ";
-        window.chk3_arr.forEach(element => {
-            window.dsumtext = window.dsumtext + element + " + ";
-        })
-    }
-
-    function seven71() {
-        window.chk71_arr = [];
-        let check71 = window.finaldividend;
-        if (check71 < 100) {
-            window.chk71_arr = [check71];
-        } else {
-            for (let m = window.fd_len; m > 2; m--) {
-                check71 = Math.floor(check71 / 10) - 2 * (check71 % 10);
-
-                window.chk71_arr.push(' ' + check71 + ' ');
-
-            }
-
-        }
-        return window.chk71_arr;
-    }
-
-    function seven72() {
-        window.chk72_arr = [];
-        let check72 = window.finaldividend;
-        if (check72 < 100) {
-            window.chk72_arr = [check72];
-        } else {
-            for (let m = window.fd_len; m > 2; m--) {
-
-                window.chk72_arr.push(' (' + Math.floor(check72 / 10) + ' - ' + 2 * (check72 % 10) + ' = ' + (
-                    Math.floor(check72 / 10) - 2 * (check72 % 10)) + ') ');
-                check72 = Math.floor(check72 / 10) - 2 * (check72 % 10);
-
-
-            }
-        }
-        return window.chk72_arr;
-    }
-
-    function seven73() {
-        window.chk73_arr = window.chk71_arr.filter((x) => x > 0);
-        return;
-    }
-
-    function eleven11odd() {
-        window.chk11odd_arr = [];
-        let check11odd = 0;
-        if (window.fd_len % 2 != 0) {
-            for (let m = window.fd_len; m > 0; m--) {
-                check11odd = Math.floor(window.finaldividend / 10 ** (m - 1)) % 10;
-                window.chk11odd_arr.push(check11odd);
-                m = m - 1;
-            }
-        } else {
-            for (let m = window.fd_len; m > 0; m--) {
-                check11odd = Math.floor(window.finaldividend / 10 ** (m - 2)) % 10;
-                window.chk11odd_arr.push(check11odd);
-                m = m - 1;
-            }
-        }
-        return window.chk11odd_arr.reverse();
-
-    }
-
-    function eleven11even() {
-        window.chk11even_arr = [];
-        let check11even = 0;
-        if (window.fd_len % 2 == 0) {
-            for (let m = window.fd_len; m > 1; m--) {
-                check11even = Math.floor(window.finaldividend / 10 ** (m - 1)) % 10;
-                window.chk11even_arr.push(check11even);
-                m = m - 1;
-            }
-        } else {
-            for (let m = window.fd_len; m > 1; m--) {
-                check11even = Math.floor(window.finaldividend / 10 ** (m - 2)) % 10;
-                window.chk11even_arr.push(check11even);
-                m = m - 1;
-            }
-        }
-        return window.chk11even_arr.reverse();
-
-    }
-
-    function eleven11oddsum() {
-        window.d11oddsum = 0;
-        window.chk11odd_arr.forEach(element => {
-            window.d11oddsum += element;
-        })
-    }
-
-    function eleven11oddsumtext() {
-        window.d11oddsumtext = " ";
-        window.chk11odd_arr.forEach(element => {
-            window.d11oddsumtext = window.d11oddsumtext + element + " + ";
-        })
-    }
-
-    function eleven11evensum() {
-        window.d11evensum = 0;
-        window.chk11even_arr.forEach(element => {
-            window.d11evensum += element;
-        })
-    }
-
-    function eleven11evensumtext() {
-        window.d11evensumtext = " ";
-        window.chk11even_arr.forEach(element => {
-            window.d11evensumtext = window.d11evensumtext + element + " + ";
-        })
-    }
-
-    function eleven11difference() {
-        window.d11diff = Math.abs(window.d11oddsum - window.d11evensum);
-    }
-
-    function thirteen131() {
-        window.chk131_arr = [];
-        let check131 = window.finaldividend;
-        if (check131 < 10) {
-            window.chk131_arr = [check131];
-        } else {
-            for (let m = window.fd_len; m > 1; m--) {
-                check131 = Math.floor(check131 / 10) + 4 * (check131 % 10);
-
-                window.chk131_arr.push(' ' + check131 + ' ');
-
-            }
-
-        }
-        return window.chk131_arr;
-    }
-
-    function thirteen132() {
-        window.chk132_arr = [];
-        let check132 = window.finaldividend;
-        if (check132 < 10) {
-            window.chk132_arr = [check132];
-        } else {
-            for (let m = window.fd_len; m > 1; m--) {
-
-                window.chk132_arr.push(' (' + Math.floor(check132 / 10) + ' + ' + 4 * (check132 % 10) + ' = ' +
-                    (Math.floor(check132 / 10) + 4 * (check132 % 10)) + ') ');
-                check132 = Math.floor(check132 / 10) + 4 * (check132 % 10);
-
-
-            }
-        }
-        return window.chk132_arr;
-    }
-
-    function thirteen133() {
-        window.chk133_arr = window.chk131_arr.filter((x) => x > 0);
-        return;
-    }
-
-    function checkanswer1() {
-        let answerone = document.getElementById("answer1").value;
-        if (answerone == 240) {
-            window.q1hits = window.q1hits + 1;
-            document.getElementById("result1").innerHTML = "Correct!";
-            document.getElementById("confirm1").style.visibility = "hidden";
-        } else if (window.q1hits < 3) {
-            document.getElementById("result1").innerHTML = "Hmm...Try again";
-            window.q1hits = window.q1hits + 1;
-        } else if (window.q1hits > 2) {
-            document.getElementById("result1").innerHTML = "Correct Answer is 240";
-            window.q1hits = window.q1hits + 1;
-            document.getElementById("confirm1").style.visibility = "hidden";
-        }
-        document.getElementById("hitsq1").innerHTML = "Hits: " + window.q1hits;
-    }
-
-    function checkanswer2() {
-        let answertwo = document.getElementById("answer2").value;
-        if (answertwo == 18018) {
-            window.q2hits = window.q2hits + 1;
-            document.getElementById("result2").innerHTML = "Correct!";
-            document.getElementById("confirm2").style.visibility = "hidden";
-        } else if (window.q2hits < 3) {
-            document.getElementById("result2").innerHTML = "Hmm...Try again";
-            window.q2hits = window.q2hits + 1;
-        } else if (window.q2hits > 2) {
-            document.getElementById("result2").innerHTML = "Correct Answer is 18018";
-            document.getElementById("confirm2").style.visibility = "hidden";
-            window.q2hits = window.q2hits + 1;
-        }
-        document.getElementById("hitsq2").innerHTML = "Hits: " + window.q2hits;
-    }
-
-    function checkanswer3() {
-        let answerthree = document.getElementById("answer3").value;
-        if (answerthree == 360360) {
-            window.q3hits = window.q3hits + 1;
-            document.getElementById("result3").innerHTML = "Correct!";
-            document.getElementById("confirm3").style.visibility = "hidden";
-        } else if (window.q3hits < 3) {
-            document.getElementById("result3").innerHTML = "Hmm...Try again";
-            window.q3hits = window.q3hits + 1;
-        } else if (window.q3hits > 2) {
-            document.getElementById("result3").innerHTML = "Correct Answer is 360360";
-            document.getElementById("confirm3").style.visibility = "hidden";
-            window.q3hits = window.q3hits + 1;
-        }
-        document.getElementById("hitsq3").innerHTML = "Hits: " + window.q3hits;
-    }
-
-function updateDividendGuideline() {
-    let guidelineLabel = document.getElementById("edit-guideline");
-    if (guidelineLabel) {
-        if (window.originalDividend) {
-            guidelineLabel.innerHTML = "You can edit " + window.originalDividend + " &plusmn; 15 digits";
-        } else {
-            guidelineLabel.innerHTML = "You can edit (max. 15 digits only)"; // Initial default view
-        }
-    }
-}
-
- // 6. Starts the timer and unlocks manual editing
-function cstart() {
-    window.divisor = 1;
-    dividendoperation();
-    cleardivisorbuttons();
-    clearoddevenbuttons();
-    oddevenbuttondisable();
-    digitsbuttondisable();
-    document.getElementById("randomdividendbutton").disabled = true;
-    document.getElementById("ttable").style.visibility = "visible";
-    document.getElementById("theader").innerHTML = "Number of clicks to clear the divisor (divisor-wise)";
-    
-    alert("Now Challenge Mode is ON. To end the Challenge mode, press \"STOP\"button");
-    
-    // Unlock dividend box manual editing now that game is actively playing!
-    document.getElementById("randomdividendbox").readOnly = false;
-    
-    window.try2 = 0;
-    window.try3 = 0;
-    window.try4 = 0;
-    window.try5 = 0;
-    window.try6 = 0;
-    window.try7 = 0;
-    window.try8 = 0;
-    window.try9 = 0;
-    window.try10 = 0;
-    window.try11 = 0;
-    window.try12 = 0;
-    window.try13 = 0;
-    window.try14 = 0;
-    window.try15 = 0;
-    window.try16 = 0;
-    
-    window.startdate = new Date();
-    window.starttime = window.startdate.getTime();
-    window.hours = window.startdate.getHours();
-    window.minutes = window.startdate.getMinutes();
-    window.seconds = window.startdate.getSeconds();
-    window.months = window.startdate.getMonth();
-    window.day = window.startdate.getDay();
-    window.rtgtag = 1;
-    challengemode();
-    
-    window.celapsedtime = 0;
-    window.cdivcleared = 0;
-    window.cdividendspan = 0;
-    window.totalchits = 0;
-    
-    document.getElementById("divirulehead").style.display = "none";
-    document.getElementById("diviruledes").style.display = "none";
-    document.getElementById("diviresultdes").style.display = "none";
-    document.getElementById("diviresultdes1").style.display = "none";
-    document.getElementById("diviresultdes2").style.display = "none";
-    document.getElementById("diviresultdes3").style.display = "none";
-    
-    window.cdividend1 = 0;
-    window.cdividend1 = window.finaldividend;
-    
-    // Reveal Stop button and hide others
-    document.getElementById("cstopquit1").style.visibility = "visible";
-    document.getElementById("cstopquit1").value = "Stop";
-    document.getElementById("cstart1").style.visibility = "hidden";
-    document.getElementById("quiz").style.visibility = "hidden";
-}
-
-    function cleardivisorbuttons() {
-        let radioButtonArray1 = document.getElementsByName('divisor');
-
-        for (let i = 0; i < radioButtonArray1.length; i++) {
-            let radioButton1 = radioButtonArray1[i];
-            radioButton1.checked = false;
-        }
-    }
-// 5. Dual-state action button switcher (Stop -> Quit -> Exit)
-function togglestopquit() {
-    let stopBtn = document.getElementById("cstopquit1");
-    if (stopBtn.value === "Stop") {
-        stopBtn.value = "Quit";
-        cstop(); // Step 1: Locks inputs, alerts, and guides student to click "Quit"
-    } else if (stopBtn.value === "Quit") {
-        stopBtn.value = "Stop";
-        cquit(); // Step 2: Renders side-by-side scorecard dashboard & "Quit Report" exit path!
-    }
-}
-
-/* ===================================================================
-   📧 ACCURATE SCORECARD STATE TRACKER & EMAIL GENERATOR
-   =================================================================== */
-
-// 1. Updated cstop(): Freezes cleared status at the exact moment gameplay ends
-function cstop() {
-    digitsbuttondisable();
-    divisorbuttondisable();
-    clearoddevenbuttons();
-    oddevenbuttondisable();
-
-    document.getElementById("isdivisible").innerHTML = "Please click " + "<span>" + "Quit" + "</span>" + " button to proceed";
-    document.getElementById("randomdividendbutton").disabled = true;
-
-    // Keep report text blocks hidden for Step 1
-    let twelvea = document.querySelector(".twelvea");
-    if (twelvea) twelvea.style.display = "none";
-    let thirteen = document.querySelector(".thirteen");
-    if (thirteen) thirteen.style.display = "none";
-
-    document.getElementById("divirulehead").style.display = "none";
-    document.getElementById("diviruledes").style.display = "none";
-    document.getElementById("diviresultdes").style.display = "none";
-    document.getElementById("diviresultdes1").style.display = "none";
-    document.getElementById("diviresultdes2").style.display = "none";
-    document.getElementById("diviresultdes3").style.display = "none";
-
-    window.rtgtag = 1;
-    document.getElementById("biganswer").innerHTML = "";
-
-    window.enddate = new Date();
-    window.endtime = window.enddate.getTime();
-    window.endyear = window.enddate.getFullYear();
-    window.endmonth = window.enddate.getMonth() + 1;
-    window.enddate1 = window.enddate.getDate();
-    window.endhour = window.enddate.getHours();
-    window.endminute = window.enddate.getMinutes();
-    window.endsecond = window.enddate.getSeconds();
-
-    document.getElementById("theader").innerHTML =
-        "Number of clicks to clear the divisor (divisor-wise) on " + window.enddate1 + "/" + window.endmonth +
-        "/" + window.endyear + " at " + window.endhour + ":" + window.endminute + ":" + window.endsecond;
-
-    window.celapsedtime = Math.round((window.endtime - window.starttime) / 1000);
-
-    window.totalchits = window.try2 + window.try3 + window.try4 + window.try5 + window.try6 + window.try7 +
-        window.try8 + window.try9 + window.try10 + window.try11 + window.try12 + window.try13 + window.try14 +
-        window.try15 + window.try16;
-
-    window.cdividend2 = window.finaldividend;
-    window.cdividendspan = Math.abs(window.cdividend1 - window.cdividend2);
-
-    // 🌟 SAVE CLEARED STATUS OF EVERY DIVISOR (2 to 16) BEFORE ANY PAGE TRANSITIONS!
-    window.clearedDivisorsMap = {};
-    for (let i = 2; i <= 16; i++) {
-        let divisorBtn = document.getElementById("divisor" + i);
-        window.clearedDivisorsMap[i] = divisorBtn && (divisorBtn.style.visibility === "hidden");
-    }
-
-    alert("Report is available now. Please check. Thanks for your time and hope we will meet soon on next challenge");
-    cdivisorscleared();
-
-    document.getElementById("divirulehead").innerHTML = "<span>" + "Report of your Challenge activity: " + window.startdate + "</span>"+"<br>"+"Report ID: " + (window.seconds + 13) * 2 +(window.day + 17) * 6 + (window.months+15) * 7 +  + (window.celapsedtime+ 11) * 3 + (window.cdivcleared + 19) * 4;
-
-    document.getElementById("diviruledes").innerHTML = "Time taken: " + window.celapsedtime + " secs, for " +
-        window.digitsvalue + " digits dividend " + "(" + window.finaldividend+")"+ "<br>" + "No. of divisors cleared: " + window.cdivcleared +
-        " (with " + window.totalchits + " hits)" + "<br>" + "Deviation from the original dividend on final hit: " +
-        window.cdividendspan;
-}
-
-// 2. Updated cquit(): Reads from window.clearedDivisorsMap for on-screen table rendering
-function cquit() {
-    let twentyfive = document.querySelector(".twentyfive");
-    if (twentyfive) twentyfive.style.display = "none";
-
-    let twelvea = document.querySelector(".twelvea");
-    if (twelvea) { twelvea.style.display = "block"; twelvea.style.visibility = "visible"; }
-    let headEl = document.getElementById("divirulehead");
-    if (headEl) { headEl.style.display = "block"; headEl.style.visibility = "visible"; }
-
-    let thirteen = document.querySelector(".thirteen");
-    if (thirteen) { thirteen.style.display = "block"; thirteen.style.visibility = "visible"; }
-    let rulesEl = document.getElementById("diviruledes");
-    if (rulesEl) { rulesEl.style.display = "block"; rulesEl.style.visibility = "visible"; }
-
-    document.getElementById("isdivisible").innerHTML = "";
-
-    // 🌟 RENDER ON-SCREEN TICKS FROM STORED MAP
-    for (let i = 2; i <= 16; i++) {
-        let cell = document.getElementById("divis" + i);
-        if (cell) {
-            let clicks = window["try" + i] || 0;
-            let isCleared = window.clearedDivisorsMap && window.clearedDivisorsMap[i];
-            if (isCleared) {
-                cell.innerHTML = clicks + ' <span style="color: #2E7D32; font-weight: bold; font-size: 1.1rem;">✔</span>';
-            } else {
-                cell.innerHTML = clicks;
-            }
-        }
-    }
-
-    let sendPanel = document.getElementById("report-send-panel");
-    if (sendPanel) { sendPanel.style.display = "block"; sendPanel.style.visibility = "visible"; }
-
-    let eight = document.querySelector(".eight");
-    if (eight) { eight.style.display = "block"; eight.style.visibility = "visible"; }
-    let quizBtn = document.getElementById("quiz");
-    if (quizBtn) {
-        quizBtn.value = "Quit Report";
-        quizBtn.style.visibility = "visible";
-        quizBtn.style.display = "inline-block";
-    }
-
-    let twentysix = document.querySelector(".twentysix");
-    if (twentysix) { twentysix.style.display = "block"; twentysix.style.visibility = "visible"; }
-    let ttable = document.getElementById("ttable");
-    if (ttable) { ttable.style.visibility = "visible"; ttable.style.display = "table"; }
-
-    let container = document.querySelector(".container");
-    if (container) container.classList.add("review-active");
-}
-
-    function challenge2() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 2 && window.finaldividend % 2 == 0) {
-                window.try2 = window.try2 + 1;
-                document.getElementById("divisor2").style.visibility = "hidden";
-            } else if (window.divisor == 2 && window.finaldividend % 2 != 0) {
-                window.try2 = window.try2 + 1;
-            }
-        }
-        document.getElementById("divis2").innerHTML = window.try2;
-
-    }
-
-    function challenge3() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 3 && window.finaldividend % 3 == 0) {
-                window.try3 = window.try3 + 1;
-                document.getElementById("divisor3").style.visibility = "hidden";
-            } else if (window.divisor == 3 && window.finaldividend % 3 != 0) {
-                window.try3 = window.try3 + 1;
-            }
-        }
-        document.getElementById("divis3").innerHTML = window.try3;
-    }
-
-    function challenge4() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 4 && window.finaldividend % 4 == 0) {
-                window.try4 = window.try4 + 1;
-                document.getElementById("divisor4").style.visibility = "hidden";
-            } else if (window.divisor == 4 && window.finaldividend % 4 != 0) {
-                window.try4 = window.try4 + 1;
-            }
-        }
-        document.getElementById("divis4").innerHTML = window.try4;
-    }
-
-    function challenge5() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 5 && window.finaldividend % 5 == 0) {
-                window.try5 = window.try5 + 1;
-                document.getElementById("divisor5").style.visibility = "hidden";
-            } else if (window.divisor == 5 && window.finaldividend % 5 != 0) {
-                window.try5 = window.try5 + 1;
-            }
-        }
-        document.getElementById("divis5").innerHTML = window.try5;
-    }
-
-    function challenge6() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 6 && window.finaldividend % 6 == 0) {
-                window.try6 = window.try6 + 1;
-                document.getElementById("divisor6").style.visibility = "hidden";
-            } else if (window.divisor == 6 && window.finaldividend % 6 != 0) {
-                window.try6 = window.try6 + 1;
-            }
-        }
-        document.getElementById("divis6").innerHTML = window.try6;
-    }
-
-    function challenge7() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 7 && window.finaldividend % 7 == 0) {
-                window.try7 = window.try7 + 1;
-                document.getElementById("divisor7").style.visibility = "hidden";
-            } else if (window.divisor == 7 && window.finaldividend % 7 != 0) {
-                window.try7 = window.try7 + 1;
-            }
-        }
-        document.getElementById("divis7").innerHTML = window.try7;
-    }
-
-    function challenge8() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 8 && window.finaldividend % 8 == 0) {
-                window.try8 = window.try8 + 1;
-                document.getElementById("divisor8").style.visibility = "hidden";
-            } else if (window.divisor == 8 && window.finaldividend % 8 != 0) {
-                window.try8 = window.try8 + 1;
-            }
-        }
-        document.getElementById("divis8").innerHTML = window.try8;
-    }
-
-    function challenge9() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 9 && window.finaldividend % 9 == 0) {
-                window.try9 = window.try9 + 1;
-                document.getElementById("divisor9").style.visibility = "hidden";
-            } else if (window.divisor == 9 && window.finaldividend % 9 != 0) {
-                window.try9 = window.try9 + 1;
-            }
-        }
-        document.getElementById("divis9").innerHTML = window.try9;
-    }
-
-    function challenge10() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 10 && window.finaldividend % 10 == 0) {
-                window.try10 = window.try10 + 1;
-                document.getElementById("divisor10").style.visibility = "hidden";
-            } else if (window.divisor == 10 && window.finaldividend % 10 != 0) {
-                window.try10 = window.try10 + 1;
-            }
-        }
-        document.getElementById("divis10").innerHTML = window.try10;
-    }
-
-    function challenge11() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 11 && window.finaldividend % 11 == 0) {
-                window.try11 = window.try11 + 1;
-                document.getElementById("divisor11").style.visibility = "hidden";
-            } else if (window.divisor == 11 && window.finaldividend % 11 != 0) {
-                window.try11 = window.try11 + 1;
-            }
-        }
-        document.getElementById("divis11").innerHTML = window.try11;
-    }
-
-    function challenge12() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 12 && window.finaldividend % 12 == 0) {
-                window.try12 = window.try12 + 1;
-                document.getElementById("divisor12").style.visibility = "hidden";
-            } else if (window.divisor == 12 && window.finaldividend % 12 != 0) {
-                window.try12 = window.try12 + 1;
-            }
-        }
-        document.getElementById("divis12").innerHTML = window.try12;
-    }
-
-    function challenge13() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 13 && window.finaldividend % 13 == 0) {
-                window.try13 = window.try13 + 1;
-                document.getElementById("divisor13").style.visibility = "hidden";
-            } else if (window.divisor == 13 && window.finaldividend % 13 != 0) {
-                window.try13 = window.try13 + 1;
-            }
-        }
-        document.getElementById("divis13").innerHTML = window.try13;
-    }
-
-    function challenge14() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 14 && window.finaldividend % 14 == 0) {
-                window.try14 = window.try14 + 1;
-                document.getElementById("divisor14").style.visibility = "hidden";
-            } else if (window.divisor == 14 && window.finaldividend % 14 != 0) {
-                window.try14 = window.try14 + 1;
-            }
-        }
-        document.getElementById("divis14").innerHTML = window.try14;
-    }
-
-    function challenge15() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 15 && window.finaldividend % 15 == 0) {
-                window.try15 = window.try15 + 1;
-                document.getElementById("divisor15").style.visibility = "hidden";
-            } else if (window.divisor == 15 && window.finaldividend % 15 != 0) {
-                window.try15 = window.try15 + 1;
-            }
-        }
-        document.getElementById("divis15").innerHTML = window.try15;
-    }
-
-    function challenge16() {
-        if (window.rtgtag == 1) {
-            if (window.divisor == 16 && window.finaldividend % 16 == 0) {
-                window.try16 = window.try16 + 1;
-                document.getElementById("divisor16").style.visibility = "hidden";
-            } else if (window.divisor == 16 && window.finaldividend % 16 != 0) {
-                window.try16 = window.try16 + 1;
-            }
-        }
-        document.getElementById("divis16").innerHTML = window.try16;
-    }
-
-
-    function challengemode() {
-        challenge2();
-        challenge3();
-        challenge4();
-        challenge5();
-        challenge6();
-        challenge7();
-        challenge8();
-        challenge9();
-        challenge10();
-        challenge11();
-        challenge12();
-        challenge13();
-        challenge14();
-        challenge15();
-        challenge16();
-
-    }
-
-/* ===================================================================
-   🎯 CHALLENGE MODE SETUP & 5-DIGIT ODD VALIDATION FLOW
-   =================================================================== */
-
-/* ===================================================================
-   🎯 AUTOMATIC 5-DIGIT SELECTION & CHALLENGE MODE INITIALIZATION
-   =================================================================== */
-
-// 1. Entering Challenge Mode: Selects Digit 5 & prepares "Get 5 digits dividend" button
-function togglequiz() {
-    let mainBtn = document.getElementById("quiz");
-    let challengeText = document.getElementById("challenge111");
-    let startBtn = document.getElementById("cstart1");
-    let stopBtn = document.getElementById("cstopquit1");
-    let tableBoard = document.getElementById("ttable");
-    let randBtn = document.getElementById("randomdividendbutton");
-    let digit5Radio = document.getElementById("digit5");
-
-    let detailsBlocks = [
-        document.querySelector(".twelvea"),
-        document.querySelector(".twelveb"),
-        document.querySelector(".twelvec"),
-        document.querySelector(".thirteen"),
-        document.querySelector(".fourteen"),
-        document.querySelector(".fifteen")
-    ];
-
-    if (mainBtn.value === "Start Challenge" || mainBtn.value === "Start Quiz/Challenge") {
-        if (challengeText) challengeText.style.visibility = "visible";
-        
-        // 🌟 1. "Start" button remains visible but blurred/disabled
-        if (startBtn) {
-            startBtn.style.visibility = "visible";
-            startBtn.disabled = true;
-        }
-
-        if (stopBtn) stopBtn.style.visibility = "hidden";
-        if (tableBoard) tableBoard.style.visibility = "visible";
-
-        detailsBlocks.forEach(el => {
-            if (el) el.style.display = "none";
-        });
-
-        divisorbuttondisable();
-        let checkDivisorGroup = document.querySelector(".nine");
-        if (checkDivisorGroup) checkDivisorGroup.style.display = "none";
-
-        // 🌟 2. Automatically select Digit 5 Radio Button & set window.digitsvalue = 5
-        if (digit5Radio) {
-            digit5Radio.checked = true;
-        }
-        window.digitsvalue = 5;
-
-        // 🌟 3. Freeze digits panel immediately
-        digitsbuttondisable();
-
-        // 🌟 4. Keep "Get 5 digits dividend" button enabled & ready for user's click
-        if (randBtn) {
-            randBtn.disabled = false;
-            randBtn.value = "Get 5 digits dividend";
-        }
-
-        // Lock dividend box manual editing until active play starts
-        let divInput = document.getElementById("randomdividendbox");
-        if (divInput) divInput.readOnly = true;
-
-        mainBtn.value = "Quit Challenge";
-
-    } else {
-        location.reload();
-    }
-}
-
-// 2. Unlocks "Start" button ONLY when dividend is AT LEAST 5 DIGITS AND ODD
-function validateChallengeStart() {
-    let valBox = document.getElementById("randomdividendbox");
-    if (!valBox) return;
-
-    let val = valBox.value;
-    let numVal = Number(val);
-    let numDigits = val.toString().trim().length;
-    let isOdd = (numVal % 2 !== 0);
-    let startBtn = document.getElementById("cstart1");
-    let challengeBtn = document.getElementById("quiz");
-    let isChallengeMode = challengeBtn && (challengeBtn.value === "Quit Challenge" || challengeBtn.value === "Quit Report" || challengeBtn.value === "Quit Quiz/Challenge");
-
-    if (startBtn && isChallengeMode) {
-        // 🌟 Requires BOTH: Length >= 5 AND Number is ODD
-        if (numDigits >= 5 && isOdd) {
-            startBtn.disabled = false;
-        } else {
-            startBtn.disabled = true;
-        }
-    }
-}
-    function diviruledescription() {
-        let diviruledesarr = [];
-        diviruledesarr[0] =
-            "The dividend must be an Even number (i.e) its last digit (ones place) must be either 0 or 2 or 4 or 6 or 8.";
-        diviruledesarr[1] =
-            "The SUM of all the digits of the dividend must be a multiple of 3. This rule can also be used to check whether a number is a prime or not.";
-        diviruledesarr[2] =
-            "The last two digits (tens and ones place) of the dividend form a number that is a multiple of 4. Any number that is divisible by 4, is also divisible by 2, because 4 = 2 x 2.";
-        diviruledesarr[3] = "The last digit (ones place) of the dividend must be either 0 or 5.";
-        diviruledesarr[4] =
-            "The dividend must be an Even number and also the SUM of its all the digits must be a multiple of 3. Any number that is divisible by 6, is also divisible by 2 and 3, because 6 = 2 x 3.";
-        diviruledesarr[5] =
-            "Number '7' has multiple rules, and any one of the rules can be used based on the specific dividend. " + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-1:" + "</span>" + " Subtracting 2 times the last digit (ones place) from the number formed by the remaining digits (or vice-versa) gives a multiple of 7 (repeat the same operation if needed). The last digit of a number is called 'leaf' (L) and remaining digits are called 'stem' (S). So, 'S - 2L' or '2L - S' must be a multiple of 7." + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-2:" + "</span>" + " Forming an alternating sum of blocks of three from right to left gives a multiple of 7 (e.g) 1,369,851: 851 − 369 + 1 = 483 (=7x69)." + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-3:" + "</span>" + " Get a nearby obvious multiple of 7 and then add or subtract multiples of 7 to see whether doing so will land on that number. (e.g) 231: 210 (obvious multiple of 7) + 21 = 231. This is a general method that can be used to test Divisibility Rule for any number" + "<br>" + "<br>";
-        diviruledesarr[6] =
-            "The last three digits (hundreds, tens and ones place) of the dividend form a number that is a multiple of 8. Any number that is divisible by 8, is also divisible by 4 and 2, because 8 = 4 x 2.";
-        diviruledesarr[7] =
-            "The SUM of all the digits of the dividend must be a multiple of 9. Any number divisible by 9, is also divisible by 3, because 9 = 3 x 3. This rule can also be used to check whether a number is a prime or not. " + "<em>" + "This rule (sum of all digits) can not be extended for higher powers of 3." + "</em>";
-        diviruledesarr[8] = "The last digit (ones place) of the dividend must be 0.";
-        diviruledesarr[9] =
-            "Counting from right, the difference between SUM of the alternating ODD digits (ones, hundreds, ten-thousands, etc place) and the SUM of the alternating EVEN digits (tens, thousands, hundred thousands, etc place) must be a multiple of 11.";
-        diviruledesarr[10] =
-            "The last two digits (tens and ones place) of the dividend form a number that is a multiple of 4 and also the SUM of all the digits must be a mulitiple of 3. Any number that is divisible by 12, is also divisible by 2, 3, 4 and 6, because 12 = 2 x 3 x 4.";
-        diviruledesarr[11] =
-            "Number '13' has multiple rules, and any one of the rules can be used based on the specific dividend. " + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-1:" + "</span>" + " Adding 4 times the last digit (ones place) to the number formed by the remaining digits (or vice-versa) gives a multiple of 13 (repeat the same operation if needed). The last digit of a number is called 'leaf' (L) and remaining digits are called 'stem' (S). So, 'S + 4L' must be a multiple of 13." + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-2:" + "</span>" + " Forming an alternating sum of blocks of three from right to left gives a multiple of 13 (e.g) 6,472,336: 336 − 472 + 6 = -130 (=-13x10)." + "<br>";
-        diviruledesarr[12] =
-            "The dividend must be an Even number AND also divisible by 7.  Number '7' has multiple rules, and any one of the rules can be used based on the specific dividend. " + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-1:" + "</span>" + " Subtracting 2 times the last digit (ones place) from the number formed by the remaining digits (or vice-versa) gives a multiple of 7 (repeat the same operation if needed). The last digit of a number is called 'leaf' (L) and remaining digits are called 'stem' (S). So, 'S - 2L' or '2L - S' must be a multiple of 7." + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-2:" + "</span>" + " Forming an alternating sum of blocks of three from right to left gives a multiple of 7 (e.g) 1,369,851: 851 − 369 + 1 = 483 (=7x69)." + "<br>" + "<br>" + "<span style='text-decoration:underline;'>" + "Rule-3:" + "</span>" + " Get a nearby obvious multiple of 7 and then add or subtract multiples of 7 to see whether doing so will land on that number. (e.g) 231: 210 (obvious multiple of 7) + 21 = 231. This is a general method that can be used to test Divisibility Rule for any number." + "<br>" + "Any number that is divisible by 14, is also divisible by 2 and 7." + "<br>" + "<br>";
-        diviruledesarr[13] =
-            "The last digit (ones place) of the dividend must be either 5 or 0 and also the SUM of all the digits of the dividend must be a multiple of 3. Any number that is divisible by 15, is also divisible by 3 and 5.";
-        diviruledesarr[14] =
-            "If the thousands place (fourth digit from right) of the dividend is an Even number, the number formed by the last three digits (one, tens and hundreds place) must be a multiple of 16, or if the thousands place of the dividend is an Odd number, after adding the number 8 to the number formed by the last three digits must be a multiple of 16. Any number that is divisible by 16, is also divisible by 2, 4, 8 and 16.";
-
-        for (let d = 2; d < 17; d++) {
-            if (window.divisor == d) {
-                document.getElementById("diviruledes").innerHTML = diviruledesarr[d - 2];
-            }
-        }
-    }
-     function handleOnClick() {
-
-    if (document.getElementById("hfpw").style.visibility =="hidden") {
-        document.getElementById("hfpw").style.visibility ="visible";
-    }
-    else if (document.getElementById("hfpw").style.visibility =="visible") {
-        document.getElementById("hfpw").style.visibility ="hidden";
-    }
-  }
-
-    function dividendoperation() {
-        window.yes = "YES";
-        window.no = "NO";
-        window.finaldividend = document.getElementById("randomdividendbox").value;
-        window.fd_len = window.finaldividend.toString().length;
-        window.fd_arr = [];
-        //window.oddeven = window.finaldividend % 2;
-        window.ones = window.finaldividend % 10;
-        window.tens = Math.floor(window.finaldividend / 10) % 10;
-        window.hunds = Math.floor(window.finaldividend / 100) % 10;
-        window.thous = Math.floor(window.finaldividend / 1000) % 10;
-        window.twodigits = window.finaldividend % 100;
-        window.threedigits = window.finaldividend % 1000;
-        window.fourcheck = window.twodigits % 4;
-        window.sixteenevencheck = window.threedigits % 16;
-        window.sixteenoddcheck = (window.threedigits + 8) % 16;
-        if (window.divisor == 1) {
-            window.biganswer = window.yes;
-        }
-        if (window.divisor == 2 && window.ones % 2 == 0) {
-            window.resultdes1 = "The dividend is an Even number. Its last digit (ones place) is " + window.ones +
-                ".";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 2 && window.ones % 2 != 0) {
-            window.resultdes1 = "The dividend is an Odd number. Its last digit (ones place) is " + window.ones +
-                ".";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 3) {
-            three3();
-            three31();
-            three32();
-            if (window.dsum % 3 == 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    " , is a multiple of 3.";
-                window.resultdes2 = " ";
-                window.resultdes3 = " ";
-                window.biganswer = window.yes;
-            } else {
-
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The SUM of of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    " , is NOT a multiple of 3.";
-                window.resultdes2 = " ";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 4 && window.twodigits % 4 == 0) {
-            window.resultdes1 = "The number formed by the last two digits (tens and ones place): " + window.twodigits +
-                " , is a multiple of 4.";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 4 && window.twodigits % 4 != 0) {
-            window.resultdes1 = "The number formed by the last two digits (tens and ones place): " + window.twodigits +
-                " , is NOT a multiple of 4.";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 5 && window.ones % 5 == 0) {
-            window.resultdes1 = "The last digit (ones place): " + window.ones + ".";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 5 && window.ones % 5 != 0) {
-            window.resultdes1 = "The last digit (ones place): " + window.ones + " , is neither 0 nor 5.";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 6) {
-            three3();
-            three31();
-            three32();
-
-            if (window.ones % 2 == 0 && window.dsum % 3 == 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The dividend is an EVEN number. Its last digit is " + window.ones + ". ";
-                window.resultdes2 = "Also the SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    " , is a multiple of 3.";
-                window.resultdes3 = "";
-                window.biganswer = window.yes;
-            } else if (window.ones % 2 != 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The dividend is an ODD number. Its last digit is " + window.ones + ".  ";
-                window.resultdes2 = "Hence, further check is not required";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            } else if (window.ones % 2 == 0 && window.dsum % 3 != 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The dividend is an EVEN number. Its last digit is " + window.ones + ". ";
-                window.resultdes2 = "But the SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    " , is NOT a multiple of 3.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 7) {
-
-            seven71();
-            seven72();
-            seven73();
-            if (window.chk71_arr[window.chk71_arr.length - 1] % 7 == 0) {
-                window.resultdes1 = "Result of successive operation: " + window.chk72_arr + ". ";
-                window.resultdes2 = "The last number in the successive operation (" + window.chk73_arr +
-                    ") is a multiple of 7.";
-                window.resultdes3 = " ";
-                window.biganswer = window.yes;
-
-            } else {
-                window.resultdes1 = "Result of successive operation: " + window.chk72_arr + ". ";
-                window.resultdes2 = "The last number in the successive operation (" + window.chk73_arr +
-                    ") is NOT a multiple of 7.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 8 && window.threedigits % 8 == 0) {
-            window.resultdes1 = "The number formed by the last three digits (hundreds, tens  and ones place): " +
-                window.threedigits + " , is a multiple of 8.";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 8 && window.threedigits % 8 != 0) {
-            window.resultdes1 = "The number formed by the last three digits (hundreds, tens  and ones place): " +
-                window.threedigits + " , is NOT a multiple of 8.";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 9) {
-            three3();
-            three31();
-            three32();
-            if (window.dsum % 9 == 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    " , is a multiple of 9.";
-                window.resultdes2 = " ";
-                window.resultdes3 = " ";
-                window.biganswer = window.yes;
-            } else if (window.dsum % 9 !== 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    " , is NOT a multiple of 9.";
-                window.resultdes2 = " ";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 10 && window.ones == 0) {
-            window.resultdes1 = "The last digit (ones place): " + window.ones + ".";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 10 && window.ones != 0) {
-            window.resultdes1 = "The last digit (ones place): " + window.ones + " , is NOT 0.";
-            window.resultdes2 = " ";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 11) {
-            eleven11odd();
-            eleven11even();
-            eleven11oddsum();
-            eleven11oddsumtext();
-            eleven11evensum();
-            eleven11evensumtext();
-            eleven11difference();
-            if (window.d11diff % 11 == 0) {
-                window.d11oddsumtext = window.d11oddsumtext.slice(0, -2);
-                window.d11evensumtext = window.d11evensumtext.slice(0, -2);
-                window.resultdes1 = "The SUM of all the ODD digits from right: " + window.d11oddsumtext + " = " +
-                    window.d11oddsum + ". ";
-                window.resultdes2 = "The SUM of all the EVEN digits from right: " + window.d11evensumtext +
-                    " = " + window.d11evensum + ". ";
-                window.resultdes3 = "The difference between them ( " + window.d11diff +
-                    " ) is a multiple of 11.";
-                window.biganswer = window.yes;
-            } else {
-                window.d11oddsumtext = window.d11oddsumtext.slice(0, -2);
-                window.d11evensumtext = window.d11evensumtext.slice(0, -2);
-                window.resultdes1 = "The SUM of all the ODD digits from right: " + window.d11oddsumtext + " = " +
-                    window.d11oddsum + ". ";
-                window.resultdes2 = "The SUM of all the EVEN digits from right: " + window.d11evensumtext +
-                    " = " + window.d11evensum + ". ";
-                window.resultdes3 = "The difference between them ( " + window.d11diff +
-                    " ) is NOT a multiple of 11.";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 12) {
-            three3();
-            three31();
-            three32();
-            if (window.twodigits % 4 == 0 && window.dsum % 3 == 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The number formed by the last two digits (tems and ones place): " + window
-                    .twodigits + ", is a multiple of 4. ";
-                window.resultdes2 = "Also the SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    ", is a multiple of 3. ";
-                window.resultdes3 = " ";
-                window.biganswer = window.yes;
-            } else if (window.ones % 2 != 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The dividend is an ODD number" + " (its last digit is " + window.ones +
-                    ")" + ". ";
-                window.resultdes2 = "Hence, further check is not required.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            } else if (window.twodigits % 4 == 0 && window.dsum % 3 != 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The number formed by the last two digits (tens and ones place): " + window
-                    .twodigits + ", is a multiple of 4. ";
-                window.resultdes2 = "But the SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    ", is NOT a multiple of 3. ";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            } else if (window.ones % 2 == 0 && window.twodigits % 4 != 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The dividend is an EVEN number. The last digit (ones place): " + window.ones +
-                    ". ";
-                window.resultdes2 = "The number formed by the last two digits (tens and ones place): " + window
-                    .twodigits + ", is NOT a multiple of 4.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 13) {
-
-            thirteen131();
-            thirteen132();
-            thirteen133();
-            if (window.chk131_arr[window.chk131_arr.length - 1] % 13 == 0) {
-                window.resultdes1 = "Result of successive operation: " + window.chk132_arr + ". ";
-                window.resultdes2 = "The last number in the successive operation (" + window.chk133_arr +
-                    ") is a multiple of 13.";
-                window.resultdes3 = " ";
-                window.biganswer = window.yes;
-
-            } else {
-                window.resultdes1 = "Result of successive operation: " + window.chk132_arr + ". ";
-                window.resultdes2 = "The last number in the successive operation (" + window.chk133_arr +
-                    ") is NOT a multiple of 13.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 14) {
-            seven71();
-            seven72();
-            seven73();
-            if ((window.ones % 2 == 0) && window.chk71_arr[window.chk71_arr.length - 1] % 7 == 0) {
-                window.resultdes1 = "The dividend is an EVEN number. "
-                window.resultdes2 = "Result of successive operation: " + window.chk72_arr + ". ";
-                window.resultdes3 = "The last number in the successive operation (" + window.chk73_arr +
-                    ") is a multiple of 7.";
-                window.biganswer = window.yes;
-
-            } else if ((window.ones % 2 == 0) && window.chk71_arr[window.chk71_arr.length - 1] % 7 != 0) {
-                window.resultdes1 = "The dividend is an EVEN number. "
-                window.resultdes2 = "Result of successive operation: " + window.chk72_arr + ". ";
-                window.resultdes3 = "The last number in the successive operation (" + window.chk73_arr +
-                    ") is NOT a multiple of 7.";
-                window.biganswer = window.no;
-            } else if (window.ones % 2 != 0) {
-                window.resultdes1 = "The dividend is an ODD number" + " (its last digit is " + window.ones +
-                    ")" + ". ";
-                window.resultdes2 = "Hence, further check is not required.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 15) {
-            three3();
-            three31();
-            three32();
-            if ((window.ones == 0 || window.ones == 5) && window.dsum % 3 == 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The last digit (ones place): " + window.ones + ". ";
-                window.resultdes2 = "Also the SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    ", is a multiple of 3.";
-                window.resultdes3 = " ";
-                window.biganswer = window.yes;
-            } else if (window.ones != 0 && window.ones != 5) {
-                window.resultdes1 = "The last digit (ones place): " + window.ones + " , is neither 0 nor 5. ";
-                window.resultdes2 = "Hence, further check is not required.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            } else if ((window.ones == 0 || window.ones == 5) && window.dsum % 3 != 0) {
-                window.dsumtext = window.dsumtext.slice(0, -2);
-                window.resultdes1 = "The last digit (ones place): " + window.ones + ". ";
-                window.resultdes2 = "But the SUM of all the digits: " + window.dsumtext + " = " + window.dsum +
-                    ", is NOT a multiple of 3.";
-                window.resultdes3 = " ";
-                window.biganswer = window.no;
-            }
-        } else if (window.divisor == 16 && window.thous % 2 == 0 && window.sixteenevencheck == 0) {
-            window.resultdes1 = "The thousands place (fourth digit from right) is an EVEN number (" + window.thous +
-                "). ";
-            window.resultdes2 = "The number formed by the last three digits (hudreds, tens and ones place) (" +
-                window.threedigits + ") is a multiple of 16.";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 16 && window.thous % 2 != 0 && window.sixteenoddcheck == 0) {
-            window.resultdes1 =
-                "The thousands place (fourth digit from right) of the dividend is an ODD number (" + window.thous +
-                "). ";
-            window.resultdes2 =
-                "The number '8' added to the number formed by the last three digits (hundreds, tens and ones place) (" +
-                window.threedigits + "+ 8 =" + (window.threedigits + 8) + ") is a multiple of 16.";
-            window.resultdes3 = " ";
-            window.biganswer = window.yes;
-        } else if (window.divisor == 16 && window.thous % 2 == 0 && window.sixteenevencheck != 0) {
-            window.resultdes1 =
-                "The thousands place (fourth digit from right) of the dividend is an EVEN number (" + window.thous +
-                ").";
-            window.resultdes2 = "The number formed by the last three digits (hundreds, tens and ones place) (" +
-                window.threedigits + ") is NOT a multiple of 16.";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 16 && window.thous % 2 != 0 && window.sixteenoddcheck != 0) {
-            window.resultdes1 =
-                "The thousands place (fourth digit from right) of the dividend is an ODD number (" + window.thous +
-                ").";
-            window.resultdes2 =
-                "The number '8' added to the number formed by the last three digits (hundreds, tens and ones place) (" +
-                window.threedigits + "+ 8 =" + (window.threedigits + 8) + ") is NOT multiple of 16.";
-            window.resultdes3 = " ";
-            window.biganswer = window.no;
-        } else if (window.divisor == 1) {
-            document.getElementById("biganswer").innerHTML = "";
-        }
-        document.getElementById("divirulehead").innerHTML = "Divisibility Rule for " + window.divisor + " :";
-        document.getElementById("diviresultdes").innerHTML = "Now apply the Divisibility Rule for " + window.divisor +
-            " on " + window.finaldividend + " : ";
-        document.getElementById("diviresultdes1").innerHTML = window.resultdes1;
-        document.getElementById("diviresultdes2").innerHTML = window.resultdes2;
-        document.getElementById("diviresultdes3").innerHTML = window.resultdes3;
-          document.getElementById("isdivisible").innerHTML = "Is " + window.finaldividend + " divisible by " + window.divisor + " ?";
-        document.getElementById("biganswer").innerHTML = window.biganswer;
-
-        // 🌟 LOCK CORRECT BLACK FILLS & INCORRECT RED FILLS (v31 DUAL GAMEPLAY)
-        let selectedInput = document.querySelector('.six input[type="radio"][value="' + window.divisor + '"]');
-        if (selectedInput) {
-            if (window.biganswer === window.yes) {
-                // Correct Choice -> Permanent Black Fill
-                selectedInput.classList.add('correct-fill');
-                selectedInput.setAttribute('data-correct', 'true');
-                
-                // Remove any old red stamp
-                selectedInput.classList.remove('incorrect-fill');
-                selectedInput.removeAttribute('data-incorrect');
-            } else {
-                // Incorrect Choice -> Permanent Red Fill
-                selectedInput.classList.add('incorrect-fill');
-                selectedInput.setAttribute('data-incorrect', 'true');
-                
-                // Remove any old black stamp
-                selectedInput.classList.remove('correct-fill');
-                selectedInput.removeAttribute('data-correct');
-            }
-        }
-    }
-
-
- // 🌟 1. DEFINE S RAJARAJAN'S UPDATED RESET FUNCTION
-    function resetDivisorButtons() {
-        document.querySelectorAll('input[type="radio"]').forEach(input => {
-            // Wash away black fills
-            input.classList.remove('correct-fill');
-            input.removeAttribute('data-correct'); 
-            
-            // Wash away red fills
-            input.classList.remove('incorrect-fill');
-            input.removeAttribute('data-incorrect'); 
-            
-            input.checked = false; // Reset to hollow unchecked states
-        });
-    }
-
-    // ✅ REPLACE WITH THIS UNIFIED, CONTEXT-AWARE LISTENER:
-    let randomdividendcall = document.querySelector("#randomdividendbutton");
-    if (randomdividendcall) {
-        randomdividendcall.addEventListener('click', function() {
-        randomdividend();
-        resetDivisorButtons(); // Safely clears any active black or red divisor boxes
-    });
-}
-    
-    let divisorcall = document.querySelector("#randomdividendbox");
-    divisorcall.addEventListener('change', divisorbuttonenable);
-
-
-    // Attach sync triggers to S Rajarajan's main action buttons:
-    let randomBtnCall = document.querySelector("#randomdividendbutton");
-    if (randomBtnCall) {
-        randomBtnCall.addEventListener('click', updateDividendGuideline);
-    }
-    let newBtnCall = document.querySelector("#newdividendbutton");
-    if (newBtnCall) {
-        newBtnCall.addEventListener('click', updateDividendGuideline);
-    }
-
-
-// 🌟 Stepper Arrow Event Listeners
-    let dividendBox = document.getElementById("randomdividendbox");
-    if (dividendBox) {
-    dividendBox.addEventListener('input', validateChallengeStart);
-    dividendBox.addEventListener('change', validateChallengeStart);
-}
-
-/* ===================================================================
-   📧 WEB3FORMS SCORECARD EMAIL GENERATOR
-   =================================================================== */
-
-function sendBackgroundEmail() {
-    // 🌟 PASTE YOUR WEB3FORMS ACCESS KEY HERE:
-    const WEB3FORMS_ACCESS_KEY = "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b";
-
-    let name = document.getElementById("studentName").value.trim() || "Type Your Name";
-    let mobile = document.getElementById("studentMobile").value.trim() || "Your Mobile Number";
-    let btn = document.getElementById("sendReportBtn");
-
-    if (btn) {
-        btn.disabled = true;
-        btn.value = "Sending Scorecard...";
-    }
-
-    let origDividend = window.originalDividend || window.cdividend1 || "N/A";
-    let finalDividend = window.finaldividend || window.cdividend2 || "N/A";
-    let deviation = window.cdividendspan || 0;
-    let timeTaken = window.celapsedtime || 0;
-    let divisorsCleared = window.cdivcleared || 0;
-    let totalHits = window.totalchits || 0;
-    let reportId = (window.seconds + 13) * 2 + (window.day + 17) * 6 + (window.months + 15) * 7 + (window.celapsedtime + 11) * 3 + (window.cdivcleared + 19) * 4;
-
-    // Construct Click Profile lines matching the on-screen table EXACTLY
-    let clickProfileLines = [];
-    for (let i = 2; i <= 16; i++) {
-        let clicks = window["try" + i] || 0;
-        let isCleared = window.clearedDivisorsMap && window.clearedDivisorsMap[i];
-
-        let line = "Divisor " + i + ": " + clicks + " clicks";
-        if (isCleared) {
-            line += " ✔";
-        }
-        clickProfileLines.push(line);
-    }
-
-    // Construct email text payload
-    let emailBody = "STUDENT MATH SCORECARD REPORT\n";
-    emailBody += "========================================\n\n";
-    emailBody += "Student Name: " + name + "\n";
-    emailBody += "Mobile Number: " + mobile + "\n";
-    emailBody += "Report ID: " + reportId + "\n\n";
-    emailBody += "CHALLENGE STATISTICS\n";
-    emailBody += "--------------------\n";
-    emailBody += "Time Taken: " + timeTaken + " seconds\n";
-    emailBody += "Original Random Dividend: " + origDividend + "\n";
-    emailBody += "Final Adjusted Dividend: " + finalDividend + "\n";
-    emailBody += "Total Deviation Gap: " + deviation + "\n";
-    emailBody += "Divisors Cleared: " + divisorsCleared + " / 15\n";
-    emailBody += "Total Clicks (Hits): " + totalHits + "\n\n";
-    emailBody += "CLICK PROFILE BY DIVISOR:\n";
-    emailBody += clickProfileLines.join("\n");
-
-    // 🌟 WEB3FORMS API ENDPOINT & PAYLOAD STRUCTURE
-    fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            access_key: WEB3FORMS_ACCESS_KEY,
-            subject: "Math Scorecard Report - " + name,
-            from_name: "Divisibility Rule App",
-            name: name,
-            mobile: mobile,
-            message: emailBody
-        })
-    })
-    .then(async (response) => {
-        let json = await response.json();
-        if (response.status === 200 && json.success) {
-            if (btn) {
-                btn.style.background = "#2E7D32";
-                btn.value = "Report Sent successfully! ✔";
-            }
-            alert("Scorecard emailed successfully to author!");
-        } else {
-            throw new Error(json.message || "Form submission failed");
-        }
-    })
-    .catch(error => {
-        if (btn) {
-            btn.disabled = false;
-            btn.value = "Submit Scorecard to Teacher's Email";
-        }
-        alert("Failed to send email: " + error.message);
-    });
-}
-
-
-    
-    </script>
 </body>
-
 </html>
-
+```

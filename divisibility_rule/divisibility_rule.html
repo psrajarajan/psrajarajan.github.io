@@ -1,0 +1,1188 @@
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Divisibility Rule">
+    <meta name="keywords" content="Divisibility Rule in Maths,Divisibility,Divisibility Rule, Divisibility Rule in Mathematics">
+    <meta name="author" content="Rajarajan Seetharaman">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RAJARAJAN TESTING WEBSITE</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="responsive-style-v31.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        html {
+            font-size: 16px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            font-size: 1rem;
+            background-color: #FFFFFF;
+            margin: 8px;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        }
+        h1 {
+            font-size: 2.2rem;
+            display: inline-block;
+            margin-bottom: 0;
+            margin-top: 0;
+            line-height: 1.2;
+        }
+        input[type="radio"].correct-fill {
+            background-color: #000000 !important;
+            box-shadow: inset 0 0 0 20px #000000 !important;
+        }
+        input[type="radio"].incorrect-fill {
+            background-color: #D32F2F !important;
+            box-shadow: inset 0 0 0 20px #D32F2F !important;
+        }
+        input[type=radio] {
+            border: 2px solid #8B0000;
+            padding: 0.3rem;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        input[type=radio]:disabled {
+            cursor: not-allowed;
+            opacity: 0.4;
+            border-color: #CCCCCC;
+        }
+        input[type=button]:disabled, button:disabled {
+            cursor: not-allowed !important;
+            opacity: 0.5 !important;
+            filter: grayscale(50%) !important;
+        }
+        label {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #003F87;
+            font-weight: bold;
+            margin: 0.2rem;
+            height: 52px;
+            min-height: 52px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        label input[type="radio"] {
+            display: block;
+            margin: 0.2rem auto 0 auto;
+        }
+        fieldset {
+            border: 1px solid #003F87;
+            border-radius: 10px;
+            padding: 6px 8px;
+            background-color: #F9FBFD;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        legend {
+            font-weight: bold;
+            color: #003F87;
+            padding: 0 6px;
+            font-size: 1rem;
+        }
+        .group-label {
+            font-weight: 800;
+            color: #003F87;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        .dbuttons {
+            border: none !important;
+            border-radius: 8px !important;
+            color: #FFFFFF !important;
+            font-weight: bold !important;
+            cursor: pointer !important;
+            background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
+            padding: 10px 18px !important;
+            font-size: 1rem !important;
+            margin: 6px auto !important;
+            width: 100% !important;
+            max-width: 250px !important;
+            text-align: center !important;
+        }
+        .restart-btn {
+            background: linear-gradient(135deg, #C62828 0%, #E53935 100%) !important;
+            margin-top: 6px !important;
+        }
+        .start-action-btn {
+            background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
+            margin-top: 8px !important;
+            display: block;
+        }
+        .stop-action-btn {
+            background: linear-gradient(135deg, #E65100 0%, #F57C00 100%) !important;
+        }
+        .quit-action-btn {
+            background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important;
+        }
+        .check-btn {
+            background-color: #B71C1C !important;
+            color: #FFFFFF !important;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-top: 8px;
+            transition: background-color 0.2s;
+        }
+        .check-btn:hover {
+            background-color: #D32F2F !important;
+        }
+        .dtextbox {
+            background-color: #FFFFFF;
+            border: 2px solid #003F87;
+            border-radius: 8px;
+            color: #42526C;
+            padding: 8px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            outline: none;
+            width: 100%;
+            max-width: 250px;
+            margin: 6px auto;
+        }
+        .dtextbox::placeholder {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #003F87 !important;
+            opacity: 0.7 !important;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            opacity: 1 !important;
+            height: 30px;
+            cursor: pointer;
+        }
+        input[type=number] {
+            -moz-appearance: number-input;
+        }
+        .dividendgroup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6px;
+        }
+        .one {
+            padding: 16px !important;
+            border-radius: 12px !important;
+            background-color: #003F87 !important;
+            color: #FFFFFF !important;
+            text-align: center !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+        }
+        .one h1, .one p { color: #FFFFFF !important; }
+
+        .result-yes-no {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin: 8px 0 4px 0;
+        }
+        .result-yes { color: #1B5E20; }
+        .result-no { color: #B71C1C; }
+
+        .custom-divisor-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 12px 0;
+            background-color: #F9FBFD;
+            border: 1px dashed #003F87;
+            border-radius: 10px;
+            padding: 12px;
+        }
+        .custom-divisor-input {
+            width: 150px;
+            padding: 6px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #003F87;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .explanation-container {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 18px;
+            margin-top: 12px;
+            font-size: 0.98rem;
+            line-height: 1.55;
+            color: #212121;
+        }
+        .explanation-title {
+            color: #B58900;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .explanation-subtitle {
+            color: #B58900;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        .highlight-blue { color: #0033CC; font-weight: bold; }
+        .highlight-red { color: #B71C1C; font-weight: bold; }
+        .step-list { margin-left: 5px; padding-left: 0; list-style: none; }
+        .step-list li { margin-bottom: 6px; }
+        .legend-box {
+            font-weight: bold;
+            color: #003F87;
+            background-color: #F0F4F8;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 8px 0;
+            word-break: break-all;
+        }
+        .execution-steps {
+            font-weight: bold;
+            line-height: 1.7;
+            color: #003399;
+            word-break: break-word;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Report Modal Styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10000;
+        }
+        .report-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 22px;
+            max-width: 650px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 3px solid #003F87;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .report-header {
+            text-align: center;
+            border-bottom: 2px solid #003F87;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        .report-header h2 { color: #003F87; margin: 0 0 4px 0; font-size: 1.5rem; }
+        .report-meta { font-size: 0.85rem; color: #555; display: flex; justify-content: space-between; margin-top: 4px; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+            background: #F4F7FA;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .stat-item { font-size: 0.92rem; color: #333; }
+        .stat-item strong { color: #003F87; }
+        .click-profile-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 0.88rem;
+        }
+        .click-profile-table th, .click-profile-table td {
+            border: 1px solid #CBD5E1;
+            padding: 5px 8px;
+            text-align: center;
+        }
+        .click-profile-table th {
+            background-color: #003F87;
+            color: #FFFFFF;
+        }
+        .email-form-box {
+            background: #EBF3FA;
+            border: 1px solid #BEE0F6;
+            padding: 14px;
+            border-radius: 8px;
+            margin-top: 12px;
+            text-align: center;
+        }
+        .email-form-box input {
+            width: 100%;
+            max-width: 380px;
+            padding: 8px;
+            margin: 4px auto 10px auto;
+            display: block;
+            border: 1px solid #94A3B8;
+            border-radius: 4px;
+            font-size: 0.92rem;
+            text-align: center;
+        }
+        .submit-scorecard-btn {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%) !important;
+            width: 100% !important;
+            max-width: 320px !important;
+            margin: 8px auto !important;
+            display: block !important;
+            text-align: center !important;
+        }
+        .close-restart-btn {
+            width: 100% !important;
+            max-width: 320px !important;
+            margin: 14px auto 0 auto !important;
+            display: block !important;
+            text-align: center !important;
+        }
+
+        .radio-cleared-hidden {
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        @media screen and (min-width: 768px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 15px;
+                align-items: center;
+            }
+            .one { grid-column: 1 / 4 !important; grid-row: 1 !important; width: 100% !important; }
+            .three { grid-column: 1 / 2 !important; grid-row: 2 !important; }
+            .four  { grid-column: 2 / 3 !important; grid-row: 2 !important; align-self: center !important; }
+            .five  { grid-column: 3 / 4 !important; grid-row: 2 !important; }
+
+            .six   { grid-column: 1 / 2 !important; grid-row: 3 !important; }
+            .nine  { grid-column: 2 / 3 !important; grid-row: 3 !important; }
+            .eight { grid-column: 3 / 4 !important; grid-row: 3 !important; }
+
+            .theory-tester-wrapper { grid-column: 1 / 4 !important; grid-row: 4 !important; width: 100% !important; }
+            .explanation-wrapper { grid-column: 1 / 4 !important; grid-row: 5 !important; width: 100% !important; }
+        }
+        .navbar { display: none !important; }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <div class="one">
+            <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
+            <p style="font-weight: bold; margin-top: 8px;">Created by S Rajarajan</p>
+        </div>
+
+        <div class="three">
+            <form action="" name="digitsForm">
+                <fieldset style="text-align:center;">
+                    <legend align="center">Choose number of Digits for Dividend</legend>
+                    <label for="digit2"> 2 <input type="radio" name="digits" id="digit2" value="2" onclick="digitsbutton();"> </label>
+                    <label for="digit3"> 3 <input type="radio" name="digits" id="digit3" value="3" onclick="digitsbutton();"> </label>
+                    <label for="digit4"> 4 <input type="radio" name="digits" id="digit4" value="4" onclick="digitsbutton();"> </label>
+                    <label for="digit5"> 5 <input type="radio" name="digits" id="digit5" value="5" onclick="digitsbutton();"> </label>
+                    <label for="digit6"> 6 <input type="radio" name="digits" id="digit6" value="6" onclick="digitsbutton();"> </label>
+                    <label for="digit7"> 7 <input type="radio" name="digits" id="digit7" value="7" onclick="digitsbutton();"> </label>
+                    <label for="digit8"> 8 <input type="radio" name="digits" id="digit8" value="8" onclick="digitsbutton();"> </label>
+                    <label for="digit9"> 9 <input type="radio" name="digits" id="digit9" value="9" onclick="digitsbutton();"> </label>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="four">
+            <input type="button" id="randomdividendbutton" value="Generate Random Dividend" class="dbuttons" onclick="randomdividend();" disabled />
+            <input type="button" id="restartappbutton" value="Restart Application" class="dbuttons restart-btn" onclick="restartApplication();" style="display:none;" />
+        </div>
+
+        <div class="five">
+            <div class="dividendgroup">
+                <label style="font-size:18px;font-weight:bold;color:#003F87;height:auto;min-height:0;">Dividend</label>
+                <input type="number" id="randomdividendbox" class="dtextbox" value="" placeholder="Select the number of digits first" disabled oninput="if(this.value.length > 15) this.value = this.value.slice(0, 15); onDividendEdited();" />
+                <label id="edit-guideline" style="font-size:13px;font-weight:bold;margin-top:4px;color:#003F87;height:auto;min-height:0;">You can edit dividend (max 15 digits)</label>
+            </div>
+        </div>
+
+        <div class="six">
+            <div class="group-label">1. Learn by Practice</div>
+            <form action="" name="divisorForm">
+                <fieldset style="text-align: center;">
+                    <legend align="center">Click the correct divisor(s) for the given dividend</legend>
+                    <label for="divisor2"> 2 <input type="radio" name="divisor" id="divisor2" value="2" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor3"> 3 <input type="radio" name="divisor" id="divisor3" value="3" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor4"> 4 <input type="radio" name="divisor" id="divisor4" value="4" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor5"> 5 <input type="radio" name="divisor" id="divisor5" value="5" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor6"> 6 <input type="radio" name="divisor" id="divisor6" value="6" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor7"> 7 <input type="radio" name="divisor" id="divisor7" value="7" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor8"> 8 <input type="radio" name="divisor" id="divisor8" value="8" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor9"> 9 <input type="radio" name="divisor" id="divisor9" value="9" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor10"> 10 <input type="radio" name="divisor" id="divisor10" value="10" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor11"> 11 <input type="radio" name="divisor" id="divisor11" value="11" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor12"> 12 <input type="radio" name="divisor" id="divisor12" value="12" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor13"> 13 <input type="radio" name="divisor" id="divisor13" value="13" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor14"> 14 <input type="radio" name="divisor" id="divisor14" value="14" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor15"> 15 <input type="radio" name="divisor" id="divisor15" value="15" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor16"> 16 <input type="radio" name="divisor" id="divisor16" value="16" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="nine">
+            <div class="group-label">2. Learn by Theory</div>
+            <form action="" name="gendivisorForm">
+                <fieldset style="text-align:center;">
+                    <legend align="center">Check the Divisibility rule for any Divisor</legend>
+                    <label for="checkdivisor"> Check Divisor <input type="radio" name="gendivisor" id="checkdivisor" value="Check" onclick="onTheoryModeClick();" disabled> </label>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="eight">
+            <div class="group-label">3. Start Challenge</div>
+            <div id="quizbutton" style="text-align: center;">
+                <input type="button" id="quiz" value="Start Challenge" class="dbuttons" onclick="togglequiz();" />
+                <input type="button" id="startchallengeactionbtn" value="Start" class="dbuttons start-action-btn" onclick="handleChallengeAction();" style="display:none;" />
+            </div>
+        </div>
+
+        <div class="theory-tester-wrapper" id="theory-tester-section" style="display:none;">
+            <div class="result-yes-no" id="result-text" style="display:none;">NO</div>
+            <div class="custom-divisor-box" id="custom-divisor-box" style="display:none;">
+                <label id="divisor-input-label" style="font-size:15px; font-weight:bold; color:#003F87; margin-bottom: 4px; height:auto; min-height:0;">Enter Any Divisor:</label>
+                <input type="number" id="customdivisorinput" class="custom-divisor-input" value="3" min="1" step="1" onkeydown="if(event.key==='Enter') checkCustomDivisor();" />
+                <span style="font-size: 12px; color: #003F87; font-weight: bold; margin-top: 4px;">Use arrows or type any divisor</span>
+                <button type="button" class="check-btn" id="check-divisor-btn" onclick="checkCustomDivisor();">Check Divisor</button>
+            </div>
+        </div>
+
+        <div class="explanation-wrapper" id="explanation-wrapper" style="display:none;">
+            <div class="explanation-container">
+                <div class="explanation-title" id="rule-heading">Divisibility Rule for 3</div>
+                
+                <p><span class="highlight-blue">Believe it or not!</span> there is a single <span class="highlight-blue">divisibility rule available to test ALL odd numbers</span>, that Includes all prime numbers except 2 & 5. No more struggles to remember different divisibility rules for different ODD numbers. For any odd number, the divisibility rule is the same. Wow! Is that so simple?... Wait... Please don't get so excited. A small 'if' clause to be introduced in this statement. For any odd number that ends with <span class="highlight-blue">1, 3, 7, 9</span> the divisibility rule is the same. It means this common rule is not applicable for any odd number that ends with 5. Hope this exception does not disappoint us, because we do not want any extra rule for the odd number that ends with 5. We already know a simple rule for that (i.e. the last digit of the dividend must be '5' or '0')</p>
+                
+                <p style="margin-top: 10px;">Before go into the rule, let us recall the <span class="highlight-red">Stem and Leaf</span> concept. For a given number, 'Leaf' part is the last digit (ones place) of that number and 'Stem' part is the other digits of that number. If the number is 24873, 3 is 'leaf' and 2487 is 'stem'.</p>
+
+                <p style="margin-top: 10px;">Below is the <span style="color:#800080; font-weight:bold;">Generalised (or Universal) Divisibility Rule</span> for any Odd number that ends with <span class="highlight-blue">1, 3, 7, 9</span><br>Let the dividend be 'N' and divisor be 'D'. To check the divisibility of 'D' on 'N', follow these steps.</p>
+
+                <ul class="step-list">
+                    <li><strong>Step1:</strong> Break the dividend 'N' into 'Leaf' (L) and 'Stem'(S).</li>
+                    <li><strong>Step2:</strong> If the last digit of the divisor (D) is not 9, we have to modify the divisor to make its last digit as 9. That means, If the last digit of the divisor is 1, we have to multiply it with 9; If the last digit of the divisor is 3, we have to multiply it with 3; If the last digit of the divisor is 7, we have to multiply it with 7; If the last digit of the divisor is 9, no change is required.</li>
+                    <li><strong>Step3:</strong> Add '1' to the modified divisor (same divisor if its last digit is already '9') got in 'Step2' and divide the result by 10. Let this final number be R.</li>
+                    <li><strong>Step4:</strong> Calculate the value C as <strong>C = S + (R * L)</strong>.<br>
+                    <span class="highlight-red" style="font-size: 0.92rem;">**A very important note:** If (D-R) is a convenient smaller positive number compare to R itself, the formula for finding 'C' is re-written as C = S - (R' * L), where R' = (D-R), but we should stick to ONLY either one formula throughout the process of calculating C value (Re-call the Divisibility Rule for 7, mentioned earlier in this application).</span><br>
+                    Repeat this calculation, every time using C as a new dividend 'N' and until C becomes a smaller number to quickly inspect whether it is a multiply of 'D'.</li>
+                    <li><strong>Step5:</strong> If final C is divisible by 'D', then the original number 'N' is divisible by the divisor 'D'</li>
+                </ul>
+
+                <div class="explanation-subtitle" id="dividend-test-title">Is 8465320 divisible by 3 ?</div>
+                <p><strong id="apply-subtitle">Now apply the Divisibility Rule for 3 on 8465320 :</strong></p>
+
+                <div class="legend-box" id="legend-text">
+                    Legend: N: 8465320 ; D: 3 ; R: 1 ==> ((( 3 x 3 ) + 1)/10) = (9 + 1)/10 = (1)
+                </div>
+
+                <div class="execution-steps" id="execution-steps-text">
+                    (1) L * R: 0 ; S: 846532; C: 846532
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal-overlay" id="report-modal" style="display:none;">
+        <div class="report-card">
+            <div class="report-header">
+                <h2>Challenge Performance Report</h2>
+                <div class="report-meta">
+                    <span id="report-date">Date: 2026-10-08</span>
+                    <span id="report-id">Report ID: DIV-84729</span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">Original Dividend: <strong id="rep-orig-dividend">--</strong></div>
+                <div class="stat-item">Latest Dividend: <strong id="rep-latest-dividend">--</strong></div>
+                <div class="stat-item">Dividend Deviation: <strong id="rep-deviation">0</strong></div>
+                <div class="stat-item">Time Taken: <strong id="rep-time-taken">0s</strong></div>
+                <div class="stat-item">Cleared Divisors: <strong id="rep-cleared-count">0 / 15</strong></div>
+                <div class="stat-item">Total Click Hits: <strong id="rep-total-hits">0</strong></div>
+            </div>
+
+            <h3 style="color:#003F87; margin-bottom:8px; font-size:1.1rem; text-align:center;">Divisor Click Profile Table</h3>
+            <table class="click-profile-table">
+                <thead>
+                    <tr>
+                        <th>Divisor</th>
+                        <th>Click Hits</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="click-profile-tbody">
+                    <!-- Populated dynamically -->
+                </tbody>
+            </table>
+
+            <div class="email-form-box">
+                <h4 style="margin:0 0 8px 0; color:#003F87;">Submit Scorecard to Teacher</h4>
+                <label style="display:block; text-align:center; font-size:0.85rem; color:#333; margin:0 0 4px 0; height:auto; min-height:0;">Student Name (Capital Letters):</label>
+                <input type="text" id="student-name-input" placeholder="Enter Your Name" style="text-transform:uppercase;" />
+                
+                <label style="display:block; text-align:center; font-size:0.85rem; color:#333; margin:4px 0; height:auto; min-height:0;">Mobile Number (Optional):</label>
+                <input type="text" id="student-mobile-input" placeholder="Mobile no. (Opiton)" />
+
+                <button type="button" class="dbuttons submit-scorecard-btn" onclick="sendWeb3FormsEmail();">Submit Scorecard via Web3Forms Email</button>
+            </div>
+
+            <button type="button" class="dbuttons restart-btn close-restart-btn" onclick="closeReportAndRestart();">Close & Restart Application</button>
+        </div>
+    </div>
+
+    <script language="javascript" type="text/javascript">
+        var currentMode = "";
+        var challengeState = "idle";
+        var challengeTimer = null;
+        var challengeSeconds = 0;
+
+        var originalChallengeDividend = "";
+        var divisorHits = {};
+        var clearedDivisors = {};
+
+        function initDivisorTracker() {
+            divisorHits = {};
+            clearedDivisors = {};
+            for (var d = 2; d <= 16; d++) {
+                divisorHits[d] = 0;
+                clearedDivisors[d] = false;
+            }
+        }
+        initDivisorTracker();
+
+        function clearPracticeFills() {
+            var divisorRadios = document.getElementsByName("divisor");
+            for (var j = 0; j < divisorRadios.length; j++) {
+                divisorRadios[j].checked = false;
+                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill", "radio-cleared-hidden");
+            }
+        }
+
+        function digitsbutton() {
+            var digitsRadios = document.getElementsByName("digits");
+            var selectedVal = null;
+            for (var i = 0; i < digitsRadios.length; i++) {
+                if (digitsRadios[i].checked) {
+                    selectedVal = digitsRadios[i].value;
+                    break;
+                }
+            }
+            var randomBtn = document.getElementById("randomdividendbutton");
+            if (randomBtn && selectedVal) {
+                randomBtn.disabled = false;
+                randomBtn.value = "Get " + selectedVal + " digits dividend";
+            }
+        }
+
+        function randomdividend() {
+            var digitsRadios = document.getElementsByName("digits");
+            var selectedValue = "7";
+            for (var i = 0; i < digitsRadios.length; i++) {
+                if (digitsRadios[i].checked) {
+                    selectedValue = digitsRadios[i].value;
+                    break;
+                }
+            }
+
+            var numDigits = parseInt(selectedValue, 10);
+            var min = Math.pow(10, numDigits - 1);
+            var max = Math.pow(10, numDigits) - 1;
+            var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            var dividendBox = document.getElementById("randomdividendbox");
+            if (dividendBox) {
+                dividendBox.value = randomNum;
+                dividendBox.disabled = false;
+            }
+
+            clearPracticeFills();
+            
+            if (challengeState === "idle") {
+                enableAllModes();
+            }
+
+            if (currentMode === "theory") {
+                checkCustomDivisor();
+            }
+        }
+
+        function enableAllModes() {
+            var divisorRadios = document.getElementsByName("divisor");
+            for (var j = 0; j < divisorRadios.length; j++) {
+                divisorRadios[j].disabled = false;
+            }
+
+            var genDivisorRadios = document.getElementsByName("gendivisor");
+            for (var k = 0; k < genDivisorRadios.length; k++) {
+                genDivisorRadios[k].disabled = false;
+            }
+
+            var quizBtn = document.getElementById("quiz");
+            if (quizBtn) quizBtn.disabled = false;
+        }
+
+        function onDividendEdited() {
+            if (currentMode === "theory") {
+                checkCustomDivisor();
+            }
+        }
+
+        function onPracticeDivisorClick(selectedRadio) {
+            var dividendBox = document.getElementById("randomdividendbox");
+            if (!dividendBox || !dividendBox.value) return;
+
+            var dVal = parseInt(selectedRadio.value, 10);
+            divisorHits[dVal] = (divisorHits[dVal] || 0) + 1;
+
+            var BigN = BigInt(dividendBox.value.toString().trim());
+            var BigD = BigInt(selectedRadio.value);
+            var isCorrect = (BigN % BigD === 0n);
+
+            if (challengeState === "active" || currentMode === "challenge") {
+                var actionBtn = document.getElementById("startchallengeactionbtn");
+                if (actionBtn && actionBtn.value === "Start") {
+                    actionBtn.value = "Stop";
+                    actionBtn.className = "dbuttons start-action-btn stop-action-btn";
+                }
+
+                if (isCorrect) {
+                    clearedDivisors[dVal] = true;
+                    selectedRadio.classList.add("radio-cleared-hidden");
+                } else {
+                    selectedRadio.classList.add("incorrect-fill");
+                    selectedRadio.classList.remove("correct-fill");
+                }
+            } else if (currentMode !== "theory") {
+                currentMode = "practice";
+                
+                var customBox = document.getElementById("custom-divisor-box");
+                if (customBox) customBox.style.display = "none";
+
+                if (isCorrect) {
+                    selectedRadio.classList.add("correct-fill");
+                    selectedRadio.classList.remove("incorrect-fill");
+                } else {
+                    selectedRadio.classList.add("incorrect-fill");
+                    selectedRadio.classList.remove("correct-fill");
+                }
+
+                var expWrapper = document.getElementById("explanation-wrapper");
+                var resultText = document.getElementById("result-text");
+                var theorySection = document.getElementById("theory-tester-section");
+
+                if (resultText) {
+                    resultText.style.display = "block";
+                    resultText.textContent = isCorrect ? "YES" : "NO";
+                    resultText.className = "result-yes-no " + (isCorrect ? "result-yes" : "result-no");
+                }
+                if (theorySection) {
+                    theorySection.style.display = "block";
+                }
+                if (expWrapper) {
+                    expWrapper.style.display = "block";
+                }
+
+                updateDivisibilityExplanation(dividendBox.value.toString().trim(), selectedRadio.value, isCorrect);
+            }
+        }
+
+        function onTheoryModeClick() {
+            currentMode = "theory";
+
+            var radio = document.getElementById("checkdivisor");
+            if (radio) {
+                radio.classList.add("correct-fill");
+            }
+
+            var divisorRadios = document.getElementsByName("divisor");
+            for (var j = 0; j < divisorRadios.length; j++) {
+                divisorRadios[j].checked = false;
+                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill", "radio-cleared-hidden");
+                divisorRadios[j].disabled = true;
+            }
+
+            var restartBtn = document.getElementById("restartappbutton");
+            if (restartBtn) restartBtn.style.display = "block";
+
+            var theorySection = document.getElementById("theory-tester-section");
+            if (theorySection) theorySection.style.display = "block";
+
+            var customBox = document.getElementById("custom-divisor-box");
+            if (customBox) customBox.style.display = "flex";
+
+            var customInput = document.getElementById("customdivisorinput");
+            if (customInput && (!customInput.value || customInput.value === "0")) {
+                customInput.value = "3";
+            }
+
+            checkCustomDivisor();
+        }
+
+        function checkCustomDivisor() {
+            var dividendBox = document.getElementById("randomdividendbox");
+            var customInput = document.getElementById("customdivisorinput");
+            var resultText = document.getElementById("result-text");
+            var expWrapper = document.getElementById("explanation-wrapper");
+            var theorySection = document.getElementById("theory-tester-section");
+            var customBox = document.getElementById("custom-divisor-box");
+
+            if (theorySection) theorySection.style.display = "block";
+            if (customBox) customBox.style.display = "flex";
+
+            if (!customInput || !customInput.value) return;
+            var DStr = customInput.value.toString().trim();
+
+            if (!dividendBox || !dividendBox.value) {
+                if (resultText) resultText.style.display = "none";
+                if (expWrapper) expWrapper.style.display = "none";
+                return;
+            }
+
+            var NStr = dividendBox.value.toString().trim();
+            if (!NStr || !DStr) return;
+
+            var BigN, BigD;
+            try {
+                BigN = BigInt(NStr);
+                BigD = BigInt(DStr);
+            } catch(e) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            if (BigD <= 0n) {
+                alert("Divisor must be greater than 0.");
+                return;
+            }
+
+            var isDivisible = (BigN % BigD === 0n);
+
+            if (resultText) {
+                resultText.style.display = "block";
+                if (isDivisible) {
+                    resultText.textContent = "YES";
+                    resultText.className = "result-yes-no result-yes";
+                } else {
+                    resultText.textContent = "NO";
+                    resultText.className = "result-yes-no result-no";
+                }
+            }
+
+            if (expWrapper) expWrapper.style.display = "block";
+
+            updateDivisibilityExplanation(NStr, DStr, isDivisible);
+        }
+
+        function updateDivisibilityExplanation(NStr, DStr, isDivisible) {
+            var BigN = BigInt(NStr);
+            var BigD = BigInt(DStr);
+
+            document.getElementById("rule-heading").textContent = "Divisibility Rule for " + DStr;
+            document.getElementById("dividend-test-title").textContent = "Is " + NStr + " divisible by " + DStr + " ?";
+            document.getElementById("apply-subtitle").textContent = "Now apply the Divisibility Rule for " + DStr + " on " + NStr + " :";
+
+            var lastDigitD = Number(BigD % 10n);
+
+            if ([1, 3, 7, 9].includes(lastDigitD)) {
+                var m = 1;
+                if (lastDigitD === 1) m = 9;
+                else if (lastDigitD === 3) m = 3;
+                else if (lastDigitD === 7) m = 7;
+                else if (lastDigitD === 9) m = 1;
+
+                var BigM = BigInt(m);
+                var DPrime = BigD * BigM;
+                var R = (DPrime + 1n) / 10n;
+
+                var legendStr = "Legend: N: " + NStr + " ; D: " + DStr + " ; R: " + R.toString() + " ==> ((( " + DStr + " x " + m + " ) + 1)/10) = (" + DPrime.toString() + " + 1)/10 = (" + R.toString() + ")";
+                document.getElementById("legend-text").textContent = legendStr;
+
+                var currN = NStr;
+                var step = 1;
+                var stepStrings = [];
+                var visited = {};
+
+                while (true) {
+                    if (!currN || visited[currN]) break;
+                    visited[currN] = true;
+
+                    var leaf = BigInt(currN.slice(-1));
+                    var stemStr = currN.length > 1 ? currN.slice(0, -1) : "0";
+                    var stem = BigInt(stemStr);
+
+                    var lr = leaf * R;
+                    var C = stem + lr;
+
+                    stepStrings.push("(" + step + ") L * R: " + lr.toString() + " ; S: " + stem.toString() + "; C: " + C.toString());
+
+                    currN = C.toString();
+                    step++;
+
+                    if (C <= BigD || step > 20) break;
+                    if (currN.length >= NStr.length && step > 5) break;
+                }
+
+                document.getElementById("execution-steps-text").textContent = stepStrings.join(", ");
+            } else if (lastDigitD === 5) {
+                document.getElementById("legend-text").textContent = "Divisor ends in 5: Check if last digit of " + NStr + " is '0' or '5'.";
+                var lastDigit = NStr.slice(-1);
+                document.getElementById("execution-steps-text").textContent = "Last digit of " + NStr + " is '" + lastDigit + "' ==> " + (isDivisible ? "Divisible by " + DStr : "Not divisible by " + DStr);
+            } else {
+                var tempD = BigD;
+                var a = 0;
+                while (tempD % 2n === 0n) {
+                    tempD = tempD / 2n;
+                    a++;
+                }
+                var oddPart = tempD;
+                var pow2 = BigInt(Math.pow(2, a));
+                var isPow2Div = (BigN % pow2 === 0n);
+
+                document.getElementById("legend-text").textContent = "Even Divisor " + DStr + ": Factored into Power of 2 (" + pow2.toString() + ") and Odd Factor (" + oddPart.toString() + ").";
+
+                var stepList = [];
+                stepList.push("1. Check " + pow2.toString() + " (2^" + a + "): Last " + a + " digit(s) '" + NStr.slice(-a) + "' -> " + (isPow2Div ? "Divisible" : "Not divisible"));
+
+                if (oddPart > 1n) {
+                    var isOddDiv = (BigN % oddPart === 0n);
+                    stepList.push("2. Check Odd Factor " + oddPart.toString() + ": " + (isOddDiv ? "Divisible" : "Not divisible"));
+                }
+
+                stepList.push("Overall: " + (isDivisible ? "Divisible by " + DStr : "Not divisible by " + DStr));
+                document.getElementById("execution-steps-text").textContent = stepList.join(" | ");
+            }
+        }
+
+        function togglequiz() {
+            var digitsRadios = document.getElementsByName("digits");
+            for (var i = 0; i < digitsRadios.length; i++) {
+                digitsRadios[i].disabled = true;
+            }
+
+            var restartBtn = document.getElementById("restartappbutton");
+            if (restartBtn) restartBtn.style.display = "block";
+
+            var digit5Radio = document.getElementById("digit5");
+            if (digit5Radio) digit5Radio.checked = true;
+
+            var randomBtn = document.getElementById("randomdividendbutton");
+            if (randomBtn) {
+                randomBtn.disabled = false;
+                randomBtn.value = "Get 5 digits dividend";
+            }
+
+            var min = 10001, max = 99999;
+            var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            var dividendBox = document.getElementById("randomdividendbox");
+            if (dividendBox) {
+                dividendBox.value = randomNum;
+                dividendBox.disabled = true;
+            }
+
+            var divisorRadios = document.getElementsByName("divisor");
+            for (var j = 0; j < divisorRadios.length; j++) {
+                divisorRadios[j].disabled = true;
+                divisorRadios[j].checked = false;
+                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill", "radio-cleared-hidden");
+            }
+
+            var checkDivisorRadio = document.getElementById("checkdivisor");
+            if (checkDivisorRadio) {
+                checkDivisorRadio.checked = false;
+                checkDivisorRadio.disabled = true;
+                checkDivisorRadio.classList.remove("correct-fill");
+            }
+
+            var theorySection = document.getElementById("theory-tester-section");
+            if (theorySection) theorySection.style.display = "none";
+
+            var customBox = document.getElementById("custom-divisor-box");
+            if (customBox) customBox.style.display = "none";
+
+            var expWrapper = document.getElementById("explanation-wrapper");
+            if (expWrapper) expWrapper.style.display = "none";
+
+            var actionBtn = document.getElementById("startchallengeactionbtn");
+
+            if (randomNum % 2 !== 0) {
+                challengeState = "ready";
+                originalChallengeDividend = randomNum.toString();
+
+                if (actionBtn) {
+                    actionBtn.style.display = "block";
+                    actionBtn.value = "Start";
+                    actionBtn.className = "dbuttons start-action-btn";
+                }
+            } else {
+                challengeState = "idle";
+                if (actionBtn) {
+                    actionBtn.style.display = "none";
+                }
+            }
+        }
+
+        function handleChallengeAction() {
+            var actionBtn = document.getElementById("startchallengeactionbtn");
+            if (!actionBtn) return;
+
+            if (actionBtn.value === "Start") {
+                challengeState = "active";
+                currentMode = "challenge";
+
+                var checkDivisorRadio = document.getElementById("checkdivisor");
+                if (checkDivisorRadio) {
+                    checkDivisorRadio.checked = false;
+                    checkDivisorRadio.disabled = true;
+                    checkDivisorRadio.classList.remove("correct-fill");
+                }
+
+                var theorySection = document.getElementById("theory-tester-section");
+                if (theorySection) theorySection.style.display = "none";
+
+                var customBox = document.getElementById("custom-divisor-box");
+                if (customBox) customBox.style.display = "none";
+
+                var expWrapper = document.getElementById("explanation-wrapper");
+                if (expWrapper) expWrapper.style.display = "none";
+
+                var divisorRadios = document.getElementsByName("divisor");
+                for (var j = 0; j < divisorRadios.length; j++) {
+                    divisorRadios[j].disabled = false;
+                }
+
+                var dividendBox = document.getElementById("randomdividendbox");
+                if (dividendBox) {
+                    dividendBox.disabled = false;
+                }
+
+                actionBtn.value = "Stop";
+                actionBtn.className = "dbuttons start-action-btn stop-action-btn";
+
+                challengeSeconds = 0;
+                initDivisorTracker();
+                if (challengeTimer) clearInterval(challengeTimer);
+                challengeTimer = setInterval(function() { challengeSeconds++; }, 1000);
+
+            } else if (actionBtn.value === "Stop") {
+                challengeState = "stopped";
+                if (challengeTimer) clearInterval(challengeTimer);
+
+                var divisorRadios = document.getElementsByName("divisor");
+                for (var j = 0; j < divisorRadios.length; j++) {
+                    divisorRadios[j].disabled = true;
+                    var dVal = parseInt(divisorRadios[j].value, 10);
+                    if (clearedDivisors[dVal]) {
+                        divisorRadios[j].classList.remove("radio-cleared-hidden");
+                        divisorRadios[j].classList.add("correct-fill");
+                    }
+                }
+
+                actionBtn.value = "Quit";
+                actionBtn.className = "dbuttons start-action-btn quit-action-btn";
+
+            } else if (actionBtn.value === "Quit") {
+                openReportModal();
+            }
+        }
+
+        function openReportModal() {
+            var dividendBox = document.getElementById("randomdividendbox");
+            var latestDiv = dividendBox ? dividendBox.value.toString().trim() : "--";
+
+            var origN = BigInt(originalChallengeDividend || "0");
+            var latestN = BigInt(latestDiv || "0");
+            var deviation = (latestN - origN).toString();
+
+            document.getElementById("rep-orig-dividend").textContent = originalChallengeDividend || "--";
+            document.getElementById("rep-latest-dividend").textContent = latestDiv;
+            document.getElementById("rep-deviation").textContent = (deviation >= 0 ? "+" : "") + deviation;
+            document.getElementById("rep-time-taken").textContent = challengeSeconds + "s";
+
+            var clearedCount = 0;
+            var totalHits = 0;
+            var tbody = document.getElementById("click-profile-tbody");
+            tbody.innerHTML = "";
+
+            for (var d = 2; d <= 16; d++) {
+                var hits = divisorHits[d] || 0;
+                totalHits += hits;
+                var isClr = clearedDivisors[d];
+                if (isClr) clearedCount++;
+
+                var tr = document.createElement("tr");
+                tr.innerHTML = "<td><strong>Divisor " + d + "</strong></td>" +
+                               "<td>" + hits + "</td>" +
+                               "<td>" + (isClr ? "<span style='color:#1B5E20; font-weight:bold;'>✓ Cleared</span>" : "<span style='color:#B71C1C;'>--</span>") + "</td>";
+                tbody.appendChild(tr);
+            }
+
+            document.getElementById("rep-cleared-count").textContent = clearedCount + " / 15";
+            document.getElementById("rep-total-hits").textContent = totalHits;
+
+            var today = new Date().toISOString().split('T')[0];
+            var randId = "DIV-" + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById("report-date").textContent = "Date: " + today;
+            document.getElementById("report-id").textContent = "Report ID: " + randId;
+
+            document.getElementById("report-modal").style.display = "flex";
+        }
+
+        function closeReportAndRestart() {
+            document.getElementById("report-modal").style.display = "none";
+            restartApplication();
+        }
+
+        function sendWeb3FormsEmail() {
+            var name = document.getElementById("student-name-input").value.trim().toUpperCase();
+            var mobile = document.getElementById("student-mobile-input").value.trim();
+
+            if (!name) {
+                alert("Please enter Student Name in capital letters.");
+                return;
+            }
+
+            var origDiv = document.getElementById("rep-orig-dividend").textContent;
+            var latestDiv = document.getElementById("rep-latest-dividend").textContent;
+            var dev = document.getElementById("rep-deviation").textContent;
+            var timeTaken = document.getElementById("rep-time-taken").textContent;
+
+            var payload = {
+                access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b",
+                subject: "Divisibility Challenge Scorecard - " + name,
+                from_name: "Divisibility App",
+                message: "Student Name: " + name + "\\n" +
+                         "Mobile: " + (mobile || "N/A") + "\\n" +
+                         "Original Dividend: " + origDiv + "\\n" +
+                         "Latest Dividend: " + latestDiv + "\\n" +
+                         "Deviation: " + dev + "\\n" +
+                         "Time Taken: " + timeTaken + "\\n" +
+                         "Cleared Divisors: " + document.getElementById("rep-cleared-count").textContent + "\\n" +
+                         "Total Click Hits: " + document.getElementById("rep-total-hits").textContent
+            };
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                alert("Scorecard submitted successfully via Web3Forms!");
+            })
+            .catch(function(err) {
+                alert("Scorecard logged locally. Thank you!");
+            });
+        }
+
+        function restartApplication() {
+            currentMode = "";
+            challengeState = "idle";
+            if (challengeTimer) clearInterval(challengeTimer);
+
+            var digitsRadios = document.getElementsByName("digits");
+            for (var i = 0; i < digitsRadios.length; i++) {
+                digitsRadios[i].checked = false;
+                digitsRadios[i].disabled = false;
+            }
+
+            var randomBtn = document.getElementById("randomdividendbutton");
+            if (randomBtn) {
+                randomBtn.disabled = true;
+                randomBtn.value = "Generate Random Dividend";
+            }
+
+            var restartBtn = document.getElementById("restartappbutton");
+            if (restartBtn) restartBtn.style.display = "none";
+
+            var actionBtn = document.getElementById("startchallengeactionbtn");
+            if (actionBtn) actionBtn.style.display = "none";
+
+            var quizBtn = document.getElementById("quiz");
+            if (quizBtn) quizBtn.disabled = false;
+
+            var dividendBox = document.getElementById("randomdividendbox");
+            if (dividendBox) {
+                dividendBox.value = "";
+                dividendBox.placeholder = "Select the number of digits first";
+                dividendBox.disabled = true;
+            }
+
+            clearPracticeFills();
+
+            var divisorRadios = document.getElementsByName("divisor");
+            for (var j = 0; j < divisorRadios.length; j++) {
+                divisorRadios[j].disabled = true;
+            }
+
+            var genDivisorRadios = document.getElementsByName("gendivisor");
+            for (var k = 0; k < genDivisorRadios.length; k++) {
+                genDivisorRadios[k].checked = false;
+                genDivisorRadios[k].disabled = true;
+                genDivisorRadios[k].classList.remove("correct-fill");
+            }
+
+            var theorySection = document.getElementById("theory-tester-section");
+            if (theorySection) theorySection.style.display = "none";
+
+            var customBox = document.getElementById("custom-divisor-box");
+            if (customBox) customBox.style.display = "none";
+
+            var resultText = document.getElementById("result-text");
+            if (resultText) resultText.style.display = "none";
+
+            var expWrapper = document.getElementById("explanation-wrapper");
+            if (expWrapper) expWrapper.style.display = "none";
+        }
+
+        window.onload = function() {
+            restartApplication();
+        };
+    </script>
+</body>
+</html>
+```
