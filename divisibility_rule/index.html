@@ -110,9 +110,9 @@
             line-height: 1;
         }
 
-        /* Video Section Styling */
+        /* Video Section Styling (Transparent Wrapper, No Black Box) */
         .video-container {
-            background-color: #F1F5F9;
+            background-color: #F8FAFC;
             border: 2px solid #003F87;
             border-radius: 12px;
             padding: 20px;
@@ -124,7 +124,7 @@
             color: #003F87;
             font-size: 1.3rem;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -134,25 +134,30 @@
             position: relative;
             width: 100%;
             max-width: 800px;
+            padding-bottom: 56.25%;
+            height: 0;
             margin: 0 auto;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            background-color: #000000;
+            background-color: transparent;
         }
-        .video-wrapper video {
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            border: 0;
+            border-radius: 10px;
         }
         .video-caption {
-            font-size: 0.9rem;
-            color: #475569;
-            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #334155;
+            margin-top: 12px;
             font-weight: 600;
         }
 
-        /* Layout Preview - Non-clickable & Default Cursor */
+        /* Non-Clickable Application Layout Preview */
         .preview-container {
             background-color: #FFFFFF;
             border: 2px solid #003F87;
@@ -161,19 +166,11 @@
             margin-top: 10px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
             cursor: default !important;
-            user-select: none;
         }
-        .preview-container *, 
-        .preview-container input, 
-        .preview-container button, 
-        .preview-container label, 
-        .preview-container .dbuttons, 
-        .preview-container .start-challenge-btn, 
-        .preview-container .check-divisor-btn {
+        .preview-container * {
             cursor: default !important;
             pointer-events: none !important;
         }
-
         .preview-title {
             color: #003F87;
             font-size: 1.35rem;
@@ -386,26 +383,23 @@
             </div>
         </div>
 
-       <!-- Guidance Video Player Container (YouTube Embed) -->
-<div class="video-container">
-    <div class="video-title">
-        <span>📹 Application Guidance & Walkthrough Video</span>
-    </div>
-    <div class="video-wrapper">
-        <div class="video-wrapper">
-   <iframe 
-            src="https://www.youtube.com/embed/7MA5fC0ix7Y" 
-            title="Divisibility Application Guidance & Walkthrough" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-</div>
-
-    </div>
-    <div class="video-caption">
-        Watch the complete walkthrough demonstrating Learn by Practice, Learn by Theory, and Challenge Mode!
-    </div>
-</div>
+        <!-- Guidance Video Player Container (YouTube Embed) -->
+        <div class="video-container">
+            <div class="video-title">
+                <span>📹 Application Guidance & Walkthrough Video</span>
+            </div>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/7MA5fC0ix7Y" 
+                    title="Divisibility Application Guidance & Walkthrough" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-caption">
+                Watch the complete walkthrough demonstrating Learn by Practice, Learn by Theory, and Challenge Mode!
+            </div>
+        </div>
 
         <!-- Application Layout Preview Section -->
         <div class="preview-container">
