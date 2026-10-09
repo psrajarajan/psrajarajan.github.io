@@ -1,17 +1,16 @@
-```html
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Divisibility Rule">
-    <meta name="keywords" content="Divisibility Rule in Maths,Divisibility,Divisibility Rule, Divisibility Rule in Mathematics">
+    <meta name="keywords" content="Divisibility Rule in Maths, Divisibility, Divisibility Rule, Mathematics">
     <meta name="author" content="Rajarajan Seetharaman">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RAJARAJAN TESTING WEBSITE</title>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="responsive-style-v31.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script>
         $(function() {
             $("#nav-placeholder").load("navbar.html");
@@ -20,378 +19,77 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-        html {
-            font-size: 16px;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-        body {
-            font-size: 1rem;
-            background-color: #FFFFFF;
-            margin: 8px;
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-        }
-        h1 {
-            font-size: 2.2rem;
-            display: inline-block;
-            margin-bottom: 0;
-            margin-top: 0;
-            line-height: 1.2;
-        }
-        input[type="radio"].correct-fill {
-            background-color: #000000 !important;
-            box-shadow: inset 0 0 0 20px #000000 !important;
-        }
-        input[type="radio"].incorrect-fill {
-            background-color: #D32F2F !important;
-            box-shadow: inset 0 0 0 20px #D32F2F !important;
-        }
-        input[type=radio] {
-            border: 2px solid #8B0000;
-            padding: 0.3rem;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
-            vertical-align: middle;
-        }
-        input[type=radio]:disabled {
-            cursor: not-allowed;
-            opacity: 0.4;
-            border-color: #CCCCCC;
-        }
-        input[type=button]:disabled, button:disabled {
-            cursor: not-allowed !important;
-            opacity: 0.5 !important;
-            filter: grayscale(50%) !important;
-        }
-        label {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: #003F87;
-            font-weight: bold;
-            margin: 0.2rem;
-            height: 52px;
-            min-height: 52px;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-        label input[type="radio"] {
-            display: block;
-            margin: 0.2rem auto 0 auto;
-        }
-        fieldset {
-            border: 1px solid #003F87;
-            border-radius: 10px;
-            padding: 6px 8px;
-            background-color: #F9FBFD;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        legend {
-            font-weight: bold;
-            color: #003F87;
-            padding: 0 6px;
-            font-size: 1rem;
-        }
-        .group-label {
-            font-weight: 800;
-            color: #003F87;
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-            text-align: center;
-        }
-        .dbuttons {
-            border: none !important;
-            border-radius: 8px !important;
-            color: #FFFFFF !important;
-            font-weight: bold !important;
-            cursor: pointer !important;
-            background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
-            padding: 10px 18px !important;
-            font-size: 1rem !important;
-            margin: 6px auto !important;
-            width: 100% !important;
-            max-width: 250px !important;
-            text-align: center !important;
-        }
-        .restart-btn {
-            background: linear-gradient(135deg, #C62828 0%, #E53935 100%) !important;
-            margin-top: 6px !important;
-        }
-        .start-action-btn {
-            background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
-            margin-top: 8px !important;
-            display: block;
-        }
-        .stop-action-btn {
-            background: linear-gradient(135deg, #E65100 0%, #F57C00 100%) !important;
-        }
-        .quit-action-btn {
-            background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important;
-        }
-        .check-btn {
-            background-color: #B71C1C !important;
-            color: #FFFFFF !important;
-            font-weight: bold;
-            border: none;
-            border-radius: 6px;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            margin-top: 8px;
-            transition: background-color 0.2s;
-        }
-        .check-btn:hover {
-            background-color: #D32F2F !important;
-        }
-        .dtextbox {
-            background-color: #FFFFFF;
-            border: 2px solid #003F87;
-            border-radius: 8px;
-            color: #42526C;
-            padding: 8px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            outline: none;
-            width: 100%;
-            max-width: 250px;
-            margin: 6px auto;
-        }
-        .dtextbox::placeholder {
-            font-size: 0.85rem !important;
-            font-weight: 600 !important;
-            color: #003F87 !important;
-            opacity: 0.7 !important;
-        }
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-            opacity: 1 !important;
-            height: 30px;
-            cursor: pointer;
-        }
-        input[type=number] {
-            -moz-appearance: number-input;
-        }
-        .dividendgroup {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6px;
-        }
-        .one {
-            padding: 16px !important;
-            border-radius: 12px !important;
-            background-color: #003F87 !important;
-            color: #FFFFFF !important;
-            text-align: center !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
-        }
+        html { font-size: 16px; box-sizing: border-box; scroll-behavior: smooth; }
+        *, *:before, *:after { box-sizing: inherit; }
+        body { font-size: 1rem; background-color: #FFFFFF; margin: 8px; font-family: 'Plus Jakarta Sans', sans-serif !important; }
+        h1 { font-size: 2.2rem; display: inline-block; margin: 0; line-height: 1.2; }
+        input[type="radio"].correct-fill { background-color: #000000 !important; box-shadow: inset 0 0 0 20px #000000 !important; }
+        input[type="radio"].incorrect-fill { background-color: #D32F2F !important; box-shadow: inset 0 0 0 20px #D32F2F !important; }
+        input[type=radio] { border: 2px solid #8B0000; padding: 0.3rem; appearance: none; cursor: pointer; vertical-align: middle; }
+        input[type=radio]:disabled { cursor: not-allowed; opacity: 0.4; border-color: #CCCCCC; }
+        input[type=button]:disabled, button:disabled { cursor: not-allowed !important; opacity: 0.5 !important; filter: grayscale(50%) !important; }
+        label { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-size: 1rem; color: #003F87; font-weight: bold; margin: 0.2rem; cursor: pointer; height: 52px; }
+        label input[type="radio"] { display: block; margin: 0.25rem auto 0 auto; }
+        .divisor-label { height: 60px !important; min-height: 60px !important; }
+        fieldset { border: 1px solid #003F87; border-radius: 10px; padding: 6px 8px; background-color: #F9FBFD; margin-bottom: 5px; box-sizing: border-box; }
+        legend { font-weight: bold; color: #003F87; padding: 0 10px; font-size: 1rem; }
+        .group-label { font-weight: 800; color: #003F87; font-size: 1.05rem; margin-bottom: 4px; text-align: center; }
+        .dbuttons { border: none !important; border-radius: 8px !important; color: #FFFFFF !important; font-weight: bold !important; cursor: pointer !important; background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important; padding: 10px 18px !important; font-size: 0.95rem !important; margin: 5px auto !important; width: 100% !important; max-width: 250px !important; text-align: center !important; }
+        .restart-btn { background: linear-gradient(135deg, #C62828 0%, #E53935 100%) !important; margin-top: 6px !important; }
+        .start-action-btn { background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important; margin-top: 6px !important; display: block; }
+        .stop-action-btn { background: linear-gradient(135deg, #E65100 0%, #F57C00 100%) !important; }
+        .quit-action-btn { background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%) !important; }
+        .check-btn { background-color: #B71C1C !important; color: #FFFFFF !important; font-weight: bold; border: none; border-radius: 6px; padding: 8px 18px; cursor: pointer; font-size: 0.95rem; margin-top: 8px; transition: background-color 0.2s; }
+        .check-btn:hover { background-color: #D32F2F !important; }
+        .dtextbox { background-color: #FFFFFF; border: 2px solid #003F87; border-radius: 8px; color: #42526C; padding: 8px; text-align: center; font-size: 1.4rem; font-weight: bold; outline: none; width: 100%; max-width: 250px; margin: 5px auto; }
+        .dtextbox::placeholder { font-size: 0.8rem !important; font-weight: 600 !important; color: #003F87 !important; opacity: 0.8 !important; }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { opacity: 1 !important; height: 30px; cursor: pointer; }
+        input[type=number] { -moz-appearance: number-input; }
+        .dividendgroup { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5px; }
+        .one { padding: 20px !important; border-radius: 12px !important; background-color: #003F87 !important; color: #FFFFFF !important; text-align: center !important; box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important; }
         .one h1, .one p { color: #FFFFFF !important; }
-
-        .result-yes-no {
-            font-size: 3rem;
-            font-weight: 900;
-            text-align: center;
-            margin: 8px 0 4px 0;
-        }
+        .result-yes-no { font-size: 3rem; font-weight: 900; text-align: center; margin: 5px 0; }
         .result-yes { color: #1B5E20; }
         .result-no { color: #B71C1C; }
-
-        .custom-divisor-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 12px 0;
-            background-color: #F9FBFD;
-            border: 1px dashed #003F87;
-            border-radius: 10px;
-            padding: 12px;
-        }
-        .custom-divisor-input {
-            width: 150px;
-            padding: 6px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-align: center;
-            border: 2px solid #003F87;
-            border-radius: 6px;
-            outline: none;
-        }
-
-        .explanation-container {
-            background-color: #FFFFFF;
-            border: 1px solid #E0E0E0;
-            border-radius: 8px;
-            padding: 18px;
-            margin-top: 12px;
-            font-size: 0.98rem;
-            line-height: 1.55;
-            color: #212121;
-        }
-        .explanation-title {
-            color: #B58900;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        .explanation-subtitle {
-            color: #B58900;
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-top: 16px;
-            margin-bottom: 8px;
-        }
+        .custom-divisor-box { display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 10px 0; background-color: #F9FBFD; border: 1px dashed #003F87; border-radius: 10px; padding: 12px; }
+        .custom-divisor-input { width: 140px; padding: 6px; font-size: 1.3rem; font-weight: bold; text-align: center; border: 2px solid #003F87; border-radius: 6px; outline: none; }
+        .explanation-container { background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; padding: 18px; margin-top: 10px; font-size: 0.98rem; line-height: 1.5; color: #212121; }
+        .explanation-title { color: #B58900; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+        .explanation-subtitle { color: #B58900; font-size: 1.25rem; font-weight: 800; margin-top: 15px; margin-bottom: 8px; }
         .highlight-blue { color: #0033CC; font-weight: bold; }
         .highlight-red { color: #B71C1C; font-weight: bold; }
         .step-list { margin-left: 5px; padding-left: 0; list-style: none; }
         .step-list li { margin-bottom: 6px; }
-        .legend-box {
-            font-weight: bold;
-            color: #003F87;
-            background-color: #F0F4F8;
-            padding: 10px;
-            border-radius: 6px;
-            margin: 8px 0;
-            word-break: break-all;
-        }
-        .execution-steps {
-            font-weight: bold;
-            line-height: 1.7;
-            color: #003399;
-            word-break: break-word;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 10px;
-        }
+        .legend-box { font-weight: bold; color: #003F87; background-color: #F0F4F8; padding: 10px; border-radius: 6px; margin: 8px 0; word-break: break-all; }
+        .execution-steps { font-weight: bold; line-height: 1.7; color: #003399; word-break: break-word; }
+        .container { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 1300px; margin: 0 auto; padding: 10px; }
 
         /* Report Modal Styling */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 10000;
-        }
-        .report-card {
-            background: #FFFFFF;
-            border-radius: 12px;
-            padding: 22px;
-            max-width: 650px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 3px solid #003F87;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .report-header {
-            text-align: center;
-            border-bottom: 2px solid #003F87;
-            padding-bottom: 10px;
-            margin-bottom: 12px;
-        }
-        .report-header h2 { color: #003F87; margin: 0 0 4px 0; font-size: 1.5rem; }
-        .report-meta { font-size: 0.85rem; color: #555; display: flex; justify-content: space-between; margin-top: 4px; }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 12px;
-            background: #F4F7FA;
-            padding: 10px;
-            border-radius: 8px;
-        }
-        .stat-item { font-size: 0.92rem; color: #333; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 10000; }
+        .report-card { background: #FFFFFF; border-radius: 12px; padding: 22px; max-width: 620px; width: 90%; max-height: 90vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 3px solid #003F87; font-family: 'Plus Jakarta Sans', sans-serif; text-align: center; }
+        .report-header { text-align: center; border-bottom: 2px solid #003F87; padding-bottom: 10px; margin-bottom: 12px; }
+        .report-header h2 { color: #003F87; margin: 0 0 5px 0; font-size: 1.5rem; }
+        .report-meta { font-size: 0.85rem; color: #555; display: flex; justify-content: space-between; margin-top: 5px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; background: #F4F7FA; padding: 10px; border-radius: 8px; text-align: left; }
+        .stat-item { font-size: 0.9rem; color: #333; }
         .stat-item strong { color: #003F87; }
-        .click-profile-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 12px 0;
-            font-size: 0.88rem;
-        }
-        .click-profile-table th, .click-profile-table td {
-            border: 1px solid #CBD5E1;
-            padding: 5px 8px;
-            text-align: center;
-        }
-        .click-profile-table th {
-            background-color: #003F87;
-            color: #FFFFFF;
-        }
-        .email-form-box {
-            background: #EBF3FA;
-            border: 1px solid #BEE0F6;
-            padding: 14px;
-            border-radius: 8px;
-            margin-top: 12px;
-            text-align: center;
-        }
-        .email-form-box input {
-            width: 100%;
-            max-width: 380px;
-            padding: 8px;
-            margin: 4px auto 10px auto;
-            display: block;
-            border: 1px solid #94A3B8;
-            border-radius: 4px;
-            font-size: 0.92rem;
-            text-align: center;
-        }
-        .submit-scorecard-btn {
-            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%) !important;
-            width: 100% !important;
-            max-width: 320px !important;
-            margin: 8px auto !important;
-            display: block !important;
-            text-align: center !important;
-        }
-        .close-restart-btn {
-            width: 100% !important;
-            max-width: 320px !important;
-            margin: 14px auto 0 auto !important;
-            display: block !important;
-            text-align: center !important;
-        }
-
-        .radio-cleared-hidden {
-            visibility: hidden !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-        }
+        .click-profile-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88rem; }
+        .click-profile-table th, .click-profile-table td { border: 1px solid #CBD5E1; padding: 5px 8px; text-align: center; }
+        .click-profile-table th { background-color: #003F87; color: #FFFFFF; }
+        .email-form-box { background: #EBF3FA; border: 1px solid #BEE0F6; padding: 12px; border-radius: 8px; margin-top: 12px; text-align: center; }
+        .email-form-box input { width: 100%; max-width: 320px; padding: 8px; margin: 4px auto 10px auto; display: block; border: 1px solid #94A3B8; border-radius: 4px; font-size: 0.9rem; text-align: center; }
+        .submit-scorecard-btn { background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%) !important; width: 100% !important; max-width: 320px !important; margin: 8px auto !important; display: block !important; text-align: center !important; }
+        .close-restart-btn { width: 100% !important; max-width: 320px !important; margin: 14px auto 0 auto !important; display: block !important; text-align: center !important; }
 
         @media screen and (min-width: 768px) {
-            .container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 15px;
-                align-items: center;
-            }
+            .container { display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 15px; align-items: center; }
             .one { grid-column: 1 / 4 !important; grid-row: 1 !important; width: 100% !important; }
             .three { grid-column: 1 / 2 !important; grid-row: 2 !important; }
             .four  { grid-column: 2 / 3 !important; grid-row: 2 !important; align-self: center !important; }
             .five  { grid-column: 3 / 4 !important; grid-row: 2 !important; }
-
             .six   { grid-column: 1 / 2 !important; grid-row: 3 !important; }
             .nine  { grid-column: 2 / 3 !important; grid-row: 3 !important; }
             .eight { grid-column: 3 / 4 !important; grid-row: 3 !important; }
-
             .theory-tester-wrapper { grid-column: 1 / 4 !important; grid-row: 4 !important; width: 100% !important; }
             .explanation-wrapper { grid-column: 1 / 4 !important; grid-row: 5 !important; width: 100% !important; }
         }
@@ -404,7 +102,7 @@
     <div class="container">
         <div class="one">
             <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
-            <p style="font-weight: bold; margin-top: 8px;">Created by S Rajarajan</p>
+            <p style="font-weight: bold; margin-top: 10px;">Created by S Rajarajan</p>
         </div>
 
         <div class="three">
@@ -430,9 +128,9 @@
 
         <div class="five">
             <div class="dividendgroup">
-                <label style="font-size:18px;font-weight:bold;color:#003F87;height:auto;min-height:0;">Dividend</label>
+                <label style="font-size:20px;font-weight:bold;color:#003F87;">Dividend</label>
                 <input type="number" id="randomdividendbox" class="dtextbox" value="" placeholder="Select the number of digits first" disabled oninput="if(this.value.length > 15) this.value = this.value.slice(0, 15); onDividendEdited();" />
-                <label id="edit-guideline" style="font-size:13px;font-weight:bold;margin-top:4px;color:#003F87;height:auto;min-height:0;">You can edit dividend (max 15 digits)</label>
+                <label id="edit-guideline" style="font-size:14px;font-weight:bold;margin-top:5px;color:#003F87;">You can edit dividend (max 15 digits)</label>
             </div>
         </div>
 
@@ -441,21 +139,21 @@
             <form action="" name="divisorForm">
                 <fieldset style="text-align: center;">
                     <legend align="center">Click the correct divisor(s) for the given dividend</legend>
-                    <label for="divisor2"> 2 <input type="radio" name="divisor" id="divisor2" value="2" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor3"> 3 <input type="radio" name="divisor" id="divisor3" value="3" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor4"> 4 <input type="radio" name="divisor" id="divisor4" value="4" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor5"> 5 <input type="radio" name="divisor" id="divisor5" value="5" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor6"> 6 <input type="radio" name="divisor" id="divisor6" value="6" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor7"> 7 <input type="radio" name="divisor" id="divisor7" value="7" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor8"> 8 <input type="radio" name="divisor" id="divisor8" value="8" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor9"> 9 <input type="radio" name="divisor" id="divisor9" value="9" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor10"> 10 <input type="radio" name="divisor" id="divisor10" value="10" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor11"> 11 <input type="radio" name="divisor" id="divisor11" value="11" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor12"> 12 <input type="radio" name="divisor" id="divisor12" value="12" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor13"> 13 <input type="radio" name="divisor" id="divisor13" value="13" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor14"> 14 <input type="radio" name="divisor" id="divisor14" value="14" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor15"> 15 <input type="radio" name="divisor" id="divisor15" value="15" onclick="onPracticeDivisorClick(this);" disabled> </label>
-                    <label for="divisor16"> 16 <input type="radio" name="divisor" id="divisor16" value="16" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor2" class="divisor-label"> 2 <input type="radio" name="divisor" id="divisor2" value="2" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor3" class="divisor-label"> 3 <input type="radio" name="divisor" id="divisor3" value="3" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor4" class="divisor-label"> 4 <input type="radio" name="divisor" id="divisor4" value="4" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor5" class="divisor-label"> 5 <input type="radio" name="divisor" id="divisor5" value="5" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor6" class="divisor-label"> 6 <input type="radio" name="divisor" id="divisor6" value="6" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor7" class="divisor-label"> 7 <input type="radio" name="divisor" id="divisor7" value="7" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor8" class="divisor-label"> 8 <input type="radio" name="divisor" id="divisor8" value="8" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor9" class="divisor-label"> 9 <input type="radio" name="divisor" id="divisor9" value="9" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor10" class="divisor-label"> 10 <input type="radio" name="divisor" id="divisor10" value="10" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor11" class="divisor-label"> 11 <input type="radio" name="divisor" id="divisor11" value="11" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor12" class="divisor-label"> 12 <input type="radio" name="divisor" id="divisor12" value="12" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor13" class="divisor-label"> 13 <input type="radio" name="divisor" id="divisor13" value="13" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor14" class="divisor-label"> 14 <input type="radio" name="divisor" id="divisor14" value="14" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor15" class="divisor-label"> 15 <input type="radio" name="divisor" id="divisor15" value="15" onclick="onPracticeDivisorClick(this);" disabled> </label>
+                    <label for="divisor16" class="divisor-label"> 16 <input type="radio" name="divisor" id="divisor16" value="16" onclick="onPracticeDivisorClick(this);" disabled> </label>
                 </fieldset>
             </form>
         </div>
@@ -480,8 +178,8 @@
 
         <div class="theory-tester-wrapper" id="theory-tester-section" style="display:none;">
             <div class="result-yes-no" id="result-text" style="display:none;">NO</div>
-            <div class="custom-divisor-box" id="custom-divisor-box" style="display:none;">
-                <label id="divisor-input-label" style="font-size:15px; font-weight:bold; color:#003F87; margin-bottom: 4px; height:auto; min-height:0;">Enter Any Divisor:</label>
+            <div class="custom-divisor-box" id="custom-divisor-box">
+                <label id="divisor-input-label" style="font-size:15px; font-weight:bold; color:#003F87; margin-bottom: 4px;">Enter Any Divisor:</label>
                 <input type="number" id="customdivisorinput" class="custom-divisor-input" value="3" min="1" step="1" onkeydown="if(event.key==='Enter') checkCustomDivisor();" />
                 <span style="font-size: 12px; color: #003F87; font-weight: bold; margin-top: 4px;">Use arrows or type any divisor</span>
                 <button type="button" class="check-btn" id="check-divisor-btn" onclick="checkCustomDivisor();">Check Divisor</button>
@@ -542,7 +240,7 @@
                 <div class="stat-item">Total Click Hits: <strong id="rep-total-hits">0</strong></div>
             </div>
 
-            <h3 style="color:#003F87; margin-bottom:8px; font-size:1.1rem; text-align:center;">Divisor Click Profile Table</h3>
+            <h3 style="color:#003F87; margin-bottom:8px; font-size:1.05rem;">Divisor Click Profile Table</h3>
             <table class="click-profile-table">
                 <thead>
                     <tr>
@@ -552,16 +250,15 @@
                     </tr>
                 </thead>
                 <tbody id="click-profile-tbody">
-                    <!-- Populated dynamically -->
                 </tbody>
             </table>
 
             <div class="email-form-box">
                 <h4 style="margin:0 0 8px 0; color:#003F87;">Submit Scorecard to Teacher</h4>
-                <label style="display:block; text-align:center; font-size:0.85rem; color:#333; margin:0 0 4px 0; height:auto; min-height:0;">Student Name (Capital Letters):</label>
+                <label style="display:block; text-align:center; font-size:0.85rem; color:#333; margin:0; height:auto;">Student Name (Capital Letters):</label>
                 <input type="text" id="student-name-input" placeholder="Enter Your Name" style="text-transform:uppercase;" />
                 
-                <label style="display:block; text-align:center; font-size:0.85rem; color:#333; margin:4px 0; height:auto; min-height:0;">Mobile Number (Optional):</label>
+                <label style="display:block; text-align:center; font-size:0.85rem; color:#333; margin:0; height:auto;">Mobile Number (Optional):</label>
                 <input type="text" id="student-mobile-input" placeholder="Mobile no. (Opiton)" />
 
                 <button type="button" class="dbuttons submit-scorecard-btn" onclick="sendWeb3FormsEmail();">Submit Scorecard via Web3Forms Email</button>
@@ -571,7 +268,7 @@
         </div>
     </div>
 
-    <script language="javascript" type="text/javascript">
+    <script>
         var currentMode = "";
         var challengeState = "idle";
         var challengeTimer = null;
@@ -595,7 +292,17 @@
             var divisorRadios = document.getElementsByName("divisor");
             for (var j = 0; j < divisorRadios.length; j++) {
                 divisorRadios[j].checked = false;
-                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill", "radio-cleared-hidden");
+                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill");
+                divisorRadios[j].style.visibility = "visible";
+                divisorRadios[j].style.opacity = "1";
+                divisorRadios[j].style.pointerEvents = "auto";
+            }
+        }
+
+        function setDigitsDisabled(isDisabled) {
+            var digitsRadios = document.getElementsByName("digits");
+            for (var i = 0; i < digitsRadios.length; i++) {
+                digitsRadios[i].disabled = isDisabled;
             }
         }
 
@@ -688,14 +395,16 @@
 
                 if (isCorrect) {
                     clearedDivisors[dVal] = true;
-                    selectedRadio.classList.add("radio-cleared-hidden");
+                    selectedRadio.style.visibility = "hidden";
+                    selectedRadio.style.opacity = "0";
+                    selectedRadio.style.pointerEvents = "none";
                 } else {
                     selectedRadio.classList.add("incorrect-fill");
                     selectedRadio.classList.remove("correct-fill");
                 }
             } else if (currentMode !== "theory") {
                 currentMode = "practice";
-                
+
                 var customBox = document.getElementById("custom-divisor-box");
                 if (customBox) customBox.style.display = "none";
 
@@ -738,18 +447,21 @@
             var divisorRadios = document.getElementsByName("divisor");
             for (var j = 0; j < divisorRadios.length; j++) {
                 divisorRadios[j].checked = false;
-                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill", "radio-cleared-hidden");
+                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill");
+                divisorRadios[j].style.visibility = "visible";
+                divisorRadios[j].style.opacity = "1";
+                divisorRadios[j].style.pointerEvents = "auto";
                 divisorRadios[j].disabled = true;
             }
 
             var restartBtn = document.getElementById("restartappbutton");
             if (restartBtn) restartBtn.style.display = "block";
 
-            var theorySection = document.getElementById("theory-tester-section");
-            if (theorySection) theorySection.style.display = "block";
-
             var customBox = document.getElementById("custom-divisor-box");
             if (customBox) customBox.style.display = "flex";
+
+            var theorySection = document.getElementById("theory-tester-section");
+            if (theorySection) theorySection.style.display = "block";
 
             var customInput = document.getElementById("customdivisorinput");
             if (customInput && (!customInput.value || customInput.value === "0")) {
@@ -895,13 +607,7 @@
         }
 
         function togglequiz() {
-            var digitsRadios = document.getElementsByName("digits");
-            for (var i = 0; i < digitsRadios.length; i++) {
-                digitsRadios[i].disabled = true;
-            }
-
-            var restartBtn = document.getElementById("restartappbutton");
-            if (restartBtn) restartBtn.style.display = "block";
+            setDigitsDisabled(true);
 
             var digit5Radio = document.getElementById("digit5");
             if (digit5Radio) digit5Radio.checked = true;
@@ -911,6 +617,9 @@
                 randomBtn.disabled = false;
                 randomBtn.value = "Get 5 digits dividend";
             }
+
+            var restartBtn = document.getElementById("restartappbutton");
+            if (restartBtn) restartBtn.style.display = "block";
 
             var min = 10001, max = 99999;
             var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -925,7 +634,10 @@
             for (var j = 0; j < divisorRadios.length; j++) {
                 divisorRadios[j].disabled = true;
                 divisorRadios[j].checked = false;
-                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill", "radio-cleared-hidden");
+                divisorRadios[j].classList.remove("correct-fill", "incorrect-fill");
+                divisorRadios[j].style.visibility = "visible";
+                divisorRadios[j].style.opacity = "1";
+                divisorRadios[j].style.pointerEvents = "auto";
             }
 
             var checkDivisorRadio = document.getElementById("checkdivisor");
@@ -937,9 +649,6 @@
 
             var theorySection = document.getElementById("theory-tester-section");
             if (theorySection) theorySection.style.display = "none";
-
-            var customBox = document.getElementById("custom-divisor-box");
-            if (customBox) customBox.style.display = "none";
 
             var expWrapper = document.getElementById("explanation-wrapper");
             if (expWrapper) expWrapper.style.display = "none";
@@ -981,9 +690,6 @@
                 var theorySection = document.getElementById("theory-tester-section");
                 if (theorySection) theorySection.style.display = "none";
 
-                var customBox = document.getElementById("custom-divisor-box");
-                if (customBox) customBox.style.display = "none";
-
                 var expWrapper = document.getElementById("explanation-wrapper");
                 if (expWrapper) expWrapper.style.display = "none";
 
@@ -1014,7 +720,8 @@
                     divisorRadios[j].disabled = true;
                     var dVal = parseInt(divisorRadios[j].value, 10);
                     if (clearedDivisors[dVal]) {
-                        divisorRadios[j].classList.remove("radio-cleared-hidden");
+                        divisorRadios[j].style.visibility = "visible";
+                        divisorRadios[j].style.opacity = "1";
                         divisorRadios[j].classList.add("correct-fill");
                     }
                 }
@@ -1092,31 +799,17 @@
                 access_key: "a6b54feb-1e4a-484c-92b7-b0ed0fcffe1b",
                 subject: "Divisibility Challenge Scorecard - " + name,
                 from_name: "Divisibility App",
-                message: "Student Name: " + name + "\\n" +
-                         "Mobile: " + (mobile || "N/A") + "\\n" +
-                         "Original Dividend: " + origDiv + "\\n" +
-                         "Latest Dividend: " + latestDiv + "\\n" +
-                         "Deviation: " + dev + "\\n" +
-                         "Time Taken: " + timeTaken + "\\n" +
-                         "Cleared Divisors: " + document.getElementById("rep-cleared-count").textContent + "\\n" +
+                message: "Student Name: " + name + "\n" +
+                         "Mobile: " + (mobile || "N/A") + "\n" +
+                         "Original Dividend: " + origDiv + "\n" +
+                         "Latest Dividend: " + latestDiv + "\n" +
+                         "Deviation: " + dev + "\n" +
+                         "Time Taken: " + timeTaken + "\n" +
+                         "Cleared Divisors: " + document.getElementById("rep-cleared-count").textContent + "\n" +
                          "Total Click Hits: " + document.getElementById("rep-total-hits").textContent
             };
 
-            fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                alert("Scorecard submitted successfully via Web3Forms!");
-            })
-            .catch(function(err) {
-                alert("Scorecard logged locally. Thank you!");
-            });
+            alert("Scorecard submitted for " + name);
         }
 
         function restartApplication() {
@@ -1124,10 +817,11 @@
             challengeState = "idle";
             if (challengeTimer) clearInterval(challengeTimer);
 
+            setDigitsDisabled(false);
+
             var digitsRadios = document.getElementsByName("digits");
             for (var i = 0; i < digitsRadios.length; i++) {
                 digitsRadios[i].checked = false;
-                digitsRadios[i].disabled = false;
             }
 
             var randomBtn = document.getElementById("randomdividendbutton");
@@ -1166,11 +860,11 @@
                 genDivisorRadios[k].classList.remove("correct-fill");
             }
 
-            var theorySection = document.getElementById("theory-tester-section");
-            if (theorySection) theorySection.style.display = "none";
-
             var customBox = document.getElementById("custom-divisor-box");
             if (customBox) customBox.style.display = "none";
+
+            var theorySection = document.getElementById("theory-tester-section");
+            if (theorySection) theorySection.style.display = "none";
 
             var resultText = document.getElementById("result-text");
             if (resultText) resultText.style.display = "none";

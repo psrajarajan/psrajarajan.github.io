@@ -1,15 +1,21 @@
-```html
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Divisibility Rule Instructions">
-    <meta name="keywords" content="Divisibility Rule, Mathematics, Study Guide, Instructions">
+    <meta name="description" content="Divisibility Rule Instruction Page">
+    <meta name="keywords" content="Divisibility Rule in Maths, Divisibility, Divisibility Rule, Mathematics">
     <meta name="author" content="Rajarajan Seetharaman">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisibility Rule - Instructions & Overview</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Divisibility Rule - Instructions</title>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="responsive-style-v31.css">
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
@@ -33,318 +39,475 @@
             margin-bottom: 0;
             margin-top: 0;
             line-height: 1.2;
+        }
+
+        .header-box {
+            background: linear-gradient(135deg, #003F87 0%, #002554 100%);
             color: #FFFFFF;
-        }
-        .header-banner {
-            padding: 18px !important;
-            border-radius: 12px !important;
-            background-color: #003F87 !important;
-            color: #FFFFFF !important;
-            text-align: center !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
-            margin-bottom: 20px;
-        }
-        .header-banner h1, .header-banner p {
-            color: #FFFFFF !important;
-        }
-
-        .intro-box {
-            background-color: #F0F4F8;
-            border: 2px solid #003F87;
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-            color: #003F87;
-            line-height: 1.6;
-        }
-        .intro-box p {
-            margin: 0 0 10px 0;
-        }
-        .intro-box strong.bold-msg {
-            font-weight: 700 !important;
-            font-size: 1.05rem;
-            color: #002D62;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 10px;
-        }
-
-        .preview-section-title {
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 63, 135, 0.15);
             text-align: center;
-            color: #003F87;
-            font-size: 1.6rem;
+        }
+        .header-box h1 {
+            color: #FFFFFF;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin: 20px 0 15px 0;
-            border-bottom: 2px solid #003F87;
-            padding-bottom: 8px;
+        }
+        .header-box p {
+            margin: 6px 0 0 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            font-weight: 500;
         }
 
-        /* Top Layout Row inside Preview */
-        .preview-top-row {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .intro-container {
+            background-color: #F8FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 18px 22px;
             margin-bottom: 20px;
+        }
+        .intro-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1E293B;
+            line-height: 1.6;
+            margin: 0 0 16px 0;
+        }
+
+        .launch-btn-container {
+            text-align: center;
+            margin: 16px 0 8px 0;
+        }
+        .launch-btn {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            font-weight: 800;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 125, 50, 0.4);
+            background: linear-gradient(135deg, #338E3C 0%, #1E6B23 100%);
+        }
+        .launch-btn .arrow-mark {
+            font-weight: 900;
+            font-size: 1.6rem;
+            margin-left: 14px;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        /* Video Section Styling */
+        .video-container {
+            background-color: #F1F5F9;
+            border: 2px solid #003F87;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 63, 135, 0.08);
+        }
+        .video-title {
+            color: #003F87;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: #000000;
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .video-caption {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        /* Layout Preview - Non-clickable & Default Cursor */
+        .preview-container {
+            background-color: #FFFFFF;
+            border: 2px solid #003F87;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            cursor: default !important;
+            user-select: none;
+        }
+        .preview-container *, 
+        .preview-container input, 
+        .preview-container button, 
+        .preview-container label, 
+        .preview-container .dbuttons, 
+        .preview-container .start-challenge-btn, 
+        .preview-container .check-divisor-btn {
+            cursor: default !important;
+            pointer-events: none !important;
+        }
+
+        .preview-title {
+            color: #003F87;
+            font-size: 1.35rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .top-controls-preview {
+            background-color: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         fieldset {
-            border: 1px solid #003F87;
-            border-radius: 10px;
-            padding: 6px 8px;
-            background-color: #F9FBFD;
-            margin-bottom: 10px;
-            box-sizing: border-box;
+            border: 2px solid #003F87;
+            border-radius: 8px;
+            padding: 4px 6px;
+            margin-bottom: 0;
+            background-color: #FFFFFF;
         }
         legend {
-            font-weight: bold;
+            font-weight: 700;
             color: #003F87;
             padding: 0 6px;
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
-        label {
-            display: inline-flex;
+
+        .digits-flex {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 8px;
+        }
+        .digit-item {
+            display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
             color: #003F87;
-            font-weight: bold;
-            margin: 0.2rem;
-            height: 52px;
-            min-height: 52px;
-            box-sizing: border-box;
-            cursor: pointer;
         }
-        label input[type="radio"] {
-            display: block;
-            margin: 0.2rem auto 0 auto;
-        }
-        input[type=radio] {
-            border: 2px solid #8B0000;
-            padding: 0.3rem;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
-            vertical-align: middle;
+        .digit-item input[type="radio"] {
+            margin-top: 1px;
+            width: 13px;
+            height: 13px;
         }
 
         .dbuttons {
-            border: none !important;
-            border-radius: 8px !important;
-            color: #FFFFFF !important;
-            font-weight: bold !important;
-            cursor: pointer !important;
-            background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%) !important;
-            padding: 10px 18px !important;
-            font-size: 1rem !important;
-            margin: 6px auto !important;
-            width: 100% !important;
-            max-width: 250px !important;
-            text-align: center !important;
-            display: block;
-        }
-        .launch-btn {
-            background: linear-gradient(135deg, #0D47A1 0%, #1976D2 100%) !important;
-            font-size: 1.15rem !important;
-            padding: 12px 24px !important;
-            max-width: 320px !important;
-            text-decoration: none !important;
-            display: inline-block !important;
-            color: #FFFFFF !important;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .dtextbox {
-            background-color: #FFFFFF;
-            border: 2px solid #003F87;
-            border-radius: 8px;
-            color: #42526C;
-            padding: 8px;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            outline: none;
-            width: 100%;
-            max-width: 280px;
-            margin: 6px auto;
-            display: block;
-        }
-        .dtextbox::placeholder {
-            font-size: 0.85rem !important;
-            font-weight: 600 !important;
-            color: #003F87 !important;
-            opacity: 0.7 !important;
+            background-color: #2E7D32;
+            color: white;
+            font-weight: 700;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            white-space: nowrap;
         }
 
         .dividendgroup {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 6px;
         }
-
-        .group-label {
-            font-weight: 800;
+        .dtextbox {
+            width: 260px;
+            padding: 4px 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
             color: #003F87;
-            font-size: 1.05rem;
-            margin-bottom: 6px;
+            border: 2px solid #003F87;
+            border-radius: 6px;
             text-align: center;
+            background-color: #F8FAFC;
         }
 
-        .instruction-box {
-            background-color: #EBF3FA;
-            border-left: 4px solid #003F87;
-            padding: 10px 12px;
-            font-size: 0.92rem;
-            color: #002D62;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            line-height: 1.45;
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
         }
-
-        .modules-grid {
+        .module-card {
+            background-color: #FFFFFF;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 10px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: space-between;
+        }
+        .module-card h3 {
+            color: #003F87;
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+        .module-note {
+            font-size: 0.85rem;
+            color: #334155;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            background-color: #F8FAFC;
+            padding: 6px 8px;
+            border-left: 3px solid #003F87;
+            border-radius: 4px;
         }
 
-        @media screen and (min-width: 768px) {
-            .preview-top-row {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                align-items: center;
-            }
-            .modules-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                align-items: start;
-            }
+        .divisor-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3px;
+            margin-top: 2px;
+        }
+        .divisor-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #003F87;
+            background-color: #F1F5F9;
+            padding: 1px 1px;
+            border-radius: 4px;
+            border: 1px solid #CBD5E1;
+            height: 38px;
+            justify-content: center;
+        }
+        .divisor-item input[type="radio"] {
+            margin-top: 1px;
+            width: 12px;
+            height: 12px;
+        }
+
+        .start-challenge-btn {
+            background-color: #2E7D32;
+            color: white;
+            font-weight: 800;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            width: 100%;
+            margin-top: 6px;
+            box-shadow: 0 2px 6px rgba(46, 125, 50, 0.2);
+        }
+
+        .theory-box-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 4px;
+            background-color: #F8FAFC;
+            border-radius: 6px;
+            border: 1px dashed #003F87;
+            margin-top: 2px;
+        }
+        .theory-input {
+            width: 110px;
+            padding: 3px 5px;
+            border: 1px solid #94A3B8;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .check-divisor-btn {
+            background-color: #003F87;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
+    <div id="nav-placeholder"></div>
 
-    <div class="container">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 10px;">
+        
         <!-- Header Banner -->
-        <div class="header-banner">
+        <div class="header-box">
             <h1>Divisibility Rule in Mathematics: X|Y (Y is divisible by X)</h1>
-            <p style="font-weight: bold; margin-top: 8px;">Created by S Rajarajan</p>
+            <p>Created by S Rajarajan</p>
         </div>
 
-        <!-- Introductory Box -->
-        <div class="intro-box">
-            <strong class="bold-msg">This educational application helps students master mathematical divisibility rules through three interactive modules designed for progressive skill building.</strong>
-            <p>Using the <strong>Universal Stem & Leaf Method</strong>, students learn how a single unified procedure can test divisibility for any odd divisor ending in 1, 3, 7, or 9 without memorizing dozens of separate rules.</p>
-            <div style="text-align: center; margin-top: 14px;">
-                <a href="divisibility_rule.html" class="launch-btn">Launch Divisibility Application &rarr;</a>
-            </div>
-        </div>
+        <!-- Intro Text & Launch Application Button -->
+        <div class="intro-container">
+            <p class="intro-text">
+                This educational application helps us master mathematical divisibility rules through three interactive modules. We can practice identifying valid factors, explore the underlying mathematical concepts using any divisor of our choice, and test our knowledge with timed challenge sessions!
+            </p>
 
-        <!-- Application Layout Preview Title -->
-        <div class="preview-section-title">Application Layout Preview & Guide</div>
-
-        <!-- Top Layout Row Preview -->
-        <div class="preview-top-row">
-            <!-- 1. Digits Selection Preview -->
-            <div>
-                <form action="" name="digitsForm">
-                    <fieldset style="text-align:center;">
-                        <legend align="center">Choose number of Digits for Dividend</legend>
-                        <label for="digit2"> 2 <input type="radio" name="digits" id="digit2" value="2"> </label>
-                        <label for="digit3"> 3 <input type="radio" name="digits" id="digit3" value="3"> </label>
-                        <label for="digit4"> 4 <input type="radio" name="digits" id="digit4" value="4"> </label>
-                        <label for="digit5"> 5 <input type="radio" name="digits" id="digit5" value="5"> </label>
-                        <label for="digit6"> 6 <input type="radio" name="digits" id="digit6" value="6"> </label>
-                        <label for="digit7"> 7 <input type="radio" name="digits" id="digit7" value="7"> </label>
-                        <label for="digit8"> 8 <input type="radio" name="digits" id="digit8" value="8"> </label>
-                        <label for="digit9"> 9 <input type="radio" name="digits" id="digit9" value="9"> </label>
-                    </fieldset>
-                </form>
-            </div>
-
-            <!-- 2. Random Dividend Button Preview -->
-            <div style="text-align: center;">
-                <input type="button" value="Generate Random Dividend" class="dbuttons" disabled />
-            </div>
-
-            <!-- 3. Dividend Input Box Preview -->
-            <div>
-                <div class="dividendgroup">
-                    <label style="font-size:18px;font-weight:bold;color:#003F87;height:auto;min-height:0;">Dividend</label>
-                    <input type="text" class="dtextbox" value="" placeholder="Select the number of digits first" disabled />
-                    <label style="font-size:13px;font-weight:bold;margin-top:4px;color:#003F87;height:auto;min-height:0;">You can edit dividend (max 15 digits)</label>
-                </div>
+            <div class="launch-btn-container">
+                <a href="divisibility_rule.html" class="launch-btn">
+                    Launch Divisibility Application <span class="arrow-mark">&#10140;</span>
+                </a>
             </div>
         </div>
 
-        <!-- Three Interactive Modules Preview Grid -->
-        <div class="modules-grid">
-            <!-- Module 1: Learn by Practice -->
-            <div>
-                <div class="group-label">1. Learn by Practice</div>
-                <div class="instruction-box">
-                    Select the digit count, generate a dividend, and click divisor options to practice identifying valid factors.
-                </div>
-                <form action="" name="divisorForm">
-                    <fieldset style="text-align: center;">
-                        <legend align="center">Click the correct divisor(s) for the given dividend</legend>
-                        <label for="divisor2"> 2 <input type="radio" name="divisor" id="divisor2" value="2" disabled> </label>
-                        <label for="divisor3"> 3 <input type="radio" name="divisor" id="divisor3" value="3" disabled> </label>
-                        <label for="divisor4"> 4 <input type="radio" name="divisor" id="divisor4" value="4" disabled> </label>
-                        <label for="divisor5"> 5 <input type="radio" name="divisor" id="divisor5" value="5" disabled> </label>
-                        <label for="divisor6"> 6 <input type="radio" name="divisor" id="divisor6" value="6" disabled> </label>
-                        <label for="divisor7"> 7 <input type="radio" name="divisor" id="divisor7" value="7" disabled> </label>
-                        <label for="divisor8"> 8 <input type="radio" name="divisor" id="divisor8" value="8" disabled> </label>
-                        <label for="divisor9"> 9 <input type="radio" name="divisor" id="divisor9" value="9" disabled> </label>
-                        <label for="divisor10"> 10 <input type="radio" name="divisor" id="divisor10" value="10" disabled> </label>
-                        <label for="divisor11"> 11 <input type="radio" name="divisor" id="divisor11" value="11" disabled> </label>
-                        <label for="divisor12"> 12 <input type="radio" name="divisor" id="divisor12" value="12" disabled> </label>
-                        <label for="divisor13"> 13 <input type="radio" name="divisor" id="divisor13" value="13" disabled> </label>
-                        <label for="divisor14"> 14 <input type="radio" name="divisor" id="divisor14" value="14" disabled> </label>
-                        <label for="divisor15"> 15 <input type="radio" name="divisor" id="divisor15" value="15" disabled> </label>
-                        <label for="divisor16"> 16 <input type="radio" name="divisor" id="divisor16" value="16" disabled> </label>
-                    </fieldset>
-                </form>
-            </div>
-
-            <!-- Module 2: Learn by Theory -->
-            <div>
-                <div class="group-label">2. Learn by Theory</div>
-                <div class="instruction-box">
-                    Explore the Universal Stem & Leaf mathematical rule for any custom divisor with step-by-step reduction breakdowns.
-                </div>
-                <form action="" name="gendivisorForm">
-                    <fieldset style="text-align:center;">
-                        <legend align="center">Check the Divisibility rule for any Divisor</legend>
-                        <label for="checkdivisor"> Check Divisor <input type="radio" name="gendivisor" id="checkdivisor" value="Check" disabled> </label>
-                    </fieldset>
-                </form>
-            </div>
-
-            <!-- Module 3: Start Challenge -->
-            <div>
-                <div class="group-label">3. Start Challenge</div>
-                <div class="instruction-box">
-                    Challenge mode can be started only with the 5-digit hard dividend. In challenge mode, the student has to clear as many devisors as possible and can stop the challenge at any time. After stopping the challenge, the Quit button should be clicked to see the report.
-                </div>
-                <div style="text-align: center;">
-                    <input type="button" value="Start Challenge" class="dbuttons" />
-                </div>
-            </div>
-        </div>
+       <!-- Guidance Video Player Container (YouTube Embed) -->
+<div class="video-container">
+    <div class="video-title">
+        <span>📹 Application Guidance & Walkthrough Video</span>
     </div>
+    <div class="video-wrapper">
+        <div class="video-wrapper">
+   <iframe 
+            src="https://www.youtube.com/embed/7MA5fC0ix7Y" 
+            title="Divisibility Application Guidance & Walkthrough" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+</div>
 
+    </div>
+    <div class="video-caption">
+        Watch the complete walkthrough demonstrating Learn by Practice, Learn by Theory, and Challenge Mode!
+    </div>
+</div>
+
+        <!-- Application Layout Preview Section -->
+        <div class="preview-container">
+            <div class="preview-title">Application Layout Preview</div>
+
+            <!-- Top Controls Row (Digits, Random Dividend, Dividend Box on Same Row) -->
+            <div class="top-controls-preview">
+                <form style="margin:0;">
+                    <fieldset>
+                        <legend>Choose number of Digits for Dividend</legend>
+                        <div class="digits-flex">
+                            <div class="digit-item">2 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">3 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">4 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">5 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">6 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">7 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">8 <input type="radio" name="pdigits" disabled></div>
+                            <div class="digit-item">9 <input type="radio" name="pdigits" disabled></div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div>
+                    <input type="button" value="Generate Random Dividend" class="dbuttons" disabled />
+                </div>
+
+                <div class="dividendgroup">
+                    <label style="font-size:14px;font-weight:bold;color:#003F87;height:auto;margin:0;">Dividend</label>
+                    <input type="text" class="dtextbox" value="" placeholder="Select the number of digits first" disabled />
+                    <label style="font-size:10px;font-weight:bold;margin-top:2px;color:#003F87;height:auto;">You can edit dividend (max 15 digits)</label>
+                </div>
+            </div>
+
+            <!-- 3 Modules Grid -->
+            <div class="grid-3col">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <div>
+                        <h3>1. Learn by Practice</h3>
+                        <div class="module-note">
+                            Select the digit count, generate a dividend, then click any divisor button (2 to 16) to test divisibility and view interactive rule explanation. We can increase/decrease the dividend while testing the divisor.
+                        </div>
+                    </div>
+                    <fieldset>
+                        <legend>Divisors (2 to 16)</legend>
+                        <div class="divisor-grid">
+                            <div class="divisor-item">2 <input type="radio" disabled></div>
+                            <div class="divisor-item">3 <input type="radio" disabled></div>
+                            <div class="divisor-item">4 <input type="radio" disabled></div>
+                            <div class="divisor-item">5 <input type="radio" disabled></div>
+                            <div class="divisor-item">6 <input type="radio" disabled></div>
+                            <div class="divisor-item">7 <input type="radio" disabled></div>
+                            <div class="divisor-item">8 <input type="radio" disabled></div>
+                            <div class="divisor-item">9 <input type="radio" disabled></div>
+                            <div class="divisor-item">10 <input type="radio" disabled></div>
+                            <div class="divisor-item">11 <input type="radio" disabled></div>
+                        </div>
+                        <div class="divisor-grid" style="grid-template-columns: repeat(5, 1fr); margin-top: 3px;">
+                            <div class="divisor-item">12 <input type="radio" disabled></div>
+                            <div class="divisor-item">13 <input type="radio" disabled></div>
+                            <div class="divisor-item">14 <input type="radio" disabled></div>
+                            <div class="divisor-item">15 <input type="radio" disabled></div>
+                            <div class="divisor-item">16 <input type="radio" disabled></div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <div>
+                        <h3>2. Learn by Theory</h3>
+                        <div class="module-note">
+                            Select the digit count, generate a dividend and explore the universal divisibility rule for any custom divisor.
+                        </div>
+                    </div>
+                    <fieldset>
+                        <legend>Custom Divisor Theory</legend>
+                        <div class="theory-box-preview">
+                            <label style="font-size:0.8rem; font-weight:700; color:#003F87;">Enter Any Divisor:</label>
+                            <input type="text" class="theory-input" value="" disabled />
+                            <button class="check-divisor-btn" disabled>Check divisor</button>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <div>
+                        <h3>3. Start Challenge</h3>
+                        <div class="module-note">
+                            Challenge mode starts with a 5-digit odd dividend. The challenge is to clear as many divisors as possible. In this process we can increase/decrease the dividend to clear more divisors. Anytime we can click Stop. Then click Quit to view our report.
+                        </div>
+                    </div>
+                    <div style="margin-top:auto;">
+                        <button class="start-challenge-btn" disabled>Start Challenge</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
-```
